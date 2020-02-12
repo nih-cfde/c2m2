@@ -1,6 +1,4 @@
-================================================================================
-Introductory notes
-================================================================================
+# Introductory notes
 
 This specification describes the structure of a minimal, basic list (manifest)
 of the experimental assets (files and samples) managed by a DCC.
@@ -12,25 +10,23 @@ investigators, while requiring only minimal effort overhead from each DCC
 beyond conducting the asset inventory itself. The two main ideas are (1)
 to facilitate DCC onboarding into and adoption of the CFDE technologies,
 and (2) to collect a preliminary survey of available data for each DCC that
-will help guide future CFDE-DCC interactions as more detailed metadata
+will help guide downstream CFDE-DCC interactions as more detailed metadata
 modeling and ingestion progresses.
 
 We will accept manifest data either as a single JSON file to be built
-according to a JSON Schema specification (which we'll develop once this
-abstract model has been agreed upon), or as a collection of three TSVs,
-with one TSV encoding metadata for files, one for samples and one describing
-the manifest itself.
+according to a JSON Schema specification (which we'll develop once the
+abstract model introduced in this document has been agreed upon), or as
+a collection of three TSVs, with one TSV encoding metadata for files,
+one for samples and one describing the manifest itself.
 
-Examples of both input types have been published alongside this draft.
+Examples of both input types have been published alongside this draft
+document.
 
-================================================================================
-Specification details: assets and the asset manifest
-================================================================================
-
-Apologies: the following is only easily readable when viewed with a fixed-width font.
+# Specification details: assets and the asset manifest
 
 Xs indicate required fields.
 
+```
 ASSET MANIFEST object specification:
 X   organization                                 # DCC name
 X   contact_name
@@ -62,13 +58,14 @@ X   type                                         # one of "file" or "sample"
    X    sample_ID                                # DCC-assigned
    X    sample_type                              # DCC-determined vocabulary
    X    body_site_or_product                     # DCC-determined vocabulary
+```
 
+# PFAQ
+("Probably frequently asked questions": we've only received a few
+so far, so in the interests of frank disclosure, please note that
+no reliable estimates of question frequency have actually been made.)
 
-================================================================================
-PFAQ ("Probably frequently asked questions": we only received a few so far, so
-in the interests of frank disclosure, please note that no reliable estimates
-of question frequency have actually been made.)
-================================================================================
+--------------------------------------------------------------------------------
 
 Q. Are we modeling anything about protocols, subjects or experiments?
 
@@ -233,9 +230,9 @@ ideally built by directly mapping whatever the DCC is already doing to
 organize files, without creating an extra ID layer during this phase
 of data collection.
 
-================================================================================
+--------------------------------------------------------------------------------
 
-PLEASE NOTE IN PARTICULAR that a bunch of the answers above rely explicitly
+**Please note in particular** that a bunch of the answers above rely explicitly
 on the assumption that the DCC data integration process, at least for
 the medium-term future, cannot be fully automated, and will be shepherded
 by technical staff within the CFDE core, requiring a few iterations of
