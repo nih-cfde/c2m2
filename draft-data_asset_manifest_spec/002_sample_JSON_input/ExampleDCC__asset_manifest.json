@@ -1,0 +1,105 @@
+{
+   "organization": "ExampleDCC",
+   "contact_name": "Kahn T. Acte",
+   "contact_email": "k_t_acte@exampleDCC.org",
+   "manifest_completion_date": "2020-02-11",
+   "data_release_version": "7.25",
+   "assets": [
+      {
+         "type": "file",
+         "project_containment": "gut_pathology_study/crohns_patients/16S_sequences",
+         "file_basename": "patient47_16S_reads.fastq",
+         "file_format": "FASTQ",
+         "data_type": "16S_rRNA_sequence_reads",
+         "size_in_bytes": "1073741824",
+         "body_site_or_product": "stool",
+         "checksum_algorithm": "md5",
+         "checksum": "92eb6e1fc504563832ca2910c57adefb"
+      },
+      {
+         "type": "file",
+         "project_containment": "gut_pathology_study/crohns_patients/16S_sequences",
+         "file_basename": "patient48_16S_reads.fastq",
+         "file_format": "FASTQ",
+         "data_type": "16S_rRNA_sequence_reads",
+         "size_in_bytes": "1073741824",
+         "body_site_or_product": "stool",
+         "checksum_algorithm": "md5",
+         "checksum": "8844d5c4d4dea8ee33c3fdbc404f9d3b"
+      },
+      {
+         "type": "file",
+         "project_containment": "gut_pathology_study/crohns_patients/16S_sequences",
+         "file_basename": "patient49_16S_reads.fastq",
+         "file_format": "FASTQ",
+         "data_type": "16S_rRNA_sequence_reads",
+         "size_in_bytes": "1073741824",
+         "body_site_or_product": "stool"
+      },
+      {
+         "type": "file",
+         "project_containment": "check_hospital_surfaces_for_MRSA/floor_5/room_342/bed_1",
+         "file_basename": "headboard_surface_sample_reads.fastq",
+         "file_format": "FASTQ",
+         "data_type": "WGS_DNA_sequence_reads",
+         "size_in_bytes": "2046777234",
+         "body_site_or_product": "environment",
+         "checksum_algorithm": "md5",
+         "checksum": "6f0e659f76d9674036da94def3342c52"
+      },
+      {
+         "type": "file",
+         "project_containment": "nose_infection_study/control_patients",
+         "file_basename": "all_control_patients_relative_genus_abundance_estimate_matrix.tsv",
+         "file_format": "TSV",
+         "data_type": "relative_abundance_matrix",
+         "size_in_bytes": "6445680",
+         "primary_url": "http://exampleDCC.org/noseInfectionStudy/all_control_patients_relative_genus_abundance_estimate_matrix.tsv",
+         "body_site_or_product": "anterior_nares",
+         "checksum_algorithm": "sha256",
+         "checksum": "cc02fe3ea382e51210cab70b8c9546828e860b15aebacc7bc1ea2c66a92daafa"
+      },
+      {
+         "type": "file",
+         "project_containment": "nose_infection_study/infected_patients",
+         "file_basename": "all_infected_patients_relative_genus_abundance_estimate_matrix.tsv",
+         "file_format": "TSV",
+         "data_type": "relative_abundance_matrix",
+         "size_in_bytes": "6784567",
+         "primary_url": "http://exampleDCC.org/noseInfectionStudy/all_infected_patients_relative_genus_abundance_estimate_matrix.tsv",
+         "body_site_or_product": "anterior_nares",
+         "checksum_algorithm": "sha256",
+         "checksum": "cc02fe3ea382e51210cab70b8c9546828e860b15aebacc7bc1ea2c66a92daafa"
+      },
+      {
+         "type": "sample",
+         "project_containment": "gut_pathology_study/crohns_patients",
+         "sample_ID": "patient47_stool_sample_1",
+         "sample_type": "raw_cubes_of_frozen_poo",
+         "body_site_or_product": "stool"
+      },
+      {
+         "type": "sample",
+         "project_containment": "gut_pathology_study/crohns_patients",
+         "sample_ID": "patient48_stool_sample_14",
+         "sample_type": "raw_cubes_of_frozen_poo",
+         "body_site_or_product": "stool"
+      },
+      {
+         "type": "sample",
+         "project_containment": "gut_pathology_study/crohns_patients",
+         "sample_ID": "patient48_stool_16S_preseq_lib_pre_amp",
+         "sample_type": "pre_amplification_cDNA_library",
+         "body_site_or_product": "stool"
+      },
+      {
+         "type": "sample",
+         "project_containment": "gut_pathology_study/crohns_patients",
+         "sample_ID": "patient48_stool_16S_preseq_lib_post_amp",
+         "sample_type": "post_PCR_cDNA_library",
+         "body_site_or_product": "stool"
+      }
+   ]
+}
+
+
