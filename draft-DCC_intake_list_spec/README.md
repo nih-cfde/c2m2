@@ -1,5 +1,4 @@
 # Introductory notes
---------------------------------------------------------------------------------
 
 This specification describes the structure of a minimal, basic list
 of core experimental resources (files and samples) managed by a DCC.
@@ -29,7 +28,6 @@ the entire list of intake data.
 Examples of both input types have been published alongside this draft.
 
 # Specification details
---------------------------------------------------------------------------------
 
 ```
 Xs indicate required fields.
@@ -68,9 +66,11 @@ X   type                                         # one of "file" or "sample"
 ```
 
 # PFAQ
+
 ("Probably frequently asked questions": we only received a few so far, so
 in the interests of frank disclosure, please note that no reliable estimates
 of question frequency have actually been made.)
+
 --------------------------------------------------------------------------------
 
 Q. Are we modeling anything about protocols, subjects or experiments?
