@@ -1,47 +1,52 @@
 # Introductory notes
 
-This specification describes the structure of a minimal, basic list (manifest)
-of the experimental assets (files and samples) managed by a DCC.
+This specification describes the structure of a minimal, basic list
+of core experimental resources (files and samples) managed by a DCC.
 
 Our primary purpose in creating this specification is to define a simple
 data-description space which can be used by any DCC to build a basic
-structured inventory of research assets of potential interest to external
-investigators, while requiring only minimal effort overhead from each DCC
-beyond conducting the asset inventory itself. The two main ideas are (1)
-to facilitate DCC onboarding into and adoption of the CFDE technologies,
-and (2) to collect a preliminary survey of available data for each DCC that
-will help guide downstream CFDE-DCC interactions as more detailed metadata
-modeling and ingestion progresses.
+structured inventory of experimental resources of potential interest
+to external investigators, while requiring only minimal effort overhead
+from a DCC (beyond conducting the inventory itself). The two main ideas
+are (1) to facilitate DCC onboarding into and adoption of the CFDE
+technologies, and (2) to collect a preliminary survey of available
+samples and data files managed by each DCC that will help guide future
+CFDE-DCC interactions as more detailed metadata modeling and ingestion
+progresses.
 
-We will accept manifest data either as a single JSON file to be built
-according to a JSON Schema specification (which we'll develop once the
-abstract model introduced in this document has been agreed upon), or as
-a collection of three TSVs, with one TSV encoding metadata for files,
-one for samples and one describing the manifest itself.
+This inventory list is not meant to serve as a precursor to, or as a
+subset of, an eventual C2M2 metadatabase. It is an intake instrument
+meant to serve as the initial information set from which a custom
+full-C2M2 ingest (ETL) plan for each DCC can be drafted.
 
-Examples of both input types have been published alongside this draft
-document.
+We will accept intake data either as a single JSON file to be built
+according to a JSON Schema specification (which we'll develop once this
+abstract model has been agreed upon), or as a collection of three TSVs,
+with one TSV encoding metadata for files, one for samples and one describing
+the entire list of intake data.
 
-# Specification details: assets and the asset manifest
+Examples of both input types have been published alongside this draft.
 
-Xs indicate required fields.
+# Specification details
 
 ```
-ASSET MANIFEST object specification:
+Xs indicate required fields.
+
+INTAKE LIST object specification:
 X   organization                                 # DCC name
 X   contact_name
 X   contact_email
-X   manifest_completion_date                     # YYYY-MM-DD
+X   list_completion_date                         # YYYY-MM-DD
     data_release_version                         # optional tie-in to DCC data release versioning system
-X   [list of "asset" records]                    # JSON object format: MANIFEST includes ASSETs as sub-objects;
-                                                 # TSV format: 'manifest.tsv' metadata table plus separate 'file_assets.tsv' and 'sample_assets.tsv' (see below for fields)
+X   [list of resource records]                   # JSON object format: INTAKE LIST includes INTAKE RESOURCEs as sub-objects;
+                                                 # TSV format: 'intake_list.tsv' metadata table plus separate 'file_resources.tsv' and 'sample_resources.tsv' (see below for fields)
 
-ASSET object specification:
-X   project_containment                          # '/'-sep. list of DCC-assigned project IDs indicating this asset's place in the DCC's project hierarchy
+INTAKE RESOURCE object specification:
+X   project_containment                          # '/'-sep. list of DCC-assigned project IDs indicating this resource's place in the DCC's project hierarchy
 X   type                                         # one of "file" or "sample"
 
 
-   "file" ASSET
+   "file" RESOURCE
    X    file_basename                            # (no path info)
    X    file_format                              # DCC-determined vocabulary
    X    data_type                                # DCC-determined vocabulary
@@ -54,23 +59,24 @@ X   type                                         # one of "file" or "sample"
         checksum
 
 
-   "sample" ASSET
+   "sample" RESOURCE
    X    sample_ID                                # DCC-assigned
    X    sample_type                              # DCC-determined vocabulary
    X    body_site_or_product                     # DCC-determined vocabulary
 ```
 
 # PFAQ
-("Probably frequently asked questions": we've only received a few
-so far, so in the interests of frank disclosure, please note that
-no reliable estimates of question frequency have actually been made.)
+
+("Probably frequently asked questions": we only received a few so far, so
+in the interests of frank disclosure, please note that no reliable estimates
+of question frequency have actually been made.)
 
 --------------------------------------------------------------------------------
 
 Q. Are we modeling anything about protocols, subjects or experiments?
 
-A. No, not at the asset manifest level. We can optionally store metadata
-about protocol description documents of arbitrary detail (as file assets),
+A. No, not at the intake list level. We can optionally store metadata
+about protocol description documents of arbitrary detail (as file resources),
 but anything beyond that in terms of experimental process modeling is out
 of scope for this level of information interchange. It is our initial
 guess that storing anything at all about subjects will lead immediately
@@ -90,10 +96,10 @@ typical internal DCC systems will assign unambiguous labels to samples,
 but that the same assumption will not hold true for files (which
 already come with properties like fully-qualified paths or URLs,
 obviating any first-blush need to create a new ID layer within a
-given DCC). Our tentative expectation is that each file asset can
-be labeled -- by us, during manifest ingestion -- in an unambiguous
+given DCC). Our tentative expectation is that each file resource can
+be labeled (by us, during intake list processing) in an unambiguous
 way which is uniform across all DCCs, facilitating reporting while
-not requiring DCCs to create new ID layers for their assets that
+not requiring DCCs to create new ID layers for their files that
 won't be used for anything but internal CFDE tracking and indexing.
 Again: we're trying to minimize the necessary overhead that will be
 imposed on each DCC during the inventory process, and this seemed
@@ -127,8 +133,8 @@ divisions of work and resources within local DCC ecosystems?
 
 A. The proposed project_containment field is designed to allow
 DCCs to create arbitrarily deep subdivisions of the scope and purview
-of well-defined research groups; to link every inventoried asset with
-whatever project or sub-project that asset is natively associated with
+of well-defined research groups; to link every inventoried resource with
+whatever project or sub-project that resource is natively associated with
 within the DCC's local accounting system without having to modify the
 overall accounting structure; and to allow DCCs to use whatever native
 identifiers they're already using to track project divisions.
@@ -157,7 +163,7 @@ Q. Why not enforce any controlled vocabularies for fields
 like 'body_site_or_product'?
 
 A. Again: dead-simple inventory procedure. We mean to avoid (at least
-during the asset manifest phase) a processing layer in which DCCs are
+during the intake list generation phase) a processing layer in which DCCs are
 forced to translate local descriptive terms into a target CV specified
 by us. Some DCCs already use their own CVs; others may store more
 free-form data descriptors. Our idea is to first canvas whatever local
@@ -187,7 +193,7 @@ to one another. Are you modeling these links in any way?
 A. No: we're leaving that for the full C2M2 database. Inventories are flat
 lists, and are relatively easy to produce; linkages turn flat lists into
 relationship-constrained network systems, and we don't want to impose any
-unnecessary modeling steps on DCC staff during the inventory phase. We
+unnecessary modeling steps on DCC staff during the intake/inventory phase. We
 believe that a list of minimal descriptions of samples and files from a
 DCC, as described in this specification, will suffice to give us decent
 initial estimates of relative DCC data management experience levels,
@@ -205,7 +211,7 @@ flexibility by showing multiple ways of expressing the same null data.
 Regardless, the version of the specification presented in this document
 is an abstract one and is not formally unified or fully described down to
 all implementation-level details (note e.g. that the 'type' field on
-assets isn't specifically modeled in the TSV data variants, instead
+resources isn't specifically modeled in the TSV data variants, instead
 being encoded in the relevant filenames); once the comment process
 has concluded, we'll publish formal (probably frictionless.io, unless
 we discover some unexpected reason not to) JSON Schema specs describing
@@ -227,7 +233,7 @@ Long-term data (and FAIRness) concerns like URL permanence and actual
 accessibility of files are out of scope for this inventory. What we're
 after here is an internally consistent system for identifying files,
 ideally built by directly mapping whatever the DCC is already doing to
-organize files, without creating an extra ID layer during this phase
+organize files, without creating an extra annotation layer during this phase
 of data collection.
 
 --------------------------------------------------------------------------------
