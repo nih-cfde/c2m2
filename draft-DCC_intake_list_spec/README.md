@@ -1,6 +1,5 @@
-================================================================================
-Introductory notes
-================================================================================
+# Introductory notes
+--------------------------------------------------------------------------------
 
 This specification describes the structure of a minimal, basic list
 of core experimental resources (files and samples) managed by a DCC.
@@ -29,12 +28,10 @@ the entire list of intake data.
 
 Examples of both input types have been published alongside this draft.
 
-================================================================================
-Specification details
-================================================================================
+# Specification details
+--------------------------------------------------------------------------------
 
-Apologies: the following is only easily readable when viewed with a fixed-width font.
-
+```
 Xs indicate required fields.
 
 INTAKE LIST object specification:
@@ -68,13 +65,13 @@ X   type                                         # one of "file" or "sample"
    X    sample_ID                                # DCC-assigned
    X    sample_type                              # DCC-determined vocabulary
    X    body_site_or_product                     # DCC-determined vocabulary
+```
 
-
-================================================================================
-PFAQ ("Probably frequently asked questions": we only received a few so far, so
+# PFAQ
+("Probably frequently asked questions": we only received a few so far, so
 in the interests of frank disclosure, please note that no reliable estimates
 of question frequency have actually been made.)
-================================================================================
+--------------------------------------------------------------------------------
 
 Q. Are we modeling anything about protocols, subjects or experiments?
 
@@ -239,9 +236,9 @@ ideally built by directly mapping whatever the DCC is already doing to
 organize files, without creating an extra annotation layer during this phase
 of data collection.
 
-================================================================================
+--------------------------------------------------------------------------------
 
-PLEASE NOTE IN PARTICULAR that a bunch of the answers above rely explicitly
+**Please note in particular** that a bunch of the answers above rely explicitly
 on the assumption that the DCC data integration process, at least for
 the medium-term future, cannot be fully automated, and will be shepherded
 by technical staff within the CFDE core, requiring a few iterations of
