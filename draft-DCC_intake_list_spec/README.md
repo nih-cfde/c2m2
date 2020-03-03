@@ -8,21 +8,21 @@ Our primary purpose in creating this specification is to define a simple
 data-description space which can be used by any DCC to build a basic
 structured inventory of experimental resources of potential interest
 to external investigators, while requiring only minimal effort overhead
-from a DCC (beyond conducting the inventory itself). Beyond facilitating
-DCC onboarding into and adoption of the CFDE technologies, this
-inventory will serve as a preliminary survey of available
-data files managed by each DCC, will help guide future CFDE-DCC
+from a DCC (beyond conducting the inventory itself). In addition to
+facilitating DCC onboarding into and adoption of the CFDE technologies,
+this inventory will serve as a preliminary survey of available
+data files managed by each DCC; will help guide future CFDE-DCC
 interactions as more detailed metadata modeling and ingestion
-progresses, and will also immediately serve as a data substrate
+progresses; and will also immediately serve as a data substrate
 for administrative (dashboard) reporting of basic stats describing
 DCC file asset collections (prior to construction of a corresponding
 full C2M2 instance).
 
 We will accept intake data as a pair of TSVs: one TSV will encode
-metadata for individual files, and the other will describe metadata
-associated with the entire asset list object. These TSVs will
-be described by a frictionless.io JSON Schema spec, itself defined
-by the following model:
+metadata for individual files (one per row), and the other (containing
+a single row) will describe metadata associated with the entire asset
+list object. These TSVs will be described by a frictionless.io JSON
+Schema spec, itself defined by the following model:
 
 # Specification details
 
@@ -31,8 +31,25 @@ Xs indicate required fields.
 
 X' (X-prime) means 'one or the other of these two fields is required.'
 
-INTAKE LIST object specification:
-X   organization                                 # URL-friendly string unambiguously identifying this DCC
+INTAKE LIST OBJECT specification:
+
+X   organization                                 # A URL-compliant string unambiguously identifying this DCC (also see next field)
+
+X   FQDN                                         # A fully-qualified domain name that corresponds unambiguously to this DCC (if such
+                                                 # exists) or to the DCC's top-level parent organization (if the DCC has no dedicated
+                                                 # domain name of its own).
+                                                 # 
+                                                 # EXAMPLES (illustrating the construction of the above two fields by
+                                                 # conditionally rearranging the URL of the DCC's main website):
+                                                 # 
+                                                 # A. Say a DCC's website is at http://my.dcc_name.org/ ; then 'organization'
+                                                 #    can be any relevant URL-compliant string (simplest choice would just be
+                                                 #    'dcc_name'), and 'FQDN' would be 'my.dcc_name.org'.
+                                                 # 
+                                                 # B. Say instead a DCC's site is at http://some_college.edu/some_sub_school/dcc_name/ :
+                                                 #    in this case, 'FQDN' is just 'some_college.edu' (the domain name of the DCC's
+                                                 #    parent organization, while 'organization' now becomes
+                                                 #    'some_sub_school/dcc_name'.
 X   contact_name
 X   contact_email
 X   list_completion_date                         # YYYY-MM-DD
@@ -41,27 +58,36 @@ X   [list of resource records]                   # TSV format: 'intake_list.tsv'
                                                  # this block of fields) plus separate 'file_assets.tsv'
                                                  # (describing the fields listed below)
 
-INTAKE FILE ASSET object specification:
+INTAKE FILE ASSET OBJECT specification:
 
-   # The first field, here, can serve as a unique identifier for this file.
+   # The first field, here, will serve as a unique identifier for this file during the intake phase of DCC data processing.
    
-   X uri                                         # A Tag URI instance (cf. http://www.faqs.org/rfcs/rfc4151.html and
-                                                 # https://en.wikipedia.org/wiki/Tag_URI_scheme) constructed by
-                                                 # concatenating the following two components:
+   X uri                                         # EITHER
+                                                 # 
+                                                 # a network-resolvable URI (URL) pointing to this file
+                                                 # 
+                                                 # OR
+                                                 # 
+                                                 # A tag URI instance (cf. http://www.faqs.org/rfcs/rfc4151.html and
+                                                 # https://en.wikipedia.org/wiki/Tag_URI_scheme) conformant with:
+                                                 # 
+                                                 #   tag:FQDN,list_completion_date:organization/project_containment/filename
+                                                 # 
+                                                 # ...where 'tag' is just the string literal 'tag'; the other named identifiers
+                                                 # refer to fields described above; and the remaining two components are
+                                                 # described below: 
 
-      * project_containment                      # PATH-like '/'-separated list of DCC-assigned project IDs (or
+   X project_containment                         # PATH-like '/'-separated list of DCC-assigned project IDs (or
                                                  # any other tree-like sorting system) unambiguously locating this
-                                                 # file asset within the DCC's accounting hierarchy. (Can e.g. just be a
-                                                 # filesystem path, if all the DCC's assets are stored on the
+                                                 # file asset within the DCC's accounting hierarchy. (Can e.g. just
+                                                 # be a filesystem path: if all the DCC's assets are stored on the
                                                  # same filesystem, then this might be the simplest solution.)
-      * filename                                 # (no preceding path info)
 
-   # ...so a fully-built URI according to this scheme would conform to:
-   # 
-   #          tag:organization,list_completion_date:project_containment/filename
-   # 
-   # ...where all the string tokens (except "tag") named above are copies of
-   # the same-named fields in this specification.
+   X filename                                    # (do not include any path prefix)
+
+                                                 # (To be clear: in addition to forming subcomponents of 'uri', the
+                                                 # 'project_containment' and 'filename' fields should also be explicitly listed --
+                                                 # separately from the 'uri' field -- in the asset TSV.):
 
    # The next two fields together are meant to comprise the philosophical equivalent to
    # a "MIME/media type" specification for bioinformatics data files (although sadly none exists),
@@ -73,11 +99,6 @@ INTAKE FILE ASSET object specification:
    X    data_type                                # CV: EDAM
 
    X    size_in_bytes                            # (integer)
-
-   # Files may not be network-accessible at any given moment, so the next field is optional
-   # (at least with respect to this intake list).
-
-        url                                      # A network-resolvable URL pointing to this file
 
    # The next field is really a metadata stub -- chosen to be nearly universally applicable
    # to human-medicine-centered bioinformatics data assets -- so we have something on which
