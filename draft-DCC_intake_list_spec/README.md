@@ -1,71 +1,98 @@
 # Introductory notes
 
 This specification describes the structure of a minimal, basic list
-of core experimental resources (files and samples) managed by a DCC.
+of core experimental resources (at the moment, just files) managed
+by a DCC.
 
 Our primary purpose in creating this specification is to define a simple
 data-description space which can be used by any DCC to build a basic
 structured inventory of experimental resources of potential interest
 to external investigators, while requiring only minimal effort overhead
-from a DCC (beyond conducting the inventory itself). The two main ideas
-are (1) to facilitate DCC onboarding into and adoption of the CFDE
-technologies, and (2) to collect a preliminary survey of available
-samples and data files managed by each DCC that will help guide future
-CFDE-DCC interactions as more detailed metadata modeling and ingestion
-progresses.
+from a DCC (beyond conducting the inventory itself). Beyond facilitating
+DCC onboarding into and adoption of the CFDE technologies, this
+inventory will serve as a preliminary survey of available
+data files managed by each DCC, will help guide future CFDE-DCC
+interactions as more detailed metadata modeling and ingestion
+progresses, and will also immediately serve as a data substrate
+for administrative (dashboard) reporting of basic stats describing
+DCC file asset collections (prior to construction of a corresponding
+full C2M2 instance).
 
-This inventory list is not meant to serve as a precursor to, or as a
-subset of, an eventual C2M2 metadatabase. It is an intake instrument
-meant to serve as the initial information set from which a custom
-full-C2M2 ingest (ETL) plan for each DCC can be drafted.
-
-We will accept intake data either as a single JSON file to be built
-according to a JSON Schema specification (which we'll develop once this
-abstract model has been agreed upon), or as a collection of three TSVs,
-with one TSV encoding metadata for files, one for samples and one describing
-the entire list of intake data.
-
-Examples of both input types have been published alongside this draft.
+We will accept intake data as a pair of TSVs: one TSV will encode
+metadata for individual files, and the other will describe metadata
+associated with the entire asset list object. These TSVs will
+be described by a frictionless.io JSON Schema spec, itself defined
+by the following model:
 
 # Specification details
 
 ```
 Xs indicate required fields.
 
+X' (X-prime) means 'one or the other of these two fields is required.'
+
 INTAKE LIST object specification:
-X   organization                                 # DCC name
+X   organization                                 # URL-friendly string unambiguously identifying this DCC
 X   contact_name
 X   contact_email
 X   list_completion_date                         # YYYY-MM-DD
     data_release_version                         # optional tie-in to DCC data release versioning system
-X   [list of resource records]                   # JSON object format: INTAKE LIST includes INTAKE RESOURCEs as sub-objects;
-                                                 # TSV format: 'intake_list.tsv' metadata table plus separate 'file_resources.tsv' and 'sample_resources.tsv' (see below for fields)
+X   [list of resource records]                   # TSV format: 'intake_list.tsv' metadata table (describing
+                                                 # this block of fields) plus separate 'file_assets.tsv'
+                                                 # (describing the fields listed below)
 
-INTAKE RESOURCE object specification:
-X   project_containment                          # '/'-sep. list of DCC-assigned project IDs indicating this resource's place in the DCC's project hierarchy
-X   type                                         # one of "file" or "sample"
+INTAKE FILE ASSET object specification:
 
+   # The first field, here, can serve as a unique identifier for this file.
+   
+   X uri                                         # A Tag URI instance (cf. http://www.faqs.org/rfcs/rfc4151.html and
+                                                 # https://en.wikipedia.org/wiki/Tag_URI_scheme) constructed by
+                                                 # concatenating the following two components:
 
-   "file" RESOURCE
-   X    file_basename                            # (no path info)
-   X    file_format                              # DCC-determined vocabulary
-   X    data_type                                # DCC-determined vocabulary
-   X    size_in_bytes
-        primary_url
-        s3_url                                   # Amazon S3 location of file
-        gs_url                                   # Google cloud location of file
-        body_site_or_product                     # DCC-determined vocabulary
-        checksum_algorithm                       # DCC-selected algorithm (or blank if no checksums available)
-        checksum
+      * project_containment                      # PATH-like '/'-separated list of DCC-assigned project IDs (or
+                                                 # any other tree-like sorting system) unambiguously locating this
+                                                 # file asset within the DCC's accounting hierarchy. (Can e.g. just be a
+                                                 # filesystem path, if all the DCC's assets are stored on the
+                                                 # same filesystem, then this might be the simplest solution.)
+      * filename                                 # (no preceding path info)
 
+   # ...so a fully-built URI according to this scheme would conform to:
+   # 
+   #          tag:organization,list_completion_date:project_containment/filename
+   # 
+   # ...where all the string tokens (except "tag") named above are copies of
+   # the same-named fields in this specification.
 
-   "sample" RESOURCE
-   X    sample_ID                                # DCC-assigned
-   X    sample_type                              # DCC-determined vocabulary
-   X    body_site_or_product                     # DCC-determined vocabulary
+   # The next two fields together are meant to comprise the philosophical equivalent to
+   # a "MIME/media type" specification for bioinformatics data files (although sadly none exists),
+   # answering both "how is this file physically formatted?" (e.g. TSV, BAM, FASTQ), and
+   # "what is the semantic context within which the data in this file should be processed?"
+   # (e.g. sequence reads, allele variant reports, relative abundance estimates).
+   
+   X    file_format                              # CV: EDAM
+   X    data_type                                # CV: EDAM
+
+   X    size_in_bytes                            # (integer)
+
+   # Files may not be network-accessible at any given moment, so the next field is optional
+   # (at least with respect to this intake list).
+
+        url                                      # A network-resolvable URL pointing to this file
+
+   # The next field is really a metadata stub -- chosen to be nearly universally applicable
+   # to human-medicine-centered bioinformatics data assets -- so we have something on which
+   # we can structure, e.g., a pie chart or two in the admin/dashboard display (which should
+   # be immediately able to render summary reports using this asset collection).
+
+        body_site_or_product                     # CV: UBERON
+
+   X'   sha256                                   # output of recommended checksum algorithm
+   X'   md5                                      # output of alternative checksum algorithm
 ```
 
 # PFAQ
+
+**Please note that the information below is presently out of date.**
 
 ("Probably frequently asked questions": we only received a few so far, so
 in the interests of frank disclosure, please note that no reliable estimates
