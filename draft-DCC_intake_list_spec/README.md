@@ -1,62 +1,79 @@
 # Introductory notes
 
 This specification describes the structure of a minimal, basic list
-of core experimental resources (at the moment, just files) managed
+of core experiment produced resources (at the moment, just files) managed
 by a DCC.
 
 Our primary purpose in creating this specification is to define a simple
 data-description space which can be used by any DCC to build a basic
-structured inventory of experimental resources of potential interest
+structured inventory of experiment generated resources of potential interest
 to external investigators, while requiring only minimal effort overhead
 from a DCC (beyond conducting the inventory itself). In addition to
 facilitating DCC onboarding into and adoption of the CFDE technologies,
 this inventory will serve as a preliminary survey of available
 data files managed by each DCC; will help guide future CFDE-DCC
-interactions as more detailed metadata modeling and ingestion
-progresses; and will also immediately serve as a data substrate
+interactions as more detailed metadata models and ingestion mechanisms
+develop; and will also immediately serve as a data substrate
 for administrative (dashboard) reporting of basic stats describing
 DCC file asset collections (prior to construction of a corresponding
 full C2M2 instance).
 
-We will accept intake data as a pair of TSVs: one TSV will encode
-metadata for individual files (one per row), and the other (containing
+We will accept intake data as a pair of TSV files: one TSV file will encode
+metadata for individual files (one per row), and the other file (containing
 a single row) will describe metadata associated with the entire asset
-list object. These TSVs will be described by a frictionless.io JSON
-Schema spec, itself defined by the following model:
+list object. These TSVs will be described by a [frictionless.io](https://frictionlessdata.io/) JSON
+[Tabular Data Package specification](https://frictionlessdata.io/specs/tabular-data-package/), itself defined by the following model:
 
 # Specification details
+
+## INTAKE LIST OBJECT specification:
+
+|Required Field|Field Name|Field Definition/Elucidation| Example |
+|:-:| :-------------------- | :-------------------------------- | :---|
+|X|organization|	A URL-compliant string unambiguously identifying this DCC (also see next field)| dcc_name |
+|X|   FQDN     |    A fully-qualified domain name that corresponds unambiguously to this DCC (if such exists) or to the DCC's top-level parent organization (if the DCC has no dedicated domain name of its own). |**SEE EXAMPLES A & B** (illustrating the construction of the above two fields by conditionally rearranging the URL of the DCC's main website) |
+| | | | Example A. Say a DCC's website is at **http://my.dcc_name.org/** ; then *organization* can be any relevant URL-compliant string (simplest choice would just be **dcc_name**), and *FQDN* would be **my.dcc_name.org**.|
+| | | | Example B. Say instead a DCC's site is at **http://some_college.edu/some_sub_school/dcc_name/** : in this case, *FQDN* is just **some_college.edu** (the domain name of the DCC's parent organization, while *organization* now becomes **some_sub_school/dcc_name**.|
+|X|   contact_name | |Theresa Huang |
+|X|  contact_email | |theresa.huang@dcc.org |
+|X|   list_completion_date|# YYYY-MM-DD|2020-02-29|
+| |   data_release_version|# optional tie-in to DCC data release versioning system|2020-03-03|
+|X|[list of resource records]| # TSV format: **intake_list.tsv** metadata table (describing this block of fields) plus separate **file_assets.tsv** (describing the fields listed below)| intake_list.tsv;file_assets.tsv |
+
+
+
+## INTAKE FILE ASSET OBJECT specification:
+
+The first field, here, will serve as a unique identifier for this file during the intake phase of DCC data processing.
+
+Xs indicate required fields.
+
+X' (X-prime) means 'one or the other of these two fields is required.'
+
+|Required Field|Field Name|Field Definition/Elucidation|type| recommended vocabulary|
+|:-:| :-------------------- | :-------------------- |:------------------------|:------|
+|X|uri|	EITHER, a network-resolvable URI (URL) pointing to this file|string | | 
+| | |	OR A tag URI instance (cf. http://www.faqs.org/rfcs/rfc4151.html and https://en.wikipedia.org/wiki/Tag_URI_scheme) conformant with: | | |
+| | | tag:FQDN,list_completion_date:organization/project_containment/filename | | |
+| | | ...where 'tag' is just the string literal 'tag'; the other named identifiers refer to fields described above; and the remaining two components are described below: | | |
+|X|project_containment| PATH-like '/'-separated list of DCC-assigned project IDs (or any other tree-like sorting system) unambiguously locating this file asset within the DCC's accounting hierarchy. (Can e.g. just be a filesystem path: if all the DCC's assets are stored on the same filesystem, then this might be the simplest solution.)| | |
+|X|filename| (do not include any path prefix)| string | |
+| | | (To be clear: in addition to forming subcomponents of 'uri', the'project_containment' and 'filename' fields should also be explicitly listed -- separately from the 'uri' field -- in the asset TSV.): | | |
+|X|file_format|  **file_format** and **data_type** fields together are meant to comprise the philosophical equivalent to a "MIME/media type" specification for bioinformatics data files (although sadly none exists), answering both "how is this file physically formatted?" (e.g. TSV, BAM, FASTQ) and...|string| CV:EDAM|
+|X|data_type| "what is the semantic context within which the data in this file should be processed? (e.g. sequence reads, allele variant reports, relative abundance estimates)"|string| CV:EDAM|
+|X|size_in_bytes|| integer | |
+| |body_site_or_product|This field is really a metadata stub -- chosen to be nearly universally applicable to human-medicine-centered bioinformatics data assets -- so we have something on which we can structure, e.g., a pie chart or two in the admin/dashboard display (which should be immediately able to render summary reports using this asset collection) |string| CV:UBERON|
+|X'|sha256| output of recommended checksum algorithm|string| |
+|X'|md5| output of recommended checksum algorithm| string | |
+
+
+
 
 ```
 Xs indicate required fields.
 
 X' (X-prime) means 'one or the other of these two fields is required.'
 
-INTAKE LIST OBJECT specification:
-
-X   organization                                 # A URL-compliant string unambiguously identifying this DCC (also see next field)
-
-X   FQDN                                         # A fully-qualified domain name that corresponds unambiguously to this DCC (if such
-                                                 # exists) or to the DCC's top-level parent organization (if the DCC has no dedicated
-                                                 # domain name of its own).
-                                                 # 
-                                                 # EXAMPLES (illustrating the construction of the above two fields by
-                                                 # conditionally rearranging the URL of the DCC's main website):
-                                                 # 
-                                                 # A. Say a DCC's website is at http://my.dcc_name.org/ ; then 'organization'
-                                                 #    can be any relevant URL-compliant string (simplest choice would just be
-                                                 #    'dcc_name'), and 'FQDN' would be 'my.dcc_name.org'.
-                                                 # 
-                                                 # B. Say instead a DCC's site is at http://some_college.edu/some_sub_school/dcc_name/ :
-                                                 #    in this case, 'FQDN' is just 'some_college.edu' (the domain name of the DCC's
-                                                 #    parent organization, while 'organization' now becomes
-                                                 #    'some_sub_school/dcc_name'.
-X   contact_name
-X   contact_email
-X   list_completion_date                         # YYYY-MM-DD
-    data_release_version                         # optional tie-in to DCC data release versioning system
-X   [list of resource records]                   # TSV format: 'intake_list.tsv' metadata table (describing
-                                                 # this block of fields) plus separate 'file_assets.tsv'
-                                                 # (describing the fields listed below)
 
 INTAKE FILE ASSET OBJECT specification:
 
@@ -121,7 +138,7 @@ of question frequency have actually been made.)
 
 --------------------------------------------------------------------------------
 
-Q. Are we modeling anything about protocols, subjects or experiments?
+**Q. Are we modeling anything about protocols, subjects or experiments?**
 
 A. No, not at the intake list level. We can optionally store metadata
 about protocol description documents of arbitrary detail (as file resources),
@@ -137,7 +154,7 @@ or protected-access materials requiring extra processing.
 
 --------------------------------------------------------------------------------
 
-Q. Why sample IDs and not file IDs?
+**Q. Why sample IDs and not file IDs?**
 
 A. Based on our experience serving as a DCC, we're guessing that
 typical internal DCC systems will assign unambiguous labels to samples,
@@ -155,13 +172,13 @@ like the right combination.
 
 --------------------------------------------------------------------------------
 
-Q. When are DCCs expected to begin working on these inventories?
+**Q. When are DCCs expected to begin working on these inventories?**
 
 A. Not until after they receive their OT awards.
 
 --------------------------------------------------------------------------------
 
-Q. This is a really simple model; why include three URL fields?
+**Q. This is a really simple model; why include three URL fields?**
 
 A. The CFDE will be a cloud-based ecosystem: we believe that
 drawing attention to the potential for cloud storage, from the
@@ -176,10 +193,10 @@ distros can be used to encourage compliance across the board.
 
 --------------------------------------------------------------------------------
 
-Q. How are you modeling projects, studies, and other administrative
-divisions of work and resources within local DCC ecosystems?
+**Q. How are you modeling projects, studies, and other administrative
+divisions of work and resources within local DCC ecosystems?**
 
-A. The proposed project_containment field is designed to allow
+A. The proposed `project_containment` field is designed to allow
 DCCs to create arbitrarily deep subdivisions of the scope and purview
 of well-defined research groups; to link every inventoried resource with
 whatever project or sub-project that resource is natively associated with
@@ -199,16 +216,16 @@ substructures.
 
 --------------------------------------------------------------------------------
 
-Q. Precisely who will receive these inventories, specifically how will
+**Q. Precisely who will receive these inventories, specifically how will
 they be processed, and who will be available to DCCs if they have
-questions while building their inventories?
+questions while building their inventories?**
 
 A. These questions are all fully open as of this writing.
 
 --------------------------------------------------------------------------------
 
-Q. Why not enforce any controlled vocabularies for fields
-like 'body_site_or_product'?
+**Q. Why not enforce any controlled vocabularies for fields
+like 'body_site_or_product'?**
 
 A. Again: dead-simple inventory procedure. We mean to avoid (at least
 during the intake list generation phase) a processing layer in which DCCs are
@@ -221,9 +238,9 @@ CV system (which we'll ultimately need in order to support cross-DCC querying).
 
 --------------------------------------------------------------------------------
 
-Q. What if a DCC wants to contribute more information? Can you take TSVs
+**Q. What if a DCC wants to contribute more information? Can you take TSVs
 that they already have but that have other info? Or are you only taking
-this at this time?
+this at this time?**
 
 A. We're only looking for this info at this time; we conceive of this
 dataset as being the input to a fairly standardized inventory-evaluation
@@ -235,8 +252,8 @@ to turn that data into a spec-compliant submission.
 
 --------------------------------------------------------------------------------
 
-Q. You're storing data about files and samples, which are often linked
-to one another. Are you modeling these links in any way?
+**Q. You're storing data about files and samples, which are often linked
+to one another. Are you modeling these links in any way?**
 
 A. No: we're leaving that for the full C2M2 database. Inventories are flat
 lists, and are relatively easy to produce; linkages turn flat lists into
@@ -250,9 +267,9 @@ formulate an engagement plan for downstream data integration with that DCC.
 
 --------------------------------------------------------------------------------
 
-Q. It looks like the TSV examples have all columns, even if the column
+**Q. It looks like the TSV examples have all columns, even if the column
 is never used (e.g. s3_url in file_assets); but s3_url is left out of
-the json when it isn't used. Is that on purpose?
+the json when it isn't used. Is that on purpose?**
 
 A. Yes; that was a (possibly lame) attempt to demonstrate our input
 flexibility by showing multiple ways of expressing the same null data.
@@ -268,8 +285,8 @@ explicit directives on how to encode null data.
 
 --------------------------------------------------------------------------------
 
-Q. At least one DCC hosts their data in-house and has no real intention
-of changing that. Does that still fit in your primary_url spec?
+**Q. At least one DCC hosts their data in-house and has no real intention
+of changing that. Does that still fit in your primary_url spec?**
 
 A. Sure. In this case they could either share a URL on their in-house
 HTTP/FTP/whateverServer, or they could just make up their own url
