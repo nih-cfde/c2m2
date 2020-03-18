@@ -1,0 +1,38 @@
+NOTE (From Arthur): PLEASE FREEZE EDITS FOR A FEW MINUTES -- This document is moving to the CFDE spec-draft repo on github. Will update this space with a link as soon as it's up.,,,,,,
+3/17/2020,Level,data item,component,restricted?,effort estimate,comment
+X,0,file id,dashboard,,,replace with namespace and local ID (compound key)
+X,0,file size,dashboard,,,
+X,0,file checksum,,,,replace with md5 and sha256 fields
+X,0,uri ,,,,should be persistent ID
+X,0,project,dashboard,,,
+X,0,filename,,,,
+X,1,assay type (OBI),"dashboard, portal",,,"Level 1 is minimal valid C2M2, think of these as required"
+X,1,file format (EDAM),"dashboard, portal",,,"For EDAM, OBI, and other ontologies or taxonomies, need to define validation process"
+X,1,data type (EDAM),"dashboard, portal",,,
+X,1,host species (NCBI Taxonomy),"dashboard, portal",,,designation of the host species (from where sample was collected)
+X,1,subject id,dashboard,"Maybe (Amanda?) As far as I can tell, this is protected at GTEx. Not at most others. At GTEx you can get patientID + sex or sampleID + other pheotypes, but they won't tell you how patientID mps to sampleID w/o dbgap approval",,
+X,1,sample id,dashboard,,,
+X,1,anatomy (Uberon),"dashboard, portal",,,
+,2,sex,portal,,,
+,2,age,portal,"Restricted access (??) at GTEx, not at KF",,
+,2,disease,portal,Restricted access (??) I actually think this might be open,,AB comment: This and the following entries in this section all sound like arrays or sets. Is that right? Or does each entry stand for a bunch of distinct but related (optional) fields?
+,2,"health conditions (hyperlipidemia, hypertension, hyper-thyroidism, etc)",,Restricted access,,HC comment: I would move this to Level 3
+,2,medication,,Restricted access,,HC comment: I would move this to Level 3
+,2,"vital stats (height, weight, bp)",,Restricted access,,
+,2,visit info,,Restricted access,,"eg date, timepoint"
+,3,sequencing technology,,,,
+,3,geographic location,,,,
+,3,race/ethnicity (human)/strain (mouse),,,,
+,3,sample collection date,,,,
+,3,SOP used for extraction or analysis process,,,,
+,,,,,,
+,,,,,,
+,,"""id"" is a DCC defined id, a local id",,,,
+,,,,,,
+,,"Level 0 is just a list of files, in some sense, a manifest",,,,
+Notes,,"Level 1 is, by definition, enough to instantiate a valid C2M2 instance and support some use cases",,,,
+,,Level 2 is sufficient to support substantial portal use cases,"basic metadata related to the <subject id, sample id>",,,
+,,Level 3 is sufficient to support most portal and analysis use cases,,,,
+,,we will populate the effort estimate column as we learn by prototyping with HMP. We want to be able to tell a DCC how much effort they'll need to produce data at a given level,,,,
+,,,,,,
+,,Is there a MIME TYPE concern? Could data type and file format be collapsed into some new MIME TYPE thing?,,,,
