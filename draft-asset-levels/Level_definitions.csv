@@ -1,4 +1,3 @@
-NOTE (From Arthur): PLEASE FREEZE EDITS FOR A FEW MINUTES -- This document is moving to the CFDE spec-draft repo on github. Will update this space with a link as soon as it's up.,,,,,,
 3/17/2020,Level,data item,component,restricted?,effort estimate,comment
 X,0,file id,dashboard,,,replace with namespace and local ID (compound key)
 X,0,file size,dashboard,,,
