@@ -1,3 +1,3 @@
-A formal structural outline of a set of increasingly rich levels of metadata richness for the CFDE C2M2 DCC-engagement sphere of operations.
+A semi-formal structural outline (Level_definitions.csv) of a set of increasingly rich levels of metadata within the CFDE C2M2 DCC-engagement sphere of operations.
 
-Anyone who can contribute more detail should expand this stub description. 
+[Do we need the other CSV here? If so, what exactly is it? -AB]
