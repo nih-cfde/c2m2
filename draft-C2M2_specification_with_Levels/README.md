@@ -106,8 +106,8 @@ in addition to the full C2M2 model:
 [Level 1](#level-1) (which introduces models for core experimental
 resources like samples and subjects; a basic set of search targets
 in the form of annotations like the anatomical location of
-the source for a human tissue sample; taxonomic data describing subjects
-and sample source organisms; and basic support for arranging
+the source for a human tissue sample; taxonomic data describing
+sample source organisms and study subjects; and basic support for arranging
 experimental resources into sub-collections based on a
 hierarchy of projects, studies or other similar subdivisions
 of research ownership and responsibility).
