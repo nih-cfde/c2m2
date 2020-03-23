@@ -159,12 +159,11 @@ can be found **here**, **here** and **here**.
 
 ### Level 1
 
-_...introduces models for core experimental
-resources like
-* samples and subjects
-* search targets in the form of annotations like the anatomical source for a given tissue sample
-* host species taxonomy for samples and subjects
-* basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
+_...introduces models for core experimental resources like_
+* _samples and subjects_
+* _search targets in the form of annotations like the anatomical source for a given tissue sample_
+* _host species taxonomy for samples and subjects_
+* _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
 
 |_Level 1 model diagram_|
 |:---:|
