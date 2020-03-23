@@ -223,6 +223,7 @@ _This final, most complex level needs a couple of things:_
 2. _MODEL DIAGRAM needs updating so corresponding fields exactly match Levels 1 and 2_
 3. _JSON DATAPACKAGE SCHEMA needs updating so corresponding fields exactly match the updates to the model diagram_
 4. _Levels 2 and 3 (and ...?) need to be finalized, then harmonized with this one_
+5. _We haven't yet explicitly provided a modeling solution for clinical visit data; that needs to happen_
 
 |_The full C2M2 model_|
 |:---:|
