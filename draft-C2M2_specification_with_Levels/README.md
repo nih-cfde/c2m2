@@ -106,41 +106,41 @@ resources like samples and subjects; search targets in the form
 of annotations like the anatomical source for a given tissue
 sample; host species taxonomy for samples and subjects; and
 basic support for arranging experimental resources into
-sub-collections based on a hierarchy of projects or studies.
+sub-collections based on a hierarchy of projects or studies).
 
 (Proposals for Levels 2 and 3 are currently in
 [first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
 
 ### Level 0
 
-C2M2 Level 0 defines a minimal valid C2M2 instance; data submissions
+C2M2 Level 0 defines a minimal valid C2M2 instance. Data submissions
 at this richness level will be the easiest to produce, and will
-support the most basic available functionality implemented by
+support the simplest available functionality implemented by
 downstream applications.
-
-|_Level 0 model diagram_|
-|:---:|
-|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
 #### Level 0 submission process: overview
 
 Metadata submissions at Level 0 will consist of a single TSV
 file with a header row, describing a collection of digital
 files owned or managed by a DCC. The properties listed
-for the Level 0 `file` entity (see next subsection for
-definitions) will serve as the TSV's column headers; each
-TSV row will represent a single file. The Level 0 TSV
-itself thus represents a flat
+for the Level 0 `file` entity (see immediately below for
+diagram and definitions) will serve as the TSV's column
+headers; each TSV row will represent a single file. The
+Level 0 TSV itself thus represents a flat
 [manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
 or inventory of the digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
-This level encodes only the most basic of file metadata
+This level encodes the most basic of file metadata
 information; its use by downstream applications will be
 limited to informing the least specific level of data
-accounting and reports.
+accounting, querying and reporting.
 
-#### Level 0: `file` properties
+|_Level 0 model diagram_|
+|:---:|
+|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
+
+#### Level 0: properties of the `file` entity
 
 * `id_namespace`
 * `id`
@@ -152,25 +152,33 @@ accounting and reports.
 
 #### Level 0 submissions: schema and example TSVs
 
-The JSON Schema document specifying the Level 0 TSV can
-be found **here**; example Level-0-compliant TSV submissions
-can be browsed **here**, **here** and **here**.
+The JSON Schema document specifying the Level 0 TSV is
+**here**; example Level-0-compliant TSV submissions
+can be found **here**, **here** and **here**.
 
 ### Level 1
 
-(intro)
+_(introducing models for core experimental
+resources like samples and subjects; search targets in the form
+of annotations like the anatomical source for a given tissue
+sample; host species taxonomy for samples and subjects; and
+basic support for arranging experimental resources into
+sub-collections based on a hierarchy of projects or studies)_
 
 |_Level 1 model diagram_|
 |:---:|
 |![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
 
-(spec)
+#### Level 1: the `project` string
 
-(defs)
+
+
+#### Level 1: `file`, `bio_sample` and `subject` entities and their properties
+
+
 
 #### Level 1 submissions: schema and example TSVs
 
 The JSON Schema document specifying the Level 1 TSV
-collection can be found **here**; example Level-1-compliant
-TSV submissions can be browsed **here**, **here** and
-**here**.
+collection is **here**; example Level-1-compliant TSV
+submissions can be found **here**, **here** and **here**.
