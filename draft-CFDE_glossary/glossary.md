@@ -144,5 +144,7 @@
   * SPARC
 
 
-##dummy-def
+# DRAFT - list of terms linked from spec documents
+
+## entity-relationship-model
 
