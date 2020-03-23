@@ -34,7 +34,7 @@ formats, all of which will be automatically interoperable with the
 C2M2 ecosystem. These alternative formats will be offered in
 levels tiered according to increasing complexity, reflecting
 anticipated differences in the relative richness of metadata
-available to different DCCs at any one time. The general
+available to different DCCs at any particular time. The general
 expectation will be that the metadata submitted and managed by a
 DCC will be able to transition, over time, through
 increasingly rich formats -- enabling increasingly powerful downstream
@@ -65,7 +65,7 @@ the C2M2 model must remain as flexible as possible, especially
 during its developmental phases, in order to accomodate mutual learning
 between DCCs and CFDE as the process of data ingestion
 develops. It is far more expensive and error-prone to
-iteratively change a complex model than it is to build
+repeatedly change a complex model than it is to build
 one gradually from a simpler core concept which is allowed
 to stabilize before more specialized branches are allowed
 to solidify.
@@ -81,32 +81,35 @@ modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
 [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
 according to needs identified while working with
-more operationally complex DCCs. Newer or smaller DCCs, in contrast, may
+more operationally complex DCCs. Newer or smaller DCCs, by contrast, may
 not have currently enough information readily available
-to feasibly model their experimental resources using the
-full model; CFDE aims to fully support cases like these by
+to feasibly describe their experimental resources using the
+full model: CFDE will fully support cases like these by
 offering simpler but still well-structured metadata
-models, lowering barriers to entry into the data ecosystem.
+models, lowering some of the barriers to rapid entry into the
+data ecosystem.
 
 Simpler C2M2 metadata models must be maintained by
 CFDE in such a way as to maximize interoperability with
-more complex C2M2 models, and the whole system should be
+more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
-changes. All of these considerations have led to the
-notion of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
-canonical variants of C2M2 which are benchmarked at
+changes. These considerations have converged with the
+creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
+parallel canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity.
 
 In addition to the full C2M2 model, CFDE presently offers
-two less-complex C2M2 variants: [Level 0](#level-0) (the simplest: 
-basic metadata describing a collection of files) and
+two less complex C2M2 variants: [Level 0](#level-0) (basic
+metadata describing a collection of files) and
 [Level 1](#level-1)
 (which introduces core experimental resources like
-samples and subjects; search targets like the anatomical
-source for a given tissue sample; host species taxonomy;
-and basic support for assigning experimental resources
-to projects and sub-projects. (Proposals for Levels 2 and
-3 are currently in [first-round rough draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
+samples and subjects; search targets in the form of annotations
+like the anatomical source for a given tissue sample; host
+species taxonomy for samples and subjects; and first-level basic support
+for arranging experimental resources into sub-collections based
+on an associated hierarchy of projects or studies.
+
+(Proposals for Levels 2 and 3 are currently in [first-round rough draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
 
 ### Level 0
 
