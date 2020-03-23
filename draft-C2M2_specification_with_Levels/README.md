@@ -113,7 +113,7 @@ hierarchy of projects, studies or other similar subdivisions
 of research ownership and responsibility).
 
 _Proposals for Levels 2 and 3 currently exist in
-[first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only._
+[first-round rough brainstorm draft form](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only._
 
 ### Level 0
 
