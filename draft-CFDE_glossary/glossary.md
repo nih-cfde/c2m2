@@ -146,5 +146,11 @@
 
 # DRAFT - list of terms linked from spec documents
 
+## DCCs
+
 ## entity-relationship-model
+
+## metadata
+
+## richness-levels
 
