@@ -103,12 +103,12 @@ two less complex C2M2 variants: [Level 0](#level-0) (basic
 metadata describing a collection of digital files) and
 [Level 1](#level-1) (which introduces models for core experimental
 resources like samples and subjects; search targets in the form
-of annotations like the anatomical location of the source of
-a given human tissue sample; taxonomic data describing samples
-and subjects; and basic support for arranging experimental
-resources into sub-collections based on a hierarchy of
-projects, studies or other similar subdivisions of ownership and
-responsibility).
+of annotations like the anatomical location of the source for
+a human tissue sample; taxonomic data describing subjects
+and sample source organisms; and basic support for arranging
+experimental resources into sub-collections based on a
+hierarchy of projects, studies or other similar subdivisions
+of research ownership and responsibility).
 
 (Proposals for Levels 2 and 3 currently exist in
 [first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only.)
