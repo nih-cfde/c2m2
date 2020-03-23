@@ -31,13 +31,13 @@ and metadata integrity during the [ingestion process](../draft-CFDE_glossary/glo
 
 CFDE will offer DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
-C2M2 ecosystem. These alternative formats will be offered in
+C2M2 ecosystem. These alternative formats are arranged in
 levels tiered according to increasing complexity, reflecting
 anticipated differences in the relative richness of metadata
 available to different DCCs at any particular time. The general
 expectation will be that the metadata submitted and managed by a
 DCC will be able to transition, over time, through
-increasingly rich formats -- enabling increasingly powerful downstream
+increasingly rich modeling levels -- enabling increasingly powerful downstream
 applications -- as the life cycle of DCC/CFDE technical interaction
 progresses.
 
@@ -82,7 +82,7 @@ maintain such support by iteratively refining the
 [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
 according to needs identified while working with
 more operationally complex DCCs. Newer or smaller DCCs, by contrast, may
-not have currently enough information readily available
+not currently have enough readily-available information
 to feasibly describe their experimental resources using the
 full model: CFDE will fully support cases like these by
 offering simpler but still well-structured metadata
