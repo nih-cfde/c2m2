@@ -84,10 +84,10 @@ according to needs identified while working with
 more operationally complex DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
 to feasibly describe their experimental resources using the
-most complex model: CFDE will fully support cases like these by
-offering simpler but still well-structured metadata
-models, lowering some of the barriers to rapid entry into the
-data ecosystem.
+most complex C2M2 modeling level: CFDE will fully support
+cases like these by offering simpler but still well-structured
+metadata models, lowering some of the barriers to rapid
+entry into the data ecosystem.
 
 Simpler C2M2 metadata models must be maintained by
 CFDE in such a way as to maximize interoperability with
