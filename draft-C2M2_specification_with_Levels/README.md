@@ -140,7 +140,7 @@ accounting, querying and reporting.
 |:---:|
 |![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
-#### Level 0: properties of the `file` entity
+#### Level 0: the `file` entity and its properties
 
 * `id_namespace`
 * `id`
@@ -173,7 +173,15 @@ sub-collections based on a hierarchy of projects or studies)_
 
 
 
-#### Level 1: `file`, `bio_sample` and `subject` entities and their properties
+#### Level 1: the `file` entity, revisited
+
+
+
+#### Level 1: the `bio_sample` entity
+
+
+
+#### Level 1: the `subject` entity
 
 
 
