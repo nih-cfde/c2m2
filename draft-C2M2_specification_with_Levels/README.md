@@ -126,9 +126,9 @@ files** owned or managed by a DCC. The properties listed
 for the Level 0 `file` entity (see immediately below for
 diagram and definitions) will serve as the TSV's column
 headers; each TSV row will represent a single file. The
-Level 0 TSV itself thus represents a **flat
-[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
-or inventory of digital files** that a DCC wants to
+Level 0 TSV itself thus represents a flat
+**[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
+or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
 This level encodes the most basic of file metadata
