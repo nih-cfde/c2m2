@@ -95,12 +95,14 @@ more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
 changes. These considerations have led to the
 creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
-parallel canonical variants of C2M2 which are benchmarked at
-increasing levels of model complexity.
+concentric, canonical variants of C2M2 which are benchmarked at
+increasing levels of model complexity, wherein each successive
+modeling level is a strict superset of all of the metadata
+encompassed by the previous (less complex) level.
 
-In addition to the full C2M2 model, CFDE presently offers
-two less complex C2M2 variants: [Level 0](#level-0) (basic
-metadata describing a collection of digital files) and
+Accordingly -- in addition to the full C2M2 model -- CFDE
+presently offers two less complex C2M2 variants:
+[Level 0](#level-0) (basic metadata describing a collection of digital files) and
 [Level 1](#level-1) (which introduces models for core experimental
 resources like samples and subjects; search targets in the form
 of annotations like the anatomical location of the source for
