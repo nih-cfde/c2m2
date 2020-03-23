@@ -118,7 +118,7 @@ _Proposals for Levels 2 and 3 currently exist in
 ### Level 0
 
 C2M2 Level 0 defines a **minimal valid C2M2 instance.** Data submissions
-at this richness level will be the easiest to produce, and will
+at this level of metadata richness will be the easiest to produce, and will
 support the simplest available functionality implemented by
 downstream applications.
 
