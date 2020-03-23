@@ -97,7 +97,7 @@ changes. These considerations have led to the
 creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity, wherein each successive
-modeling level is a strict superset of all of the metadata
+modeling level is a value-added superset of all of the metadata
 encompassed by the previous (less complex) level.
 
 Accordingly -- in addition to the full C2M2 model -- CFDE
