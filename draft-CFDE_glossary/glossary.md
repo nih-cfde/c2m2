@@ -144,5 +144,5 @@
   * SPARC
 
 
-[**DRAFT-placeholder def stub to test anchor targets**](#dummy-def)
+##dummy-def
 
