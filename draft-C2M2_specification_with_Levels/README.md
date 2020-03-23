@@ -187,19 +187,19 @@ required for Level 1 compliance.)_
 
 #### Level 1: the `file` entity, revisited
 
-
+_added properties_
 
 #### Level 1: the `bio_sample` entity
 
-
+_added entity: list and define properties_
 
 #### Level 1: the `subject` entity
 
-
+_added entity: list and define properties_
 
 #### Level 1: basic foreign key support between entity types
 
-
+_describe TSV usage of sample__id and subject__id_
 
 #### Level 1 submissions: schema and example TSVs
 
@@ -217,7 +217,7 @@ submissions can be found **here**, **here** and **here**.
 
 _This final, most complex level needs a couple of things:_
 
-1. _needs a better name than 'full C2M2'_
+1. _needs a better name than 'full C2M2' or 'Level N'_
 2. _MODEL DIAGRAM needs updating so corresponding fields exactly match Levels 1 and 2_
 3. _JSON DATAPACKAGE SCHEMA needs updating so corresponding fields exactly match the updates to the model diagram_
 4. _Levels 2 and 3 (and ...?) need to be finalized, then harmonized with this one_
