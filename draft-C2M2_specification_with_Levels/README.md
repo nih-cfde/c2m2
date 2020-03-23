@@ -126,13 +126,13 @@ files** owned or managed by a DCC. The properties listed
 for the Level 0 `file` entity (see immediately below for
 diagram and definitions) will serve as the TSV's column
 headers; each TSV row will represent a single file. The
-Level 0 TSV itself thus represents a flat
+Level 0 TSV itself thus represents a
 **[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
 or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
 This level encodes the most basic of file metadata
-information; its use by downstream applications will be
+information: its use by downstream applications will be
 limited to informing the least specific level of data
 accounting, querying and reporting.
 
@@ -142,13 +142,12 @@ accounting, querying and reporting.
 
 #### Level 0: the `file` entity and its properties
 
-* `id_namespace`
-* `id`
-* `size_in_bytes`
-* `sha256`
-* `md5`
-* `uri`
-* `filename`
+* `id_namespace` _+ discussion ..._
+* `id` _+ discussion ..._
+* `size_in_bytes` _+ discussion ..._
+* `sha256` and `md5` _+ discussion ..._
+* `uri` _+ discussion ..._
+* `filename` _+ discussion ..._
 
 #### Level 0 submissions: schema and example TSVs
 
@@ -171,7 +170,19 @@ sub-collections based on a hierarchy of projects or studies)_
 
 #### Level 1: the `project` string
 
-
+_A PATH-like fwdslash ("/")-delimited string, where the sequence
+of /-delimited substrings describes the project containment hierarchy
+attached to a file, subject or sample. DCCs will (optionally)
+generate these strings in whatever way they see fit (as long as delimited
+tokens don't contain slash characters). Note in particular that there is
+no default assumption of any relationship whatsoever between the project
+hierarchy proffered by a DCC in its data submission (via this field) and
+any formal NIH project structure: in other words, DCCs are free to
+subdivide their project space however they like at this level, and stuff
+it in this field as a PATH. (More structured -- and programmatically
+usable -- modeling of organizations, projects and studies associated with
+C2M2 core entities will be specified in the full C2M2 model, but is not
+required for Level 1 compliance.)_
 
 #### Level 1: the `file` entity, revisited
 
@@ -182,6 +193,10 @@ sub-collections based on a hierarchy of projects or studies)_
 
 
 #### Level 1: the `subject` entity
+
+
+
+#### Level 1: basic foreign key support between entity types
 
 
 
