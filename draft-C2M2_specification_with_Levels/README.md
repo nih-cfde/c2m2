@@ -123,7 +123,7 @@ downstream applications.
 #### Level 0 submission process: overview
 
 Metadata submissions at Level 0 will consist of a single TSV
-file with a header row, describing a **collection of digital
+file describing a **collection of digital
 files** owned or managed by a DCC. The properties listed
 for the Level 0 `file` entity (see immediately below for
 diagram and definitions) will serve as the TSV's column
