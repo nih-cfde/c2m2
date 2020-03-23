@@ -93,23 +93,23 @@ Simpler C2M2 metadata models must be maintained by
 CFDE in such a way as to maximize interoperability with
 more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
-changes. These considerations have converged with the
+changes. These considerations have led to the
 creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
 parallel canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity.
 
 In addition to the full C2M2 model, CFDE presently offers
 two less complex C2M2 variants: [Level 0](#level-0) (basic
-metadata describing a collection of files) and
-[Level 1](#level-1)
-(which introduces core experimental resources like
-samples and subjects; search targets in the form of annotations
-like the anatomical source for a given tissue sample; host
-species taxonomy for samples and subjects; and first-level basic support
-for arranging experimental resources into sub-collections based
-on an associated hierarchy of projects or studies.
+metadata describing a collection of digital files) and
+[Level 1](#level-1) (introducing models for core experimental
+resources like samples and subjects; search targets in the form
+of annotations like the anatomical source for a given tissue
+sample; host species taxonomy for samples and subjects; and
+basic support for arranging experimental resources into
+sub-collections based on a hierarchy of projects or studies.
 
-(Proposals for Levels 2 and 3 are currently in [first-round rough draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
+(Proposals for Levels 2 and 3 are currently in
+[first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
 
 ### Level 0
 
