@@ -230,6 +230,6 @@ _This final, most complex level needs a couple of things:_
 
 #### Level N submissions: schema and example TSVs
 
-The JSON Schema document specifying the Level 1 TSV
+The JSON Schema document specifying the full (Level N) C2M2 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
-example Level-1-compliant TSV submissions can be found **here**, **here** and **here**.
+example Level-N-compliant TSV submissions can be found **here**, **here** and **here**.
