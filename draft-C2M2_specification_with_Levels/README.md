@@ -16,6 +16,30 @@ about their experimental resources with the research
 community, dramatically widening access to usable
 observational data and accelerating discovery.
 
+## DCC Metadata submissions
+
+DCCs will collect and provide metadata to CFDE describing
+experimental resources within their purview. Each metadata
+submissions will take the form of a collection of tab-separated value
+files (TSVs); precise formatting requirements for these TSV
+collections will be specified by JSON Schema documents
+implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
+meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
+group. These JSON Schemas will be used by the CFDE software
+infrastructure to automate the validation of submission formats
+and metadata integrity during the [ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
+
+CFDE will offer DCCs multiple alternatives for metadata submission
+formats, all of which will be automatically interoperable with the
+C2M2 ecosystem. These alternative formats will be offered in
+levels tiered by increasing complexity, reflecting
+anticipated differences in the relative richness of metadata
+available to different DCCs at any particular time. The general
+expectation will be that DCC metadata can transition over time through
+increasingly rich formats -- enabling increasingly powerful downstream
+applications -- as the life cycle of DCC/CFDE technical interaction
+progresses.
+
 ## C2M2 Richness Levels
 
 In its [fullest form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
@@ -85,7 +109,10 @@ to projects and sub-projects. (Proposals for Levels 2 and
 
 ### Level 0
 
-(intro)
+C2M2 Level 0 defines a minimal valid C2M2 instance; data submissions
+at this richness level will be the easiest to produce, and will
+support the most basic available functionality implemented by
+downstream applications.
 
 |_Level 0 model diagram_|
 |:---:|
