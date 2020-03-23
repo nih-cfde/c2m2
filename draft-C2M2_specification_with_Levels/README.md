@@ -11,10 +11,10 @@ community at an unprecedented scope.
 
 Using this new infrastructure, data coordinating centers
 ([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
-share structured information about their experimental
-resources ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
-with the research community, dramatically widening access
-to usable observational data and accelerating discovery.
+share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
+about their experimental resources with the research
+community, dramatically widening access to usable
+observational data and accelerating discovery.
 
 ## C2M2 Richness Levels
 
