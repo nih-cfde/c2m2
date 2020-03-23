@@ -82,3 +82,23 @@ source for a given tissue sample; host species taxonomy;
 and basic support for assigning experimental resources
 to projects and sub-projects. (Proposals for Levels 2 and
 3 are currently in [first-round rough draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
+
+### Level 0
+
+(intro)
+
+(pic)
+
+(defs/spec)
+
+(list usage: TSV serialization)
+
+### Level 1
+
+(intro)
+
+(pic)
+
+(defs/spec)
+
+(TSV serialization)
