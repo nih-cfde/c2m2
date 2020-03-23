@@ -12,7 +12,7 @@ community at an unprecedented scope.
 ## Richness Levels
 
 In its fullest form, C2M2 is an [entity-relationship
-system](../draft-CFDE_glossary/glossary.md#dummy_def)
+system](../draft-CFDE_glossary/glossary.md#dummy-def)
 that models some common properties of resources
 fundamental to biomedical research, like samples, subjects,
 files, datasets and measurement events. Essential
