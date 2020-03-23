@@ -133,8 +133,8 @@ Level 0 TSV itself thus represents a
 or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
-This level encodes the most basic of file metadata
-information: its use by downstream applications will be
+This level encodes the most basic of file metadata:
+its use by downstream applications will be
 limited to informing the least specific level of data
 accounting, querying and reporting.
 
