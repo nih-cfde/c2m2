@@ -90,7 +90,9 @@ to projects and sub-projects. (Proposals for Levels 2 and
 ![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")
 _Level 0 model diagram_
 
-(defs/spec)
+(spec)
+
+(defs)
 
 (list usage: TSV serialization)
 
@@ -101,6 +103,7 @@ _Level 0 model diagram_
 ![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")
 _Level 1 model diagram_
 
-(defs/spec)
+(spec)
 
+(defs)
 (TSV serialization)
