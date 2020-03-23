@@ -144,7 +144,9 @@
   * SPARC
 
 
-# DRAFT - list of terms linked from spec documents
+# DRAFT - list of term anchors currently linked from spec documents
+
+## CFDE-asset-manifest
 
 ## DCCs
 

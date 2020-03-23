@@ -20,22 +20,23 @@ observational data and accelerating discovery.
 
 DCCs will collect and provide metadata to CFDE describing
 experimental resources within their purview. Each metadata
-submissions will take the form of a collection of tab-separated value
-files (TSVs); precise formatting requirements for these TSV
+submission will take the form of a collection of tab-separated value
+files (TSVs): precise formatting requirements for these TSV
 collections will be specified by JSON Schema documents
 implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
-group. These JSON Schemas will be used by the CFDE software
-infrastructure to automate the validation of submission formats
+group. These schemas will be used by the CFDE software
+infrastructure to automatically validate submission format compliance
 and metadata integrity during the [ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
 
 CFDE will offer DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
 C2M2 ecosystem. These alternative formats will be offered in
-levels tiered by increasing complexity, reflecting
+levels tiered according to increasing complexity, reflecting
 anticipated differences in the relative richness of metadata
-available to different DCCs at any particular time. The general
-expectation will be that DCC metadata can transition over time through
+available to different DCCs at any one time. The general
+expectation will be that the metadata submitted and managed by a
+DCC will be able to transition, over time, through
 increasingly rich formats -- enabling increasingly powerful downstream
 applications -- as the life cycle of DCC/CFDE technical interaction
 progresses.
@@ -118,11 +119,39 @@ downstream applications.
 |:---:|
 |![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
-(spec)
+#### Level 0 submission process: overview
 
-(defs)
+Metadata submissions at Level 0 will consist of a single TSV
+file with a header row, describing a collection of digital
+files owned or managed by a DCC. The properties listed
+for the Level 0 `file` entity (see next subsection for
+definitions) will serve as the TSV's column headers; each
+TSV row will represent a single file. The Level 0 TSV
+itself thus represents a flat
+[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
+or inventory of the digital files that a DCC wants to
+introduce into the C2M2 metadata ecosystem.
 
-(list usage: TSV serialization)
+This level encodes only the most basic of file metadata
+information; its use by downstream applications will be
+limited to informing the least specific level of data
+accounting and reports.
+
+#### Level 0: `file` properties
+
+* `id_namespace`
+* `id`
+* `size_in_bytes`
+* `sha256`
+* `md5`
+* `uri`
+* `filename`
+
+#### Level 0 submissions: schema and example TSVs
+
+The JSON Schema document specifying the Level 0 TSV can
+be found **here**; example Level-0-compliant TSV submissions
+can be browsed **here**, **here** and **here**.
 
 ### Level 1
 
@@ -135,4 +164,10 @@ downstream applications.
 (spec)
 
 (defs)
-(TSV serialization)
+
+#### Level 1 submissions: schema and example TSVs
+
+The JSON Schema document specifying the Level 1 TSV
+collection can be found **here**; example Level-1-compliant
+TSV submissions can be browsed **here**, **here** and
+**here**.
