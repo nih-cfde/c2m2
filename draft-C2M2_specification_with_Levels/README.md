@@ -84,7 +84,7 @@ according to needs identified while working with
 more operationally complex DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
 to feasibly describe their experimental resources using the
-full model: CFDE will fully support cases like these by
+most complex model: CFDE will fully support cases like these by
 offering simpler but still well-structured metadata
 models, lowering some of the barriers to rapid entry into the
 data ecosystem.
