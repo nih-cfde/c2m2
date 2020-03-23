@@ -199,7 +199,7 @@ _added entity: list and define properties_
 
 #### Level 1: basic foreign key support between entity types
 
-_describe TSV usage of sample__id and subject__id_
+_describe TSV usage of sample\_id and subject\_id_
 
 #### Level 1 submissions: schema and example TSVs
 
