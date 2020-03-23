@@ -191,7 +191,13 @@ The JSON Schema document specifying the Level 1 TSV
 collection is **here**; example Level-1-compliant TSV
 submissions can be found **here**, **here** and **here**.
 
-### The full C2M2 model
+### (Level 2)...
+
+### (Level 3)...
+
+### (...)
+
+### Level N (the full C2M2 model)
 
 _This final, most-complex level needs a couple of things:_
 
