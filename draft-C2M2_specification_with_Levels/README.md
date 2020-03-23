@@ -108,8 +108,8 @@ sample; host species taxonomy for samples and subjects; and
 basic support for arranging experimental resources into
 sub-collections based on a hierarchy of projects or studies).
 
-(Proposals for Levels 2 and 3 are currently in
-[first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv).)
+(Proposals for Levels 2 and 3 currently exist in
+[first-round rough brainstorm draft](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only.)
 
 ### Level 0
 
@@ -199,7 +199,7 @@ submissions can be found **here**, **here** and **here**.
 
 ### Level N (the full C2M2 model)
 
-_This final, most-complex level needs a couple of things:_
+_This final, most complex level needs a couple of things:_
 
 1. _needs a better name than 'full C2M2'_
 2. _needs updating so corresponding fields exactly match Levels 1 and 2
