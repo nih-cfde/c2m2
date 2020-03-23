@@ -87,7 +87,7 @@ to projects and sub-projects. (Proposals for Levels 2 and
 
 (intro)
 
-![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")
+![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png)
 _Level 0 model diagram_
 
 (spec)
