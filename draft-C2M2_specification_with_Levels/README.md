@@ -73,9 +73,9 @@ canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity.
 
 In addition to the full C2M2 model, CFDE presently offers
-two less-complex C2M2 variants: [Level 0](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png) (the simplest: 
+two less-complex C2M2 variants: [Level 0](#level-0) (the simplest: 
 basic metadata describing a collection of files) and
-[Level 1](../draft-C2M2_ER_diagrams/Level-1-C2M2-ER-model.png)
+[Level 1](#level-1)
 (which introduces core experimental resources like
 samples and subjects; search targets like the anatomical
 source for a given tissue sample; host species taxonomy;
@@ -87,7 +87,7 @@ to projects and sub-projects. (Proposals for Levels 2 and
 
 (intro)
 
-(pic)
+[Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png)
 
 (defs/spec)
 
@@ -97,7 +97,7 @@ to projects and sub-projects. (Proposals for Levels 2 and
 
 (intro)
 
-(pic)
+[Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png)
 
 (defs/spec)
 
