@@ -20,15 +20,14 @@ observational data and accelerating discovery.
 
 In its [fullest form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
-that models common properties of fundamental resources
-for biomedical research, like subjects, digital files,
+that models common properties of resources fundamental
+to biomedical research like subjects, digital files,
 events, samples, and project datasets. Essential
-relationships between resources are also formally described,
+relationships between these fundamental resources are also formally described,
 documenting (for example) the samples that were processed
-to produce a particular data file, or (possibly obfuscated to
-protect patient privacy) which subject a given sample was
-drawn from, or when a particular blood pressure measurement
-was made.
+to produce a particular data file; which subject a given sample was
+drawn from (possibly obfuscated to protect patient privacy); or when
+a particular blood pressure measurement was made.
 
 Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
@@ -43,23 +42,24 @@ between DCCs and CFDE as the process of data ingestion
 develops. It is far more expensive and error-prone to
 iteratively change a complex model than it is to build
 one gradually from a simpler core concept which is allowed
-to stabilize first.
+to stabilize before more specialized branches are allowed
+to solidify.
 
 With the design of C2M2, we are splitting the difference
-between the ease of evolution of a simple model and
-the downstream operational power provided by more
+between the ease of evolution inherent in a simple model and
+the operational power provided to downstream applications by more
 complicated but difficult-to-maintain frameworks.
 DCCs with advanced, operationalized metadata modeling
-systems of their own should not experience arbitrary
+systems of their own should not encounter arbitrary
 barriers to CFDE support for more complicated relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
 [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
-according to needs identified in collaboration with
-more mature DCCs. Newer or smaller DCCs, in contrast, may
-not presently have enough information readily available
+according to needs identified while working with
+more operationally complex DCCs. Newer or smaller DCCs, in contrast, may
+not have currently enough information readily available
 to feasibly model their experimental resources using the
-full model; CFDE aims to support cases like these by
+full model; CFDE aims to fully support cases like these by
 offering simpler but still well-structured metadata
 models, lowering barriers to entry into the data ecosystem.
 
@@ -68,6 +68,16 @@ CFDE in such a way as to maximize interoperability with
 more complex C2M2 models, and the whole system should be
 structured to minimize the negative side effects of model
 changes. All of these considerations have led to the
-creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
+notion of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
 canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity.
+
+In addition to the full C2M2 model, CFDE presently offers
+two less-complex C2M2 variants: Level 0 (the simplest: metadata
+describing a collection of files) and Level 1 (which introduces
+basic experimental resources like samples and subjects, as well
+as a small sampling of search targets like the anatomical source
+for tissue samples, host species taxonomy, and basic
+support for assigning experimental resources to projects and
+sub-projects. (Proposals for Levels 2 and 3 are currently in
+rough draft.)
