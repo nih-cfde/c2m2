@@ -100,8 +100,8 @@ increasing levels of model complexity, wherein each successive
 modeling level is a value-added superset of all of the metadata
 encompassed by the previous (less complex) level.
 
-Accordingly -- in addition to the full C2M2 model -- CFDE
-presently offers two less complex C2M2 variants:
+Accordingly, CFDE presently offers two less complex C2M2 variants
+in addition to the full C2M2 model:
 [Level 0](#level-0) (basic metadata describing a collection of digital files) and
 [Level 1](#level-1) (which introduces models for core experimental
 resources like samples and subjects; search targets in the form
