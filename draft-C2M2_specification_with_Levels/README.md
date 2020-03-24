@@ -146,14 +146,17 @@ accounting, querying and reporting.
 
 #### Level 0 technical specification: properties of the `file` entity
 
+**Required: `id_namespace` `id` `sha256|md5`**
+
 |property|description|
 |:---:|:---|
 | `id_namespace` | String identifier assigned by CFDE to a DCC. The string in this field will be used together with `id` (assigned by the DCC) as a paired-key structure formally identifying Level 0 `file` entities within the total C2M2 data space.|
 | `id` | Unrestricted-format string assigned by the DCC managing this `file`. Can be any string as long as it uniquely identifies each `file` within the scope of a single Level 0 metadata submission. |
-| `size_in_bytes` | The size of a `file` in bytes. This varies (even for "copies" of the same file") across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: file size integrity metadata will be given as checksum data in the `sha256` and/or `md5` properties. This information will instead underpin the reporting of basic storage statistics across different C2M2 collections of DCC metadata.|
-* `sha256` and `md5` _+ discussion ..._
-* `uri` _+ discussion ..._
-* `filename` _+ discussion ..._
+| `size_in_bytes` | The size of a `file` in bytes. This varies (even for "copies" of the same `file`) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: file size integrity metadata will be provided in the form of checksum data in the `sha256` and/or `md5` properties. `size_in_bytes` will instead underpin the reporting of basic storage statistics across different C2M2 collections of DCC metadata.|
+| `sha256` | **CFDE-preferred** file checksum string: the output of the SHA-256 cryptographic hash function after being run on this `file`. |
+| `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, CFDE will accept them.) |
+| `uri` |  |
+| `filename` | |
 
 #### Level 0 metadata submission examples: schema and example TSVs
 
