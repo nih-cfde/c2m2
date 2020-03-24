@@ -73,18 +73,18 @@ to solidify.
 With the design of C2M2, we are splitting the difference
 between the ease of evolution inherent in a simple model and
 the operational power provided to downstream applications by more
-complicated but difficult-to-maintain frameworks.
+complicated and difficult-to-maintain frameworks.
 DCCs with advanced, operationalized metadata modeling
 systems of their own should not encounter arbitrary
-barriers to CFDE support for more complicated relational
+barriers to CFDE support for more extensive relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
 [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
 according to needs identified while working with
-more operationally complex DCCs. Newer or smaller DCCs, by contrast, may
+more operationally advanced DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
 to feasibly describe their experimental resources using the
-most complex C2M2 modeling level: CFDE will fully support
+most complex C2M2 modeling level: CFDE will support
 cases like these by offering simpler but still well-structured
 metadata models, lowering some of the barriers to rapid
 entry into the data ecosystem.
@@ -96,7 +96,7 @@ structured to minimize the negative side effects of model
 changes. These considerations have led to the
 creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
-increasing levels of model complexity, wherein each successive
+increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
 encompassed by the previous (less complex) level.
 
@@ -104,9 +104,9 @@ Accordingly, CFDE presently offers two less complex C2M2 variants
 in addition to the full C2M2 model:
 [Level 0](#level-0) (basic metadata describing a collection of digital files) and
 [Level 1](#level-1) (which introduces models for core experimental
-resources like samples and subjects; a basic set of search targets
+resources like samples and subjects; a rudimentary set of search targets
 in the form of annotations like the anatomical location of
-the source for a human tissue sample; taxonomic data describing
+the source for a human tissue sample or taxonomic data describing
 sample source organisms and study subjects; and basic support for arranging
 experimental resources into sub-collections based on a
 hierarchy of projects, studies or other similar subdivisions
@@ -135,7 +135,7 @@ Level 0 TSV itself thus represents a
 or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
-This level encodes the most basic of file metadata:
+This level encodes the most basic file metadata:
 its use by downstream applications will be
 limited to informing the least specific level of data
 accounting, querying and reporting.
