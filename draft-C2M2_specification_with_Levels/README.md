@@ -144,16 +144,23 @@ accounting, querying and reporting.
 |:---:|
 |![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
-#### Level 0: the `file` entity and its properties
+#### Level 0 technical specification: properties of the `file` entity
 
-* `id_namespace` _+ discussion ..._
+|property|description|
+|:---:|:---|
+| `id_namespace` | Identifier assigned by CFDE to a DCC.
+The string in this field will be used together with `id`
+(assigned by the DCC) as a paired-key structure formally
+identifying Level 0 `file` entities within the total C2M2
+data space.|
+
 * `id` _+ discussion ..._
 * `size_in_bytes` _+ discussion ..._
 * `sha256` and `md5` _+ discussion ..._
 * `uri` _+ discussion ..._
 * `filename` _+ discussion ..._
 
-#### Level 0 submissions: schema and example TSVs
+#### Level 0 metadata submission examples: schema and example TSVs
 
 The JSON Schema document specifying the Level 0 TSV is
 **here**; example Level-0-compliant TSV submissions
@@ -187,23 +194,23 @@ usable -- modeling of organizations, projects and studies associated with
 C2M2 core entities will be specified in the full C2M2 model, but is not
 required for Level 1 compliance.)_
 
-#### Level 1: the `file` entity, revisited
+#### Level 1 technical specification: the `file` entity, revisited
 
 _added properties_
 
-#### Level 1: the `bio_sample` entity
+#### Level 1 technical specification: introducing the `bio_sample` entity
 
 _added entity: list and define properties_
 
-#### Level 1: the `subject` entity
+#### Level 1 technical specification: introducing the `subject` entity
 
 _added entity: list and define properties_
 
-#### Level 1: basic foreign key support between entity types
+#### Level 1 technical specification: usage of foreign keys to encode inter-entity relationships
 
 _describe TSV usage of `sample_id` and `subject_id`_
 
-#### Level 1 submissions: schema and example TSVs
+#### Level 1 metadata submission examples: schema and example TSVs
 
 The JSON Schema document specifying the Level 1 TSV
 collection is **here**; example Level-1-compliant TSV
