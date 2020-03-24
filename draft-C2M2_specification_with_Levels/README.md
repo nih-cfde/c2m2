@@ -148,11 +148,9 @@ accounting, querying and reporting.
 
 |property|description|
 |:---:|:---|
-| `id_namespace` | Identifier assigned by CFDE to a DCC. \
-The string in this field will be used together with `id` (assigned by the DCC) as a paired-key structure formally identifying Level 0 `file` entities within the total C2M2 data space.|
-
-* `id` _+ discussion ..._
-* `size_in_bytes` _+ discussion ..._
+| `id_namespace` | Identifier assigned by CFDE to a DCC. The string in this field will be used together with `id` (assigned by the DCC) as a paired-key structure formally identifying Level 0 `file` entities within the total C2M2 data space.|
+| `id` | Unrestricted-format `file` identifier assigned by the DCC managing the file. Can be any string, as long as it uniquely identifies each file within the scope of a single Level 0 metadata submission. |
+| `size_in_bytes` | The size of a `file` in bytes. This varies (even for "copies" of the same file") across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: file size integrity metadata will be given as checksum data in the `sha256` and/or `md5` properties. This information will instead underpin the reporting of basic storage statistics across different C2M2 collections of DCC metadata.|
 * `sha256` and `md5` _+ discussion ..._
 * `uri` _+ discussion ..._
 * `filename` _+ discussion ..._
