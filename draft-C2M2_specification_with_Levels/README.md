@@ -115,6 +115,8 @@ of research ownership and responsibility).
 _Proposals for Levels 2 and 3 currently exist in
 [first-round rough brainstorm draft form](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only._
 
+---
+
 ### Level 0
 
 C2M2 Level 0 defines a **minimal valid C2M2 instance.** Data submissions
@@ -163,6 +165,8 @@ accounting, querying and reporting.
 The JSON Schema document specifying the Level 0 TSV is
 **here**; example Level-0-compliant TSV submissions
 can be found **here**, **here** and **here**.
+
+---
 
 ### Level 1
 
@@ -214,11 +218,19 @@ The JSON Schema document specifying the Level 1 TSV
 collection is **here**; example Level-1-compliant TSV
 submissions can be found **here**, **here** and **here**.
 
+---
+
 ### (Level 2)...
+
+---
 
 ### (Level 3)...
 
+---
+
 ### (...)
+
+---
 
 ### Level N (the full C2M2 model)
 
