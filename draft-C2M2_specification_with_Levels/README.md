@@ -148,7 +148,7 @@ accounting, querying and reporting.
 
 |property|description|
 |:---:|:---|
-| `id_namespace` | Identifier assigned by CFDE to a DCC.  
+| `id_namespace` | Identifier assigned by CFDE to a DCC. \
 The string in this field will be used together with `id` (assigned by the DCC) as a paired-key structure formally identifying Level 0 `file` entities within the total C2M2 data space.|
 
 * `id` _+ discussion ..._
