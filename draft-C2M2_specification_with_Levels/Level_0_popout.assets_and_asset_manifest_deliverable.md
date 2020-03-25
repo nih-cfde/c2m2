@@ -11,7 +11,7 @@ The Common Fund Data Ecosystem group is creating a new
 software system centered around the Crosscut
 Metadata Model (C2M2), a flexible technical standard
 for modeling biomedical experimental resources and data
-at any of several pre-defined levels of model complexity.
+at any of several predefined levels of model complexity.
 This system is designed to support powerful cross-dataset
 and cross-institute searches, custom aggregation of
 experimental data, and scale-powered statistical analysis
@@ -40,10 +40,10 @@ and metadata integrity during the [metadata ingestion process](../draft-CFDE_glo
 
 CFDE will offer DCCs several alternative metadata submission
 formats, all of which will be automatically interoperable with the
-C2M2 ecosystem. These alternative formats are arranged in
+C2M2 system. These alternative formats are arranged in
 levels tiered according to increasing complexity, reflecting
 anticipated differences in the relative richness of metadata
-available to different DCCs at any particular time. The general
+producible by different DCCs at any particular time. The general
 expectation will be that the metadata submitted and managed by a
 DCC will be able to transition, over time, through increasingly
 rich C2M2 modeling levels -- enabling increasingly powerful
@@ -64,7 +64,7 @@ C2M2 Level 0 will consist of two TSV files:
 
 `file.tsv` will be a **[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
 of digital file assets** that a DCC wants to introduce into
-the C2M2 metadata ecosystem. The properties listed for the
+the C2M2 metadata ecosystem. The properties of the
 `file` entity in the C2M2 Level 0 model (see below for the model
 diagram and a list of property definitions) will serve as column
 headers for `file.tsv`; each TSV row will represent a
