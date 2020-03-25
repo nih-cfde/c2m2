@@ -57,9 +57,9 @@ downstream applications.
 ### Level 0 submission process: overview
 
 Metadata submissions at Level 0 will consist of two TSV
-files.
+files:
 
-The first (named `file.tsv`) will represent a
+`file.tsv` will represent a
 **[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest) or inventory
 of digital file assets** that a DCC wants to introduce into
 the C2M2 metadata ecosystem. The properties listed for the
@@ -69,7 +69,7 @@ headers for `file.tsv`; each TSV row will represent a
 single `file`. `file.tsv` will be prepared by the DCC based
 on the collection of digital files within their purview.
 
-The second TSV (named `namespace.tsv`) will serve as a formal
+`namespace.tsv` will serve as a formal
 structural placeholder for a `id_namespace` identifier,
 which will be assigned to each DCC by CFDE. CFDE will
 create and furnish a `namespace.tsv` file for each DCC
