@@ -47,8 +47,7 @@ increasingly rich modeling levels -- enabling increasingly powerful downstream
 applications -- as the life cycle of DCC/CFDE technical interaction
 progresses.
 
-## C2M2 Level 0
-#### A basic metadata manifest describing a collection of digital file assets
+## C2M2 Level 0: a basic metadata manifest of digital file assets
 
 C2M2 Level 0 defines a **minimal valid C2M2 instance.** Data submissions
 at this level of metadata richness will be the easiest to produce, and will
