@@ -1,8 +1,8 @@
-This document defines the Crosscut Metadata Model (C2M2) Level 0:
-a basic metadata manifest describing digital file assets managed by a
-Common Fund data coordinating center (DCC). C2M2 Level 0 is the
-simplest and easiest to produce of several increasingly complex
-C2M2 variants.
+This document defines the Crosscut Metadata Model (C2M2) Level 0,
+which describes a basic metadata manifest of digital file assets
+managed by a Common Fund data coordinating center (DCC). C2M2
+Level 0 is the simplest and easiest to produce of several
+increasingly complex C2M2 variants.
 
 ## Background
 ### The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
