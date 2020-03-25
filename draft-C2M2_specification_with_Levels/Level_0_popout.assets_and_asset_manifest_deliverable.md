@@ -1,22 +1,27 @@
-# The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
+This document defines C2M2 Level 0, which is the simplest
+of several increasingly complex variants of the Crosscut
+Metadata Model (C2M2).
 
-This document introduces the Crosscut Metadata Model (C2M2),
-a flexible standard for describing biomedical experimental
-data. The Common Fund Data Ecosystem group is creating a new
-infrastructure, with C2M2 as its central concept, through
-which powerful cross-dataset searches, custom aggregation
-of experimental data and scale-powered statistical analysis
-methods will be made possible for the biomedical research
-community at an unprecedented scope.
+# Background: The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
-Using this new infrastructure, data coordinating centers
+The Common Fund Data Ecosystem group is creating a new
+software system centered around the Crosscut
+Metadata Model (C2M2), a flexible technical standard
+for describing biomedical experimental resources and data
+at any of several pre-defined levels of model complexity.
+The purpose of this new system is to support powerful
+cross-dataset searches, custom aggregation of experimental
+data, and scale-powered statistical analysis methods for the
+biomedical research community at an unprecedented scope.
+
+Using this system, data coordinating centers
 ([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
 share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
 about their experimental resources with the research
 community, dramatically widening access to usable
 observational data and accelerating discovery.
 
-## DCC Metadata Submissions
+# Background: DCC metadata submissions
 
 DCCs will collect and provide metadata to CFDE describing
 experimental resources within their purview. Each metadata
@@ -41,27 +46,35 @@ increasingly rich modeling levels -- enabling increasingly powerful downstream
 applications -- as the life cycle of DCC/CFDE technical interaction
 progresses.
 
-### Level 0
+# C2M2 Level 0: a basic metadata manifest describing a collection of digital file assets
 
 C2M2 Level 0 defines a **minimal valid C2M2 instance.** Data submissions
 at this level of metadata richness will be the easiest to produce, and will
 support the simplest available functionality implemented by
 downstream applications.
 
-#### Level 0 submission process: overview
+## Level 0 submission process: overview
 
-Metadata submissions at Level 0 will consist of a single TSV
-file describing a **collection of digital
-files** owned or managed by a DCC. The properties listed
-for the Level 0 `file` entity (see below for
-diagram and definitions) will serve as the TSV's column
-headers; each TSV row will represent a single file. The
-Level 0 TSV itself thus represents a
-**[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
-or inventory** of digital files that a DCC wants to
-introduce into the C2M2 metadata ecosystem.
+Metadata submissions at Level 0 will consist of two TSV
+files.
 
-This level encodes the most basic file metadata:
+The first (named `file.tsv`) will represent a
+**[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest) or inventory
+of digital file assets** that a DCC wants to introduce into
+the C2M2 metadata ecosystem. The properties listed for the
+`file` entity in the C2M2 Level 0 model (see below for a model
+diagram and property definitions) will serve as the column
+headers for `file.tsv`; each TSV row will represent a
+single `file`. `file.tsv` will be prepared by the DCC based
+on the collection of digital files within their purview.
+
+The second TSV (named `namespace.tsv`) will serve as a formal
+structural placeholder for a `id_namespace` identifier,
+which will be assigned to each DCC by CFDE. CFDE will
+create and furnish a `namespace.tsv` file for each DCC
+to be used for Level 0 submissions.
+
+C2M2 Level 0 encodes the most basic file metadata:
 its use by downstream applications will be
 limited to informing the least specific level of data
 accounting, querying and reporting.
@@ -70,7 +83,7 @@ accounting, querying and reporting.
 |:---:|
 |![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
-#### Level 0 technical specification: properties of the `file` entity
+## Level 0 technical specification: properties of the `file` entity
 
 **Required: `id_namespace` `id` `sha256|md5`**
 
