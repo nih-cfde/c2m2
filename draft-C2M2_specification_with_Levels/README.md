@@ -13,7 +13,7 @@ Using this new infrastructure, data coordinating centers
 ([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
 share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
 about their experimental resources with the research
-community, dramatically widening access to usable
+community, widening and deepening access to usable
 observational data and accelerating discovery.
 
 ## DCC Metadata Submissions

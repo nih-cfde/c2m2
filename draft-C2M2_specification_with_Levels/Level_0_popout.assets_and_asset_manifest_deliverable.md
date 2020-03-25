@@ -22,7 +22,7 @@ Using the C2M2 system, Common Fund data coordinating centers
 ([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) will be able to
 share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
 about their experimental resources with the research
-community, dramatically widening access to usable
+community, widening and deepening access to usable
 observational data and accelerating discovery.
 
 ### DCC metadata submissions
