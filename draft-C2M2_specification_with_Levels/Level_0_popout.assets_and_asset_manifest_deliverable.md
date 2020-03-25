@@ -69,10 +69,10 @@ the C2M2 metadata ecosystem. The properties of the
 diagram and a list of property definitions) will serve as column
 headers for `file.tsv`; each TSV row will represent a
 single `file`. `file.tsv` will be prepared by the DCC, using
-data describing digital files within their purview.
+data describing digital files within their management purview.
 
 `namespace.tsv` will serve as a formal
-structural placeholder for an `id_namespace` identifier,
+structural placeholder for a `namespace` identifier,
 which will be assigned to each DCC by CFDE. CFDE will
 create and furnish a `namespace.tsv` file for each DCC
 to include with Level 0 submissions.
@@ -102,6 +102,6 @@ accounting, querying and reporting.
 
 ### Level 0 metadata submission: JSON schema specification
 
-The JSON Schema document formally specifying data constraints on Level 0 TSVs is
+The JSON Schema document formally specifying all data constraints on Level 0 TSVs is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json).
 
