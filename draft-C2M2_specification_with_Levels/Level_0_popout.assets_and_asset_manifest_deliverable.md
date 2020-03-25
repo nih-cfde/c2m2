@@ -10,12 +10,13 @@ software system centered around the Crosscut
 Metadata Model (C2M2), a flexible technical standard
 for describing biomedical experimental resources and data
 at any of several pre-defined levels of model complexity.
-The purpose of this new system is to support powerful
-cross-dataset searches, custom aggregation of experimental
-data, and scale-powered statistical analysis methods for the
-biomedical research community at an unprecedented scope.
+This system is designed to support powerful cross-dataset
+and cross-institute searches; custom aggregation of
+experimental data; and scale-powered statistical analysis
+methods for the biomedical research community, all at an
+unprecedented scope.
 
-Using this system, data coordinating centers
+Using the C2M2 system, data coordinating centers
 ([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
 share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
 about their experimental resources with the research
