@@ -161,7 +161,7 @@ _Introduces tables for core experimental resources like:_
 * _host species taxonomy for samples and subjects_
 * _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
 
-The full specification is outlined, but not under active development. It will be formalized in the coming months. Importantly, Level 2 concepts are considered protected data at many sites,so implementation of this level will be limited by the CFDEs abiity to get protected data access.
+We have a draft specification of Level 2, preliminary documents for the schema can be found here [[LINK](https://github.com/nih-cfde/specifications-and-documentation/blob/roadmap/draft-C2M2_Levels_spreadsheets/Level_definitions.csv)]. Finalization of Level 2 will be completed in order to acheive a CFDE portal demonstration in December 2020. Importantly, Level 2 can be used to represent protected data, which will require completion of several important administrative and policy milestones. 
 
 
 ---
