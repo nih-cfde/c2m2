@@ -1,10 +1,9 @@
-This document defines the Crosscut Metadata Model (C2M2) Level 0,
-which describes a basic metadata **manifest of digital file assets**
-managed by a Common Fund data coordinating center (DCC). C2M2
-Level 0 is the simplest and easiest to produce of several
-increasingly complex C2M2 variants.
+## Introduction
+Submission process for Common Fund Data Asset Specification, and Asset Manifest compliant files for the CFDE. This document reviews the
 
-## Background
+Submission process for the Common Fund _Data Asset Specification_, and _Asset Manifest_ compliant files for the CFDE. This document will review the scheme associated with creating a basic manifest of digital file assets. To understand this process we will review the Crosscut Metadata Model (C2M2), as well as submission digital inventories. This is achieved in part by establishing "levels" which reflect increasing degrees of complexity of data and metadata description. Level 0, is essentially all that is needed to describe an inventory of all digital files from your DCC, while subsequent levels will be useful in supporting queries based on metadata at the CFDE portal.
+
+## Schema
 ### The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 The Common Fund Data Ecosystem group is creating a new
