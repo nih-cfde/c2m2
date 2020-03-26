@@ -170,7 +170,8 @@ The full specification is outlined, but not under active development. It will be
 
 ---
 
-### (...)
+### (Level N)...
+
 Based on feedback from the DCCs, and the terms that are important for searching their data, we anticipate the
 need for further levels. However, until we begin getting metadata from the Programs, we cannot predict
 what terms will be added, or what constellations of terms will be required to make a compliant model. However, 
