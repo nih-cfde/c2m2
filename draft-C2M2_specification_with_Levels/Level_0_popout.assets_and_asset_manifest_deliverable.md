@@ -1,5 +1,5 @@
 ## Introduction
-###Submission process for Common Fund Data Asset Specification, and Asset Manifest compliant files for the CFDE. 
+### Submission process for Common Fund Data Asset Specification, and Asset Manifest compliant files for the CFDE. 
 This document reviews the Submission process for the Common Fund _Data Asset Specification_, and _Asset Manifest_ compliant files for the CFDE. This document will review the scheme associated with creating a basic manifest of digital file assets. To understand this process we will review the Crosscut Metadata Model (C2M2), as well as submission digital inventories. This is achieved in part by establishing "levels" which reflect increasing degrees of complexity of data and metadata description. Level 0, is essentially all that is needed to describe an inventory of all digital files from your DCC, while subsequent levels will be useful in supporting queries based on metadata at the CFDE portal.
 
 ## Schema
