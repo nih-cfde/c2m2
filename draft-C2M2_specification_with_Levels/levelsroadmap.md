@@ -97,10 +97,7 @@ to feasibly describe their experimental resources using the
 most complex C2M2 modeling level: CFDE will support
 cases like these by offering simpler but still well-structured
 metadata levels, lowering some of the barriers to rapid
-entry into the data ecosystem. We expect this concept of levels to 
-be useful even after all current DCCs are onboarded, as when the CF funds new
-Programs, they will all have ramp up phases where their data necessarily is 
-less rich than the more mature DCCs.
+entry into the data ecosystem. 
 
 Simpler C2M2 metadata levels must be maintained by
 CFDE in such a way as to maximize interoperability with
@@ -111,7 +108,10 @@ creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-l
 concentric, canonical subsets of C2M2 which are benchmarked at
 increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
-encompassed by the previous (less complex) level.
+encompassed by the previous (less complex) level. We expect this concept of levels to 
+be useful even after all current DCCs are onboarded, as when the CF funds new
+Programs, they will all have ramp up phases where their data necessarily is 
+less rich than the more mature DCCs.
 
 Presently, CFDE presently offers two less complex C2M2 variants
 in addition to the most complex current C2M2 model:
@@ -123,7 +123,10 @@ the source for a human tissue sample or taxonomic data describing
 sample source organisms and study subjects; and basic support for arranging
 experimental resources into sub-collections based on a
 hierarchy of projects, studies or other similar subdivisions
-of research ownership and responsibility).
+of research ownership and responsibility). Levels 0 and 1 consist entirely of unprotected 
+metadata terms, and therefore should be achieveable by all DCCs. These two levels also
+are sufficient to support two minimal [Use Cases](https://nih-cfde.github.io/usecases/). 
+Using only the metadata from Levels 1 and 2, a [researcher can find datasets from across the Common Fund that contain information about her tissue of interest, assayed using her method of choice](https://nih-cfde.github.io/usecases/use-cases/browse-and-filter.html). Similarly, a [staff at the NIH can compare the tissues, species and assay types available across DCCs](https://nih-cfde.github.io/usecases/use-cases/multi-compare-custodian.html). More complex Use Cases, such as the [abilty for a researcher to find datasets for patients with a specific disease, in a specific age range](putlinkhere.html) will require DCCs to submit Level 2, protected, metadata terms. However, this is limited by our access to protected data, as we cannot legally accept that data until certian security and administraive issues are solved.
 
 
 ## C2M2 Development Roadmap
