@@ -139,7 +139,7 @@ _Introduces tables for core experimental resources like:_
 * _host species taxonomy for samples and subjects_
 * _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
 
-The full specification is currently under active development, and will be formalized and implemented in the first demo.
+The full specification is currently under active development, and will be formalized and implemented in the first demo scheduled for June 2020.
 
 ---
 
