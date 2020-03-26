@@ -55,15 +55,18 @@ drawn from (possibly obfuscated to protect patient privacy); or when
 a particular blood pressure measurement was made.
 
 While we know our current model is not yet rich enough to contain
-all of the metadata required by all DCCs, it is also too detailed 
+all of the metadata required by all DCCs, there are also too many terms 
 for most DCCs to easily work with. Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
 all possible features of the [current C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
 as a precondition for submitting metadata to CFDE would
-be impractical for several important reasons (apart from
-creating avoidable and unnecessary onboarding delays).
-Perhaps the most operationally relevant of these is that
-the C2M2 model must remain as flexible as possible, especially
+be impractical for several important reasons. 
+
+First, many of the DCCs host human data, and for all but very basic file information, the
+associated metadata is protected. Currently, the CFDE does not have protected
+data access or an ATO to make these metadata searchable. Requiring 
+DCCs to supply these terms would make it illegal for most DCCs to comply.
+Secondly, from an operational standpoint the C2M2 model must remain as flexible as possible, especially
 during its developmental phases, in order to accomodate mutual learning
 between DCCs and CFDE as the process of data ingestion
 develops. We don't want to lock ourselves in to our current
@@ -71,7 +74,11 @@ model topology before we've begun adding realy data.
 It is far more expensive and error-prone to
 repeatedly change a complex model than it is to build
 one gradually from a simpler core concept which is allowed
-to stabilize before more specialized branches are added.
+to stabilize before more specialized branches are added. Finally, even if 
+the issues with protected metadata were solved and the model was perfected, the
+complexity of the overall model would create avoidable and unnecessary onboarding delays
+for any new DCC.
+
 
 With the design of C2M2, we are splitting the difference
 between the ease of evolution inherent in a simple model and
@@ -90,7 +97,10 @@ to feasibly describe their experimental resources using the
 most complex C2M2 modeling level: CFDE will support
 cases like these by offering simpler but still well-structured
 metadata levels, lowering some of the barriers to rapid
-entry into the data ecosystem.
+entry into the data ecosystem. We expect this concept of levels to 
+be useful even after all current DCCs are onboarded, as when the CF funds new
+Programs, they will all have ramp up phases where their data necessarily is 
+less rich than the more mature DCCs.
 
 Simpler C2M2 metadata levels must be maintained by
 CFDE in such a way as to maximize interoperability with
@@ -151,7 +161,7 @@ _Introduces tables for core experimental resources like:_
 * _host species taxonomy for samples and subjects_
 * _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
 
-The full specification is outlined, but not under active development. It will be formalized in the coming months and implemented in a later demo.
+The full specification is outlined, but not under active development. It will be formalized in the coming months. Importantly, Level 2 concepts are considered protected data at many sites,so implementation of this level will be limited by the CFDEs abiity to get protected data access.
 
 
 ---
@@ -166,7 +176,7 @@ _Introduces tables for core experimental resources like:_
 * _SOP used for extraction or analysis process_
 
 
-The full specification is outlined, but not under active development. It will be formalized in the coming months and implemented in a later demo.
+The full specification is outlined, but not under active development. It will be formalized in the coming months and implemented in a later demo. As with Level 2, it is dependent on protected data access. 
 
 ---
 
