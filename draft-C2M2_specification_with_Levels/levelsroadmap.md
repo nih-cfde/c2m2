@@ -187,7 +187,7 @@ need for further levels. However, until we begin getting metadata from the Progr
 what terms will be added, or what constellations of terms will be required to make a compliant model. However, 
 we do not expect the number of levels to exceed 5, as some new terms will best fit as amendments to previously defined levels.
 
-The full specification is expected, but not outlined or under active development. It will be outlined once DCCs have begun to submit data, and formalized in collaboration with our DCC partners.
+The full specification is expected, but not outlined or under active development. It will be outlined once DCCs have begun to submit data, and formalized in collaboration with our DCC partners. As with Level 2, implementation of these levels will be dependent on protected data access. 
 
 ---
 
