@@ -70,7 +70,7 @@ Secondly, from an operational standpoint the C2M2 model must remain as flexible 
 during its developmental phases, in order to accomodate mutual learning
 between DCCs and CFDE as the process of data ingestion
 develops. We don't want to lock ourselves in to our current
-model topology before we've begun adding realy data. 
+model topology before we've begun adding real data. 
 It is far more expensive and error-prone to
 repeatedly change a complex model than it is to build
 one gradually from a simpler core concept which is allowed
@@ -97,7 +97,10 @@ to feasibly describe their experimental resources using the
 most complex C2M2 modeling level: CFDE will support
 cases like these by offering simpler but still well-structured
 metadata levels, lowering some of the barriers to rapid
-entry into the data ecosystem. 
+entry into the data ecosystem. We expect this concept of levels to 
+be useful even after all current DCCs are onboarded, as when the CF funds new
+Programs, they will all have ramp up phases where their data necessarily is 
+less rich than the more mature DCCs.
 
 Simpler C2M2 metadata levels must be maintained by
 CFDE in such a way as to maximize interoperability with
@@ -108,22 +111,19 @@ creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-l
 concentric, canonical subsets of C2M2 which are benchmarked at
 increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
-encompassed by the previous (less complex) level. We expect this concept of levels to 
-be useful even after all current DCCs are onboarded, as when the CF funds new
-Programs, they will all have ramp up phases where their data necessarily is 
-less rich than the more mature DCCs.
+encompassed by the previous (less complex) level. 
 
 Presently, CFDE presently offers two less complex C2M2 variants
 in addition to the most complex current C2M2 model:
 [Level 0](#level-0) (basic metadata describing a collection of digital files) and
-[Level 1](#level-1) (which introduces models for core experimental
+[Level 1](#level-1). Level 1 introduces terms for core experimental
 resources like samples and subjects; a rudimentary set of search targets
 in the form of annotations like the anatomical location of
 the source for a human tissue sample or taxonomic data describing
 sample source organisms and study subjects; and basic support for arranging
 experimental resources into sub-collections based on a
 hierarchy of projects, studies or other similar subdivisions
-of research ownership and responsibility). Levels 0 and 1 consist entirely of unprotected 
+of research ownership and responsibility. Levels 0 and 1 consist entirely of unprotected 
 metadata terms, and therefore should be achieveable by all DCCs. These two levels also
 are sufficient to support two minimal [Use Cases](https://nih-cfde.github.io/usecases/). 
 Using only the metadata from Levels 1 and 2, a [researcher can find datasets from across the Common Fund that contain information about her tissue of interest, assayed using her method of choice](https://nih-cfde.github.io/usecases/use-cases/browse-and-filter.html). Similarly, a [staff at the NIH can compare the tissues, species and assay types available across DCCs](https://nih-cfde.github.io/usecases/use-cases/multi-compare-custodian.html). More complex Use Cases, such as the [abilty for a researcher to find datasets for patients with a specific disease, in a specific age range](putlinkhere.html) will require DCCs to submit Level 2, protected, metadata terms. However, this is limited by our access to protected data, as we cannot legally accept that data until certian security and administraive issues are solved.
@@ -159,10 +159,11 @@ The full specification is currently under active development, and will be formal
 ### (Level 2)...
 
 _Introduces tables for core experimental resources like:_
-* _samples and subjects_
-* _search targets in the form of annotations like the anatomical source for a given tissue sample_
-* _host species taxonomy for samples and subjects_
-* _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
+* _sex_		
+* _age_	
+* _disease_
+* _health conditions_
+* _vital stats: height, weight, bp, etc_	
 
 We have a draft specification of Level 2, preliminary documents for the schema can be found here [[LINK](https://github.com/nih-cfde/specifications-and-documentation/blob/roadmap/draft-C2M2_Levels_spreadsheets/Level_definitions.csv)]. Finalization of Level 2 will be completed in order to acheive a CFDE portal demonstration in December 2020. Importantly, Level 2 can be used to represent protected data, which will require completion of several important administrative and policy milestones. 
 
