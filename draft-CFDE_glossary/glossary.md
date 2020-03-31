@@ -22,7 +22,7 @@
 
 **Figshare** - an online open access repository where researchers can preserve and share their research outputs, including figures, datasets, images, and videos.
 
-**File**
+**File** - digital objects that each of the DCCs host, such as genomic sequence, metagenomic, RNA-Seq, physiological, and metabolic data.
 
 **Frictionless Data Package** - a format specification produced by the Open Knowledge Foundation and supported by the Frictionless.io organization. It aims to shorten the path from data to insight with a collection of specifications and software for the publication, transport, and consumption of data. This kills the cycle of find/improve/share that makes for a dynamic and productive data ecosystem.
 
@@ -30,13 +30,13 @@
 
 **GUID** - Globally Unique IDentifier. A 128-bit unique identifier used to uniquely identify an entity as modern hashing functions used to generate those make identifier collisions (the event of the function producing the same sequence) highly unlikely (but not impossible).
 
-**Insignia**
+**Insignia** - a grid of colored squares used to visually communicate FAIRness level.
 
 **Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
 
 **Organization** - an entity comprising of multiple people, such as an institution or an association, that has a particular purpose.
 
-**POC I/II**
+**POC I/II** - proof of concept. A realization of a certain method or idea in order to demonstrate its feasibility. 
 
 **Project** 
 
@@ -63,9 +63,9 @@
 
 **[Entity-Relation Diagram](https://github.com/nih-cfde/cfde-deriva/blob/2019-10/extractors_and_metadata.GTEx/cfde-core-model.2019.10.21.1430.png)**
 
-**Inventory**
+**Inventory** - asset inventory distributed by the DCCs through a portal.
 
-**Metadata Manifest**
+**Metadata Manifest** - a file that includes metadata for a group of accompanying files that are part of a coherent unit (manifest), such as name, version, background scripts, and browser actions.
 
 
 ## Processes
@@ -76,11 +76,11 @@
 
 **FAIR Assessment** - the process of evaluating the level of compliance of a dataset with the FAIR principles. The assessment may be performed with tools such as [FAIRshake](https://fairshake.cloud) or [FAIREvaluator](https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/).
 
-**Globus Automate Flow**
+**Globus Automate Flow** - Globus, a software service created and based at the University of Chicago, helps scientists simplify their workflow by automating data transfer and synchronization tasks. Users can create automated sequences initiated by events.
 
 **Master Flow**
 
-**Metadata Ingest**
+**Metadata Ingest** - assigning identifiers to the objects and then extracting or creating metadata for these objects.
 
 **[Table Schema to DERIVA Translation](https://github.com/nih-cfde/cfde-deriva/blob/2019-08/examples/tableschema_to_deriva.py)**
 
@@ -91,7 +91,7 @@
 
 **C2M2** - Cross Cut Metadata Model. 
 
-**[CFDE Data Dashboard](https://cfde.derivacloud.org/deriva-webapps/plot/)**
+**[CFDE Data Dashboard](https://cfde.derivacloud.org/deriva-webapps/plot/)** - an interface that monitors DCC data upload to the cloud and usage statistics to support cross-DCC search and ecosystem integration.
 
 **CFDE Query Portal** - a portal enabling users and administrators to search all the federated data assets at each Common Fund Program. The CFDE portal increases a user's ability to find these important resources, as well as mix and match sets of data from each site to use in subsequent analysis. Administrators and Program Officers at Common Fund can use a single website to view the growth of data from their program over time, review objective FAIR metrics for these assets, understand download statistics and geographic distribution, and view the degree of harmonization of these data in comparison to other sites.
 
@@ -99,15 +99,28 @@
 
 **dbGaP** - Database of Genotypes and Phenotypes.
 
-**DERIVA Catalogue**
+**DERIVA Catalog** - a group of assets that may be digital objects (i.e., files) or references to physical objects. DERIVA uses an entity-relationship data model to catalog and organize these assets. 
 
-**FAIR Insignia** 
+**FAIR Insignia** - to visually communicate FAIRness level, a grid of colored squares, called the FAIR insignia, was developed. The FAIR insignia identifies areas of strength and weakness in the FAIRness level of digital objects, guiding digital object producers on how to improve the FAIRness of their products. 
 
 **GitHub** - an online hub for storing and sharing computer programs and other plain text files. The CFDE team uses it for storage, hosting websites, communications, and project management.
 
 **Jupyter Notebook** - a web-based interactive environment for organizing data, performing computation, and visualizing output.
 
-**NPM** 
+**NPM** - a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js. It consists of a command line client, also called npm, and an online database of public and paid-for private packages, called the npm registry.
+
+
+## Use Case Terms
+
+**Objective** - a description of a scientific process, told without reference to a specific technology solution. Focuses on resources required, method(s) followed, and outcome(s) targeted. Can be validated with scientific stakeholders.
+
+**Persona** - a type of user who will appear in the epics and stories that follow.
+
+**Requirement** - a well-scoped and defined piece of software or data engineering work that is needed to support a User Task. These should be small tasks that can be verified with engineering teams (e.g., did we deliver it? Yes or no.) A single requirement may be important for any number of different User Tasks, and various collections of Requirements can be grouped to support different User Tasks.
+
+**Summary** - a high-level, non-technical description of an entire Use Case. The user in each summary has a name, a scientific or administrative problem, and both proximate and ultimate goals. The focus is on the problem and what is generally needed to solve it.
+
+**User Task** - a story, told from the user’s perspective that captures a concrete step in a user's interactions with tools (e.g., software solutions) in the service of achieving the scientific objective. Must be written in terms that are meaningful to the user, from their perspective. This can be thought of as one in a series of medium scale tasks that must be completed to answer the question posed in the scientific objective. The list of User Tasks in a Use Case should cover everything the users needs to achieve their goals, even interactions that do not involve the software or data from the Common Fund.
 
 
 ## Other
@@ -118,20 +131,18 @@
 
 **BIC** - Bioinformatics Center. The BIC is responsible for the task of harmonizing the large quantity and diversity of data and metadata being generated by the consortium and performing meaningful integrative analyses across these omics data types.
 
-**C2M2** 
-
 **CC** - Coordinating Center. The CFDE-CC’s purpose is to improve growth in use and reuse of CF program data by supporting DCCs that participate in the Common Fund Data Ecosystem.
 
 **CFDE** - Common Fund Data Ecosystem. A data ecosystem is a collection of data silos or commons joined together by a set of standards and services that facilitate findability, accessibility, reuse, and interoperability of datasets between silos/commons. A data ecosystem is focused on enabling multi-way connectivity between datasets, in a horizontal fashion, rather than deeper vertical analysis within each dataset. The goal of an ecosystem is to enable use cases between data silos, not within.
 
-**Common Fund Programs**
-  * 4D Nucleome
-  * GTEx
-  * HMP
-  * KidsFirst
-  * LINCS
-  * Metabolomics
-  * SPARC
+**Common Fund Programs** - the intent of the CF programs is to provide a strategic and nimble approach to address key roadblocks in biomedical research that impede basic scientific discovery and its translation into improved human health. In addition, these programs capitalize on emerging opportunities to catalyze the rate of progress across multiple biomedical fields. The CF programs include:
+  * 4DN - The 4D Nucleome program's goal is to study the three-dimensional organization of the nucleus in space and time (the 4th dimension). 
+  * GTEx - the Genotype-Tissue Expression project is an ongoing effort to build a comprehensive public resource to study tissue-specific gene expression and regulation.
+  * HMP - the Human Microbiome Project whose mission is to generate resources to facilitate characterization of the human microbiota to further our understanding of how the microbiome impacts human health and disease. 
+  * Kids First - the Kids First Pediatric Research Program Data Resource Center enables researchers, clinicians, and patients to work together to accelerate research and promote new discoveries for children affected with cancer and structural birth defects. 
+  * LINCS - the Library of Integrated Network-based Cellular Signatures project is based on the premise that disrupting any one of the many steps of a given biological process will cause related changes in the molecular and cellular characteristics, behavior, and/or function of the cell – the observable composite of which is known as the cellular phenotype. Observing how and when a cell’s phenotype is altered by specific stressors can provide clues about the underlying mechanisms involved in perturbation and, ultimately, disease.
+  * Metabolomics - this program was developed with the goal of increasing national capacity in metabolomics by supporting the development of next generation technologies, providing training and mentoring opportunities, increasing the inventory and availability of high quality reference standards, and promoting data sharing and collaboration.
+  * SPARC - the Stimulating Peripheral Activity to Relieve Conditions program seeks to accelerate development of therapeutic devices that modulate electrical activity in nerves to improve organ function.
 
 **Controlled Vocabulary** - an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain. For example, the DCIC curates an internal 4DN controlled vocabulary to provide definitions for emerging technologies and techniques, metadata terms, and captures important data features not defined by previous ontologies.
 
