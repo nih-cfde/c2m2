@@ -27,7 +27,7 @@ implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
 group. These schemas will be used by the CFDE software
 infrastructure to automatically validate submission format compliance
-and metadata integrity during the [metadata ingestion](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#metadata-ingest) process.
+and metadata integrity during the [metadata ingestion](./draft-C2M2_specification_with_Levels_glossary.md#metadata-ingest) process.
 
 The CFDE will offer the DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
@@ -44,10 +44,10 @@ applications.
 ## C2M2 Richness Levels
 
 In its [current form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
-C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
+C2M2 is an [entity-relationship system](./draft-C2M2_specification_with_Levels_glossary.md#entity-relationship-model)
 that models common properties of resources fundamental
-to biomedical research like [subjects](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#subject), [digital files](./draft-C2M2_specification_with_Levels_glossary.md#digital-file-assets),
-[events](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#event), [biospecimens](./draft-C2M2_specification_with_Levels_glossary.md#biospecimen), and project [datasets](./draft-C2M2_specification_with_Levels_glossary.md#dataset). Essential
+to biomedical research like [subjects](./draft-C2M2_specification_with_Levels_glossary.md#subject), [digital files](./draft-C2M2_specification_with_Levels_glossary.md#digital-file-assets),
+[events](./draft-C2M2_specification_with_Levels_glossary.md#event), [biospecimens](./draft-C2M2_specification_with_Levels_glossary.md#biospecimen), and project [datasets](./draft-C2M2_specification_with_Levels_glossary.md#dataset). Essential
 relationships between these fundamental resources are also formally described,
 documenting, for example: 
 - the samples that were processed to produce a particular data file
@@ -166,7 +166,7 @@ Level 2 introduces tables for core experimental resources like:
 * Health conditions
 * Vital stats. e.g. height, weight, BP, etc.
 
-We have a draft specification of Level 2; preliminary documents for the schema can be found [here(https://github.com/nih-cfde/specifications-and-documentation/blob/roadmap/draft-C2M2_Levels_spreadsheets/Level_definitions.csv)]. Finalization of Level 2 will be completed to achieve a CFDE portal demonstration in December 2020. Level 2 can be used to represent protected data, which will require the completion of several important administrative and policy milestones. 
+We have a draft specification of Level 2; preliminary documents for the schema can be found [here(./Level_definitions.csv)]. Finalization of Level 2 will be completed to achieve a CFDE portal demonstration in December 2020. Level 2 can be used to represent protected data, which will require the completion of several important administrative and policy milestones. 
 
 
 ---
