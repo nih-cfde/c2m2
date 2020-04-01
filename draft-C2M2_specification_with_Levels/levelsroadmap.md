@@ -10,8 +10,8 @@ methods will be made possible for the biomedical research
 community at an unprecedented scope.
 
 Using this new infrastructure, the data coordinating centers
-([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
-share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
+([DCCs](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#dcc)) can
+share structured information ([metadata](./draft-C2M2_specification_with_Levels_glossary.md#metadata))
 about their experimental resources with the research
 community, dramatically widening access to usable
 observational data and accelerating discovery.
@@ -27,7 +27,7 @@ implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
 group. These schemas will be used by the CFDE software
 infrastructure to automatically validate submission format compliance
-and metadata integrity during the [metadata ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
+and metadata integrity during the [metadata ingestion](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#metadata-ingest) process.
 
 The CFDE will offer the DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
@@ -46,8 +46,8 @@ applications.
 In its [current form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
 that models common properties of resources fundamental
-to biomedical research like subjects, digital files,
-events, samples, and project datasets. Essential
+to biomedical research like [subjects](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#subject), [digital files](./draft-C2M2_specification_with_Levels_glossary.md#digital-file-assets),
+[events](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#event), [biospecimens](./draft-C2M2_specification_with_Levels_glossary.md#biospecimen), and project [datasets](./draft-C2M2_specification_with_Levels_glossary.md#dataset). Essential
 relationships between these fundamental resources are also formally described,
 documenting, for example: 
 - the samples that were processed to produce a particular data file
@@ -55,7 +55,7 @@ documenting, for example:
 - when a particular blood pressure measurement was made
 
 While we know our current model is not yet rich enough to contain
-all the metadata required by all DCCs, there are also too many terms 
+all the metadata that will be required by all DCCs, there are also too many terms 
 for most DCCs to easily use. Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
 all possible features of the [current C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
@@ -97,12 +97,12 @@ more operationally advanced DCCs.
 
 Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
-to feasibly describe their experimental resources using the
+to describe their experimental resources using the
 most complex C2M2 modeling level. The CFDE will support
 cases like these by offering simpler but still well-structured
 metadata levels, lowering some of the barriers to rapid
 entry into the data ecosystem. We expect this concept of levels to 
-be useful even after all current DCCs are onboarded. When the Common Fund funds new
+be useful even after all current DCCs are onboarded: when the Common Fund funds new
 programs, they will all have ramp up phases where their data is 
 less rich than the more mature DCCs.
 
@@ -118,7 +118,7 @@ modeling level is a value-added superset of all of the metadata
 encompassed by the previous (less complex) level. 
 
 Presently, the CFDE offers two less complex C2M2 variants
-in addition to the most complex current C2M2 model:
+in addition to the most complex, current C2M2 model:
 [Level 0](#level-0) (basic metadata describing a collection of digital files) and
 [Level 1](#level-1). Level 1 accomplishes the following:
 - Introduces terms for core experimental resources, like samples and subjects.
@@ -141,7 +141,7 @@ at this level of metadata richness will be the easiest to produce and will
 support the simplest available functionality implemented by
 downstream applications.
 
-The full specification can be found in the accompanying Level_0_popout.assets_and_asset_manifest_deliverable.md document.
+The full specification can be found in the accompanying [Level_0_popout.assets_and_asset_manifest_deliverable](./Level_0_popout.assets_and_asset_manifest_deliverable.md) document.
 
 ---
 
@@ -153,7 +153,7 @@ Level 1 introduces tables for core experimental resources like:
 * Host species taxonomy for samples and subjects
 * Basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies
 
-The full specification is currently under active development and will be formalized and implemented in the first demo scheduled for June 2020.
+The full specification is currently under active development and will be formalized and implemented in the demo scheduled for June 2020.
 
 ---
 
@@ -164,7 +164,7 @@ Level 2 introduces tables for core experimental resources like:
 * Age	
 * Disease
 * Health conditions
-* Vital stats, like height, weight, BP, etc.
+* Vital stats. e.g. height, weight, BP, etc.
 
 We have a draft specification of Level 2; preliminary documents for the schema can be found [here(https://github.com/nih-cfde/specifications-and-documentation/blob/roadmap/draft-C2M2_Levels_spreadsheets/Level_definitions.csv)]. Finalization of Level 2 will be completed to achieve a CFDE portal demonstration in December 2020. Level 2 can be used to represent protected data, which will require the completion of several important administrative and policy milestones. 
 
@@ -174,13 +174,13 @@ We have a draft specification of Level 2; preliminary documents for the schema c
 ### (Level 3)
 
 Level 3 introduces tables for core experimental resources like:
-* Sequencing technology			
+* Sequencing technology, e.g. Illumina, nanopore, 454
 * Geographic location		
 * Race/ethnicity (human)/strain (mouse)			
 * Sample collection date	
 * SOP used for extraction or analysis process
 
-The full specification is currently outlined, but not under active development. It will be formalized in the coming months and implemented in a later demo. As with Level 2, it is dependent on protected data access. 
+The full specification is currently outlined, but not under active development. It will be formalized in the coming months and implemented in a later demo. As with Level 2, it is dependent on CFDE access to protected data. 
 
 ---
 
@@ -191,7 +191,7 @@ need for further levels. Until we begin receiving metadata from the programs, we
 what terms will be added or what constellations of terms will be required to make a compliant model. However, 
 we do not expect the number of levels to exceed 5, as some new terms will best fit as amendments to previously defined levels.
 
-The full specification is expected, but not outlined or under active development. It will be outlined once the DCCs begin to submit data and formalized in collaboration with our DCC partners. As with Level 2, implementation of these levels will be dependent on protected data access. 
+The full specification is expected, but not outlined or under active development. It will be outlined once the DCCs begin to submit data and formalized in collaboration with our DCC partners. As with Level 2, implementation of these levels will be dependent on CFDE access to protected data. 
 
 ---
 
