@@ -1,4 +1,4 @@
-# The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
+# The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2) Roadmap
 
 This document introduces the [Crosscut Metadata Model (C2M2)](./draft-C2M2_specification_with_Levels_glossary.md#c2m2),
 a flexible standard for describing biomedical experimental
