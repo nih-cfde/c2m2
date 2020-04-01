@@ -64,7 +64,7 @@ be impractical for several important reasons.
 
 1. Many of the DCCs host human data, and for all but very basic file information, the
 associated metadata is protected. Currently, the CFDE does not have protected
-data access or an Authority to Operate (ATO) to make these metadata searchable. Requiring 
+data access or a permission to make these metadata searchable. Requiring 
 DCCs to supply these terms would make it illegal for most DCCs to comply.
 
 2. From an operational standpoint, the C2M2 model must remain as flexible as possible, especially
