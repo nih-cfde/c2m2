@@ -9,7 +9,7 @@ Defines the set of attributes used to charaterize an *Asset*. The specification 
 ##### DCC
 Data Coordinating/Resource Center.
 
-##### File
+##### Digital File Assets
 Digital objects that each of the DCCs host, such as genomic sequence, metagenomic, RNA-Seq, physiological, descriptive, and metabolic data.
 
 ##### Metadata
