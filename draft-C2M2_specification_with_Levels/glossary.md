@@ -1,3 +1,4 @@
 # Glossary
 
-**DCC** - Data Coordinating/Resource Center.
+##### DCC
+Data Coordinating/Resource Center.
