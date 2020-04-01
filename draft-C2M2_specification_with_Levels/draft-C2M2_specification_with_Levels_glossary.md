@@ -18,6 +18,9 @@ Data Coordinating/Resource Center.
 ##### Digital File Assets
 Digital objects that each of the DCCs host, such as genomic sequence, metagenomic, RNA-Seq, physiological, descriptive, and metabolic data.
 
+##### Entity Relationship Model
+Describes the interrelationships of metadata terms. It specifes both the entity (metadata term) and how that term is semantically related to all the other entities in the model. For example, we specify that each Biospecimen must come from a Subject.
+
 ##### Event
 Specific instances of data gathering for a specific patient, as in a specific surgery or appointment
 
