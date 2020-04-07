@@ -144,7 +144,7 @@ accounting, querying and reporting.
 
 |_Level 0 model diagram_|
 |:---:|
-|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.no_borders.post_SVG.png "Level 0 model diagram")|
+|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.no_borders.svg_edited.png "Level 0 model diagram")|
 
 #### Level 0 technical specification: properties of the `file` entity
 

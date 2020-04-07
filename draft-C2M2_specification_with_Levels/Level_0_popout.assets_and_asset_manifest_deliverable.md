@@ -36,7 +36,7 @@ C2M2 Level 0 encodes the most basic file metadata; its use by downstream applica
 
 |_Level 0 Model Diagram_|
 |:---:|
-|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.no_borders.post_SVG.png "Level 0 model diagram")|
+|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.no_borders.svg_edited.png "Level 0 model diagram")|
 
 ### Level 0 Technical Specification: Properties of the `file` Entity
 
