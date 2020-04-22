@@ -56,5 +56,6 @@ C2M2 Level 0 encodes the most basic file metadata; its use by downstream applica
 ### Level 0 Metadata Submission: frictionless.io `datapackage.json` Schema Specification
 
 The JSON schema document formally specifying all data constraints on Level 0 TSVs is located
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json).
+[here](../draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json), and
+an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv) (just the `file.tsv` portion) and [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz) (as a full BDBag archive).
 
