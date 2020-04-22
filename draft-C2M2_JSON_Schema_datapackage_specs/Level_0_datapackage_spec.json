@@ -1,6 +1,6 @@
 {
    "profile": "tabular-data-package",
-   "name": "table_schema_specs_for_Level_0_c2m2_encoding_of_dcc_metadata",
+   "name": "table_schema_specs_for_level_0_c2m2_encoding_of_dcc_metadata",
    "title": "A complete list of schematic specifications for the resources (TSV table files) that will be used to represent C2M2 Level 0 DCC metadata prior to ingest into the C2M2 database system.",
    "resources": [
       {
