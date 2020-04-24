@@ -215,7 +215,7 @@ _describe TSV usage of `sample_id` and `subject_id`_
 #### Level 1 metadata submission examples: schema and example TSVs
 
 The JSON Schema document specifying the Level 1 TSV
-collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (just the `file.tsv` portion) and **here** (as a full BDBag archive).
+collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
 
 ---
 
