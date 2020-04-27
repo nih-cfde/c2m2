@@ -180,22 +180,6 @@ _...introduces models for core experimental resources like_
 |:---:|
 |![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
 
-#### Level 1: the `project` string
-
-_A PATH-like fwdslash ("/")-delimited string, where the sequence
-of /-delimited substrings describes the project containment hierarchy
-attached to a file, subject or sample. DCCs will (optionally)
-generate these strings in whatever way they see fit (as long as delimited
-tokens don't contain slash characters). Note in particular that there is
-no default assumption of any relationship whatsoever between the project
-hierarchy proffered by a DCC in its data submission (via this field) and
-any formal NIH project structure: in other words, DCCs are free to
-subdivide their project space however they like at this level, and stuff
-it in this field as a PATH. (More structured -- and programmatically
-usable -- modeling of organizations, projects and studies associated with
-C2M2 core entities will be specified in the full C2M2 model, but is not
-required for Level 1 compliance.)_
-
 #### Level 1 technical specification: the `file` entity, revisited
 
 _added properties_
@@ -208,13 +192,21 @@ _added entity: list and define properties_
 
 _added entity: list and define properties_
 
-#### Level 1 technical specification: usage of foreign keys to encode inter-entity relationships
+#### Level 1 technical specification: using the `project` table
 
-_describe TSV usage of `sample_id` and `subject_id`_
+_describe the `project` table_
+
+#### Level 1 technical specification: using association tables to encode inter-entity relationships
+
+_describe TSV encoding of `bio_sample`<->`subject`<->`file`<->`bio_sample` association pairs_
+
+#### Level 1 technical specification: using terms from controlled vocabularies: usage tables
+
+_enumerate CVs; describe usage tables and outline plan for addressing versioning; discuss parser script, to be executed somewhere in bdbag-preparation stage, which will inflate bare CV terms cited in entity fields into corresponding CV usage tables, loading term-decorator data from relevant CV OBO reference files_
 
 #### Level 1 metadata submission examples: schema and example TSVs
 
-The JSON Schema document specifying the Level 1 TSV
+An out-of-date JSON Schema document specifying the Level 1 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
 
 ---
