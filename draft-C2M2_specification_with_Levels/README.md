@@ -206,7 +206,7 @@ _enumerate CVs; describe usage tables and outline plan for addressing versioning
 
 #### Level 1 metadata submission examples: schema and example TSVs
 
-An out-of-date JSON Schema document specifying the Level 1 TSV
+A JSON Schema document specifying the Level 1 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
 
 ---
