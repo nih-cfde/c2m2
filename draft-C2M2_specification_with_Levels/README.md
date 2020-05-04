@@ -211,19 +211,7 @@ collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.da
 
 ---
 
-### (Level 2)...
-
----
-
-### (Level 3)...
-
----
-
-### (...)
-
----
-
-### Level N (the full C2M2 model)
+### Level 2 (the full C2M2 model)
 
 _This final, most complex C2M2 level needs a couple of things:_
 
