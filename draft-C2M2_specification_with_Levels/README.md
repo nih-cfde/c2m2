@@ -176,6 +176,10 @@ _...introduces models for core experimental resources like_
 * _host species taxonomy for samples and subjects_
 * _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
 
+_...also introduces two containers for aggregating experimental resources & metadata:_
+* _`project` describes administrative/funding/contract/etc. hierarchy governing ownership/management/purview/responsibility of/for subcollections of experimental resources and metadata_
+* _`collection` allows any (non-cyclic) groupings and subdivisions to be assigned to subcollections of experimental resources and metadata (independently of contract or funding or accountability/reporting structures encoded by `project`): similar in concept to "dataset" but without implying the existence of a formally-prepared publication-level data/metadata package -- any coherent and meaningful grouping can be encoded here_
+
 |_Level 1 model diagram_|
 |:---:|
 |![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
