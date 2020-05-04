@@ -200,6 +200,10 @@ _added entity: list and define properties_
 
 _describe the `project` table_
 
+#### Level 1 technical specification: using the `collection` table
+
+_describe the `collection` table_
+
 #### Level 1 technical specification: using association tables to encode inter-entity relationships
 
 _describe TSV encoding of `bio_sample`<->`subject`<->`file`<->`bio_sample` association pairs_
