@@ -215,11 +215,10 @@ collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.da
 
 _This final, most complex C2M2 level needs a couple of things:_
 
-1. _**needs a better name** than 'full C2M2' or 'Level N'_
+1. _**might need a better name** than 'full C2M2' or 'Level 2'_
 2. _**model diagram needs updating** so corresponding fields exactly match Levels 0 and 1_
 3. _**JSON Data Package schema needs updating** so corresponding fields exactly match the updates to the model diagram_
-4. _**Levels 2 and 3 (and ...?) need to be finalized**, then harmonized with this one_
-5. _We haven't yet explicitly provided a **modeling solution for clinical visit data**; that needs to happen_
+4. _We haven't yet explicitly provided a **modeling solution for clinical visit data**; that needs to happen_
 
 |_The full C2M2 model_|
 |:---:|
@@ -227,8 +226,8 @@ _This final, most complex C2M2 level needs a couple of things:_
 
 #### ...
 
-#### Level N submissions: schema and example TSVs
+#### Level 2 submissions: schema and example TSVs
 
-The JSON Schema document specifying the full (Level N) C2M2 TSV
+The JSON Schema document specifying the full (Level 2) C2M2 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
-example Level-N-compliant TSV submissions can be found **here**, **here** and **here**.
+example Level-2-compliant TSV submissions can be found **here**, **here** and **here**.
