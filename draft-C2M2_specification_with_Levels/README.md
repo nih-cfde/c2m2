@@ -10,8 +10,8 @@ methods will be made possible for the biomedical research
 community at an unprecedented scope.
 
 Using this new infrastructure, data coordinating centers
-([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
-share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
+([DCCs](https://nih-cfde.org/resource/cfde-glossary/#user-content-dcc)) can
+share structured information ([metadata](https://nih-cfde.org/resource/cfde-glossary/#user-content-metadata))
 about their experimental resources with the research
 community, widening and deepening access to usable
 observational data and accelerating discovery.
@@ -27,7 +27,7 @@ implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
 group. These schemas will be used by the CFDE software
 infrastructure to automatically validate submission format compliance
-and metadata integrity during the [ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
+and metadata integrity during the ingestion process.
 
 CFDE will offer DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
@@ -44,7 +44,7 @@ progresses.
 ## C2M2 Richness Levels
 
 In its [fullest form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
-C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
+C2M2 is an [entity-relationship system](https://nih-cfde.org/resource/cfde-glossary/#user-content-entity-relationship-model)
 that models common properties of resources fundamental
 to biomedical research like subjects, digital files,
 events, samples, and project datasets. Essential
@@ -94,7 +94,7 @@ CFDE in such a way as to maximize interoperability with
 more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
 changes. These considerations have led to the
-creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
+creation of C2M2 [richness levels](https://nih-cfde.org/resource/cfde-glossary/#user-content-richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
@@ -102,8 +102,8 @@ encompassed by the previous (less complex) level.
 
 Accordingly, CFDE presently offers two less complex C2M2 variants
 in addition to the full C2M2 model:
-[Level 0](#level-0) (basic metadata describing a collection of digital files) and
-[Level 1](#level-1) (which introduces models for core experimental
+[Level 0](#user-content-level-0) (basic metadata describing a collection of digital files) and
+[Level 1](#user-content-level-1) (which introduces models for core experimental
 resources like samples and subjects; a rudimentary set of search targets
 in the form of annotations like the anatomical location of
 the source for a human tissue sample or taxonomic data describing
@@ -130,7 +130,7 @@ for the Level 0 `file` entity (see below for
 diagram and definitions) will serve as the TSV's column
 headers; each TSV row will represent a single file. The
 Level 0 TSV itself thus represents a
-**[manifest](../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest)
+**[manifest](https://nih-cfde.org/resource/cfde-glossary/#user-content-cfde-asset-manifest)
 or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
