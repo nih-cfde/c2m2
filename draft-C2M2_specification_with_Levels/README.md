@@ -227,7 +227,7 @@ _This final, most complex C2M2 level needs a couple of things:_
 
 |_The full C2M2 model_|
 |:---:|
-|![The full C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)|
+|![The full C2M2 model](https://nih-cfde.org/wp-content/uploads/2020/05/full-C2M2-ER-model.png)|
 
 #### ...
 
