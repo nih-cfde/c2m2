@@ -3,7 +3,7 @@ Table of Contents:
 [File Formats and Types](#user-content-file-formats-and-types)  
 [Processes](#user-content-processes)  
 [Software and Tools](#user-content-software-and-tools)  
-[Use Case Terms](#user-content-use-case-terms)
+[Use Case Terms](#user-content-use-case-terms)  
 [Other](#user-content-other)
 
 ### Controlled Vocabulary
@@ -18,7 +18,7 @@ Table of Contents:
 
 **Dataset** - a collection of data, published or curated by a single agent, and available for access or download in one or more formats.
 
-**DATS** - [Data Article Tag Suite](https://github.com/datatagsuite/README) is a data model for representing key information about datasets with an emphasis on data discovery and data findability, which has inspired the creation of the NIH-C2M2 model. [The DATS model is expressed as a JSON schema](https://datatagsuite.github.io/docs/html/dats.html). Associated JSON-LD context files support search engine optimization because they map into [schema.org](https://schema.org) and [DCAT](www.w3.org/TR/vocab-dcat-2/). Mappings into biological entities are also available via [OBO Foundry resources](http://www.obofoundry.org). 
+**DATS** - [Data Article Tag Suite](https://github.com/datatagsuite/README) is a data model for representing key information about datasets with an emphasis on data discovery and data findability, which has inspired the creation of the NIH-C2M2 model. [The DATS model is expressed as a JSON schema](https://datatagsuite.github.io/docs/html/dats.html). Associated JSON-LD context files support search engine optimization because they map into [schema.org](https://schema.org) and [DCAT](https://www.w3.org/TR/vocab-dcat-2/). Mappings into biological entities are also available via [OBO Foundry resources](http://www.obofoundry.org). 
 
 **DERIVA** - Discovery Environment for Relational Information and Versioned Assets. A suite of tools and services that are designed to significantly reduce the overhead and complexity of creating and managing complex, big datasets. DERIVA provides a digital asset management system for scientific data to streamline the acquisition, modeling, management, and sharing of complex, big data, and provides interfaces so that these data can be delivered to diverse external tools for big-data analysis and analytic tools.
 
@@ -38,7 +38,7 @@ Table of Contents:
 
 **Insignia** - a grid of colored squares used to visually communicate FAIRness level.
 
-<a name="metadata"></a>**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
+<a name="user-content-metadata"></a>**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
 
 **Organization** - an entity comprising of multiple people, such as an institution or an association, that has a particular purpose.
 
@@ -55,7 +55,7 @@ Table of Contents:
 
 ### File Formats and Types 
 
-<a name="cfde-asset-manifest"></a>**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
+<a name="user-content-cfde-asset-manifest"></a>**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
 
 **CFDE Asset Specification** - defines the set of attributes used to charaterize an *Asset*. The specification simplifies the discovery of assets hosted at the DCCs with a minimal set of descriptors for each of these files. The types of files that are referenced (e.g., genomic sequence, metagenomic, RNA-Seq, physiological and metabolic data) are flexible and contain a small number of essential elements such as a *GUID*, originating institution (e.g., Broad Institute), assay type (e.g., whole genome/exome, transcriptome, epigenome), file type (e.g., fastq, alignment, vcf, counts), and tissue source and species name for the sample.
 ![data asset specification](https://user-images.githubusercontent.com/40363469/66134046-ac16bc80-e5c5-11e9-9b30-66407a3446e5.png)
@@ -152,7 +152,7 @@ Table of Contents:
 
 **Controlled Vocabulary** - an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain. For example, the DCIC curates an internal 4DN controlled vocabulary to provide definitions for emerging technologies and techniques, metadata terms, and captures important data features not defined by previous ontologies.
 
-<a name="dcc"></a>**DCC** - Data Coordinating/Resource Center.
+<a name="user-content-dcc"></a>**DCC** - Data Coordinating/Resource Center.
 
 **DCIC** - Data generated by 4DN partner institutions are integrated, curated, analyzed, and disseminated by the 4DN Data Coordination and Integration Center (DCIC).
 
