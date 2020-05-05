@@ -69,6 +69,8 @@ Table of Contents:
 
 **[Entity-Relation Diagram](https://github.com/nih-cfde/cfde-deriva/blob/2019-10/extractors_and_metadata.GTEx/cfde-core-model.2019.10.21.1430.png)**
 
+<a name="user-content-entity-relationship-model"></a>**Entity Relationship Model** - A way to describe the interrelationships of terms. It specifes both the term and how that term is semantically related to all the other terms in the model.
+
 **Inventory** - asset inventory distributed by the DCCs through a portal.
 
 **Metadata Manifest** - a file that includes metadata for a group of accompanying files that are part of a coherent unit (manifest), such as name, version, background scripts, and browser actions.
@@ -179,6 +181,8 @@ Table of Contents:
 **RCMRC** – Regional Comprehensive Metabolomics Resource Cores. The Metabolomics Program consortium consists of six RCMRCs, also called the Compound Identification Cores (CIDCs), and seven Data and Tools Cores (DTCs) that are overseen by the Metabolomics Consortium Coordinating Center at the University of Florida.
 
 **RefMet** – Reference list of Metabolite names. Developed by the Common Fund Metabolomics program. Effectively a large spreadsheet that provides a standard nomenclature for over 95,500 chemical species. From the Metabolomics Workbench website, it can be browsed and searched directly or a user can input a list of metabolite names and have them automatically converted to RefMet nomenclature. A user can also directly download the data, either in whole or after filtering as one would with a simple Excel sheet. Or the entire dataset can be downloaded as part of a Shiny R app and queried locally.
+
+<a name="user-content-richness-levels"></a>**Richness Levels** - Concentric, canonical subsets of C2M2 that are benchmarked at increasing levels of model complexity and detail, wherein each successive modeling level is a value-added superset of all of the metadata encompassed by the previous (less complex) level.
 
 **SSO** – Single Sign-On.
 
