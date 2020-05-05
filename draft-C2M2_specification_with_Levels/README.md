@@ -10,8 +10,8 @@ methods will be made possible for the biomedical research
 community at an unprecedented scope.
 
 Using this new infrastructure, data coordinating centers
-([DCCs](https://nih-cfde.org/resource/cfde-glossary/#user-content-dcc)) can
-share structured information ([metadata](https://nih-cfde.org/resource/cfde-glossary/#user-content-metadata))
+([DCCs](https://nih-cfde.org/product/c2m2-glossary/#user-content-dcc)) can
+share structured information ([metadata](https://nih-cfde.org/product/c2m2-glossary/#user-content-metadata))
 about their experimental resources with the research
 community, widening and deepening access to usable
 observational data and accelerating discovery.
@@ -43,8 +43,8 @@ progresses.
 
 ## C2M2 Richness Levels
 
-In its [fullest form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
-C2M2 is an [entity-relationship system](https://nih-cfde.org/resource/cfde-glossary/#user-content-entity-relationship-model)
+In its [fullest form](https://nih-cfde.org/product/full-c2m2-er-model/),
+C2M2 is an [entity-relationship system](https://nih-cfde.org/product/c2m2-glossary/#user-content-entity-relationship-model)
 that models common properties of resources fundamental
 to biomedical research like subjects, digital files,
 events, samples, and project datasets. Essential
@@ -56,7 +56,7 @@ a particular blood pressure measurement was made.
 
 Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
-all possible features of the [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+all possible features of the [full C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)
 as a precondition for submitting metadata to CFDE would
 be infeasible for several important reasons (apart from
 creating avoidable and unnecessary onboarding delays).
@@ -79,7 +79,7 @@ systems of their own should not encounter arbitrary
 barriers to CFDE support for more extensive relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
-[full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+[full C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)
 according to needs identified while working with
 more operationally advanced DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
@@ -94,7 +94,7 @@ CFDE in such a way as to maximize interoperability with
 more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
 changes. These considerations have led to the
-creation of C2M2 [richness levels](https://nih-cfde.org/resource/cfde-glossary/#user-content-richness-levels):
+creation of C2M2 [richness levels](https://nih-cfde.org/product/c2m2-glossary/#user-content-richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
 increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
@@ -130,7 +130,7 @@ for the Level 0 `file` entity (see below for
 diagram and definitions) will serve as the TSV's column
 headers; each TSV row will represent a single file. The
 Level 0 TSV itself thus represents a
-**[manifest](https://nih-cfde.org/resource/cfde-glossary/#user-content-cfde-asset-manifest)
+**[manifest](https://nih-cfde.org/product/c2m2-glossary/#user-content-cfde-asset-manifest)
 or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
@@ -141,7 +141,7 @@ accounting, querying and reporting.
 
 |_Level 0 model diagram_|
 |:---:|
-|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
+|![Level 0 model diagram](https://nih-cfde.org/product/level-0-c2m2-model/)|
 
 #### Level 0 technical specification: properties of the `file` entity
 
@@ -160,8 +160,8 @@ accounting, querying and reporting.
 #### Level 0 metadata submission examples: schema and example TSVs
 
 The JSON Schema document specifying the Level 0 TSV is
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json);
-an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv) (just the `file.tsv` portion) and [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz) (as a full BDBag archive).
+[here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json);
+an example Level-0-compliant TSV submission can be found [here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv) (just the `file.tsv` portion) and [here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz) (as a full BDBag archive).
 
 ---
 
@@ -179,7 +179,7 @@ _...also introduces two containers for aggregating experimental resources & meta
 
 |_Level 1 model diagram_|
 |:---:|
-|![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
+|![Level 1 model diagram](https://nih-cfde.org/product/level-1-c2m2-model/)|
 
 #### Level 1 technical specification: the `file` entity, revisited
 
@@ -212,7 +212,7 @@ _enumerate CVs; describe usage tables and outline plan for addressing versioning
 #### Level 1 metadata submission examples: schema and example TSVs
 
 A JSON Schema document specifying the Level 1 TSV
-collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
+collection is [here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
 
 ---
 
@@ -227,12 +227,12 @@ _This final, most complex C2M2 level needs a couple of things:_
 
 |_The full C2M2 model_|
 |:---:|
-|![The full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png "The full C2M2 model")|
+|![The full C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)|
 
 #### ...
 
 #### Level 2 submissions: schema and example TSVs
 
 The JSON Schema document specifying the full (Level 2) C2M2 TSV
-collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
+collection is [here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
 example Level-2-compliant TSV submissions can be found **here**, **here** and **here**.
