@@ -119,8 +119,8 @@ encompassed by the previous (less complex) level.
 
 Presently, the CFDE offers two less complex C2M2 variants
 in addition to the most complex, current C2M2 model:
-[Level 0](#level-0) (basic metadata describing a collection of digital files) and
-[Level 1](#level-1). Level 1 accomplishes the following:
+[Level 0](#user-content-level-0) (basic metadata describing a collection of digital files) and
+[Level 1](#user-content-level-1). Level 1 accomplishes the following:
 - Introduces terms for core experimental resources, like samples and subjects.
 - Provides a rudimentary set of search targets in the form of annotations, like the anatomical location of the source for a human tissue sample or taxonomic data describing sample source organisms and study subjects.
 - Supports arranging experimental resources into sub-collections based on a hierarchy of projects, studies, or other similar subdivisions of research ownership and responsibility. 
