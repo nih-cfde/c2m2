@@ -1,6 +1,6 @@
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2) Roadmap
 
-This document introduces the [Crosscut Metadata Model (C2M2)](./draft-C2M2_specification_with_Levels_glossary.md#c2m2),
+This document introduces the [Crosscut Metadata Model (C2M2)](https://nih-cfde.org/product/c2m2-glossary/#user-content-c2m2),
 a flexible standard for describing biomedical experimental
 data. The Common Fund Data Ecosystem (CFDE) group is creating a new
 infrastructure, with C2M2 as its central concept, through
@@ -10,8 +10,8 @@ methods will be made possible for the biomedical research
 community at an unprecedented scope.
 
 Using this new infrastructure, the data coordinating centers
-([DCCs](./draft-C2M2_specification_with_Levels/draft-C2M2_specification_with_Levels_glossary.md#dcc)) can
-share structured information ([metadata](./draft-C2M2_specification_with_Levels_glossary.md#metadata))
+([DCCs](https://nih-cfde.org/product/c2m2-glossary/#user-content-dcc)) can
+share structured information ([metadata](https://nih-cfde.org/product/c2m2-glossary/#user-content-metadata))
 about their experimental resources with the research
 community, dramatically widening access to usable
 observational data and accelerating discovery.
@@ -27,7 +27,7 @@ implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
 group. These schemas will be used by the CFDE software
 infrastructure to automatically validate submission format compliance
-and metadata integrity during the [metadata ingestion](./draft-C2M2_specification_with_Levels_glossary.md#metadata-ingest) process.
+and metadata integrity during the [metadata ingestion](https://nih-cfde.org/product/c2m2-glossary/#user-content-metadata-ingest) process.
 
 The CFDE will offer the DCCs multiple alternatives for metadata submission
 formats, all of which will be automatically interoperable with the
@@ -43,11 +43,11 @@ applications.
 
 ## C2M2 Richness Levels
 
-In its [current form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
-C2M2 is an [entity-relationship system](./draft-C2M2_specification_with_Levels_glossary.md#entity-relationship-model)
+In its [current form](https://nih-cfde.org/product/full-c2m2-er-model/),
+C2M2 is an [entity-relationship system](https://nih-cfde.org/product/c2m2-glossary/#user-content-entity-relationship-model)
 that models common properties of resources fundamental
-to biomedical research like [subjects](./draft-C2M2_specification_with_Levels_glossary.md#subject), [digital files](./draft-C2M2_specification_with_Levels_glossary.md#digital-file-assets),
-[events](./draft-C2M2_specification_with_Levels_glossary.md#event), [biospecimens](./draft-C2M2_specification_with_Levels_glossary.md#biospecimen), and project [datasets](./draft-C2M2_specification_with_Levels_glossary.md#dataset). Essential
+to biomedical research like [subjects](https://nih-cfde.org/product/c2m2-glossary/#user-content-subject), [digital files](https://nih-cfde.org/product/c2m2-glossary/#user-content-digital-file-assets),
+[events](https://nih-cfde.org/product/c2m2-glossary/#user-content-event), [biospecimens](https://nih-cfde.org/product/c2m2-glossary/#user-content-biospecimen), and project [datasets](https://nih-cfde.org/product/c2m2-glossary/#user-content-dataset). Essential
 relationships between these fundamental resources are also formally described,
 documenting, for example: 
 - the samples that were processed to produce a particular data file
@@ -58,7 +58,7 @@ While we know our current model is not yet rich enough to contain
 all the metadata that will be required by all DCCs, there are also too many terms 
 for most DCCs to easily use. Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
-all possible features of the [current C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+all possible features of the [current C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)
 as a precondition for submitting metadata to CFDE would
 be impractical for several important reasons. 
 
@@ -91,7 +91,7 @@ systems of their own should not encounter arbitrary
 barriers to CFDE support for more extensive relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
-[current C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+[current C2M2 model](https://nih-cfde.org/product/full-c2m2-er-model/)
 according to needs identified while working with
 more operationally advanced DCCs. 
 
@@ -111,7 +111,7 @@ CFDE to maximize interoperability with
 more complex C2M2 variants; the whole system should be
 structured to minimize the negative side effects of overall model
 changes. These considerations have led to the
-creation of C2M2 [richness levels](./draft-C2M2_specification_with_Levels_glossary.md#richness-levels):
+creation of C2M2 [richness levels](https://nih-cfde.org/product/c2m2-glossary/#user-content-richness-levels):
 concentric, canonical subsets of C2M2 that are benchmarked at
 increasing levels of model complexity and detail, wherein each successive
 modeling level is a value-added superset of all of the metadata
@@ -141,7 +141,7 @@ at this level of metadata richness will be the easiest to produce and will
 support the simplest available functionality implemented by
 downstream applications.
 
-The full specification can be found in the accompanying [Level_0_popout.assets_and_asset_manifest_deliverable](./Level_0_popout.assets_and_asset_manifest_deliverable.md) document.
+The full specification can be found in the accompanying [Level_0_popout.assets_and_asset_manifest_deliverable](https://nih-cfde.org/product/level-0-asset-manifest-specification/) document.
 
 ---
 
@@ -153,7 +153,7 @@ Level 1 introduces tables for core experimental resources like:
 * Host species taxonomy for samples and subjects
 * Basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies
 
-The full specification is currently under active development and will be formalized and implemented in the demo scheduled for June 2020.
+The full specification can be found in the accompanying [Level_1_popout.assets_and_asset_manifest_deliverable](https://nih-cfde.org/product/level-1-asset-manifest-specification/) document.
 
 ---
 
@@ -166,7 +166,7 @@ Level 2 introduces tables for core experimental resources like:
 * Health conditions
 * Vital stats. e.g. height, weight, BP, etc.
 
-We have a draft specification of Level 2; preliminary documents for the schema can be found [here(./Level_definitions.csv)]. Finalization of Level 2 will be completed to achieve a CFDE portal demonstration in December 2020. Level 2 can be used to represent protected data, which will require the completion of several important administrative and policy milestones. 
+We have a draft specification of Level 2; preliminary documents for the schema can be found [here](https://github.com/nih-cfde/specifications-and-documentation/blob/master/draft-C2M2_Levels_spreadsheets/Level_definitions.csv). Finalization of Level 2 will be completed to achieve a CFDE portal demonstration in December 2020. Level 2 can be used to represent protected data, which will require the completion of several important administrative and policy milestones. 
 
 
 ---
