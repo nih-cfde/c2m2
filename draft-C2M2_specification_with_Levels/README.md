@@ -141,7 +141,7 @@ accounting, querying and reporting.
 
 |_Level 0 model diagram_|
 |:---:|
-|![Level 0 model diagram](https://nih-cfde.org/product/level-0-c2m2-model/)|
+|![Level 0 model diagram](https://nih-cfde.org/wp-content/uploads/2020/05/Level-0-C2M2-model.png "Level 0 model diagram")|
 
 #### Level 0 technical specification: properties of the `file` entity
 
@@ -179,7 +179,7 @@ _...also introduces two containers for aggregating experimental resources & meta
 
 |_Level 1 model diagram_|
 |:---:|
-|![Level 1 model diagram](https://nih-cfde.org/product/level-1-c2m2-model/)|
+|![Level 1 model diagram](https://nih-cfde.org/wp-content/uploads/2020/05/Level-1-C2M2-model.png "Level 1 model diagram")|
 
 #### Level 1 technical specification: the `file` entity, revisited
 
