@@ -1,12 +1,6 @@
-Table of Contents:  
-[Controlled Vocabulary](#user-content-controlled-vocabulary)  
-[File Formats and Types](#user-content-file-formats-and-types)  
-[Processes](#user-content-processes)  
-[Software and Tools](#user-content-software-and-tools)  
-[Use Case Terms](#user-content-use-case-terms)  
-[Other](#user-content-other)
+# CFDE Glossary
 
-### Controlled Vocabulary
+## Controlled Vocabulary
 
 **Asset** - a sample or a file.
 
@@ -18,7 +12,7 @@ Table of Contents:
 
 **Dataset** - a collection of data, published or curated by a single agent, and available for access or download in one or more formats.
 
-**DATS** - [Data Article Tag Suite](https://github.com/datatagsuite/README) is a data model for representing key information about datasets with an emphasis on data discovery and data findability, which has inspired the creation of the NIH-C2M2 model. [The DATS model is expressed as a JSON schema](https://datatagsuite.github.io/docs/html/dats.html). Associated JSON-LD context files support search engine optimization because they map into [schema.org](https://schema.org) and [DCAT](https://www.w3.org/TR/vocab-dcat-2/). Mappings into biological entities are also available via [OBO Foundry resources](http://www.obofoundry.org). 
+**DATS** - [Data Article Tag Suite](https://github.com/datatagsuite/README) is a data model for representing key information about datasets with an emphasis on data discovery and data findability, which has inspired the creation of the NIH-C2M2 model. [The DATS model is expressed as a JSON schema](https://datatagsuite.github.io/docs/html/dats.html). Associated JSON-LD context files support search engine optimization because they map into [schema.org](https://schema.org) and [DCAT](www.w3.org/TR/vocab-dcat-2/). Mappings into biological entities are also available via [OBO Foundry resources](http://www.obofoundry.org). 
 
 **DERIVA** - Discovery Environment for Relational Information and Versioned Assets. A suite of tools and services that are designed to significantly reduce the overhead and complexity of creating and managing complex, big datasets. DERIVA provides a digital asset management system for scientific data to streamline the acquisition, modeling, management, and sharing of complex, big data, and provides interfaces so that these data can be delivered to diverse external tools for big-data analysis and analytic tools.
 
@@ -38,7 +32,7 @@ Table of Contents:
 
 **Insignia** - a grid of colored squares used to visually communicate FAIRness level.
 
-<a name="user-content-metadata"></a>**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
+**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
 
 **Organization** - an entity comprising of multiple people, such as an institution or an association, that has a particular purpose.
 
@@ -53,9 +47,9 @@ Table of Contents:
 **Subject Group** - a set of study subjects, often grouped based on a set of criteria or the types of intervention study that the subjects will undergo.
 
 
-### File Formats and Types 
+## File Formats and Types 
 
-<a name="user-content-cfde-asset-manifest"></a>**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
+**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
 
 **CFDE Asset Specification** - defines the set of attributes used to charaterize an *Asset*. The specification simplifies the discovery of assets hosted at the DCCs with a minimal set of descriptors for each of these files. The types of files that are referenced (e.g., genomic sequence, metagenomic, RNA-Seq, physiological and metabolic data) are flexible and contain a small number of essential elements such as a *GUID*, originating institution (e.g., Broad Institute), assay type (e.g., whole genome/exome, transcriptome, epigenome), file type (e.g., fastq, alignment, vcf, counts), and tissue source and species name for the sample.
 ![data asset specification](https://user-images.githubusercontent.com/40363469/66134046-ac16bc80-e5c5-11e9-9b30-66407a3446e5.png)
@@ -69,14 +63,12 @@ Table of Contents:
 
 **[Entity-Relation Diagram](https://github.com/nih-cfde/cfde-deriva/blob/2019-10/extractors_and_metadata.GTEx/cfde-core-model.2019.10.21.1430.png)**
 
-<a name="user-content-entity-relationship-model"></a>**Entity Relationship Model** - A way to describe the interrelationships of terms. It specifes both the term and how that term is semantically related to all the other terms in the model.
-
 **Inventory** - asset inventory distributed by the DCCs through a portal.
 
 **Metadata Manifest** - a file that includes metadata for a group of accompanying files that are part of a coherent unit (manifest), such as name, version, background scripts, and browser actions.
 
 
-### Processes
+## Processes
 
 **C2M2 Creation Flow**
 
@@ -93,7 +85,7 @@ Table of Contents:
 **[Table Schema to DERIVA Translation](https://github.com/nih-cfde/cfde-deriva/blob/2019-08/examples/tableschema_to_deriva.py)**
 
 
-### Software and Tools
+## Software and Tools
 
 **API** - Application Programmer Interface. Allows developers to manipulate (query, update) remote data sources through specific protocols or specific standards for communication (e.g., REST,SOAP). An important element of the ecosystem will be the standardization and publishing of an API that can be used by data consumers to retrieve the inventories, the data asset specification, and additional metadata associated with the assets. This will allow for consumers of these inventories to programmatically interrogate the federated system for information that may be relevant to a consuming service.
 
@@ -118,7 +110,7 @@ Table of Contents:
 **NPM** - a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js. It consists of a command line client, also called npm, and an online database of public and paid-for private packages, called the npm registry.
 
 
-### Use Case Terms
+## Use Case Terms
 
 **Objective** - a description of a scientific process, told without reference to a specific technology solution. Focuses on resources required, method(s) followed, and outcome(s) targeted. Can be validated with scientific stakeholders.
 
@@ -131,7 +123,7 @@ Table of Contents:
 **User Task** - a story, told from the user’s perspective that captures a concrete step in a user's interactions with tools (e.g., software solutions) in the service of achieving the scientific objective. Must be written in terms that are meaningful to the user, from their perspective. This can be thought of as one in a series of medium scale tasks that must be completed to answer the question posed in the scientific objective. The list of User Tasks in a Use Case should cover everything the users needs to achieve their goals, even interactions that do not involve the software or data from the Common Fund.
 
 
-### Other
+## Other
 
 **A2CPS** - NIH’s Acute to Chronic Pain Signatures program. The most comprehensive study to date to investigate the connections of peripheral biology, brain, psychological, and bio-behavioral risk factors. Composed of a consortium of organizations and scientists throughout the U.S. and Canada, A2CPS is part of the multi-pronged [NIH HEAL](https://heal.nih.gov/) (Helping to End Addiction Long-Term) initiative, an aggressive effort to speed scientific solutions to stem the national opioid public health crisis.
 
@@ -154,7 +146,7 @@ Table of Contents:
 
 **Controlled Vocabulary** - an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain. For example, the DCIC curates an internal 4DN controlled vocabulary to provide definitions for emerging technologies and techniques, metadata terms, and captures important data features not defined by previous ontologies.
 
-<a name="user-content-dcc"></a>**DCC** - Data Coordinating/Resource Center.
+**DCC** - Data Coordinating/Resource Center.
 
 **DCIC** - Data generated by 4DN partner institutions are integrated, curated, analyzed, and disseminated by the 4DN Data Coordination and Integration Center (DCIC).
 
@@ -182,8 +174,6 @@ Table of Contents:
 
 **RefMet** – Reference list of Metabolite names. Developed by the Common Fund Metabolomics program. Effectively a large spreadsheet that provides a standard nomenclature for over 95,500 chemical species. From the Metabolomics Workbench website, it can be browsed and searched directly or a user can input a list of metabolite names and have them automatically converted to RefMet nomenclature. A user can also directly download the data, either in whole or after filtering as one would with a simple Excel sheet. Or the entire dataset can be downloaded as part of a Shiny R app and queried locally.
 
-<a name="user-content-richness-levels"></a>**Richness Levels** - Concentric, canonical subsets of C2M2 that are benchmarked at increasing levels of model complexity and detail, wherein each successive modeling level is a value-added superset of all of the metadata encompassed by the previous (less complex) level.
-
 **SSO** – Single Sign-On.
 
 **STRIDES** – NIH’s Science and Technology Research Infrastructure for Discovery, Experimentation, and Sustainability initiative. Common Fund leadership has partnered with the STRIDES initiative, which provides lower-cost cloud services to NIH projects.
@@ -191,3 +181,18 @@ Table of Contents:
 **TCC** – Training Coordination Center. This center is staffed by experts in bioinformatics curriculum development, teaching, and community building. It provides support and resources for the development of DCC-specific training programs as well as end-user training on CFDE products and general topics of interest to the Common Fund research community. The TCC can help with logistical support for hosting workshops, as well as providing guidance on how to grow and build a sustainable training program. The TCC provides instructor training for the DCCs and assists with creating useful qualitative and quantitative feedback and assessment tools. In addition to site-specific training, the TCC offers training on CFDE products as they become available, and pilots a general bioinformatics workshop curriculum on topics of broad interest within the Common Fund.
 
 **TOPMed** – Trans-Omics for Precision Medicine. 
+
+
+# DRAFT - list of term anchors currently linked from spec documents
+
+**CFDE-asset-manifest**
+
+**DCCs**
+
+**DCC-data-ingestion-process**
+
+**Entity-relationship-model**
+
+**Metadata**
+
+**Richness-levels**
