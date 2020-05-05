@@ -1,6 +1,12 @@
-# CFDE Glossary
+Table of Contents:  
+[Controlled Vocabulary](#user-content-controlled-vocabulary)  
+[File Formats and Types](#user-content-file-formats-and-types)  
+[Processes](#user-content-processes)  
+[Software and Tools](#user-content-software-and-tools)  
+[Use Case Terms](#user-content-use-case-terms)
+[Other](#user-content-other)
 
-## Controlled Vocabulary
+### Controlled Vocabulary
 
 **Asset** - a sample or a file.
 
@@ -32,7 +38,7 @@
 
 **Insignia** - a grid of colored squares used to visually communicate FAIRness level.
 
-**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
+<a name="metadata"></a>**Metadata** - a type of information entity usually defined as data about the data, understood as descriptors to understand the context of a dataset. For example, metadata about an FASTQ file may be file size or file creator. Metadata is often classified into descriptive metadata, structural metadata, administrative metadata, and provenance metadata, all of which provide context to the actual data/dataset.
 
 **Organization** - an entity comprising of multiple people, such as an institution or an association, that has a particular purpose.
 
@@ -47,9 +53,9 @@
 **Subject Group** - a set of study subjects, often grouped based on a set of criteria or the types of intervention study that the subjects will undergo.
 
 
-## File Formats and Types 
+### File Formats and Types 
 
-**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
+<a name="cfde-asset-manifest"></a>**CFDE Asset Manifest** - a collection of *Assets* described by the *CFDE Asset Specification*. The ecosystem will support the concept of a manifest that describes a collection of files. The manifests enable bundling lists of CFDE data assets into a machine-readable file using a common format. Manifests will also be used to publish the complete inventories of data from each DCC, and will enable uniform collection of asset metadata to support indexing of the assets in the CFDE portal.
 
 **CFDE Asset Specification** - defines the set of attributes used to charaterize an *Asset*. The specification simplifies the discovery of assets hosted at the DCCs with a minimal set of descriptors for each of these files. The types of files that are referenced (e.g., genomic sequence, metagenomic, RNA-Seq, physiological and metabolic data) are flexible and contain a small number of essential elements such as a *GUID*, originating institution (e.g., Broad Institute), assay type (e.g., whole genome/exome, transcriptome, epigenome), file type (e.g., fastq, alignment, vcf, counts), and tissue source and species name for the sample.
 ![data asset specification](https://user-images.githubusercontent.com/40363469/66134046-ac16bc80-e5c5-11e9-9b30-66407a3446e5.png)
@@ -68,7 +74,7 @@
 **Metadata Manifest** - a file that includes metadata for a group of accompanying files that are part of a coherent unit (manifest), such as name, version, background scripts, and browser actions.
 
 
-## Processes
+### Processes
 
 **C2M2 Creation Flow**
 
@@ -85,7 +91,7 @@
 **[Table Schema to DERIVA Translation](https://github.com/nih-cfde/cfde-deriva/blob/2019-08/examples/tableschema_to_deriva.py)**
 
 
-## Software and Tools
+### Software and Tools
 
 **API** - Application Programmer Interface. Allows developers to manipulate (query, update) remote data sources through specific protocols or specific standards for communication (e.g., REST,SOAP). An important element of the ecosystem will be the standardization and publishing of an API that can be used by data consumers to retrieve the inventories, the data asset specification, and additional metadata associated with the assets. This will allow for consumers of these inventories to programmatically interrogate the federated system for information that may be relevant to a consuming service.
 
@@ -110,7 +116,7 @@
 **NPM** - a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js. It consists of a command line client, also called npm, and an online database of public and paid-for private packages, called the npm registry.
 
 
-## Use Case Terms
+### Use Case Terms
 
 **Objective** - a description of a scientific process, told without reference to a specific technology solution. Focuses on resources required, method(s) followed, and outcome(s) targeted. Can be validated with scientific stakeholders.
 
@@ -123,7 +129,7 @@
 **User Task** - a story, told from the user’s perspective that captures a concrete step in a user's interactions with tools (e.g., software solutions) in the service of achieving the scientific objective. Must be written in terms that are meaningful to the user, from their perspective. This can be thought of as one in a series of medium scale tasks that must be completed to answer the question posed in the scientific objective. The list of User Tasks in a Use Case should cover everything the users needs to achieve their goals, even interactions that do not involve the software or data from the Common Fund.
 
 
-## Other
+### Other
 
 **A2CPS** - NIH’s Acute to Chronic Pain Signatures program. The most comprehensive study to date to investigate the connections of peripheral biology, brain, psychological, and bio-behavioral risk factors. Composed of a consortium of organizations and scientists throughout the U.S. and Canada, A2CPS is part of the multi-pronged [NIH HEAL](https://heal.nih.gov/) (Helping to End Addiction Long-Term) initiative, an aggressive effort to speed scientific solutions to stem the national opioid public health crisis.
 
@@ -146,7 +152,7 @@
 
 **Controlled Vocabulary** - an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain. For example, the DCIC curates an internal 4DN controlled vocabulary to provide definitions for emerging technologies and techniques, metadata terms, and captures important data features not defined by previous ontologies.
 
-**DCC** - Data Coordinating/Resource Center.
+<a name="dcc"></a>**DCC** - Data Coordinating/Resource Center.
 
 **DCIC** - Data generated by 4DN partner institutions are integrated, curated, analyzed, and disseminated by the 4DN Data Coordination and Integration Center (DCIC).
 
@@ -181,19 +187,3 @@
 **TCC** – Training Coordination Center. This center is staffed by experts in bioinformatics curriculum development, teaching, and community building. It provides support and resources for the development of DCC-specific training programs as well as end-user training on CFDE products and general topics of interest to the Common Fund research community. The TCC can help with logistical support for hosting workshops, as well as providing guidance on how to grow and build a sustainable training program. The TCC provides instructor training for the DCCs and assists with creating useful qualitative and quantitative feedback and assessment tools. In addition to site-specific training, the TCC offers training on CFDE products as they become available, and pilots a general bioinformatics workshop curriculum on topics of broad interest within the Common Fund.
 
 **TOPMed** – Trans-Omics for Precision Medicine. 
-
-
-# DRAFT - list of term anchors currently linked from spec documents
-
-**CFDE-asset-manifest**
-
-**DCCs**
-
-**DCC-data-ingestion-process**
-
-**Entity-relationship-model**
-
-**Metadata**
-
-**Richness-levels**
-
