@@ -1,5 +1,3 @@
-# Glossary
-
 ##### Biospecimen
 A material collected from an organism, a cell culture, or a material containing organisms, such as an environmental material. 
 
