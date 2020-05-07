@@ -43,7 +43,7 @@ progresses.
 
 ## C2M2 Richness Levels
 
-In its [fullest form](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png),
+In its [fullest form](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
 that models common properties of resources fundamental
 to biomedical research like subjects, digital files,
