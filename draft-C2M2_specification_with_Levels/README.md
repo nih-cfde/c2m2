@@ -56,7 +56,7 @@ a particular blood pressure measurement was made.
 
 Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
-all possible features of the [full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+all possible features of the [full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)
 as a precondition for submitting metadata to CFDE would
 be infeasible for several important reasons (apart from
 creating avoidable and unnecessary onboarding delays).
