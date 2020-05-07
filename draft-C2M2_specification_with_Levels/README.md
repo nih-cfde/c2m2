@@ -56,7 +56,7 @@ a particular blood pressure measurement was made.
 
 Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
-all possible features of the [full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)
+all possible features of the [full (Level 2) C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)
 as a precondition for submitting metadata to CFDE would
 be infeasible for several important reasons (apart from
 creating avoidable and unnecessary onboarding delays).
@@ -83,37 +83,36 @@ maintain such support by iteratively refining the
 according to needs identified while working with
 more operationally advanced DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
-to feasibly describe their experimental resources using the
+to feasibly describe their experimental resources using this
 most complex C2M2 modeling level: CFDE will support
 cases like these by offering simpler but still well-structured
 metadata models, lowering some of the barriers to rapid
 entry into the data ecosystem.
 
-Simpler C2M2 metadata models must be maintained by
+Simpler C2M2 metadata Levels must be maintained by
 CFDE in such a way as to maximize interoperability with
 more complex C2M2 variants, and the whole system should be
 structured to minimize the negative side effects of model
 changes. These considerations have led to the
 creation of C2M2 [richness levels](../draft-CFDE_glossary/glossary.md#richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
-increasing levels of model complexity and detail, wherein each successive
-modeling level is a value-added superset of all of the metadata
+increasing levels of complexity and detail, wherein each successive
+level is a value-added superset of all of the metadata
 encompassed by the previous (less complex) level.
 
 Accordingly, CFDE presently offers two less complex C2M2 variants
-in addition to the full C2M2 model:
+in addition to the full (Level 2) C2M2 model:
 [Level 0](#Level-0) (basic metadata describing a collection of digital files) and
 [Level 1](#Level-1) (which introduces models for core experimental
-resources like samples and subjects; a rudimentary set of search targets
+resources like biosamples and subjects, and the core relationships between them; a rudimentary set of search targets
 in the form of annotations like the anatomical location of
 the source for a human tissue sample or taxonomic data describing
-sample source organisms and study subjects; and basic support for arranging
+biosample source organisms and study subjects; and basic support for arranging
 experimental resources into sub-collections based on a
-hierarchy of projects, studies or other similar subdivisions
+hierarchy of projects, experimental datasets or other similar subdivisions
 of research ownership and responsibility).
 
-_Proposals for Levels 2 and 3 currently exist in
-[first-round rough brainstorm draft form](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) only._
+_Level 2 currently requires work to (a) expand and finalize a [brainstorm-level checklist of supported concepts](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) followed by (b) harmonization of that checklist with an ongoing [draft ER model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)._
 
 ---
 
