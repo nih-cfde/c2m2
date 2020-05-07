@@ -79,7 +79,7 @@ systems of their own should not encounter arbitrary
 barriers to CFDE support for more extensive relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
-[full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png)
+[full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)
 according to needs identified while working with
 more operationally advanced DCCs. Newer or smaller DCCs, by contrast, may
 not currently have enough readily-available information
@@ -230,7 +230,7 @@ _This final, most complex C2M2 level needs a couple of things:_
 
 |_The full C2M2 model_|
 |:---:|
-|![The full C2M2 model](../draft-C2M2_ER_diagrams/full-C2M2-ER-model.png "The full C2M2 model")|
+|![The full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png "The full C2M2 model")|
 
 #### ...
 
