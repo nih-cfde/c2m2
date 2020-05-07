@@ -21,11 +21,11 @@ Y,1,sample_id,dashboard,,,[Editing note: this maps to the 'id' field in the C2M2
 ,2,medication,,Restricted access,,HC comment: I would move this to Level 3
 ,2,"vital stats (height, weight, bp)",,Restricted access,,
 ,2,visit info,,Restricted access,,"eg date, timepoint"
-,3,sequencing technology,,,,
-,3,geographic location,,,,
-,3,race/ethnicity (human)/strain (mouse),,,,
-,3,sample collection date,,,,
-,3,SOP used for extraction or analysis process,,,,
+,2,sequencing technology,,,,
+,2,geographic location,,,,
+,2,race/ethnicity (human)/strain (mouse),,,,
+,2,sample collection date,,,,
+,2,SOP used for extraction or analysis process,,,,
 ,,,,,,
 Notes,,"For EDAM, OBI, and other ontologies or taxonomies, need to define validation process (am drafting a sketch proposal for this, to be included in the C2M2-with-levels spec document I'm preparing -AB)",,,,
 ,,,,,,
