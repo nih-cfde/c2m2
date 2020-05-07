@@ -163,7 +163,7 @@ accounting, querying and reporting.
 #### Level 0 metadata submission examples: schema and example TSVs
 
 The JSON Schema document specifying the Level 0 TSV is
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/Level_0_datapackage_spec.json);
+[here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json);
 an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv) (just the `file.tsv` portion) and [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz) (as a full BDBag archive).
 
 ---
