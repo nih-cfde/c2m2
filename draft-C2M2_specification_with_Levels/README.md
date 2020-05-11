@@ -178,7 +178,7 @@ downstream tools than are available for Level 0 datasets, including
    * organization of summary displays using subdivisions of experimental metadata
    collections by `project` (grant or contract) and `collection` (any scientifically
    relevant grouping of resources)
-   * basic reporting on changes in metadatasets over time, introducing (for example)
+   * basic reporting on changes in metadata over time, tracking (for example)
    creation times for `file`s and `biosample`s
 
 C2M2 Level 1 is designed to offer an intermediate tier of difficulty, in terms of
@@ -192,8 +192,9 @@ to produce and maintain -- for Level 2:
    * event-based resource generation/**provenance networks**
    * detailed information on **organizations and people** governing the research
    being documented
-   * a full complement of **formal scientific decoration of modeled resources**
-      * a comprehensive collection of features like anatomy, taxonomy, and assay type
+   * a full suite of options to model **scientific attributes of experimental resources**
+      * comprehensive collection of features like anatomy, taxonomy, and assay type,
+      along with formal vocabularies to describe them
       * prerequisite to offering research users deep and detailed search possibilities
 
 #### Level 1 submission process: overview
