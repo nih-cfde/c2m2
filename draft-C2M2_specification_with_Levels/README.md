@@ -208,7 +208,7 @@ _Also note that while this specification describes a collection of TSV files,
 if you would prefer to populate (fewer, simpler) higher-level documents
 like spreadsheet forms instead of generating fully-inflated specification-compliant
 TSVs, we can work with you to automatically translate such documents into compliant
-TSV collections prior to submission._
+TSV collections prior to submission and ingest into the CFDE core systems._
 
 |_Level 1 model diagram_|
 |:---:|
