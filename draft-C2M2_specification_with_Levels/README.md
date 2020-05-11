@@ -225,13 +225,14 @@ collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.da
 1. _**New modeling concept checklist:**_
 	* clinical **visit data**
 	* modular **experimental flow (`protocol`)**
-	** passive documentation of standard protocols and custom procedures; aggressive stepwise modeling is _not_ anticipated
+	   * passive documentation of standard protocols and custom procedures; aggressive stepwise modeling is _not_ anticipated
 	* resource (entity) **provenance (`event` network)**
 	* structured addressbook for documenting and linking **organizations (`common_fund_program`) and people**
 	* any handling of **protected data** happens at this level
 	* full elaboration of science concepts using **controlled-vocabulary metadata
-	decorations** (i.e., substrate data for facet-search targets; e.g., Level 1's
-	`anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
+	decorations**
+	   * i.e., substrate data for facet-search targets
+	   * e.g., Level 1's `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
 	* [_**identify requirements for more complex modeling** of scientific data?_]
 2. _might need a **better name** than 'full C2M2' or 'Level 2'_
 3. _**diagram & JSON Schema need updating** to harmonize with drafts for Levels 0 and 1_
