@@ -289,16 +289,17 @@ bare collection of TSV files) and **here** (as a packaged BDBag archive).
 	* clinical **visit data**
 	* modular **experimental flow (`protocol`)**
 	   * relatively _passive documentation_ of standard protocols and custom procedures
-	   * aggressive stepwise modeling is _not_ anticipated
-	* resource (entity) **provenance (`event` network)**
+	   * rigorous and detailed stepwise modeling is _not_ anticipated
+	* resource (entity) **provenance (`[data|material]_event` network)**
 	* structured addressbook for documenting and linking **organizations
-	(`common_fund_program`) and people**
-	* any handling of **protected data** happens at this level
-	* full elaboration of science concepts using **controlled-vocabulary metadata
-	decorations**
+	(`common_fund_program`) and people** to C2M2 metadata
+	* any C2M2 handling of **protected data**
+	* full elaboration of scientific attributes of C2M2 entities using
+	**controlled-vocabulary metadata decorations**
 	   * i.e., substrate data for facet-search targets
 	   * e.g., Level 1's `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
-	   * [_identify requirements for more complex modeling of scientific data?_]
+	   * [enumerate requirements and scope for more complex modeling of scientific
+	   metadata_]
 2. _might need a **better name** than 'full C2M2' or 'Level 2'_
 3. _**diagram & JSON Schema need updating** to harmonize with drafts for Levels 0 and 1_
 
