@@ -194,7 +194,7 @@ to produce and maintain -- for Level 2:
    being documented
    * a full suite of options to model **scientific attributes of experimental resources**
       * comprehensive collection of features like anatomy, taxonomy, and assay type,
-      along with formal vocabularies to describe them
+      plus formal vocabularies to describe them
       * prerequisite to offering research users deep and detailed search possibilities
 
 #### Level 1 submission process: overview
