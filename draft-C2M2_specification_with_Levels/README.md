@@ -235,7 +235,6 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 
    * `id_namespace` _and_ `id`
    * `persistent_id`
-   * `project` _and_ `collection`
    * `creation_time`
    * `abbreviation`, `name` _and_ `description`
 
