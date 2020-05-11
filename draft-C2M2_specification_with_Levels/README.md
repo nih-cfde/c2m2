@@ -227,9 +227,9 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 
    * `file` _revisited (additions: also cf. below, §"Common fields" and §"Controlled
    vocabularies and term tables")_
-   * `biosample` _(also cf. below, §"Common fields" and §"Controlled vocabularies and
+   * `biosample` _introduced (also cf. below, §"Common fields" and §"Controlled vocabularies and
    term tables")_
-   * `subject` _(also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
+   * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
 
 ##### Common fields
 
