@@ -181,20 +181,20 @@ downstream tools than are available for Level 0 datasets, including
    * basic reporting on changes in metadatasets over time, introducing (for example)
    creation times for `file`s and `biosample`s
 
-C2M2 Level 1 is designed to serve as an intermediate level of complexity (and hence an
-intermediate level of difficulty with respect to the preparation of compliant
-submissions) between Level 0's basic digital inventory and the full intricacy of
-C2M2 Level 2 (the most powerful and flexible research-asset metadata model that can
-be meaningfully generalized to represent multiple CFDE datasets). Accordingly, several
-modeling concepts (requiring the most effort to manage and produce) are left to Level 2:
+C2M2 Level 1 is designed to offer an intermediate tier of complexity (and hence
+intermediate difficulty, with respect to the preparation of compliant submissions)
+between Level 0's basic digital inventory and the full intricacy of C2M2 Level 2
+(the most powerful and flexible research-asset metadata model that can be meaningfully
+generalized to represent multiple CFDE datasets). Accordingly, several modeling concepts
+(requiring the most effort to manage and produce) are left to Level 2:
    * any and all **protected data**
-   * model structures representing **experimental protocols**
+   * documentation of  **experimental protocols**
    * event-based resource generation/**provenance networks**
    * detailed information on **organizations and people** governing the research
    being documented
    * a full complement of **formal scientific decoration of modeled resources**
       * a comprehensive collection of features like anatomy, taxonomy, and assay type
-      * needed so as to offer deep and detailed search possibilities to research users
+      * needed to offer deep and detailed search possibilities to research users
 
 #### Level 1 submission process: overview
 
