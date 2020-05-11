@@ -175,12 +175,12 @@ inventory of digital files: as a result, Level 1 metadata offers users more powe
 downstream application functionality than does Level 0, including
    * faceted searches on a (small) set of biologically relevant features (like anatomy
    and taxonomy) of experimental resources like `biosample`s and `subject`s
-   * organization of displayed summary results using subdivisions of experimental metadata
+   * organization of summary displays using subdivisions of experimental metadata
    collections by `project` (grant or contract) and `collection` (any scientifically
    relevant grouping of resources)
-   * basic reporting on changes in metadatasets over time (e.g., introducing creation
-   times for `file`s and `biosample`s)
- 
+   * basic reporting on changes in metadatasets over time, introducing (for example)
+   creation times for `file`s and `biosample`s
+
 C2M2 Level 1 is designed to serve as an intermediate level of complexity (and hence an
 intermediate level of difficulty with respect to the preparation of compliant
 submissions) between Level 0's basic digital inventory and the full intricacy of
