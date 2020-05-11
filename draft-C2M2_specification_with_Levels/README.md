@@ -230,6 +230,9 @@ _This final, most complex C2M2 level needs a couple of things:_
 	* resource (entity) provenance (`event` network)
 	* structured addressbook for documenting and linking organizations (`common_fund_program`) and people
 	* any handling of **protected data** happens at this level
+	* full elaboration of controlled-vocabulary science-concept metadata decorations
+	(substrate data for facet-search targets, e.g. Level 1's `anatomy`, `assay_type`, `ncbi_taxonomy`, etc)
+	* [more complex modeling of scientific data? identify use cases]
 2. _might need a **better name** than 'full C2M2' or 'Level 2'_
 3. _**diagram & JSON Schema need updating** to harmonize with drafts for Levels 0 and 1_
 
