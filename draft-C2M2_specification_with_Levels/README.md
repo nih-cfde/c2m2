@@ -224,8 +224,8 @@ collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.da
 
 1. _**New modeling concept checklist:**_
 	* clinical **visit data**
-	* modular **experimental flow (`protocol`)** [passive documentation of standard protocols
-	and custom procedures; aggressive stepwise modeling is _not_ anticipated]
+	* modular **experimental flow (`protocol`)**
+	** passive documentation of standard protocols and custom procedures; aggressive stepwise modeling is _not_ anticipated
 	* resource (entity) **provenance (`event` network)**
 	* structured addressbook for documenting and linking **organizations (`common_fund_program`) and people**
 	* any handling of **protected data** happens at this level
