@@ -200,8 +200,9 @@ Level 1**:
    * event-based resource generation/**provenance networks**
    * detailed information on **organizations and people** governing the research
    being documented
-   * a full suite of options to model **scientific attributes of experimental resources**
-      * comprehensive collection of features like anatomy, taxonomy, and assay type,
+   * a comprehensive suite of options to model **scientific attributes of
+   experimental resources**
+      * full collection of features like anatomy, taxonomy, and assay type,
       plus formal vocabularies to describe them
       * prerequisite to offering research users deep and detailed search possibilities
 
