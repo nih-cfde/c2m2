@@ -169,17 +169,35 @@ an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_ex
 
 ### Level 1
 
-_...introduces models for core experimental resources like_
-* _samples and subjects_
-* _search targets in the form of annotations like the anatomical source for a given tissue sample_
-* _host species taxonomy for samples and subjects_
-* _basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies_
+C2M2 Level 1 begins modeling **experimental resources and their interrelationships**.
+This level of metadata richness will be more difficult to produce than Level 0's flat
+inventory of digital files: as a result, Level 1 metadata will support more complex
+downstream application functionality than Level 0, including
+   * faceted searches on a (small) set of biologically relevant features of
+   experimental resources like `biosample`s and `subject`s
+   * organization of displayed summary results using subdivisions of experimental metadata
+   collections by `project` (grant or contract) and/or `collection` (any scientifically
+   relevant grouping of resources)
+   * basic reporting on changes in metadatasets over time (e.g., introducing creation
+   times for `file`s and `biosample`s)
+ 
+C2M2 Level 1 is meant to serve as an intermediate level of complexity (and hence an
+intermediate level of difficulty, in terms of preparing compliant submissions) between
+Level 0's basic digital inventory and Level 2 (the most powerful and flexible
+research-asset metadata model that can be meaningfully generalized across the various
+CFDE datasets). Accordingly, several modeling concepts (requiring the most effort to
+manage and produce) are left to Level 2. No protected data will be modeled at Level 1.
+Also reserved for Level 2 are model structures representing experimental protocols;
+event-based resource generation/provenance networks; detailed information on
+organizational or institutional structures and people governing the research being
+documented; and most of the scientific decoration required for detailed dataset querying
+by researchers.
 
-_...also introduces two containers for aggregating experimental resources & metadata:_
-* _`project` describes administrative/funding/contract/etc. hierarchy governing ownership/management/purview/responsibility of/for subcollections of experimental resources and metadata_
-* _`collection` allows any (non-cyclic) groupings to be assigned to subcollections of experimental resources and metadata (independently of contract or funding or ownership or accountability/reporting structures encoded by `project`): similar in concept to "dataset" but without implying the existence of a formally-prepared publication-level data package -- any coherent and meaningful grouping can be encoded here_
+#### Level 1 submission process: overview
 
-_no protected data will be modeled at this level_
+_You're not going to have to give us all of the tables shown in the diagram
+below. We'll compute some of that. Here's the breakdown of what we absolutely
+need from you at this Level, and what we'll accept if you have it._
 
 |_Level 1 model diagram_|
 |:---:|
