@@ -200,7 +200,8 @@ manage and produce) are left to Level 2:
 
 _You're not going to have to give us all of the tables shown in the diagram
 below. We'll compute some of that. Here's the breakdown of what we absolutely
-need from you at this Level, and what we'll accept if you have it._
+need from you at this Level, and also all the optional things that we'll accept
+if you have them handy._
 
 |_Level 1 model diagram_|
 |:---:|
