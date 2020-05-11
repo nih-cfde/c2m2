@@ -114,7 +114,7 @@ of research ownership and responsibility).
 
 _Level 2 currently requires work to (a) expand and finalize a [brainstorm-level checklist of supported concepts](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) followed by (b) harmonization of that checklist with an ongoing [draft ER model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)._
 
----
+--------------------------------------------------------------------------------
 
 ### Level 0
 
@@ -165,7 +165,7 @@ The JSON Schema document specifying the Level 0 TSV is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json);
 an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv) (just the `file.tsv` portion) and [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz) (as a full BDBag archive).
 
----
+--------------------------------------------------------------------------------
 
 ### Level 1
 
@@ -178,6 +178,8 @@ _...introduces models for core experimental resources like_
 _...also introduces two containers for aggregating experimental resources & metadata:_
 * _`project` describes administrative/funding/contract/etc. hierarchy governing ownership/management/purview/responsibility of/for subcollections of experimental resources and metadata_
 * _`collection` allows any (non-cyclic) groupings to be assigned to subcollections of experimental resources and metadata (independently of contract or funding or ownership or accountability/reporting structures encoded by `project`): similar in concept to "dataset" but without implying the existence of a formally-prepared publication-level data package -- any coherent and meaningful grouping can be encoded here_
+
+_no protected data will be modeled at this level_
 
 |_Level 1 model diagram_|
 |:---:|
@@ -216,25 +218,29 @@ _enumerate CVs; describe usage tables and outline plan for addressing versioning
 A (_presently out of sync with diagram; update expected shortly_) JSON Schema document specifying the Level 1 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json); an example Level-1-compliant TSV submission can be found **here** (as a collection of TSV files) and **here** (as a packaged BDBag archive).
 
----
+--------------------------------------------------------------------------------
 
 ### Level 2 (the full C2M2 model)
 
 _This final, most complex C2M2 level needs a couple of things:_
 
-1. _**might need a better name** than 'full C2M2' or 'Level 2'_
-2. _**model diagram needs updating** so corresponding fields exactly match Levels 0 and 1_
-3. _**JSON Data Package schema needs updating** so corresponding fields exactly match the updates to the model diagram_
-4. _We haven't yet explicitly provided a **modeling solution for clinical visit data**; that needs to happen_
+1. _**New modeling concept checklist:**_
+	* clinical visit data
+	* experimental flow (`protocol`)
+	* resource (entity) provenance (`event` network)
+	* structured addressbook for documenting and linking organizations (`common_fund_program`) and people
+	* any handling of **protected data** happens at this level
+2. _might need a **better name** than 'full C2M2' or 'Level 2'_
+3. _**diagram & JSON Schema need updating** to harmonize with drafts for Levels 0 and 1_
 
 |_The full C2M2 model_|
 |:---:|
-|![The full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png "The full C2M2 model")|
+|![The full C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png "The full Level 2 C2M2 model")|
 
 #### ...
 
 #### Level 2 submissions: schema and example TSVs
 
-The JSON Schema document specifying the full (Level 2) C2M2 TSV
+The JSON Schema document specifying the full Level 2 C2M2 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
-example Level-2-compliant TSV submissions can be found **here**, **here** and **here**.
+example Level-2-compliant TSV submissions will be found **here**.
