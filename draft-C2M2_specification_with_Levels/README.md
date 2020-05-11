@@ -169,10 +169,10 @@ an example Level-0-compliant TSV submission can be found [here](../draft-C2M2_ex
 
 ### Level 1
 
-C2M2 Level 1 begins modeling **experimental resources and their interrelationships**.
-This level of metadata richness will be more difficult to produce than Level 0's flat
-inventory of digital files: as a result, Level 1 metadata will support more complex
-downstream application functionality than Level 0, including
+C2M2 Level 1 models **basic experimental resources and connections between them**.
+This level of metadata richness is more difficult to produce than Level 0's flat
+inventory of digital files: as a result, Level 1 metadata offers users more powerful
+downstream application functionality than does Level 0, including
    * faceted searches on a (small) set of biologically relevant features of
    experimental resources like `biosample`s and `subject`s
    * organization of displayed summary results using subdivisions of experimental metadata
@@ -181,19 +181,18 @@ downstream application functionality than Level 0, including
    * basic reporting on changes in metadatasets over time (e.g., introducing creation
    times for `file`s and `biosample`s)
  
-C2M2 Level 1 is meant to serve as an intermediate level of complexity (and hence an
-intermediate level of difficulty with respect to the preparation compliant
+C2M2 Level 1 is designed to serve as an intermediate level of complexity (and hence an
+intermediate level of difficulty with respect to the preparation of compliant
 submissions) between Level 0's basic digital inventory and the full intricacy of
 C2M2 Level 2 (the most powerful and flexible research-asset metadata model that can
 be meaningfully generalized across the various CFDE datasets). Accordingly, several
-modeling concepts (requiring the most effort to
-manage and produce) are left to Level 2:
-   * any protected data
-   * model structures representing experimental protocols
-   * event-based resource generation/provenance networks
-   * detailed information on institutional structures and people governing
-   the research being documented
-   * and most of the scientific decoration required for detailed data querying
+modeling concepts (requiring the most effort to manage and produce) are left to Level 2:
+   * any **protected data**
+   * model structures representing **experimental protocols**
+   * event-based resource generation/**provenance networks**
+   * detailed information on **organizations and people** governing the research
+   being documented
+   * and most of the **scientific decoration required for detailed dataset querying**
    by researchers.
 
 #### Level 1 submission process: overview
