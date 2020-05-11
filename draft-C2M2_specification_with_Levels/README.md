@@ -193,7 +193,8 @@ preparing compliant submissions, between Level 0's basic digital inventory
 and the full intricacy of Level 2 C2M2 (the most powerful and flexible research-asset
 metadata model that can be meaningfully generalized to represent multiple CFDE datasets).
 Accordingly, we have reserved several modeling concepts -- requiring the most effort
-to produce and maintain -- for Level 2:
+to produce and maintain -- for Level 2; the following are thus **not modeled at
+Level 1**:
    * any and all **protected data**
    * documentation of  **experimental protocols**
    * event-based resource generation/**provenance networks**
