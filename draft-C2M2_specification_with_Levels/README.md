@@ -248,8 +248,11 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
-A (_presently out of sync with diagram; update imminent_) JSON Schema document
--- implementing Frictionless Data's "Data Package" container meta-specification --
+A (_presently out of sync with diagram; update imminent_) JSON Schema document --
+implementing
+[Frictionless Data](https://frictionlessdata.io/)'s
+"[Data Package](https://frictionlessdata.io/data-package/)"
+container meta-specification --
 defining the Level 1 TSV collection is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json);
 an example Level-1-compliant TSV submission collection can be found **here** (as a
