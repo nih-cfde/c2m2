@@ -176,22 +176,25 @@ downstream application functionality than Level 0, including
    * faceted searches on a (small) set of biologically relevant features of
    experimental resources like `biosample`s and `subject`s
    * organization of displayed summary results using subdivisions of experimental metadata
-   collections by `project` (grant or contract) and/or `collection` (any scientifically
+   collections by `project` (grant or contract) and `collection` (any scientifically
    relevant grouping of resources)
    * basic reporting on changes in metadatasets over time (e.g., introducing creation
    times for `file`s and `biosample`s)
  
 C2M2 Level 1 is meant to serve as an intermediate level of complexity (and hence an
-intermediate level of difficulty, in terms of preparing compliant submissions) between
-Level 0's basic digital inventory and Level 2 (the most powerful and flexible
-research-asset metadata model that can be meaningfully generalized across the various
-CFDE datasets). Accordingly, several modeling concepts (requiring the most effort to
-manage and produce) are left to Level 2. No protected data will be modeled at Level 1.
-Also reserved for Level 2 are model structures representing experimental protocols;
-event-based resource generation/provenance networks; detailed information on
-organizational or institutional structures and people governing the research being
-documented; and most of the scientific decoration required for detailed dataset querying
-by researchers.
+intermediate level of difficulty with respect to the preparation compliant
+submissions) between Level 0's basic digital inventory and the full intricacy of
+C2M2 Level 2 (the most powerful and flexible research-asset metadata model that can
+be meaningfully generalized across the various CFDE datasets). Accordingly, several
+modeling concepts (requiring the most effort to
+manage and produce) are left to Level 2:
+   * any protected data
+   * model structures representing experimental protocols
+   * event-based resource generation/provenance networks
+   * detailed information on institutional structures and people governing
+   the research being documented
+   * and most of the scientific decoration required for detailed data querying
+   by researchers.
 
 #### Level 1 submission process: overview
 
