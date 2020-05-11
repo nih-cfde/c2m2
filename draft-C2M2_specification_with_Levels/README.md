@@ -161,8 +161,10 @@ accounting, querying and reporting.
 
 #### Level 0 metadata submission examples: Data Package JSON Schema and example TSVs
 
-A JSON Schema document -- implementing Frictionless Data's "Data Package" container
-meta-specification -- defining the Level 0 TSV is
+A JSON Schema document -- implementing [Frictionless
+Data](https://frictionlessdata.io/)'s "[Data
+Package](https://frictionlessdata.io/data-package/)" container meta-specification --
+defining the Level 0 TSV is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json);
 an example Level-0-compliant TSV submission collection can be found
 [here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv)
