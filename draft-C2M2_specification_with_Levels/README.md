@@ -225,27 +225,11 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 
 ##### Core entities
 
-   * `file` _revisited_
-   * `biosample`
-   * `subject` _(also cf. § below)_
-
-##### Controlled vocabularies and term tables
-
-   * _enumerate CVs_
-   * _describe term tables_
-   * _outline plan for addressing versioning_
-   * _discuss parser script on offer_
-      * _to be executed somewhere in bdbag-preparation stage_
-      * _will inflate bare CV terms cited in entity fields into corresponding CV
-      usage tables_
-      * _auto-loads and populates term-decorator data (name, description) from
-      relevant CV OBO reference files_
-
-##### taxonomy and the `subject` entity
-
-   * `subject_granularity`: `subject` _multiplicity specifier_
-   * `subject_role`: _constituent relationship to intra-_`subject` _system_
-   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents_
+   * `file` _revisited (additions: also cf. below, §"Common fields" and §"Controlled
+   vocabularies and term tables")_
+   * `biosample` _(also cf. below, §"Common fields" and §"Controlled vocabularies and
+   term tables")_
+   * `subject` _(also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
 
 ##### Common fields
 
@@ -255,7 +239,36 @@ TSV collections prior to submission and ingest into the CFDE core systems._
    * `creation_time`
    * `abbreviation`, `name` _and_ `description`
 
+##### Controlled vocabularies and term tables
+
+   * _enumerate CVs_
+   * _describe term tables_
+   * _outline plan for addressing versioning_
+   * _discuss parser script on offer_
+      * _to be executed during bdbag-preparation stage_
+      * _will inflate bare CV terms cited in entity fields into corresponding CV
+      term-usage tables_
+      * _auto-loads and populates display-layer term-decorator data (name,
+      description) from relevant CV OBO reference files_
+
+##### Taxonomy and the `subject` entity
+
+   * `subject_granularity`: `subject` _multiplicity specifier_
+   * `subject_role`: _constituent relationship to intra-_`subject` _system_
+   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents_
+
+##### Core containers
+
+   * `project`
+      * _explain "primary project" FK in_ `file`/`biosample`/`subject`
+   * `collection`
+      * _note decoupling from_ `project`
+
 ##### Association tables and inter-entity relationships
+
+   * _enumerate relationship/association definitions_
+   * _discuss ingest-stage flattening for rapid service of roll-up queries for
+   display layer_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
