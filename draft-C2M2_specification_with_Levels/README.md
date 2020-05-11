@@ -186,7 +186,7 @@ preparing compliant submissions, between Level 0's basic digital inventory
 and the full intricacy of Level 2 C2M2 (the most powerful and flexible research-asset
 metadata model that can be meaningfully generalized to represent multiple CFDE datasets).
 Accordingly, we have reserved several modeling concepts -- requiring the most effort
-to manage and produce -- for Level 2:
+to produce and maintain -- for Level 2:
    * any and all **protected data**
    * documentation of  **experimental protocols**
    * event-based resource generation/**provenance networks**
@@ -194,7 +194,7 @@ to manage and produce -- for Level 2:
    being documented
    * a full complement of **formal scientific decoration of modeled resources**
       * a comprehensive collection of features like anatomy, taxonomy, and assay type
-      * needed to offer deep and detailed search possibilities to research users
+      * prerequisite to offering research users deep and detailed search possibilities
 
 #### Level 1 submission process: overview
 
