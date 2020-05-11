@@ -240,6 +240,13 @@ TSV collections prior to submission and ingest into the CFDE core systems._
    * `creation_time`
    * `abbreviation`, `name` _and_ `description`
 
+##### Core containers
+
+   * `project`
+      * _explain "primary project" FK in_ `file`/`biosample`/`subject`
+   * `collection`
+      * _note decoupling from_ `project`
+
 ##### Controlled vocabularies and term tables
 
    * _enumerate CVs_
@@ -257,13 +264,6 @@ TSV collections prior to submission and ingest into the CFDE core systems._
    * `subject_granularity`: `subject` _multiplicity specifier_
    * `subject_role`: _constituent relationship to intra-_`subject` _system_
    * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents_
-
-##### Core containers
-
-   * `project`
-      * _explain "primary project" FK in_ `file`/`biosample`/`subject`
-   * `collection`
-      * _note decoupling from_ `project`
 
 ##### Association tables and inter-entity relationships
 
