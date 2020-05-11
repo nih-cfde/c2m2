@@ -222,13 +222,12 @@ collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.da
 
 ### Level 2 (the full C2M2 model)
 
-_This final, most complex C2M2 level needs a couple of things:_
-
 1. _**New modeling concept checklist:**_
-	* clinical visit data
-	* experimental flow (`protocol`)
-	* resource (entity) provenance (`event` network)
-	* structured addressbook for documenting and linking organizations (`common_fund_program`) and people
+	* clinical **visit data**
+	* modular **experimental flow (`protocol`)** [passive documentation of standard protocols
+	and custom procedures; aggressive stepwise modeling is _not_ anticipated]
+	* resource (entity) **provenance (`event` network)**
+	* structured addressbook for documenting and linking **organizations (`common_fund_program`) and people**
 	* any handling of **protected data** happens at this level
 	* full elaboration of science concepts using **controlled-vocabulary metadata
 	decorations** (i.e., substrate data for facet-search targets; e.g., Level 1's
