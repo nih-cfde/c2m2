@@ -201,8 +201,14 @@ to produce and maintain -- for Level 2:
 
 _You're not going to have to give us all of the tables shown in the diagram
 below. We'll compute some of that. Here's the breakdown of what we absolutely
-need from you at this Level, and also all the optional things that we'll accept
-if you have them handy._
+need from you to construct a compliant Level 1 submission, and also all the
+optional things that we'll accept in such a submission, if you have them handy._
+
+_Also note that while this specification describes a collection of TSV files,
+if you would prefer to populate (fewer, simpler) higher-level documents
+like spreadsheet forms instead of generating fully-inflated specification-compliant
+TSVs, we can work with you to automatically translate such documents into compliant
+TSV collections prior to submission._
 
 |_Level 1 model diagram_|
 |:---:|
@@ -217,8 +223,10 @@ if you have them handy._
    * _outline plan for addressing versioning_
    * _discuss parser script on offer_
       * _to be executed somewhere in bdbag-preparation stage_
-      * _will inflate bare CV terms cited in entity fields into corresponding CV usage tables_
-      * _auto-loads and populates term-decorator data (name, description) from relevant CV OBO reference files_
+      * _will inflate bare CV terms cited in entity fields into corresponding CV
+      usage tables_
+      * _auto-loads and populates term-decorator data (name, description) from
+      relevant CV OBO reference files_
 
 #### Level 1 technical specification: `subject`, `subject_granularity`, `subject_role` and `ncbi_taxonomy`
 
@@ -249,7 +257,8 @@ TSV files) and **here** (as a packaged BDBag archive).
 	   * relatively _passive documentation_ of standard protocols and custom procedures
 	   * aggressive stepwise modeling is _not_ anticipated
 	* resource (entity) **provenance (`event` network)**
-	* structured addressbook for documenting and linking **organizations (`common_fund_program`) and people**
+	* structured addressbook for documenting and linking **organizations
+	(`common_fund_program`) and people**
 	* any handling of **protected data** happens at this level
 	* full elaboration of science concepts using **controlled-vocabulary metadata
 	decorations**
