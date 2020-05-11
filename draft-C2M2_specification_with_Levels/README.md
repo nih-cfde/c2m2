@@ -221,9 +221,15 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 |:---:|
 |![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
 
-#### Level 1 technical specification: core entities: `file`, `biosample` and `subject`
+#### Level 1 technical specification
 
-#### Level 1 technical specification: controlled vocabularies and term tables
+##### Core entities
+
+   * `file` _revisited_
+   * `biosample`
+   * `subject` _(also cf. § below)_
+
+##### Controlled vocabularies and term tables
 
    * _enumerate CVs_
    * _describe term tables_
@@ -235,16 +241,21 @@ TSV collections prior to submission and ingest into the CFDE core systems._
       * _auto-loads and populates term-decorator data (name, description) from
       relevant CV OBO reference files_
 
-#### Level 1 technical specification: `subject`, `subject_granularity`, `subject_role` and `ncbi_taxonomy`
+##### taxonomy and the `subject` entity
 
-#### Level 1 technical specification: common fields
-   * `id_namespace` and `id`
+   * `subject_granularity`: `subject` _multiplicity specifier_
+   * `subject_role`: _constituent relationship to intra-_`subject` _system_
+   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents_
+
+##### Common fields
+
+   * `id_namespace` _and_ `id`
    * `persistent_id`
-   * `project` and `collection`
+   * `project` _and_ `collection`
    * `creation_time`
-   * `abbreviation`, `name` and `description`
+   * `abbreviation`, `name` _and_ `description`
 
-#### Level 1 technical specification: association tables and inter-entity relationships
+##### Association tables and inter-entity relationships
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
