@@ -266,7 +266,7 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 ##### Association tables and inter-entity relationships
 
    * _enumerate relationship/association definitions_
-   * _discuss ingest-stage flattening for rapid service of roll-up queries for
+   * _note ingest-stage flattening for rapid service of roll-up queries for
    display layer_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
