@@ -219,7 +219,7 @@ TSVs, we can work with you to automatically translate such documents into compli
 TSV collections prior to submission and ingest into the CFDE core systems._
 
 * _Gold: internal CVs/dictionaries and their foreign-key relationships_
-   * _Note: For representational clarity, gold FK arrows are implied (but not drawn)
+   * _Note: for representational clarity, gold FK arrows are implied (but not drawn)
 from all `id_namespace` fields to the header of the `id_namespace` table._
 * _Blue: containers and their containment relationships_
 * _Green: external controlled vocabularies (term & display-decoration tracking tables)
