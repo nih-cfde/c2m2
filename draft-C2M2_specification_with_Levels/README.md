@@ -227,7 +227,7 @@ and their foreign-key relationships_
 from all `id_namespace` fields to the header of the `id_namespace` table._
 * _Blue: containers and their containment relationships_
 * _Black: core entities and the direct associative relationships between them (plus
-`subject` <-> `subject_role_taxonomy`, which doesn't deserve its own color)_
+`subject` <-> `subject_role_taxonomy`)_
 
 |_Level 1 model diagram_|
 |:---:|
