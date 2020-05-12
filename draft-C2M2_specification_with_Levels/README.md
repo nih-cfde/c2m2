@@ -193,14 +193,13 @@ preparing compliant submissions, between Level 0's basic digital inventory
 and the full intricacy of Level 2 C2M2 (the most powerful and flexible research-asset
 metadata model that can be meaningfully generalized to represent multiple CFDE datasets).
 Accordingly, we have reserved several modeling concepts -- requiring the most effort
-to produce and maintain -- for Level 2; the following are thus **not modeled at
-Level 1**:
+to produce and maintain -- for Level 2. The following are **not modeled at Level 1**:
    * any and all **protected data**
    * documentation of  **experimental protocols**
    * event-based resource generation/**provenance networks**
    * detailed information on **organizations and people** governing the research
    being documented
-   * a comprehensive suite of options to model **scientific attributes of
+   * a **comprehensive suite** of options to model **scientific attributes of
    experimental resources**
       * full collection of features like anatomy, taxonomy, and assay type,
       plus formal vocabularies to describe them
@@ -218,6 +217,12 @@ if you would prefer to populate (fewer, simpler) higher-level documents
 like spreadsheet forms instead of generating fully-inflated specification-compliant
 TSVs, we can work with you to automatically translate such documents into compliant
 TSV collections prior to submission and ingest into the CFDE core systems._
+
+_Gold: internal CVs/dictionaries and their foreign-key relationships_
+_Blue: containers and their containment relationships_
+_Green: external controlled vocabularies (term & display-decoration tracking tables)
+and their foreign-key relationships_
+_Black: core entities and the direct associative relationships between them_
 
 |_Level 1 model diagram_|
 |:---:|
