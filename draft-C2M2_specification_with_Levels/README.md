@@ -218,7 +218,7 @@ like spreadsheet forms instead of generating fully-inflated specification-compli
 TSVs, we can work with you to automatically translate such documents into compliant
 TSV collections prior to submission and ingest into the CFDE core systems._
 
-Color key:
+_Color key:_
 
 * _Green: external controlled vocabularies (term & display-decoration tracking tables)
 and their foreign-key relationships_
