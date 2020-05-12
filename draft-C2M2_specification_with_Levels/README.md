@@ -222,7 +222,8 @@ TSV collections prior to submission and ingest into the CFDE core systems._
 * _Blue: containers and their containment relationships_
 * _Green: external controlled vocabularies (term & display-decoration tracking tables)
 and their foreign-key relationships_
-* _Black: core entities and the direct associative relationships between them_
+* _Black: core entities and the direct associative relationships between them (plus
+`subject_role_taxonomy`)_
 
 |_Level 1 model diagram_|
 |:---:|
