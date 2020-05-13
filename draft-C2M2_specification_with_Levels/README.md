@@ -283,12 +283,10 @@ from all `id_namespace` fields to the header of the `id_namespace` table._
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
-A (_presently out of sync with diagram; update imminent_) JSON Schema document --
-implementing
+A JSON Schema document -- implementing
 [Frictionless Data](https://frictionlessdata.io/)'s
 "[Data Package](https://frictionlessdata.io/data-package/)"
-container meta-specification --
-defining the Level 1 TSV collection is
+container meta-specification -- defining the Level 1 TSV collection is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json);
 an example Level-1-compliant TSV submission collection can be found **here** (as a
 bare collection of TSV files) and **here** (as a packaged BDBag archive).
