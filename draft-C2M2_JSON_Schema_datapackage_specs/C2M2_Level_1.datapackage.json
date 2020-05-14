@@ -1392,6 +1392,14 @@
                   }
                },
                {
+                  "name": "abbreviation",
+                  "description": "A very short display label for this identifier namespace",
+                  "type": "string",
+                  "constraints": {
+                     "pattern": "^[a-zA-Z0-9_]+$"
+                  }
+               },
+               {
                   "name": "name",
                   "description": "A short, human-readable, machine-read-friendly label for this identifier namespace",
                   "type": "string"
