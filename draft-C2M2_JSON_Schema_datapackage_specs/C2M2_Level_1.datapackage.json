@@ -905,16 +905,16 @@
                   }
                },
                {
-                  "name": "subject_id",
-                  "description": "The ID of this subject",
+                  "name": "file_id",
+                  "description": "The ID of this file",
                   "type": "string",
                   "constraints": {
                      "required": true
                   }
                },
                {
-                  "name": "file_id",
-                  "description": "The ID of this file",
+                  "name": "subject_id",
+                  "description": "The ID of this subject",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -923,8 +923,8 @@
             ],
             "primaryKey": [
                "id_namespace",
-               "subject_id",
-               "file_id"
+               "file_id",
+               "subject_id"
             ],
             "foreignKeys": [
                {
@@ -935,16 +935,16 @@
                   }
                },
                {
-                  "fields": "subject_id",
+                  "fields": "file_id",
                   "reference": {
-                     "resource": "subject",
+                     "resource": "file",
                      "fields": "id"
                   }
                },
                {
-                  "fields": "file_id",
+                  "fields": "subject_id",
                   "reference": {
-                     "resource": "file",
+                     "resource": "subject",
                      "fields": "id"
                   }
                }
