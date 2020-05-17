@@ -15,7 +15,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this file",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -138,7 +137,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this biosample",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -236,7 +234,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this subject",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -319,7 +316,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this project",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -383,7 +379,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this parent-child project pair",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -447,7 +442,6 @@
                   "name": "id_namespace",
                   "description": "ID of the identifier namespace corresponding to the top-level C2M2 metadataset containing this collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -511,7 +505,6 @@
                   "name": "superset_id_namespace",
                   "description": "URI of the identifier namespace corresponding to the top-level C2M2 metadataset containing the superset collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -528,7 +521,6 @@
                   "name": "subset_id_namespace",
                   "description": "URI of the identifier namespace corresponding to the top-level C2M2 metadataset containing the subset collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -592,7 +584,6 @@
                   "name": "file_id_namespace",
                   "description": "Identifier namespace for this file",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -609,7 +600,6 @@
                   "name": "collection_id_namespace",
                   "description": "Identifier namespace for this collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -673,7 +663,6 @@
                   "name": "biosample_id_namespace",
                   "description": "Identifier namespace for this biosample",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -690,7 +679,6 @@
                   "name": "collection_id_namespace",
                   "description": "Identifier namespace for this collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -754,7 +742,6 @@
                   "name": "subject_id_namespace",
                   "description": "Identifier namespace for this subject",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -771,7 +758,6 @@
                   "name": "collection_id_namespace",
                   "description": "Identifier namespace for this collection",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -835,7 +821,6 @@
                   "name": "id_namespace",
                   "description": "Identifier namespace for this file/biosample pair",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -899,7 +884,6 @@
                   "name": "id_namespace",
                   "description": "Identifier namespace for this file/subject pair",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -963,7 +947,6 @@
                   "name": "id_namespace",
                   "description": "Identifier namespace for this biosample/subject pair",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -1027,7 +1010,6 @@
                   "name": "id_namespace",
                   "description": "Identifier namespace for this subject",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -1320,7 +1302,6 @@
                   "name": "id",
                   "description": "A globally unique ID representing this subject_role",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true,
                      "unique": true
@@ -1353,7 +1334,6 @@
                   "name": "id",
                   "description": "A globally unique ID representing this subject_granularity",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true,
                      "unique": true
@@ -1386,7 +1366,6 @@
                   "name": "id",
                   "description": "A globally unique ID representing this identifier namespace",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true,
                      "unique": true
