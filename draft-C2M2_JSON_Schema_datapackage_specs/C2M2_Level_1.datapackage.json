@@ -1147,10 +1147,11 @@
                {
                   "name": "id",
                   "description": "An NCBI Taxonomy Database ID identifying a particular taxon",
-                  "type": "integer",
+                  "type": "string",
                   "constraints": {
                      "required": true,
-                     "unique": true
+                     "unique": true,
+                     "pattern": "^NCBI:txid[0-9]+$"
                   }
                },
                {
