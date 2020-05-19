@@ -14,5 +14,6 @@ Welcome to CFDE Documentation's documentation!
    C2M2_specification_with_Levels/Level_0_popout.assets_and_asset_manifest_deliverable
    C2M2_specification_with_Levels/ProposedLevel1
    C2M2_specification_with_Levels/glossary
-   C2M2_example_submission_data/index
+   example_submission_index
+   C2M2_JSON_Schema_datapackage_specs_index
    C2M2_ER_diagrams/README.md

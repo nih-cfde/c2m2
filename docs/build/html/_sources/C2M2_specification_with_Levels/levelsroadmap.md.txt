@@ -58,7 +58,7 @@ While we know our current model is not yet rich enough to contain
 all the metadata that will be required by all DCCs, there are also too many terms
 for most DCCs to easily use. Modeling and data wrangling are always difficult, even for
 experts. Requiring every DCC to model their metadata using
-all possible features of the [current C2M2 model](./C2M2_ER_diagrams/README.html#full-c2m2-er-model)
+all possible features of the [current C2M2 model](../C2M2_ER_diagrams/README.html#full-c2m2-er-model)
 as a precondition for submitting metadata to CFDE would
 be impractical for several important reasons.
 
@@ -91,7 +91,7 @@ systems of their own should not encounter arbitrary
 barriers to CFDE support for more extensive relational
 modeling of their metadata if they want it; CFDE will
 maintain such support by iteratively refining the
-[current C2M2 model](./C2M2_ER_diagrams/README.html#full-c2m2-er-model)
+[current C2M2 model](../C2M2_ER_diagrams/README.html#full-c2m2-er-model)
 according to needs identified while working with
 more operationally advanced DCCs.
 
@@ -141,7 +141,7 @@ at this level of metadata richness will be the easiest to produce and will
 support the simplest available functionality implemented by
 downstream applications.
 
-The full specification can be found in the accompanying [Level 0 popout](./C2M2_specification_with_Levels/Level_0_popout.assets_and_asset_manifest_deliverable) document.
+The full specification can be found in the accompanying [Level 0 popout](./Level_0_popout.assets_and_asset_manifest_deliverable) document.
 
 ---
 
@@ -153,7 +153,7 @@ Level 1 introduces tables for core experimental resources like:
 * Host species taxonomy for samples and subjects
 * Basic support for arranging experimental resources into sub-collections based on a hierarchy of projects or studies
 
-The full specification can be found in the accompanying [Level 1 popout](./C2M2_specification_with_Levels/ProposedLevel1) document.
+The full specification can be found in the accompanying [Level 1 popout](./ProposedLevel1) document.
 
 ---
 
