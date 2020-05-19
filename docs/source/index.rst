@@ -1,0 +1,18 @@
+.. CFDE Documentation documentation master file, created by
+   sphinx-quickstart on Tue May 19 10:20:19 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to CFDE Documentation's documentation!
+==============================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   C2M2_specification_with_Levels/levelsroadmap
+   C2M2_specification_with_Levels/Level_0_popout.assets_and_asset_manifest_deliverable
+   C2M2_specification_with_Levels/ProposedLevel1
+   C2M2_specification_with_Levels/glossary
+   C2M2_example_submission_data/index
+   C2M2_ER_diagrams/README.md

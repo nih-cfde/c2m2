@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Common Fund Data Ecosystem’s Crosscut Metadata Model (CFDE C2M2) &mdash; CFDE Documentation 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CFDE Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="C2M2_specification_with_Levels/levelsroadmap.html">The Common Fund Data Ecosystem’s Crosscut Metadata Model (CFDE C2M2) Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2M2_specification_with_Levels/Level_0_popout.assets_and_asset_manifest_deliverable.html">Asset Manifest Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2M2_specification_with_Levels/ProposedLevel1.html">Proposed Technical Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2M2_specification_with_Levels/glossary.html">C2M2 Specification with Levels Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C2M2_ER_diagrams/README.html">C2M2_ER_diagrams</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CFDE Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The Common Fund Data Ecosystem’s Crosscut Metadata Model (CFDE C2M2)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-common-fund-data-ecosystem-s-crosscut-metadata-model-cfde-c2m2">
+<h1>The Common Fund Data Ecosystem’s Crosscut Metadata Model (CFDE C2M2)<a class="headerlink" href="#the-common-fund-data-ecosystem-s-crosscut-metadata-model-cfde-c2m2" title="Permalink to this headline">¶</a></h1>
+<p>This document introduces the Crosscut Metadata Model (C2M2),
+a flexible standard for describing biomedical experimental
+data. The Common Fund Data Ecosystem group is creating a new
+infrastructure, with C2M2 as its central concept, through
+which powerful cross-dataset searches, custom aggregation
+of experimental data and scale-powered statistical analysis
+methods will be made possible for the biomedical research
+community at an unprecedented scope.</p>
+<p>Using this new infrastructure, data coordinating centers
+(<a class="reference external" href="../draft-CFDE_glossary/glossary.md#DCCs">DCCs</a>) can
+share structured information (<a class="reference external" href="../draft-CFDE_glossary/glossary.md#metadata">metadata</a>)
+about their experimental resources with the research
+community, widening and deepening access to usable
+observational data and accelerating discovery.</p>
+<div class="section" id="dcc-metadata-submissions">
+<h2>DCC Metadata Submissions<a class="headerlink" href="#dcc-metadata-submissions" title="Permalink to this headline">¶</a></h2>
+<p>DCCs will collect and provide metadata to CFDE describing
+experimental resources within their purview. Each metadata
+submission will take the form of a collection of tab-separated value
+files (TSVs): precise formatting requirements for these TSV
+collections will be specified by JSON Schema documents
+implementing the <a class="reference external" href="http://frictionlessdata.io/docs/data-package/">Data Package</a>
+meta-specification published by the <a class="reference external" href="http://frictionlessdata.io/">Frictionless Data</a>
+group. These schemas will be used by the CFDE software
+infrastructure to automatically validate submission format compliance
+and metadata integrity during the <a class="reference external" href="../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process">ingestion process</a>.</p>
+<p>CFDE will offer DCCs multiple alternatives for metadata submission
+formats, all of which will be automatically interoperable with the
+C2M2 ecosystem. These alternative formats are arranged in
+levels tiered according to increasing complexity, reflecting
+anticipated differences in the relative richness of metadata
+available to different DCCs at any particular time. The general
+expectation will be that the metadata submitted and managed by a
+DCC will be able to transition, over time, through
+increasingly rich modeling levels – enabling increasingly powerful downstream
+applications – as the life cycle of DCC/CFDE technical interaction
+progresses.</p>
+</div>
+<div class="section" id="c2m2-richness-levels">
+<h2>C2M2 Richness Levels<a class="headerlink" href="#c2m2-richness-levels" title="Permalink to this headline">¶</a></h2>
+<p>In its <a class="reference external" href="../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png">fullest form</a>,
+C2M2 is an <a class="reference external" href="../draft-CFDE_glossary/glossary.md#entity-relationship-model">entity-relationship system</a>
+that models common properties of resources fundamental
+to biomedical research like subjects, digital files,
+events, samples, and project datasets. Essential
+relationships between these fundamental resources are also formally described,
+documenting (for example) the samples that were processed
+to produce a particular data file; which subject a given sample was
+drawn from (possibly obfuscated to protect patient privacy); or when
+a particular blood pressure measurement was made.</p>
+<p>Modeling and data wrangling are always difficult, even for
+experts. Requiring every DCC to model their metadata using
+all possible features of the <a class="reference external" href="../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png">full (Level 2) C2M2 model</a>
+as a precondition for submitting metadata to CFDE would
+be infeasible for several important reasons (apart from
+creating avoidable and unnecessary onboarding delays).
+Perhaps the most operationally relevant of these is that
+the C2M2 model must remain as flexible as possible, especially
+during its developmental phases, in order to accomodate mutual learning
+between DCCs and CFDE as the process of data ingestion
+develops. It is far more expensive and error-prone to
+repeatedly change a complex model than it is to build
+one gradually from a simpler core concept which is allowed
+to stabilize before more specialized branches are allowed
+to solidify.</p>
+<p>With the design of C2M2, we are splitting the difference
+between the ease of evolution inherent in a simple model and
+the operational power provided to downstream applications by more
+complicated and difficult-to-maintain frameworks.
+DCCs with advanced, operationalized metadata modeling
+systems of their own should not encounter arbitrary
+barriers to CFDE support for more extensive relational
+modeling of their metadata if they want it; CFDE will
+maintain such support by iteratively refining the
+<a class="reference external" href="../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png">full C2M2 model</a>
+according to needs identified while working with
+more operationally advanced DCCs. Newer or smaller DCCs, by contrast, may
+not currently have enough readily-available information
+to feasibly describe their experimental resources using this
+most complex C2M2 modeling level: CFDE will support
+cases like these by offering simpler but still well-structured
+metadata models, lowering some of the barriers to rapid
+entry into the data ecosystem.</p>
+<p>Simpler C2M2 metadata Levels must be maintained by
+CFDE in such a way as to maximize interoperability with
+more complex C2M2 variants, and the whole system should be
+structured to minimize the negative side effects of model
+changes. These considerations have led to the
+creation of C2M2 <a class="reference external" href="../draft-CFDE_glossary/glossary.md#richness-levels">richness levels</a>:
+concentric, canonical variants of C2M2 which are benchmarked at
+increasing levels of complexity and detail, wherein each successive
+level is a value-added superset of all of the metadata
+encompassed by the previous (less complex) level.</p>
+<p>Accordingly, CFDE presently offers two less complex C2M2 variants
+in addition to the full (Level 2) C2M2 model:
+<a class="reference external" href="#Level-0">Level 0</a> (basic metadata describing a collection of digital files) and
+<a class="reference external" href="#Level-1">Level 1</a> (which introduces models for core experimental
+resources like biosamples and subjects, and the core relationships between them; a rudimentary set of search targets
+in the form of annotations like the anatomical location of
+the source for a human tissue sample or taxonomic data describing
+biosample source organisms and study subjects; and basic support for arranging
+experimental resources into sub-collections based on a
+hierarchy of projects, experimental datasets or other similar subdivisions
+of research ownership and responsibility).</p>
+<p><em>Level 2 currently requires work to (a) expand and finalize a <a class="reference external" href="../draft-C2M2_Levels_spreadsheets/Level_definitions.csv">brainstorm-level checklist of supported concepts</a> followed by (b) harmonization of that checklist with an ongoing <a class="reference external" href="../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png">draft ER model</a>.</em></p>
+<hr class="docutils" />
+<div class="section" id="level-0">
+<h3>Level 0<a class="headerlink" href="#level-0" title="Permalink to this headline">¶</a></h3>
+<p>C2M2 Level 0 defines a <strong>minimal valid C2M2 instance.</strong> Data submissions
+at this level of metadata richness will be the easiest to produce, and will
+support the simplest available functionality implemented by
+downstream applications.</p>
+<div class="section" id="level-0-submission-process-overview">
+<h4>Level 0 submission process: overview<a class="headerlink" href="#level-0-submission-process-overview" title="Permalink to this headline">¶</a></h4>
+<p>Metadata submissions at Level 0 will consist of a single TSV
+file describing a <strong>collection of digital
+files</strong> owned or managed by a DCC. The properties listed
+for the Level 0 <code class="docutils literal notranslate"><span class="pre">file</span></code> entity (see below for
+diagram and definitions) will serve as the TSV’s column
+headers; each TSV row will represent a single file. The
+Level 0 TSV itself thus represents a
+<strong><a class="reference external" href="../draft-CFDE_glossary/glossary.md#CFDE-asset-manifest">manifest</a>
+or inventory</strong> of digital files that a DCC wants to
+introduce into the C2M2 metadata ecosystem.</p>
+<p>This level encodes the most basic file metadata:
+its use by downstream applications will be
+limited to informing the least specific level of data
+accounting, querying and reporting.</p>
+<p>|<em>Level 0 model diagram</em>|
+|:—:|
+|<img alt="Level 0 model diagram" src="../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png" />|</p>
+</div>
+<div class="section" id="level-0-technical-specification-properties-of-the-file-entity">
+<h4>Level 0 technical specification: properties of the <code class="docutils literal notranslate"><span class="pre">file</span></code> entity<a class="headerlink" href="#level-0-technical-specification-properties-of-the-file-entity" title="Permalink to this headline">¶</a></h4>
+<p><strong>Required: <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> <code class="docutils literal notranslate"><span class="pre">id</span></code> <code class="docutils literal notranslate"><span class="pre">sha256|md5</span></code></strong></p>
+<p>|property|description|
+|:—:|:—|
+| <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> | String <strong>identifier assigned by CFDE to the DCC managing this <code class="docutils literal notranslate"><span class="pre">file</span></code></strong>. The value of this property will be used together with <code class="docutils literal notranslate"><span class="pre">id</span></code> (assigned to each <code class="docutils literal notranslate"><span class="pre">file</span></code> by the DCC that owns it) as a <strong>paired-key structure formally identifying Level 0 <code class="docutils literal notranslate"><span class="pre">file</span></code> entities</strong> within the total C2M2 data space.|
+| <code class="docutils literal notranslate"><span class="pre">id</span></code> | Unrestricted-format <strong>string identifying this <code class="docutils literal notranslate"><span class="pre">file</span></code>, assigned by the DCC managing it</strong>. Can be any string as long as it <strong>uniquely identifies each <code class="docutils literal notranslate"><span class="pre">file</span></code></strong> within the scope of a single Level 0 metadata submission. |
+| <code class="docutils literal notranslate"><span class="pre">size_in_bytes</span></code> | The <strong>size of this <code class="docutils literal notranslate"><span class="pre">file</span></code> in bytes</strong>. This varies (even for “copies” of the same <code class="docutils literal notranslate"><span class="pre">file</span></code>) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: file size integrity metadata will be provided in the form of checksum data in the <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and/or <code class="docutils literal notranslate"><span class="pre">md5</span></code> properties. <code class="docutils literal notranslate"><span class="pre">size_in_bytes</span></code> will instead underpin automatic reporting of basic storage statistics across different C2M2 collections of DCC metadata.|
+| <code class="docutils literal notranslate"><span class="pre">sha256</span></code> | <strong>CFDE-preferred</strong> file checksum string: the output of the SHA-256 cryptographic hash function after being run on this <code class="docutils literal notranslate"><span class="pre">file</span></code>. One or both of <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and <code class="docutils literal notranslate"><span class="pre">md5</span></code> is required. |
+| <code class="docutils literal notranslate"><span class="pre">md5</span></code> | <strong>Permitted</strong> file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this <code class="docutils literal notranslate"><span class="pre">file</span></code>. One or both of <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and <code class="docutils literal notranslate"><span class="pre">md5</span></code> is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, CFDE will accept them.) |
+| <code class="docutils literal notranslate"><span class="pre">persistent_id</span></code> | <strong>A persistent, resolvable URI generated by a DCC</strong> (using, e.g., the CFDE minid server) <strong>and permanently attached to this <code class="docutils literal notranslate"><span class="pre">file</span></code></strong>, to serve as a permanent address to which landing pages (which summarize metadata associated with this <code class="docutils literal notranslate"><span class="pre">file</span></code>) and other relevant annotations and functions can eventually be attached, including (optionally) resolution to a network location from which the <code class="docutils literal notranslate"><span class="pre">file</span></code> can be downloaded. <strong>Actual network locations must not be embedded directly within this identifier</strong>: one level of indirection is required in order to allow network addresses to change over time as files are moved around. |
+| <code class="docutils literal notranslate"><span class="pre">filename</span></code> | A filename with no prepended PATH information. |</p>
+</div>
+<div class="section" id="level-0-metadata-submission-examples-data-package-json-schema-and-example-tsvs">
+<h4>Level 0 metadata submission examples: Data Package JSON Schema and example TSVs<a class="headerlink" href="#level-0-metadata-submission-examples-data-package-json-schema-and-example-tsvs" title="Permalink to this headline">¶</a></h4>
+<p>A JSON Schema document – implementing <a class="reference external" href="https://frictionlessdata.io/">Frictionless
+Data</a>’s “<a class="reference external" href="https://frictionlessdata.io/data-package/">Data
+Package</a>” container meta-specification –
+defining the Level 0 TSV is
+<a class="reference external" href="../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json">here</a>;
+an example Level-0-compliant TSV submission collection can be found
+<a class="reference external" href="../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv">here</a>
+(just the <code class="docutils literal notranslate"><span class="pre">file.tsv</span></code> portion) and
+<a class="reference external" href="../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz">here</a>
+(as a packaged BDBag archive).</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="level-1">
+<h3>Level 1<a class="headerlink" href="#level-1" title="Permalink to this headline">¶</a></h3>
+<p>C2M2 Level 1 models <strong>basic experimental resources and associations between them</strong>.
+This level of metadata richness is more difficult to produce than Level 0’s flat
+inventory of digital files. As a result, Level 1 metadata offers users more powerful
+downstream tools than are available for Level 0 datasets, including</p>
+<ul class="simple">
+<li><p>faceted searches on a (small) set of biologically relevant features (like anatomy
+and taxonomy) of experimental resources like <code class="docutils literal notranslate"><span class="pre">biosample</span></code>s and <code class="docutils literal notranslate"><span class="pre">subject</span></code>s</p></li>
+<li><p>organization of summary displays using subdivisions of experimental metadata
+collections by <code class="docutils literal notranslate"><span class="pre">project</span></code> (grant or contract) and <code class="docutils literal notranslate"><span class="pre">collection</span></code> (any scientifically
+relevant grouping of resources)</p></li>
+<li><p>basic reporting on changes in metadata over time, tracking (for example)
+creation times for <code class="docutils literal notranslate"><span class="pre">file</span></code>s and <code class="docutils literal notranslate"><span class="pre">biosample</span></code>s</p></li>
+</ul>
+<p>C2M2 Level 1 is designed to offer an intermediate tier of difficulty, in terms of
+preparing compliant submissions, between Level 0’s basic digital inventory
+and the full intricacy of Level 2 C2M2 (the most powerful and flexible research-asset
+metadata model that can be meaningfully generalized to represent multiple CFDE datasets).
+Accordingly, we have reserved several modeling concepts – requiring the most effort
+to produce and maintain – for Level 2. The following are <strong>not modeled at Level 1</strong>:</p>
+<ul class="simple">
+<li><p>any and all <strong>protected data</strong></p></li>
+<li><p>documentation of  <strong>experimental protocols</strong></p></li>
+<li><p>event-based resource generation/<strong>provenance networks</strong></p></li>
+<li><p>detailed information on <strong>organizations and people</strong> governing the research
+being documented</p></li>
+<li><p>a <strong>comprehensive suite</strong> of options to model <strong>scientific attributes of
+experimental resources</strong></p>
+<ul>
+<li><p>full collection of features like anatomy, taxonomy, and assay type,
+plus formal vocabularies to describe them</p></li>
+<li><p>prerequisite to offering research users deep and detailed search possibilities</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="level-1-submission-process-overview">
+<h4>Level 1 submission process: overview<a class="headerlink" href="#level-1-submission-process-overview" title="Permalink to this headline">¶</a></h4>
+<p><em>You’re not going to have to give us all of the tables shown in the diagram
+below. We’ll compute some of that. Here’s the breakdown of what we absolutely
+need from you to construct a compliant Level 1 submission, and also all the
+optional things that we’ll accept in such a submission, if you have them handy.</em></p>
+<p><em>Also note that while this specification describes a collection of TSV files,
+if you would prefer to populate (fewer, simpler) higher-level documents
+like spreadsheet forms instead of generating fully-inflated specification-compliant
+TSVs, we can work with you to automatically translate such documents into compliant
+TSV collections prior to submission and ingest into the CFDE core systems.</em></p>
+<p><em>Color key:</em></p>
+<ul class="simple">
+<li><p><em>Green: external controlled vocabularies (term &amp; display-decoration tracking tables)
+and their foreign-key relationships</em></p></li>
+<li><p><em>Gold: internal CVs/dictionaries and their foreign-key relationships</em></p>
+<ul>
+<li><p><em>Note: for representational clarity, gold FK arrows are implied (but not drawn)
+from all <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> fields to the header of the <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> table.</em></p></li>
+</ul>
+</li>
+<li><p><em>Blue: containers and their containment relationships</em></p></li>
+<li><p><em>Black: core entities and the direct associative relationships between them (plus
+<code class="docutils literal notranslate"><span class="pre">subject</span></code> &lt;-&gt; <code class="docutils literal notranslate"><span class="pre">subject_role_taxonomy</span></code>)</em></p></li>
+</ul>
+<p>|<em>Level 1 model diagram</em>|
+|:—:|
+|<img alt="Level 1 model diagram" src="../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png" />|</p>
+</div>
+<div class="section" id="level-1-technical-specification">
+<h4>Level 1 technical specification<a class="headerlink" href="#level-1-technical-specification" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="core-entities">
+<h5>Core entities<a class="headerlink" href="#core-entities" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> <em>revisited (additions: also cf. below, §”Common fields” and §”Controlled
+vocabularies and term tables”)</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">biosample</span></code> <em>introduced (also cf. below, §”Common fields” and §”Controlled vocabularies and
+term tables”)</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subject</span></code> <em>introduced (also cf. below, §”Common fields” and §”Taxonomy and the <code class="docutils literal notranslate"><span class="pre">subject</span></code> entity”)</em></p></li>
+</ul>
+</div>
+<div class="section" id="common-fields">
+<h5>Common fields<a class="headerlink" href="#common-fields" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">persistent_id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">creation_time</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abbreviation</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">description</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="core-containers">
+<h5>Core containers<a class="headerlink" href="#core-containers" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p>
+<ul>
+<li><p><em>explain “primary project” FK in</em> <code class="docutils literal notranslate"><span class="pre">file</span></code>/<code class="docutils literal notranslate"><span class="pre">biosample</span></code>/<code class="docutils literal notranslate"><span class="pre">subject</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collection</span></code></p>
+<ul>
+<li><p><em>note decoupling from</em> <code class="docutils literal notranslate"><span class="pre">project</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="controlled-vocabularies-and-term-tables">
+<h5>Controlled vocabularies and term tables<a class="headerlink" href="#controlled-vocabularies-and-term-tables" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><em>enumerate CVs</em></p></li>
+<li><p><em>describe term tables</em></p></li>
+<li><p><em>outline plan for addressing versioning</em></p></li>
+<li><p><em>discuss parser script on offer</em></p>
+<ul>
+<li><p><em>to be executed during bdbag-preparation stage</em></p></li>
+<li><p><em>will inflate bare CV terms cited in entity fields into corresponding CV
+term-usage tables</em></p></li>
+<li><p><em>auto-loads and populates display-layer term-decorator data (name,
+description) from relevant CV OBO reference files</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="taxonomy-and-the-subject-entity">
+<h5>Taxonomy and the <code class="docutils literal notranslate"><span class="pre">subject</span></code> entity<a class="headerlink" href="#taxonomy-and-the-subject-entity" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">subject_granularity</span></code>: <code class="docutils literal notranslate"><span class="pre">subject</span></code> <em>multiplicity specifier</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subject_role</span></code>: <em>constituent relationship to intra-</em><code class="docutils literal notranslate"><span class="pre">subject</span></code> <em>system</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncbi_taxonomy</span></code>: <em>examples of how to map taxa to</em> <code class="docutils literal notranslate"><span class="pre">subject</span></code> <em>constituents</em></p></li>
+</ul>
+</div>
+<div class="section" id="association-tables-and-inter-entity-relationships">
+<h5>Association tables and inter-entity relationships<a class="headerlink" href="#association-tables-and-inter-entity-relationships" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><em>enumerate relationship/association definitions</em></p></li>
+<li><p><em>note ingest-stage flattening for rapid service of roll-up queries for
+display layer</em></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="level-1-metadata-submission-examples-data-package-json-schema-and-example-tsvs">
+<h4>Level 1 metadata submission examples: Data Package JSON Schema and example TSVs<a class="headerlink" href="#level-1-metadata-submission-examples-data-package-json-schema-and-example-tsvs" title="Permalink to this headline">¶</a></h4>
+<p>A JSON Schema document – implementing
+<a class="reference external" href="https://frictionlessdata.io/">Frictionless Data</a>’s
+“<a class="reference external" href="https://frictionlessdata.io/data-package/">Data Package</a>”
+container meta-specification – defining the Level 1 TSV collection is
+<a class="reference external" href="../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json">here</a>;
+an example Level-1-compliant TSV submission collection can be found
+<a class="reference external" href="../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents/">here</a>
+(as a bare collection of TSV files) and
+<a class="reference external" href="../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.tgz">here</a>
+(as a packaged BDBag archive).</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="level-2-the-full-c2m2-model">
+<h3>Level 2 (the full C2M2 model)<a class="headerlink" href="#level-2-the-full-c2m2-model" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><em><strong>New modeling concept checklist:</strong></em></p>
+<ul class="simple">
+<li><p>clinical <strong>visit data</strong></p></li>
+<li><p>modular <strong>experimental flow (<code class="docutils literal notranslate"><span class="pre">protocol</span></code>)</strong></p>
+<ul>
+<li><p>relatively <em>passive documentation</em> of standard protocols and custom procedures</p></li>
+<li><p>rigorous and detailed stepwise modeling is <em>not</em> anticipated</p></li>
+</ul>
+</li>
+<li><p>resource (entity) <strong>provenance (<code class="docutils literal notranslate"><span class="pre">[data|material]_event</span></code> network)</strong></p></li>
+<li><p>structured addressbook for documenting and linking <strong>organizations
+(<code class="docutils literal notranslate"><span class="pre">common_fund_program</span></code>) and people</strong> to C2M2 metadata</p></li>
+<li><p>any C2M2 handling of <strong>protected data</strong></p></li>
+<li><p>full elaboration of scientific attributes of C2M2 entities using
+<strong>controlled-vocabulary metadata decorations</strong></p>
+<ul>
+<li><p>i.e., substrate data for facet-search targets</p></li>
+<li><p>e.g., Level 1’s <code class="docutils literal notranslate"><span class="pre">anatomy</span></code>, <code class="docutils literal notranslate"><span class="pre">assay_type</span></code>, <code class="docutils literal notranslate"><span class="pre">ncbi_taxonomy</span></code>, etc.)</p></li>
+<li><p>[enumerate requirements and scope for more complex modeling of scientific
+metadata_]</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>might need a <strong>better name</strong> than ‘full C2M2’ or ‘Level 2’</em></p></li>
+<li><p><em><strong>diagram &amp; JSON Schema need updating</strong> to harmonize with drafts for Levels 0 and 1</em></p></li>
+</ol>
+<p>|<em>The full C2M2 model</em>|
+|:—:|
+|<img alt="The full C2M2 model" src="../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png" />|</p>
+<div class="section" id="id1">
+<h4>…<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="level-2-submissions-schema-and-example-tsvs">
+<h4>Level 2 submissions: schema and example TSVs<a class="headerlink" href="#level-2-submissions-schema-and-example-tsvs" title="Permalink to this headline">¶</a></h4>
+<p>The JSON Schema document specifying the full Level 2 C2M2 TSV
+collection is <a class="reference external" href="../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json">here</a>;
+example Level-2-compliant TSV submissions will be found <strong>here</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, CFDE Coordinating Center
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
