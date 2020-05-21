@@ -108,6 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ProposedLevel1.html">Proposed Technical Specification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">C2M2 Specification with Levels Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example_submission_index.html">Example bdbag content files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../C2M2_JSON_Schema_datapackage_specs_index.html">C2M2 JSON Schema datapackage specs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../C2M2_ER_diagrams/README.html">C2M2_ER_diagrams</a></li>
 </ul>
 
@@ -212,31 +213,54 @@ single <code class="docutils literal notranslate"><span class="pre">file</span><
 <li><p><code class="docutils literal notranslate"><span class="pre">namespace.tsv</span></code> will serve as a formal structural placeholder for a <code class="docutils literal notranslate"><span class="pre">namespace</span></code> identifier, which will be assigned to each DCC by the CFDE. The CFDE will create and furnish a <code class="docutils literal notranslate"><span class="pre">namespace.tsv</span></code> file for each DCC to include with Level 0 submissions.</p></li>
 </ul>
 <p>C2M2 Level 0 encodes the most basic file metadata; its use by downstream applications will be limited to informing the least specific level of data accounting, querying, and reporting.</p>
-<p>|<em>Level 0 Model Diagram</em>|
-|:—:|
-|<img alt="Level 0 model diagram" src="../_images/Level-0-C2M2-model.png" />|</p>
+<p><em>Level 0 Model Diagram</em></p>
+<p><img alt="Level 0 model diagram" src="../_images/Level-0-C2M2-model.png" /></p>
 </div>
 <div class="section" id="level-0-technical-specification-properties-of-the-file-entity">
 <h3>Level 0 Technical Specification: Properties of the <code class="docutils literal notranslate"><span class="pre">file</span></code> Entity<a class="headerlink" href="#level-0-technical-specification-properties-of-the-file-entity" title="Permalink to this headline">¶</a></h3>
-<p><strong>Required: <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> <code class="docutils literal notranslate"><span class="pre">id</span></code> <code class="docutils literal notranslate"><span class="pre">sha256|md5</span></code></strong></p>
-<p>|Property|Description|
-|:——:|:———-|
-| <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> | String identifier assigned by the CFDE to the DCC managing this <code class="docutils literal notranslate"><span class="pre">file</span></code>. The value of this property will be used together with <code class="docutils literal notranslate"><span class="pre">id</span></code> (assigned to each <code class="docutils literal notranslate"><span class="pre">file</span></code> by the DCC that owns it) as a paired-key structure formally identifying Level 0 <code class="docutils literal notranslate"><span class="pre">file</span></code> entities within the total C2M2 data space.|</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">id</span></code> | Unrestricted-format string identifying this <code class="docutils literal notranslate"><span class="pre">file</span></code>, assigned by the DCC managing it. Can be any string as long as it uniquely identifies each <code class="docutils literal notranslate"><span class="pre">file</span></code> within the scope of a single Level 0 metadata submission. |</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">size_in_bytes</span></code> | The size of this <code class="docutils literal notranslate"><span class="pre">file</span></code> in bytes. This varies, even for “copies” of the same <code class="docutils literal notranslate"><span class="pre">file</span></code>, across differences in storage hardware and operating systems. The CFDE does not require any particular method of byte computation; file size integrity metadata will be provided in the form of checksum data in the <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and/or <code class="docutils literal notranslate"><span class="pre">md5</span></code> properties. <code class="docutils literal notranslate"><span class="pre">size_in_bytes</span></code> will instead underpin automatic reporting of basic storage statistics across different C2M2 collections of DCC metadata.|</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">sha256</span></code> | CFDE-preferred file checksum string–the output of the SHA-256 cryptographic hash function after being run on this <code class="docutils literal notranslate"><span class="pre">file</span></code>. One or both of <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and <code class="docutils literal notranslate"><span class="pre">md5</span></code> is required. |</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">md5</span></code> | Permitted file checksum string–the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this <code class="docutils literal notranslate"><span class="pre">file</span></code>. One or both of <code class="docutils literal notranslate"><span class="pre">sha256</span></code> and <code class="docutils literal notranslate"><span class="pre">md5</span></code> is required. The CFDE recommends using the SHA-256 algorithm if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 hashes have already been generated, then the CFDE will accept them. |</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">persistent_id</span></code> | A persistent, resolvable URI generated by a DCC (e.g., using the CFDE minid server) and permanently attached to this <code class="docutils literal notranslate"><span class="pre">file</span></code>. It serves as a permanent address to which landing pages, which summarize metadata associated with this <code class="docutils literal notranslate"><span class="pre">file</span></code>, and other relevant annotations and functions can eventually be attached, including (optionally) resolution to a network location from which the <code class="docutils literal notranslate"><span class="pre">file</span></code> can be downloaded. Actual network locations must not be embedded directly within this identifier; one level of indirection is required to allow network addresses to change over time as files are moved around. |</p>
-<p>| <code class="docutils literal notranslate"><span class="pre">filename</span></code> | A filename with no prepended PATH information. |</p>
-</div>
+<p><strong>Required: <code class="docutils literal notranslate"><span class="pre">id_namespace</span></code> <code class="docutils literal notranslate"><span class="pre">id</span></code> <code class="docutils literal notranslate"><span class="pre">sha256|md5</span></code></strong> ::</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>id_namespace</code></td>
+<td align="left">String identifier assigned by the CFDE to the DCC managing this <code>file</code>.  The value of this property will be used together with <code>id</code> (assigned to each <code>file</code>  by the DCC that owns it) as a paired-key structure formally identifying Level 0  <code>file</code> entities within the total C2M2 data space.</td>
+</tr>
+<tr>
+<td align="center"><code>id</code></td>
+<td align="left">Unrestricted-format string identifying this <code>file</code>, assigned by the DCC managing it. Can be any string as long as it uniquely identifies each <code>file</code> within the scope of a single Level 0 metadata submission.</td>
+</tr>
+<tr>
+<td align="center"><code>size_in_bytes</code></td>
+<td align="left">The size of this <code>file</code> in bytes. This varies, even for "copies" of the same <code>file</code>, across differences in storage hardware and operating systems. The CFDE does not require any particular method of byte computation; file size integrity metadata will be provided in the form of checksum data in the <code>sha256</code> and/or <code>md5</code> properties. <code>size_in_bytes</code> will instead underpin automatic reporting of basic storage statistics across different C2M2 collections of DCC metadata.</td>
+</tr>
+<tr>
+<td align="center"><code>sha256</code></td>
+<td align="left">CFDE-preferred file checksum string--the output of the SHA-256 cryptographic hash function after being run on this <code>file</code>. One or both of <code>sha256</code> and <code>md5</code> is required.</td>
+</tr>
+<tr>
+<td align="center"><code>md5</code></td>
+<td align="left">Permitted file checksum string--the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this <code>file</code>. One or both of <code>sha256</code> and <code>md5</code> is required. The CFDE recommends using the SHA-256 algorithm if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 hashes have already been generated, then the CFDE will accept them.</td>
+</tr>
+<tr>
+<td align="center"><code>filename</code></td>
+<td align="left">A filename with no prepended PATH information.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="level-0-metadata-submission-frictionless-io-datapackage-json-schema-specification">
 <h3>Level 0 Metadata Submission: frictionless.io <code class="docutils literal notranslate"><span class="pre">datapackage.json</span></code> Schema Specification<a class="headerlink" href="#level-0-metadata-submission-frictionless-io-datapackage-json-schema-specification" title="Permalink to this headline">¶</a></h3>
 <p>The JSON schema document formally specifying all data constraints on Level 0 TSVs is located
-<a class="reference external" href="../C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage">here</a>, and
-an example Level-0-compliant TSV submission can be found <a class="reference external" href="..//C2M2_example_submission_data/index.html#level-0">here</a>, as just the <code class="docutils literal notranslate"><span class="pre">file.tsv</span></code> portion or as a full BDBag archive.</p>
+<a class="reference internal" href="../C2M2_JSON_Schema_datapackage_specs_index.html"><span class="doc">here</span></a>, and
+an example Level-0-compliant TSV submission can be found <a class="reference external" href="./example_submission_data_index.html#level-0">here</a>, as just the <code class="docutils literal notranslate"><span class="pre">file.tsv</span></code> portion or as a full BDBag archive.</p>
 </div>
 </div>
 </div>
