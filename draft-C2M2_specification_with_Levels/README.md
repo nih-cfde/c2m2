@@ -264,10 +264,10 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	process._
          * _This example doesn't preclude attaching multiple `biosample`s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single `biosample`
-   	   that produces multiple `file`s (if, e.g., a single library prep is divided in
-   	   two, with each portion amplified separately, and with each amplified portion
+   	   that produces multiple `file`s: if, e.g., a single library prep were to be
+   	   divided in two, with each portion amplified separately and
    	   then sequenced under separate conditions, then the final separation and
-   	   amplification processes could reasonably be ignored, and the source for the
+   	   amplification processes could reasonably be ignored, and the source entity for the
    		two independently-sequenced `file` outputs could be modeled as a single
    		Level 1 `biosample`._
       * _CFDE staff will be available to help navigate any complexity encountered
