@@ -257,7 +257,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
    	   relationships represented here as `<->` are undirected, and so the notion of a
    	   "chain of provenance" cannot be fairly represented by this model._
-   	* _Practically speaking, in such a situation, a Level 1 C2M2 instance builder
+      * _Practically speaking, in such a situation, a Level 1 C2M2 instance builder
    	might reasonably create one record for the originating `subject`; create one
    	`biosample` entity record representing the final pre-sequencing preparatory
    	material; and create a `file` record for the FASTQ file produced by the sequencing
