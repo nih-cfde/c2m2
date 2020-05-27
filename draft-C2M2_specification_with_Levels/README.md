@@ -276,8 +276,8 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (apart from other_ `biosample` _s)_
-      * _Apart from shared metadata fields (cf. above, §"Common fields"), Level 1 models
-      two_ `subject` _-entity-specific details:_
+      * _In addition to shared metadata fields (cf. above, §"Common fields") and inter-entity
+      associations, Level 1 models two details specific to_ `subject` _entities:_
          * _internal structural configuration (defined in the_ `subject_granularity` _table
          and specified for each record via a foreign key field in the_ `subject` _table),
          e.g.: "single organism," "microbiome," "cell line"_
