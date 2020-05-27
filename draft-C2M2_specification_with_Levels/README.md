@@ -207,24 +207,21 @@ to produce and maintain -- for Level 2. The following are **not modeled at Level
 
 #### Level 1 submission process: overview
 
-_You're not going to have to give us all of the tables shown in the diagram
-below. We'll compute some of that. Here's the breakdown of what we absolutely
-need from you to construct a compliant Level 1 submission, and also all the
-optional things that we'll accept in such a submission, if you have them handy._
-
-_Also note that while this specification describes a collection of TSV files,
-if you would prefer to populate (fewer, simpler) higher-level documents
-like spreadsheet forms instead of generating fully-inflated specification-compliant
-TSVs, we can work with you to automatically translate such documents into compliant
-TSV collections prior to submission and ingest into the CFDE core systems._
+_Build the black (core entity) and blue (containment relationship) tables
+shown in the diagram below. We'll give you copies of the gold tables to include
+with your submission: you'll reference IDs from these tables in the tables
+you're building directly. Once you've built the core entity and containment tables,
+the green tables can be built automatically using our term-scanner script, which will
+collect all relevant CV terms used throughout your tables and will create corresponding
+green tables using data loaded from versioned, whole-CV reference documents
+(like OBO files)._
 
 _Color key:_
 
-* _Green: external controlled vocabularies (term & display-decoration tracking tables)
-and their foreign-key relationships_
-* _Gold: internal CVs/dictionaries and their foreign-key relationships_
+* _Gold: CFDE-internal controlled vocabularies/dictionaries and their foreign-key relationships_
    * _Note: for representational clarity, gold FK arrows are implied (but not drawn)
-from all `id_namespace` fields to the header of the `id_namespace` table._
+from all `id_namespace` fields to the header block of the `id_namespace` table._
+* _Green: external CVs (term & display-decoration tracking tables) and their foreign-key relationships_
 * _Blue: containers and their containment relationships_
 * _Black: core entities and the direct associative relationships between them (plus
 `subject` <-> `subject_role_taxonomy`)_
