@@ -212,9 +212,9 @@ shown in the diagram below. We'll give you copies of the gold tables to include
 with your submission: you'll reference IDs from these tables in the tables
 you're building directly. Once you've built the core entity and containment tables,
 the green tables can be built automatically using our term-scanner script, which will
-collect all relevant CV terms used throughout your tables and will create corresponding
-green tables using data loaded from versioned, whole-CV reference documents
-(like OBO files)._
+collect all relevant CV terms used throughout your tables and will create the
+corresponding green tables, using data loaded from versioned, whole-CV reference
+documents (like OBO files)._
 
 _Color key:_
 
@@ -264,7 +264,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	process._
          * _This example doesn't preclude attaching multiple `biosample`s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single `biosample`
-   	   that produces multiple `file`s (if e.g. a single library prep is divided in
+   	   that produces multiple `file`s (if, e.g., a single library prep is divided in
    	   two, with each portion amplified separately, and with each amplified portion
    	   then sequenced under separate conditions, then the final separation and
    	   amplification processes could reasonably be ignored, and the source for the
