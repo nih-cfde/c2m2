@@ -238,7 +238,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    vocabularies and term tables")_
    * `biosample` _introduced (also cf. below, §"Common fields" and §"Controlled vocabularies and
    term tables")_
-   	* Level 1 only models `biosample`s that are directly consumed by one or more analytic
+      * Level 1 only models `biosample`s that are directly consumed by one or more analytic
    	processes, and the (transitively collapsed) relationships between each such `biosample` and the `subject` from
    	which it was drawn. As an example: let's say you collected a cheek-swab sample from
    	a human subject; subjected that sample to several successive preparatory treatments
