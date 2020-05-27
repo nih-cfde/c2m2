@@ -304,7 +304,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    * `project`
       * _explain "primary project" FK in_ `file`/`biosample`/`subject`
    * `collection`
-      * _note decoupling from_ `project`
+      * _note partial decoupling from_ `project`
 
 ##### Controlled vocabularies and term tables
 
