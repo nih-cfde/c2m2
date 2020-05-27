@@ -262,7 +262,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	`biosample` entity record representing the final pre-sequencing preparatory
    	material; and create a `file` record for the FASTQ file produced by the sequencing
    	process._
-   	   * _This example doesn't preclude attaching multiple `biosample`s to a single
+         * _This example doesn't preclude attaching multiple `biosample`s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single `biosample`
    	   that produces multiple `file`s (if e.g. a single library prep is divided in
    	   two, with each portion amplified separately, and with each amplified portion
@@ -270,7 +270,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	   amplification processes could reasonably be ignored, and the source for the
    		two independently-sequenced `file` outputs could be modeled as a single
    		Level 1 `biosample`._
-   	* _CFDE staff will be available to help navigate any complexity encountered
+      * _CFDE staff will be available to help navigate any complexity encountered
    	when establishing a map between native DCC sample metadata and the C2M2 Level 1
    	`biosample` structure._ 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
