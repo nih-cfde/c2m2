@@ -275,7 +275,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	`biosample` _structure._ 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
-      entity from which a Level 1_ `biosample` _can be generated_
+      entity from which a Level 1_ `biosample` _can be generated (apart from other_ `biosample` _s)_
       * _No protected data will be modeled at Level 1_
       * _Level 1 models two details for_ `subject` _entities (beyond relationships with
       other entity types):_
