@@ -255,16 +255,16 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	represented._
          * _The simplification, here, is partially necessitated by the fact that
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
-   	   relationships represented here as `<->` are undirected, and so the notion of a
+   	   relationships represented here as "<->" are undirected, and so the notion of a
    	   "chain of provenance" cannot be fairly represented by this model._
       * _Practically speaking, in such a situation, a Level 1 C2M2 instance builder
-   	might reasonably create one record for the originating `subject`; create one
-   	`biosample` entity record representing the final pre-sequencing preparatory
-   	material; and create a `file` record for the FASTQ file produced by the sequencing
+   	might reasonably create one record for the originating_ `subject` _; create one_
+   	`biosample` _entity record representing the final pre-sequencing preparatory
+   	material; and create a_ `file` _record for the FASTQ file produced by the sequencing
    	process._
-         * _This example doesn't preclude attaching multiple `biosample`s to a single
-   	   subject; nor (if appropriate) does it preclude modeling a single `biosample`
-   	   that produces multiple_ `file` _s: if, e.g., a single library prep were to be
+         * _This example doesn't preclude attaching multiple_ `biosample` _s to a single
+   	   subject; nor (if appropriate) does it preclude modeling a single_ `biosample`
+   	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
    	   divided in two, with each portion amplified separately and
    	   then sequenced under separate conditions, then the final separation and
    	   amplification processes could reasonably be ignored, and the source entity for the
