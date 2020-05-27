@@ -220,11 +220,11 @@ _Color key:_
 
 * _Gold: CFDE-internal controlled vocabularies/dictionaries and their foreign-key relationships_
    * _Note: for representational clarity, gold FK arrows are implied (but not drawn)
-from all `id_namespace` fields to the header block of the `id_namespace` table._
+from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _table._
 * _Green: external CVs (term & display-decoration tracking tables) and their foreign-key relationships_
 * _Blue: containers and their containment relationships_
-* _Black: core entities and the direct associative relationships between them (plus
-`subject` <-> `subject_role_taxonomy`)_
+* _Black: core entities and the direct associative relationships between them (plus_
+`subject` _<->_ `subject_role_taxonomy` _)_
 
 |_Level 1 model diagram_|
 |:---:|
@@ -264,7 +264,7 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	process._
          * _This example doesn't preclude attaching multiple `biosample`s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single `biosample`
-   	   that produces multiple_ `file`_s: if, e.g., a single library prep were to be
+   	   that produces multiple_ `file` _s: if, e.g., a single library prep were to be
    	   divided in two, with each portion amplified separately and
    	   then sequenced under separate conditions, then the final separation and
    	   amplification processes could reasonably be ignored, and the source entity for the
