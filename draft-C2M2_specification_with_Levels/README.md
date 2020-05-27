@@ -279,7 +279,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
       * _In addition to shared metadata fields (cf. above, §"Common fields") and inter-entity
       associations, Level 1 models two details specific to_ `subject` _entities:_
          * _internal structural configuration (defined in the_ `subject_granularity` _table
-         and specified for each record via a foreign key field in the_ `subject` _table),
+         and specified for each_ `subject` _record via a foreign key field in the_ `subject` _table),
          e.g.: "single organism," "microbiome," "cell line"_
          * _taxonomic assignments attached to subcomponents ("roles," defined in the_
          `subject_role` _table) of_ `subject` _entities, e.g. "cell line ancestor ->
