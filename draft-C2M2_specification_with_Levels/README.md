@@ -268,8 +268,8 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    	   divided in two, with each portion amplified separately and
    	   then sequenced under separate conditions, then the final separation and
    	   amplification processes could reasonably be ignored, and the source entity for the
-   		two independently-sequenced `file` outputs could be modeled as a single
-   		Level 1 `biosample`._
+   		two independently-sequenced _`file`_ outputs could be modeled as a single
+   		Level 1 _`biosample`.
       * _CFDE staff will be available to help navigate any complexity encountered
    	when establishing a map between native DCC sample metadata and the C2M2 Level 1
    	`biosample` structure._ 
@@ -305,12 +305,13 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
 
    * `subject_granularity`: `subject` _multiplicity specifier_
    * `subject_role`: _constituent relationship to intra-_`subject` _system_
-   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents_
+   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents via_ `subject_role_taxonomy`
 
 ##### Association tables and inter-entity relationships
 
    * _enumerate relationship/association definitions_
-   * _note ingest-stage flattening for rapid service of roll-up queries for
+   * _explicit guidance regarding empty (header-only) TSVs_
+   * _note potential ingest-stage flattening for rapid service of roll-up queries for
    display layer_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
