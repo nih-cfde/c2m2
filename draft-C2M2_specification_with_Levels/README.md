@@ -273,7 +273,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    		Level 1_ `biosample`.
       * _CFDE staff will be available to help navigate any complexity encountered
    	when establishing a map between the native details of DCC sample metadata and
-   	the approximation that is the C2M2 Level 1_ `biosample` _structure._ 
+   	the approximation that is the C2M2 Level 1_ `biosample` _entity._ 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (apart from other_ `biosample` _s)_
