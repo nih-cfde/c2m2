@@ -242,7 +242,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	processes, and the (transitively collapsed) relationships between each such_ `biosample` _and the_ `subject` _from
    	which it was originally derived. As an example: let's say you collected a cheek-swab sample from
    	a human subject; subjected that sample to several successive preparatory treatments
-   	like centrifugation, chemical ribosomal-RNA depletion or some other pre-sequencing
+   	like centrifugation, chemical ribosomal-RNA depletion and/or some other pre-sequencing
    	library preparation; then ran the final fully-processed remnant material through a sequencer,
    	generating a FASTQ sequence file as the output of the sequencing process. In
    	physical terms you will have created a series of distinct material samples,
@@ -267,12 +267,13 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
    	   divided in two, with each portion amplified separately and
    	   then sequenced under separate conditions, then the final separation and
-   	   amplification processes could reasonably be ignored, and the source entity for the
+   	   amplification processes could reasonably be ignored (for the purpose of
+   	   meeting C2M2 Level 1 modeling criteria), and the source entity for the
    		two independently-sequenced_ `file` _outputs could be modeled as a single
    		Level 1_ `biosample`.
       * _CFDE staff will be available to help navigate any complexity encountered
-   	when establishing a map between native DCC sample metadata and the C2M2 Level 1_
-   	`biosample` _structure._ 
+   	when establishing a map between the native details of DCC sample metadata and
+   	the approximation that is the C2M2 Level 1_ `biosample` _structure._ 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (apart from other_ `biosample` _s)_
