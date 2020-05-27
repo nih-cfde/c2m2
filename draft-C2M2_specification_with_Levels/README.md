@@ -238,6 +238,34 @@ from all `id_namespace` fields to the header block of the `id_namespace` table._
    vocabularies and term tables")_
    * `biosample` _introduced (also cf. below, §"Common fields" and §"Controlled vocabularies and
    term tables")_
+   	* Level 1 only models `biosample`s that are directly consumed by one or more analytic
+   	processes, and the (transitively collapsed) relationships between each such `biosample` and the `subject` from
+   	which it was drawn. As an example: let's say you collected a cheek-swab sample from
+   	a human subject; subjected that sample to several successive preparatory treatments
+   	like centrifugation, chemical ribosomal-RNA depletion or some other pre-sequencing
+   	library preparation; then ran the final fully-processed remnant material through a sequencer,
+   	generating a FASTQ sequence file as the output of the sequencing process. In
+   	physical terms you will have created a series of distinct material samples,
+   	connected one to another by (directed) "X derived from Y" relationships, running
+   	from the original cheek-swab sample through the final-stage pre-sequencer
+   	library preparation (and maybe forking along the way as well). C2M2 Level 2 offers
+   	metadata structures to model this process -- including details about its constituent
+   	(intermediate) samples -- in full detail; for the purposes envisioned to be served
+   	by Level 1 C2M2 metadata, only `subject` <-> `some_stuff` <-> `(FASTQ) file` can be
+   	represented. (The simplification, here, is partially necessitated by the fact that
+   	event modeling has been deliberately deferred to C2M2 Level 2, so all the
+   	relationships represented here as `<->` are undirected, and so the notion of a
+   	"chain of provenance" cannot be fairly represented by this model.) Practically
+   	speaking, in such a situation, a Level 1 C2M2 instance might reasonably create one record for
+   	the originating `subject`; create one `biosample` entity record representing the final
+   	pre-sequencing preparatory material; and create a `file` record for the FASTQ
+   	file produced by the sequencing process. (This example doesn't preclude attaching
+   	multiple `biosample`s to a single subject; nor (if appropriate) does it preclude
+   	modeling a single `biosample` that produces multiple `file`s (if e.g. a single
+   	library prep is divided in two, with each portion amplified separately, and with
+   	each amplified portion then sequenced under separate conditions, then the final
+   	separation and amplification processes could reasonably be ignored, and the source for the
+   	two independently-sequenced `file` outputs can be modeled as a single Level 1 `biosample`). 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
 
 ##### Common fields
