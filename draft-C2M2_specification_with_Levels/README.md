@@ -262,7 +262,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	`biosample` _entity record representing the final pre-sequencing preparatory
    	material; and create a_ `file` _record for the FASTQ file produced by the sequencing
    	process._
-         * This example doesn't preclude attaching multiple_ `biosample` _s to a single
+         * _This example doesn't preclude attaching multiple_ `biosample` _s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single_ `biosample`
    	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
    	   divided in two, with each portion amplified separately and
