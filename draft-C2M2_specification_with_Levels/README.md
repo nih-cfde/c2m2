@@ -297,7 +297,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          of DCC sample metadata and the approximation that is the C2M2 Level
          1_ `biosample` _entity._
          * _Note in particular that this example doesn't preclude attaching multiple_
-         `biosample` _s to a single subject; nor does it preclude modeling a
+         `biosample` _s to a single originating_ `subject` _; nor does it preclude modeling a
          single_ `biosample` _that produces multiple_ `file` _s. If (for example)
          a single library prep were to be divided in two, with each portion amplified
          separately and then sequenced under separate conditions, then the final
