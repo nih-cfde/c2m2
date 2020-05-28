@@ -286,7 +286,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	`biosample` _entity record; create a_ `file` _record for the FASTQ file produced
    	by the sequencing process; and hook up_ `subject` _<->_ `biosample` _and_
    	`biosample` _<->_ `file` _relationships via the corresponding association tables
-   	(cf. below, §"Association tables and inter-entity relationships").
+   	(cf. below, §"Association tables and inter-entity relationships")._
          * _In terms of deciding (in a well-defined way) specifically which native DCC
          metadata should be attached to this Level 1_ `biosample` _record, one
          might for example choose to import metadata (IDs, etc.) describing the
