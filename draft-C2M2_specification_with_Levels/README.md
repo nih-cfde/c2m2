@@ -241,10 +241,10 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    vocabularies and term tables")_
    * **`biosample` introduced** _(also cf. below, §"Common entity fields" and §"Controlled vocabularies and
    term tables")_
-      * _Level 1 models_ `biosample` _s as abstract materials that are directly consumed
+      * _Level 1 models_ `biosample`_s as abstract materials that are directly consumed
       by one or more analytic processes. Simple provenance relationships -- between each
       such_ `biosample` _and the_ `subject` _from which it was originally derived, as well
-      as between each_ `biosample` _and any_ `file` _s analytically derived from it -- are
+      as between each_ `biosample` _and any_ `file`_s analytically derived from it -- are
       represented using association tables, with one such table dedicated to each
       relationship type (cf. below, §"Association tables and inter-entity relationships").
       Actual DCC-managed provenance metadata will sometimes (maybe always) represent more complex and
@@ -264,7 +264,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	to some terminal node set (in our case, the final-stage, immediately-pre-sequencer
    	library preparation material). C2M2 Level 2 offers metadata structures to model
    	this entire process in full detail, including representational support for all
-   	intermediate_ `biosample` _s, and for the various preparatory processes involved.
+   	intermediate_ `biosample`_s, and for the various preparatory processes involved.
    	For the purposes envisioned to be served by Level 1 C2M2 metadata, on the other hand,
    	only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _can and should be
    	explicitly represented._
