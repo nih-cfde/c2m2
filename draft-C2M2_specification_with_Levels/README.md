@@ -256,7 +256,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
       will have created a series of distinct material samples, connected one to another
       by (directed) "_`X` `derived_from` `Y`_" relationships, represented as a (possibly
       branching) graph path (in fully general terms, a directed acyclic graph) running
-      from starting node set (here, our original cheek-swab sample) through intermediate
+      from a starting node set (here, our original cheek-swab sample) through intermediate
    	nodes (one for each coherent material product of each individual preparatory process)
    	to some terminal node set (in our case, the final-stage, immediately-pre-sequencer
    	library preparation material). C2M2 Level 2 offers metadata structures to model
