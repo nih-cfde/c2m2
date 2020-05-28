@@ -242,9 +242,9 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
       by one or more analytic processes. Simple provenance relationships -- between each
       such_ `biosample` _and the_ `subject` _from which it was originally derived, as well
       as between each_ `biosample` _and any_ `file` _s analytically derived from it -- are
-      represented with an association table dedicated to each relationship type (cf.
-      below, §"Association tables and inter-entity relationships"). Actual DCC-managed
-      provenance metadata will sometimes (maybe always) represent more complex and
+      represented using association tables, with one such table dedicated to each
+      relationship type (cf. below, §"Association tables and inter-entity relationships").
+      Actual DCC-managed provenance metadata will sometimes (maybe always) represent more complex and
       detailed provenance networks: in such situations, chains of "_`this` _produced_
       `that`_" relationships too complex to model at Level 1 will need to be
       transitively collapsed. As an example: let's say a research team collects a
