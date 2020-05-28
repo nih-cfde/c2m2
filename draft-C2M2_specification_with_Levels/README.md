@@ -462,6 +462,6 @@ an example Level-1-compliant TSV submission collection can be found
 
 #### Level 2 submissions: schema and example TSVs
 
-The JSON Schema document specifying the full Level 2 C2M2 TSV
+The (**presently out-of-date**) JSON Schema document specifying the full Level 2 C2M2 TSV
 collection is [here](../draft-C2M2_JSON_Schema_datapackage_specs/full_C2M2_datapackage_spec.json);
 example Level-2-compliant TSV submissions will be found **here**.
