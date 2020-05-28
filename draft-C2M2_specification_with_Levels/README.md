@@ -216,6 +216,9 @@ collect all relevant CV terms used throughout your tables and will create the
 corresponding green tables, using data loaded from versioned, whole-CV reference
 documents (like OBO files)._
 
+_[guidance on blank/degenerate TSVs: when they're acceptable, what it means to include
+one, and precisely how they should be encoded]_
+
 _Color key:_
 
 * _Gold: CFDE-internal controlled vocabularies/dictionaries and their foreign-key relationships_
@@ -388,10 +391,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
 
 ##### Association tables and inter-entity relationships
 
-   * _enumerate relationship/association definitions_
-   * _explicit guidance regarding empty (header-only) TSVs_
-   * _note potential ingest-stage flattening for rapid service of roll-up queries for
-   display layer_
+   * _define and specify structure of each Level 1 association relationship_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
