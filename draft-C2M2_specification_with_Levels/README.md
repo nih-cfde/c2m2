@@ -268,8 +268,10 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
       * _In practice, a Level 1 C2M2 instance builder facing such a situation
    	might reasonably create one record for the originating_ `subject` _; create one_
    	`biosample` _entity record (specifically representing the final pre-sequencing
-   	preparatory material); and create a_ `file` _record for the FASTQ file produced
-   	by the sequencing process._
+   	preparatory material); create a_ `file` _record for the FASTQ file produced
+   	by the sequencing process; and hook up_ `subject` _<->_
+   	`biosample` _and_ `biosample` _<->_ `file` _relationships via the corresponding
+   	association tables (cf. below, §"Association tables and inter-entity relationships").
          * _Note that this example doesn't preclude attaching multiple_ `biosample` _s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single_ `biosample`
    	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
