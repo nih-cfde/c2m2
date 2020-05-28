@@ -274,9 +274,10 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          * _With both of these (more complex) aspects of experimental metadata
          masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
          `biosample` _entity should be modeled is as an abstract "material phase"
-         (possibly representing a chain of multiple distinct materials) that enables
-         an analytic or observational process, originating in a_ `subject` _,
-         to proceed forward and produce one or more_ `file` _s._  
+         (possibly masking what is in reality a chain of multiple distinct materials)
+         that enables an analytic (or observational or other scientific) process, which
+         originates in a_ `subject` _, to move forward and ultimately produce one or
+         more_ `file` _s._  
       * _In practice, a Level 1 C2M2 instance builder facing such a situation
    	might reasonably create one record for the originating_ `subject` _; create one_
    	`biosample` _entity record (specifically representing the final pre-sequencing
