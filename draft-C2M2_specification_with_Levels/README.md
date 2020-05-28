@@ -374,6 +374,9 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       representing_ `subject`_s and_ `biosample`_s_
       * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
       necessarily include any_ `collection` _records or attributions_
+      * _membership of C2M2 entities in_ `collection`_s is encoded using the
+      relevant association tables (cf. below, §"Association tables and inter-entity
+      relationships")
       * _used to define a federation of any set of core resource entities (and,
       recursively, other_ `collection`_s) across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
@@ -388,9 +391,10 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
             restricted to researchers or groups already operating under the
             auspices of a well-defined_ `project` _entity in the C2M2 system._
          * _this configuration is meant to facilitate data/metadata reuse and
-         reanalysis, as well as to provide a concrete and consistent anchoring
-         structure by which newly-defined groupings of C2M2 resources can easily be
-         created and cited in relevant downstream publications._
+         reanalysis, as well as to provide a specific and consistent anchoring
+         structure through which authors anywhere can create (and cite)
+         newly-defined groupings of C2M2 resources independently of their original
+         provenance associations._
          
 
 ##### Controlled vocabularies and term tables
