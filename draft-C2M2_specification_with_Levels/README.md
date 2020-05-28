@@ -268,7 +268,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          * _The simplifications here are partially necessitated by the fact that
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
    	   relationships represented here as "<->" are undirected, and so the notion of a
-   	   "chain of provenance" cannot be fairly represented by this model._
+   	   "chain of provenance" cannot be fairly represented at this C2M2 Level._
          * _In addition to the event modeling just mentioned, experimental process modeling
          has also been assigned to Level 2._
          * _With both of these (more complex) aspects of experimental metadata
@@ -312,7 +312,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          `biosample` _entity -- based on metadata describing_ `M` _-- to both_ `M1.fastq`
          _and_ `M2.fastq`_. As above, final decisions regarding detailed rules
          mapping native DCC data to Level 1 entities are necessarily left to
-         serialization engineers; CFDE staff will be available as needed to offer
+         DCC-associated investigators and serialization engineers; CFDE staff will be available as needed to offer
          feedback and guidance when navigating mapping issues._
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
@@ -346,6 +346,8 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 | `abbreviation`, `name` and `description` | _Values for contextual display in portal and dashboard interfaces: severely restricted_ `abbreviation` _; terse but flexible_ `name` _; abstract-length_ `description` |
 
 ##### Containers
+
+C2M2 Level 1 offers two ways to group 
 
    * `project`
       * _explain "primary project" FK in_ `file`/`biosample`/`subject`
