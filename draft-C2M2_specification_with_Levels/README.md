@@ -347,10 +347,24 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 
 ##### Containers
 
-C2M2 Level 1 offers two ways to group 
+C2M2 Level 1 offers two ways to group metadata records representing experimental
+resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
 
    * `project`
-      * _explain "primary project" FK in_ `file`/`biosample`/`subject`
+      * _unambiguous, unique, named, most-proximate research/administrative
+      sphere of operations that **first generates** each experimental resource
+      modeled as a_ `file`/`subject`/`biosample` _record_
+      * _conceptually rooted in -- but not necessarily mapped one-to-one from
+      -- the associated hierarchy of grants, contracts or other major
+      administrative subdivisions of funding for primary research_ 
+      * `project` _attribution is **required** for core resource types: use
+      (binary, explicit, namespace-decoupled) "primary project" FK in_
+      `file`/`biosample`/`subject` _entity records to encode these attributions_
+      * `project`s _can be nested (via the_ `project_in_project` _association
+      table; cf. below, §"Association tables and inter-entity relationships")
+      into a hierarchical (directed, acyclic) network, but one and only one_
+      `project` _node in the relevant_ `project` _hierarchy can be attached
+      to each core entity record._
    * `collection`
       * _note partial decoupling from_ `project`
 
