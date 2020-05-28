@@ -350,8 +350,8 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 
 ##### Containers
 
-C2M2 Level 1 offers two ways to group together sets of metadata entity records
-representing core experimental resources (`file`s; `subject`s; `biosample`s):
+C2M2 Level 1 offers two ways to define sets of related metadata entity records
+representing core (`file`/`subject`/`biosample`) experimental resources:
 `project` and `collection`.
 
    * `project`
