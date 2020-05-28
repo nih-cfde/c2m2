@@ -360,7 +360,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       modeled as a_ `file`/`subject`/`biosample` _record_
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
       -- a corresponding hierarchy of grants, contracts or other major
-      administrative subdivisions of funding for primary research_ 
+      administrative subdivisions of primary research funding_ 
       * `project` _attribution is **required** for core resource types: use
       (binary, explicit, namespace-decoupled) "primary project" FK in_
       `file`/`biosample`/`subject` _entity records to encode these attributions_
