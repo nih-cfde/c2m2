@@ -242,26 +242,28 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
       by one or more analytic processes. Simple provenance relationships -- between each
       such_ `biosample` _and the_ `subject` _from which it was originally derived, as well
       as between each_ `biosample` _and any_ `file` _s analytically derived from it -- are
-      represented via corresponding association tables (cf. below, §"Association tables
-      and inter-entity relationships"). Actual DCC-managed provenance metadata will
-      sometimes represent more complex and detailed provenance networks: in such
-      situations, chains of "_`this` _produced_ `that`_" relationships that are too complex to
-      model at Level 1 will need to be transitively collapsed. As an example: let's say
-      a research team collected a cheek-swab sample from a hospital patient; subjected
-      that swab sample to several successive preparatory treatments like centrifugation,
-      chemical ribosomal-RNA depletion and/or some other pre-sequencing library
-      preparation; then ran the final fully-processed remnant material through a sequencer,
-   	generating a FASTQ sequence file as the output of the sequencing process. In
-   	physical terms the team will have created a series of distinct material samples,
-   	connected one to another by (directed) "_`X` `derived_from` `Y`_"
-   	relationships, represented as a (possibly branching) graph path (or directed tree)
-   	running from a starting node (the original cheek-swab sample) through intermediate
-   	nodes (one for each material result of each individual prep process) to an end
-   	node (the final-stage, immediately-pre-sequencer library preparation). C2M2
-   	Level 2 offers metadata structures to model this entire process -- including details
-   	about all intermediate samples, and their preparatory processes -- in full detail;
-   	for the purposes envisioned to be served by Level 1 C2M2 metadata, on the other hand,
-   	 only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _should be
+      represented with an association table dedicated to each relationship type (cf.
+      below, §"Association tables and inter-entity relationships"). Actual DCC-managed
+      provenance metadata will sometimes (maybe always) represent more complex and
+      detailed provenance networks: in such situations, chains of "_`this` _produced_
+      `that`_" relationships too complex to model at Level 1 will need to be
+      transitively collapsed. As an example: let's say a research team collects a
+      cheek-swab sample from a hospital patient; subjects that swab sample to several
+      successive preparatory treatments like centrifugation, chemical ribosomal-RNA
+      depletion and targeted amplification; then runs the final fully-processed
+      remnant material through a sequencing machine, generating a FASTQ sequence
+      file as the output of the sequencing process. In physical terms our team
+      will have created a series of distinct material samples, connected one to another
+      by (directed) "_`X` `derived_from` `Y`_" relationships, represented as a (possibly
+      branching) graph path (in fully general terms, a directed acyclic graph) running
+      from starting node set (here, our original cheek-swab sample) through intermediate
+   	nodes (one for each coherent material product of each individual preparatory process)
+   	to some terminal node set (in our case, the final-stage, immediately-pre-sequencer
+   	library preparation material). C2M2 Level 2 offers metadata structures to model
+   	this entire process in full detail, including representational support for all
+   	intermediate_ `biosample` _s, and for the various preparatory processes involved.
+   	For the purposes envisioned to be served by Level 1 C2M2 metadata, on the other hand,
+   	only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _can and should be
    	explicitly represented._
          * _The simplifications here are partially necessitated by the fact that
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
