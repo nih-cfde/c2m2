@@ -392,7 +392,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
             auspices of a well-defined_ `project` _entity in the C2M2 system._
          * _this configuration is meant to facilitate data/metadata reuse and
          reanalysis, as well as to provide a specific and consistent anchoring
-         structure through which authors anywhere can create (and cite)
+         structure through which authors anywhere can create (and study and cite)
          newly-defined groupings of C2M2 resources independently of their original
          provenance associations._
          
