@@ -345,7 +345,7 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 | `creation_time` |  |
 | `abbreviation`, `name` and `description` |  |
 
-##### Core containers
+##### Containers
 
    * `project`
       * _explain "primary project" FK in_ `file`/`biosample`/`subject`
