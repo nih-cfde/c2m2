@@ -361,7 +361,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
       -- a corresponding hierarchy of grants, contracts or other major
       administrative subdivisions of primary research funding_ 
-      * `project` _attribution is **required** for core resource types: use
+      * `project` _attribution is **required** for core resource entity types: use
       (binary, explicit, namespace-decoupled) "primary project" FK in_
       `file`/`biosample`/`subject` _entity records to encode these attributions_
       * `project`s _can be nested (via the_ `project_in_project` _association
