@@ -280,7 +280,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          (possibly masking what is in reality a chain of multiple distinct materials)
          that enables an analytic (or observational or other scientific) process, which
          originates in a_ `subject` _, to move forward and ultimately produce one or
-         more_ `file` _s._  
+         more_ `file`_s._  
       * _In practice, a Level 1 C2M2 instance builder facing such a situation
    	might reasonably create one record for the originating_ `subject` _; create one_
    	`biosample` _entity record; create a_ `file` _record for the FASTQ file produced
