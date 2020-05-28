@@ -371,7 +371,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
    * `collection`
       * _conceptually unconstrained: a generalization of the idea of a "dataset"
       which additionally and explicitly supports the inclusion of elements
-      representing_ `subject`_s and_ `biosample`_s_
+      (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
       * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
       necessarily include any_ `collection` _records or attributions_
       * _membership of C2M2 entities in_ `collection`_s is encoded using the
