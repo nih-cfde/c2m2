@@ -370,7 +370,8 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       to each core entity record._
    * `collection`
       * _semantically unconstrained: a generalization of the idea of a "dataset"
-      which also explicitly includes representations of_ `subject`_s and_ `biosample`_s_
+      which additionally and explicitly supports the inclusion of elements
+      representing_ `subject`_s and_ `biosample`_s_
       * _used to federate core resource entities (and other_ `collection`_s)
       across_ `project` _boundaries (or across inter-DCC boundaries, or any other
       structural boundaries delimiting areas of primary purview)_
