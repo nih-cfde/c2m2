@@ -284,15 +284,15 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	by the sequencing process; and hook up_ `subject` _<->_ `biosample` _and_
    	`biosample` _<->_ `file` _relationships via the corresponding association tables
    	(cf. below, §"Association tables and inter-entity relationships").
-   	   * _In terms of deciding (in a well-defined way) specifically which native DCC
-   	   metadata should be attached to this Level 1_ `biosample` _record, one
-   	   might for example choose to import metadata (IDs, etc.) describing the
-   	   final pre-sequencer material. The creation of specific rules governing maps
-   	   from native DCC data to (simplified, abstracted) Level 1 entity records
-   	   is of necessity left up to the best judgment of the serialization staff
-   	   creating each DCC's Level 1 C2M2 ETL instance; we recommend consistency,
-   	   but beyond that, custom solutions will have to be developed to handle
-   	   different data sources._
+         * _In terms of deciding (in a well-defined way) specifically which native DCC
+         metadata should be attached to this Level 1_ `biosample` _record, one
+         might for example choose to import metadata (IDs, etc.) describing the
+         final pre-sequencer material. The creation of specific rules governing maps
+         from native DCC data to (simplified, abstracted) Level 1 entity records
+         is of necessity left up to the best judgment of the serialization staff
+         creating each DCC's Level 1 C2M2 ETL instance; we recommend consistency,
+         but beyond that, custom solutions will have to be developed to handle
+         different data sources._
          * _Note that this example doesn't preclude attaching multiple_ `biosample` _s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single_ `biosample`
    	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
