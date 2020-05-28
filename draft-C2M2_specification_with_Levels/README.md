@@ -373,9 +373,9 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       which additionally and explicitly supports the inclusion of elements
       representing_ `subject`_s and_ `biosample`_s_
       * _used to federate any set of core resource entities (and, recursively, other_
-      `collection`_s) across_ `project` _boundaries (or across inter-DCC
-      boundaries, or across any other structural boundaries delimiting areas
-      of primary purview)_
+      `collection`_s) across inter-_`project` _boundaries (or across inter-DCC
+      boundaries, or across any other structural boundaries initially delimiting
+      and partitioning areas of primary purview)_
       * _unconstrained with respect to "defining entity"_
          * _can be attributed to a (defining/generating) C2M2_ `project` _record_
             * _this attribution is **optional and (when null) will not always even
