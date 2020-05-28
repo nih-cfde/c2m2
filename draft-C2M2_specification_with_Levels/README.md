@@ -372,14 +372,17 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       * _conceptually unconstrained: a generalization of the idea of a "dataset"
       which additionally and explicitly supports the inclusion of elements
       representing_ `subject`_s and_ `biosample`_s_
-      * _used to federate any set of core resource entities (and, recursively, other_
-      `collection`_s) across inter-_`project` _boundaries (or across inter-DCC
-      boundaries, or across any other structural boundaries initially delimiting
-      and partitioning areas of primary purview)_
+      * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
+      necessarily include any_ `collection` _records or attributions_
+      * _used to define a federation of any set of core resource entities (and,
+      recursively, other_ `collection`_s) across inter-_`project` _boundaries
+      (or across inter-DCC boundaries, or across any other structural
+      boundaries used to delimit or partition areas of primary purview or
+      provenance)_
       * _unconstrained with respect to "defining entity"_
          * _can be attributed to a (defining/generating) C2M2_ `project` _record_
             * _this attribution is **optional and (when null) will not always even
-            be well-defined**: the power to define new_ `collection` _s,
+            be well-defined**: the power to define new_ `collection`_s,
             on an ongoing basis, will be offered to all (approved? registered?) members
             of the interested research community at large, without being specifically
             restricted to researchers or groups already operating under the
