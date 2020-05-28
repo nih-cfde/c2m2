@@ -373,15 +373,16 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       which additionally and explicitly supports the inclusion of elements
       representing_ `subject`_s and_ `biosample`_s_
       * _used to federate core resource entities (and other_ `collection`_s)
-      across_ `project` _boundaries (or across inter-DCC boundaries, or any other
-      structural boundaries delimiting areas of primary purview)_
+      across_ `project` _boundaries (or across inter-DCC boundaries, or across
+      any other structural boundaries delimiting areas of primary purview)_
       * _unconstrained with respect to "defining entity"_
          * _can be attributed to a (defining/generating) C2M2_ `project` _record_
-         * _this attribution is optional: the power to define new_ `collection` _s,
-         on an ongoing basis, will be offered to all (approved? registered?) members
-         of the interested research community at large, without being specifically
-         restricted to researchers or groups operating under the auspices of a
-         well-defined_ `project` _entity in the C2M2 system._
+            * _this attribution is **optional and (when null) will not always even
+            be well-defined**: the power to define new_ `collection` _s,
+            on an ongoing basis, will be offered to all (approved? registered?) members
+            of the interested research community at large, without being specifically
+            restricted to researchers or groups already operating under the
+            auspices of a well-defined_ `project` _entity in the C2M2 system._
          * _this configuration is meant to facilitate data/metadata reuse and
          reanalysis, as well as to provide a concrete and consistent anchoring
          structure by which newly-defined groupings of C2M2 resources can easily be
