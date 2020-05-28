@@ -376,7 +376,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       necessarily include any_ `collection` _records or attributions_
       * _membership of C2M2 entities in_ `collection`_s is encoded using the
       relevant association tables (cf. below, §"Association tables and inter-entity
-      relationships")
+      relationships")_
       * _used to define a federation of any set of core resource entities (and,
       recursively, other_ `collection`_s) across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
