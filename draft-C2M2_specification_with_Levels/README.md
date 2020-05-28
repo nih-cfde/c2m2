@@ -332,7 +332,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          `subject_role` _table) of_ `subject` _entities, e.g. "cell line ancestor ->
          NCBI:txid9606" or "host (of host-pathogen symbiont system) -> NCBI:txid10090":
          this is accomplished via the_ `subject_role_taxonomy` _trinary association table_
-      * _all other_ `subject` _-specific metadata -- including any protected data -- is deferred by
+      * _all other_ `subject`_-specific metadata -- including any protected data -- is deferred by
       design to Level 2_
 
 ##### Common entity fields
