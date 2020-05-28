@@ -257,12 +257,20 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
    	   relationships represented here as "<->" are undirected, and so the notion of a
    	   "chain of provenance" cannot be fairly represented by this model._
-      * _Practically speaking, in such a situation, a Level 1 C2M2 instance builder
+         * _In addition to event data, model support representing details of experimental
+         processes has also been assigned to Level 2._
+         * _With both of these (more complex) aspects of experimental metadata
+         masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
+         `biosample` _entity should be modeled is as an abstract "material phase"
+         (possibly representing a chain of multiple distinct materials) that enables
+         an analytic or observational process, originating in a_ `subject` _,
+         to proceed forward and produce one or more_ `file` _s._  
+      * _In practice, a Level 1 C2M2 instance builder facing such a situation
    	might reasonably create one record for the originating_ `subject` _; create one_
-   	`biosample` _entity record representing the final pre-sequencing preparatory
-   	material; and create a_ `file` _record for the FASTQ file produced by the sequencing
-   	process._
-         * _This example doesn't preclude attaching multiple_ `biosample` _s to a single
+   	`biosample` _entity record (specifically representing the final pre-sequencing
+   	preparatory material); and create a_ `file` _record for the FASTQ file produced
+   	by the sequencing process._
+         * _Note that this example doesn't preclude attaching multiple_ `biosample` _s to a single
    	   subject; nor (if appropriate) does it preclude modeling a single_ `biosample`
    	   _that produces multiple_ `file` _s: if, e.g., a single library prep were to be
    	   divided in two, with each portion amplified separately and
