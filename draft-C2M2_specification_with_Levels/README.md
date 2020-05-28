@@ -308,8 +308,8 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          `file` _s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
          experimental context -- the final separation and amplification processes
          producing_ `M1` _and_ `M2` _might reasonably be ignored for the purposes
-         of Level 1 modeling, with (instead) a single (slightly upstream)
-         `biosample` _ entity -- based on_ `M` _ -- attached to both_ `M1.fastq`
+         of Level 1 modeling, with (instead) a single (slightly upstream)_
+         `biosample` _entity -- based on_ `M` _-- attached to both_ `M1.fastq`
          _and_ `M2.fastq`_._
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
