@@ -369,7 +369,23 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
    * `collection`
-      * _note partial decoupling from_ `project`
+      * _semantically unconstrained: a generalization of_ `dataset` _that explicitly
+      also includes representations of_ `subject`_s and_ `biosample`_s_
+      * _can federate core resource entities (and other_ `collection` _s) arbitrarily
+      across_ `project` _boundaries (or inter-DCC boundaries, or any other
+      structural boundaries delimiting primary purview)_
+      * _unconstrained with respect to "defining entity"_
+         * _can be attributed to a (defining/generating) C2M2_ `project` _record_
+         * _this attribution is optional: the power to define new_ `collection` _s,
+         on an ongoing basis, will be offered to all (approved? registered?) members
+         of the interested research community at large, without being specifically
+         restricted to researchers or groups operating under the auspices of a
+         well-defined_ `project` _entity in the C2M2 system._
+         * _this configuration is meant to facilitate data/metadata reuse and
+         reanalysis, as well as to provide a concrete and consistent anchoring
+         structure by which newly-defined groupings of C2M2 resources can easily be
+         created and cited in relevant downstream publications._
+         
 
 ##### Controlled vocabularies and term tables
 
@@ -391,7 +407,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
 
 ##### Association tables and inter-entity relationships
 
-   * _define and specify structure of each Level 1 association relationship_
+   * _define and specify the structure of each Level 1 association relationship_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
