@@ -298,12 +298,19 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          1_ `biosample` _entity._
          * _Note in particular that this example doesn't preclude attaching multiple_
          `biosample` _s to a single originating_ `subject` _; nor does it preclude modeling a
-         single_ `biosample` _that produces multiple_ `file` _s. If (for example)
-         a single library prep were to be divided in two, with each portion amplified
-         separately and then sequenced under separate conditions, then the final
-         separation and amplification processes might reasonably be ignored (in a
-         Level 1 metadata instance), with a single source entity for the two
-         independently-sequenced_ `file` _outputs represented as one Level 1_ `biosample`.
+         single_ `biosample` _that produces multiple_ `file` _s._
+         * _Note also that the actual end-stage material prior to the production of a_
+         `file` _might not always prove to be the most appropriate metadata source from
+         which to populate a corresponding_ `biosample` _entity. Let's say a
+         pre-sequencing library prepration material_ `M` _is divided in two to
+         produce derivative materials_ `M1` _and_ `M2` _, with_ `M1` _and_ `M2` _then
+         amplified separately and sequenced under separate conditions producing_
+         `file` _s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
+         experimental context -- the final separation and amplification processes
+         producing_ `M1` _and_ `M2` _might reasonably be ignored for the purposes
+         of Level 1 modeling, with (instead) a single (slightly upstream)
+         `biosample` _ entity -- based on_ `M` _ -- attached to both_ `M1.fastq`
+         _and_ `M2.fastq`_._
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (the notion of_ `biosample`
