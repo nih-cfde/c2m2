@@ -369,11 +369,11 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
    * `collection`
-      * _semantically unconstrained: a generalization of_ `dataset` _that explicitly
-      also includes representations of_ `subject`_s and_ `biosample`_s_
-      * _can federate core resource entities (and other_ `collection` _s) arbitrarily
-      across_ `project` _boundaries (or inter-DCC boundaries, or any other
-      structural boundaries delimiting primary purview)_
+      * _semantically unconstrained: a generalization of the idea of a "dataset"
+      which also explicitly includes representations of_ `subject`_s and_ `biosample`_s_
+      * _used to federate core resource entities (and other_ `collection`_s)
+      across_ `project` _boundaries (or across inter-DCC boundaries, or any other
+      structural boundaries delimiting areas of primary purview)_
       * _unconstrained with respect to "defining entity"_
          * _can be attributed to a (defining/generating) C2M2_ `project` _record_
          * _this attribution is optional: the power to define new_ `collection` _s,
