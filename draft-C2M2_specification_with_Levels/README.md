@@ -305,7 +305,6 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	   meeting C2M2 Level 1 modeling criteria), and the source entity for the
    		two independently-sequenced_ `file` _outputs could be modeled as a single
    		Level 1_ `biosample`.
-      * __ 
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (the notion of_ `biosample`
