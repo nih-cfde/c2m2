@@ -300,15 +300,15 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          of DCC sample metadata and the approximation that is the C2M2 Level
          1_ `biosample` _entity._
          * _Note in particular that this example doesn't preclude attaching multiple_
-         `biosample` _s to a single originating_ `subject` _; nor does it preclude modeling a
-         single_ `biosample` _that produces multiple_ `file` _s._
+         `biosample`_s to a single originating_ `subject` _; nor does it preclude modeling a
+         single_ `biosample` _that produces multiple_ `file`_s._
          * _Note also that the actual end-stage material prior to the production of a_
          `file` _might not always prove to be the most appropriate metadata source from
          which to populate a corresponding_ `biosample` _entity. Let's say a
          pre-sequencing library prepration material_ `M` _is divided in two to
          produce derivative materials_ `M1` _and_ `M2` _, with_ `M1` _and_ `M2` _then
          amplified separately and sequenced under separate conditions producing_
-         `file` _s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
+         `file`_s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
          experimental context -- the final separation and amplification processes
          producing_ `M1` _and_ `M2` _might reasonably be ignored for the purposes
          of Level 1 modeling, instead attaching a single (slightly upstream)_
