@@ -350,7 +350,7 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 
 ##### Containers
 
-C2M2 Level 1 offers two ways to group metadata records representing experimental
+C2M2 Level 1 offers two ways to group together metadata records representing experimental
 resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
 
    * `project`
