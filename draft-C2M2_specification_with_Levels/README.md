@@ -359,7 +359,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       sphere of operations that **first generates** each experimental resource
       modeled as a_ `file`/`subject`/`biosample` _record_
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
-      -- an associated hierarchy of grants, contracts or other major
+      -- a corresponding hierarchy of grants, contracts or other major
       administrative subdivisions of funding for primary research_ 
       * `project` _attribution is **required** for core resource types: use
       (binary, explicit, namespace-decoupled) "primary project" FK in_
