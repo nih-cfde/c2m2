@@ -369,7 +369,7 @@ resources (`file`s; `subject`s; `biosample`s): `project` and `collection`.
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
    * `collection`
-      * _conceptually unconstrained: a generalization of the idea of a "dataset"
+      * _contextually unconstrained: a generalization of the "dataset" concept
       which additionally and explicitly supports the inclusion of elements
       (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
       * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
