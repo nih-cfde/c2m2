@@ -313,7 +313,7 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
          _and_ `M2.fastq`_. As above, final decisions regarding detailed rules
          mapping native DCC data to Level 1 entities are necessarily left to
          serialization engineers; CFDE staff will be available as needed to offer
-         feedback and guidance on navigating mapping issues._
+         feedback and guidance when navigating mapping issues._
    * `subject` _introduced (also cf. below, §"Common fields" and §"Taxonomy and the `subject` entity")_
       * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
       entity from which a Level 1_ `biosample` _can be generated (the notion of_ `biosample`
