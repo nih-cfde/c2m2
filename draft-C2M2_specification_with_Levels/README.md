@@ -269,8 +269,8 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	   event modeling has been deliberately deferred to C2M2 Level 2, so all the
    	   relationships represented here as "<->" are undirected, and so the notion of a
    	   "chain of provenance" cannot be fairly represented by this model._
-         * _In addition to event data, model support representing details of experimental
-         processes has also been assigned to Level 2._
+         * _In addition to the event modeling just mentioned, experimental process modeling
+         has also been assigned to Level 2._
          * _With both of these (more complex) aspects of experimental metadata
          masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
          `biosample` _entity should be modeled is as an abstract "material phase"
