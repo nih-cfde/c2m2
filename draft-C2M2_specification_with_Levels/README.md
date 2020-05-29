@@ -410,11 +410,11 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
 ##### Controlled vocabularies and term tables
 
    * _enumerate CVs in use at Level 1:_
-   	* _assay\_type_
-   	* _anatomy_
-   	* _data\_type_
-   	* _file\_format_
-   	* _ncbi\_taxonomy_
+      * _assay\_type_
+      * _anatomy_
+      * _data\_type_
+      * _file\_format_
+      * _ncbi\_taxonomy_
    * _term parser script: auto-builds (green) CV term tables_
       * _to be executed during bdbag-preparation stage_
       * _inflates bare CV terms cited in core-entity table fields into corresponding CV
