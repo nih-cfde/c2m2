@@ -396,19 +396,6 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          structure through which authors anywhere can create (and study and cite)
          newly-defined groupings of C2M2 resources independently of their original
          provenance associations._
-         
-
-##### Controlled vocabularies and term tables
-
-   * _enumerate CVs_
-   * _describe term tables_
-   * _outline plan for addressing versioning_
-   * _discuss parser script on offer_
-      * _to be executed during bdbag-preparation stage_
-      * _will inflate bare CV terms cited in entity fields into corresponding CV
-      term-usage tables_
-      * _auto-loads and populates display-layer term-decorator data (name,
-      description) from relevant CV OBO reference files_
 
 ##### Taxonomy and the `subject` entity
 
@@ -419,6 +406,31 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
 ##### Association tables and inter-entity relationships
 
    * _define and specify the structure of each Level 1 association relationship_
+
+##### Controlled vocabularies and term tables
+
+   * _enumerate CVs_
+   * _describe term tables_
+   * _discuss parser script on offer_
+      * _to be executed during bdbag-preparation stage_
+      * _will inflate bare CV terms cited in entity fields into corresponding CV
+      term-usage tables_
+      * _auto-loads and populates display-layer term-decorator data (name,
+      description) from relevant CV OBO reference files_
+   * _wish list:_
+      * _controlled vocabulary version control policy_
+      * _detailed plan for handling app-layer aggregations of CV-term query
+      results to best serve user searches: LCA computation, keyword-set
+      association/decoration, etc._
+      * _policy specifying term-addition request process between CFDE
+      and CV managers (active and ongoing for OBI, e.g.)_
+      * _establish and execute some sort of survey process to generate
+      consensus on which particular CVs look like the best final selections
+      to serve as C2M2 reference sets (e.g. OBI vs. BAO)_
+      * _detailed ETL usage guide: should we pre-select sub-vocabularies of
+      sanctioned CVs to distribute to ETL generators, updating these blessed
+      subsets on an ongoing basis (as new term requirements arrive from
+      client metadata sources modeling their respective datasets)?_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
