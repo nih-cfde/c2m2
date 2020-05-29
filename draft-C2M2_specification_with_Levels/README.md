@@ -479,7 +479,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          * _keyword-set association/**tagging**/decoration_
          * _**synonym handling**_
          * _etc._
-      * _"assay type" seems a terrible gloss for "type of material," since it sounds like
+      * _"assay type" seems like a bad gloss for "type of material," since it sounds like
       it denotes "experiment type" and not a category of physical object. Flagged
       for renaming._
       * _policy specifying (or standardizing or prohibiting or ...?) a **term-addition
