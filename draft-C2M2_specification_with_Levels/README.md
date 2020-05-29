@@ -432,7 +432,7 @@ experimental resources.
    * `biosample_from_subject`
    * `collection_defined_by_project`
    
-   _As with the containment association tables, records in these three tables
+   _As with the containment association tables, records in these tables
    will contain four fields, encoding two foreign keys: one (binary) key per
    entity involved in the relationship being asserted by each record._
    
