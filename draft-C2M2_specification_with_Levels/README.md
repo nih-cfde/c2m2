@@ -409,27 +409,33 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
 
 ##### Controlled vocabularies and term tables
 
-   * _enumerate CVs_
-   * _describe term tables_
-   * _discuss parser script on offer_
+   * _enumerate CVs in use at Level 1:_
+   	* _assay\_type_
+   	* _anatomy_
+   	* _data\_type_
+   	* _file\_format_
+   	* _ncbi\_taxonomy_
+   * _term parser script: auto-builds (green) CV term tables_
       * _to be executed during bdbag-preparation stage_
-      * _will inflate bare CV terms cited in entity fields into corresponding CV
+      * _inflates bare CV terms cited in core-entity table fields into corresponding CV
       term-usage tables_
       * _auto-loads and populates display-layer term-decorator data (name,
-      description) from relevant CV OBO reference files_
+      description) from relevant (versioned) CV reference files_
    * _wish list:_
-      * _controlled vocabulary version control policy_
+      * _explicit version control policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
-      results to best serve user searches: LCA computation, keyword-set
-      association/decoration, etc._
+      results to best serve users' search requests:_
+         * _LCA computation and implicit matching of terms via shared ontological lineage_
+         * _keyword-set association/tagging/decoration_
+         * _etc._
       * _policy specifying term-addition request process between CFDE
       and CV managers (active and ongoing between HMP and OBI, e.g.:
       terms are being added on request; managers are responsive)_
       * _establish and execute some sort of survey process to generate
       consensus on which particular CVs look like the best final selections
-      to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO)_
-      	* _criterion: comprehensive coverage of ontological space_
-      	* _criterion: response sensitivity to change requests_
+      to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
+      	* _how comprehensive is a CV's coverage of the relevant ontological space?_
+      	* _how responsive are the CV owners to change requests?_
       * _detailed ETL usage guide: should we pre-select sub-vocabularies of
       sanctioned CVs to distribute to ETL generators, updating these blessed
       subsets on an ongoing basis (as new term requirements arrive from
