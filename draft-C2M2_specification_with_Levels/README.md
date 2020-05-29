@@ -213,7 +213,7 @@ with your submission: you'll reference IDs from these tables in the (blue and bl
 you're building directly. Once you've built the core entity tables,
 the green tables can be built automatically using our
 [term-scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py), which will
-collect all relevant CV terms used throughout your tables and will create the
+collect all relevant CV terms used throughout your core tables and will create the
 corresponding green tables, using data loaded from versioned, whole-CV reference
 documents (like OBO files)._
 
