@@ -476,7 +476,8 @@ experimental resources.
    (_`subject_role`_s) to taxonomic assignments:_
       * _A (binary:_ `{ subject.id_namespace, subject.id }`_) key identifying a C2M2_ `subject` _entity record_
       * _A (unitary:_ `{ subject_role.id }`_) ID denoting a_ `subject_role` _contextual qualifier_
-      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database entry_
+      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
+      entry classifying the given_ `subject` _by way of the given_ `subject_role`
 
    _Please refer to the definition of_ `subject_role_taxonomy` _in the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
