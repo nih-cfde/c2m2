@@ -443,6 +443,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       results to best serve users' search requests:_
          * _LCA computation and implicit matching of terms via shared ontological lineage_
          * _keyword-set association/tagging/decoration_
+         * _synonym handling_
          * _etc._
       * _policy specifying term-addition request process between CFDE
       and CV managers (active and ongoing between HMP and OBI, e.g.:
