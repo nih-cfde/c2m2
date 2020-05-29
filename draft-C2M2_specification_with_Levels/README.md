@@ -433,8 +433,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       in or on the_ `subject` _from which a_ `biosample` _was derived_
       * _data\_type (EDAM): used to generally categorize the **contents** of a_ `file`
       * _file\_format (EDAM): used to denote the **digital format or encoding** of a_ `file`
-      * _ncbi\_taxonomy (...NCBI Taxonomy :): used to **link_ `subject` _entity records to
-      taxonomic labels** (cf above, §"Association table: taxonomy and the_ `subject`
+      * _ncbi\_taxonomy (...NCBI Taxonomy :): used to **link_ `subject` _entity records to taxonomic labels** (cf above, §"Association table: taxonomy and the_ `subject`
       _entity: the_ `subject_role_taxonomy` _table")_
    * _**general guidance on usage:** for the moment, just do the best you can
    by picking through the given CVs; leave blank CV-field values for any records that
