@@ -437,19 +437,31 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       description) from relevant (versioned) CV reference files_
       * _usage: change "user-defined parameters" section to match local directory
       configuration, then run script (without arguments)_
-   * _wish list:_
-      * _explicit version control policy for reference CVs_
+   * _wish list: everything listed here **must** be carefully addressed well in advance of
+   the final C2M2 full-production phase of development. Handling these issues will
+   take place **independently of and in parallel to our June demo development
+   process** (or after it concludes): any progress made on these topics
+   before the demo will be binned into one of two categories: (a) ETL-instance
+   data refinements which do not affect the underlying Level 1 model structure,
+   i.e., changes to field values and concomitant updates to the relevant Deriva
+   catalogs; or (b) model-altering implementation decisions (including but not limited
+   to the replacement of any of the currently-selected CV ontologies, as well as any
+   changes that would alter entity field-format syntax (or add new fields), e.g.
+   URI encoding/handling) whose execution will be deferred until immediately after
+   the demo concludes.):_
+      * _explicit **version control** policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
-      results to best serve users' search requests:_
-         * _LCA computation and implicit matching of terms via shared ontological lineage_
-         * _keyword-set association/tagging/decoration_
-         * _synonym handling_
+      results to **best serve users' search requests**:_
+         * _**LCA computation** and implicit matching of terms via shared ontological lineage_
+         * _keyword-set association/**tagging**/decoration_
+         * _**synonym handling**_
          * _etc._
-      * _policy specifying term-addition request process between CFDE
-      and CV managers (active and ongoing between HMP and OBI, e.g.:
-      terms are being added on request; managers are responsive)_
-      * _establish and execute some sort of survey process to generate
-      consensus on which particular CVs look like the best final selections
+      * _policy specifying (or standardizing or prohibiting or ...?) a **term-addition
+      request process** between CFDE and CV owners (active and ongoing between HMP
+      and OBI, e.g.: terms are being added on request; CV managers are responsive),
+      driven by usage needs identified by DCC clients_
+      * _establish and execute some sort of survey process to create
+      consensus on **which particular CVs look like the best final selections**
       to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
       	* _how comprehensive is a CV's coverage of the relevant ontological space?_
       	* _how responsive are the CV owners to change requests?_
