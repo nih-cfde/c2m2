@@ -480,7 +480,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          * _**synonym handling**_
          * _etc._
       * _"assay type" seems like a bad gloss for "type of material," since it sounds like
-      it denotes "experiment type" and not a category of physical object. Flagged
+      it denotes "experiment type" and not "a category of physical object." Flagged
       for renaming._
       * _policy specifying (or standardizing or prohibiting or ...?) a **term-addition
       request process** between CFDE and CV owners (active and ongoing between HMP
