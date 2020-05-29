@@ -430,12 +430,13 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       * _ncbi\_taxonomy (...NCBI Taxonomy :)_
    * _general guidance on usage: just do the best you can with the given CVs for now;
    null any field values that cause you any significant trouble of any kind._
-   `#c2m2-internal-note: see below, "**wish list**", for notes on improving this
-   process after the demo. too many important issues remain to be studied, argued,
-   decided, implemented and tested for us to make this portion more than a heuristic
-   demo-driving hack and still meet our development deadlines. Also note that once we've
-   created a few actual C2M2 instance sets, we can compare notes to produce a better idea
-   of some of the problems that need solving.`
+   `#c2m2-internal-note: See the wish list (just below) for initial notes on improving the
+   engineering solutions for this topic after the demo. Too many important issues remain
+   to be studied, argued, decided, implemented and tested for us to make CV management
+   more than a quick and somewhat unsatisfying kludge and still meet our development
+   deadlines. (Also note that once we've actually built a few C2M2 metadata instance
+   collections, we can then compare notes to help us all get a better collective grip on
+   some of the problems that will need solving.`
    * [CV term scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py):
    	_auto-builds (green) CV term tables_
       * _executed during bdbag-preparation stage, after core TSVs have been built_
