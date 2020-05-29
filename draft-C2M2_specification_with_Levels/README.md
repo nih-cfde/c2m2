@@ -366,26 +366,26 @@ experimental resources.
       sphere of operations that **first generates** each experimental resource
       modeled as a_ `file`/`subject`/`biosample` _record_
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
-      -- a corresponding hierarchy of grants, contracts or other important
-      administrative subdivisions of primary research funding_ 
+      -- a corresponding hierarchy of grants, contracts or other **important
+      administrative subdivisions of primary research funding**_ 
       * `project` _attribution is **required** for core resource entity types: use
       (binary, explicit, namespace-decoupled) "primary project" FK in_
       `file`/`biosample`/`subject` _entity records to encode these attributions_
-      * `project`s _can be nested (via the_ `project_in_project` _association
+      * `project`s _**can be nested** (via the_ `project_in_project` _association
       table: cf. below, §"Association tables: containment relationships")
       into a hierarchical (directed, acyclic) network, but one and only one_
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
    * `collection`
-      * _contextually unconstrained: a generalization of the "dataset" concept
+      * _**contextually unconstrained:** a generalization of the "dataset" concept
       which additionally and explicitly supports the inclusion of elements
       (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
       * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
       necessarily include any_ `collection` _records or attributions_
-      * _membership of C2M2 entities in_ `collection`_s is encoded using the
+      * _**membership** of C2M2 entities in_ `collection`_s is encoded using the
       relevant association tables (cf. below, §"Association tables: containment relationships")_
-      * _used to define a federation of any set of core resource entities (and,
-      recursively, other_ `collection`_s) across inter-_`project` _boundaries
+      * _used to define a **federation of any set of core resource entities (and,
+      recursively, other**_ **`collection`**_**s)** across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
       boundaries used to delimit or partition areas of primary purview or
       provenance)_
