@@ -372,7 +372,7 @@ experimental resources.
       (binary, explicit, namespace-decoupled) "primary project" FK in_
       `file`/`biosample`/`subject` _entity records to encode these attributions_
       * `project`s _**can be nested** (via the_ `project_in_project` _association
-      table: cf. below, §"Association tables: containment relationships")
+      table: cf. below, §"Association tables: expressing containment relationships")
       into a hierarchical (directed, acyclic) network, but one and only one_
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
@@ -383,7 +383,7 @@ experimental resources.
       * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
       necessarily include any_ `collection` _records or attributions_
       * _**membership** of C2M2 entities in_ `collection`_s is encoded using the
-      relevant association tables (cf. below, §"Association tables: containment relationships")_
+      relevant association tables (cf. below, §"Association tables: expressing containment relationships")_
       * _used to describe the **federation of any set of core resource entities (and,
       recursively, other**_ **`collection`**_**s)** across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
