@@ -438,11 +438,12 @@ experimental resources.
    
    _Table names define relationship types, and are (with the exception
    of_ `collection_defined_by_project`_) somewhat nonspecific by design.
-   Note in particular that the relationships represented here **may** mask
-   transitively-collapsed versions of more complex relationship networks in the native
-   DCC metadataset. The specification of precise rules governing native-to-C2M2
-   metadata mappings (or approximations) are left to DCC serialization staff and
-   relevant investigators; CFDE staff will be available as needed to offer
+   Note in particular that relationships between core entities represented
+   here **may** mask transitively-collapsed versions of more complex
+   relationship networks in the native DCC metadataset. The specification
+   of precise rules governing native-to-C2M2 metadata mappings (or
+   approximations) are left to DCC serialization staff and relevant
+   investigators; CFDE staff will be available as needed to offer
    feedback and guidance when navigating these issues._
    
    _Please see the relevant sections of the_
