@@ -412,7 +412,9 @@ experimental resources.
    * `subject_in_collection`
    * `biosample_in_collection`
    
-   _The format for each record in each of these tables is four fields:
+   _These tables encode basic containment relationships like "this_ `file` _is in
+   this_ `collection`_" or "this_ `project` _is a sub-project of this other_
+   `project`_. The record format for all of these tables requires four fields:
    two (_`id_namespace` _and_ `id`_) encoding a foreign key representing
    the **containing**_ **`project`** _**or**_ **`collection`**_, and two (again_
    `id_namespace` _and_ `id`_) acting as a foreign key referencing the table
