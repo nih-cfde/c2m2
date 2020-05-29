@@ -465,10 +465,10 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
       	* _how comprehensive is a CV's coverage of the relevant ontological space?_
       	* _how responsive are the CV owners to change requests?_
-      * _detailed ETL usage guide: should we pre-select sub-vocabularies of
-      sanctioned CVs to distribute to ETL generators, updating these blessed
-      subsets on an ongoing basis (as new term requirements arrive from
-      client metadata sources as they try to model their respective datasets)?_
+      * _detailed ETL-construction usage plan: should we pre-select sub-vocabularies of
+      sanctioned CVs to distribute to ETL generators, updating these CFDE-blessed
+      CV subsets on an ongoing basis (as new term requirements roll in from
+      client metadata sources (DCCs) as they try to model their respective datasets)?_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
