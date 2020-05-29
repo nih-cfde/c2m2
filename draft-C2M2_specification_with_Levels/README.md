@@ -390,7 +390,7 @@ experimental resources.
       boundaries used to delimit or partition areas of primary purview or
       provenance, or crossing no such boundaries at all)_
       * _unconstrained with respect to "defining entity"_
-         * _**may** be attributed to a (defining/generating) C2M2_ `project` _record_
+         * _**may optionally** be attributed to a (defining/generating) C2M2_ `project` _record_
             * _this attribution is **optional and (when null) will not always even
             be well-defined**: the power to define new_ `collection`_s,
             on an ongoing basis, will be offered to all (approved? registered?) members
