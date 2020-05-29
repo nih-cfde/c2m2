@@ -455,7 +455,8 @@ experimental resources.
    `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
    `ncbi_taxonomy_database` _table) to C2M2_ `subject` _entities in a variety of
    ways, depending on_ `subject_granularity`_, using_ `subject_role` _values to specify
-   the qualifying ontological context for each taxonomic label._
+   the qualifying semantic or ontological context that should be applied to
+   each taxonomic label._
 
    * `subject_granularity` (`subject` _multiplicity specifier):_
       * _for each_ `subject` _record, pick one of
