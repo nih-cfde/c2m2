@@ -211,7 +211,8 @@ _Build the black (core entity) and blue (containment relationship) tables
 shown in the diagram below. We'll give you copies of the gold tables to include
 with your submission: you'll reference IDs from these tables in the (blue and black) tables
 you're building directly. Once you've built the core entity and containment tables,
-the green tables can be built automatically using our term-scanner script, which will
+the green tables can be built automatically using our
+[term-scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py), which will
 collect all relevant CV terms used throughout your tables and will create the
 corresponding green tables, using data loaded from versioned, whole-CV reference
 documents (like OBO files)._
@@ -434,6 +435,8 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       term-usage tables_
       * _auto-loads and populates display-layer term-decorator data (name,
       description) from relevant (versioned) CV reference files_
+      * _usage: change "user-defined parameters" section to match local directory
+      configuration, then run script (without arguments)_
    * _wish list:_
       * _explicit version control policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
