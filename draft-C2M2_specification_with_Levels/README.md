@@ -434,7 +434,8 @@ experimental resources.
    
    _As with the containment association tables, records in these tables
    will contain four fields, encoding two foreign keys: one (binary) key per
-   entity involved in the relationship being asserted by each record._
+   entity involved in the particular relationship being asserted by
+   each record._
    
    _Table names define relationship types, and are (with the exception
    of_ `collection_defined_by_project`_) somewhat nonspecific by design.
@@ -460,7 +461,7 @@ experimental resources.
    the qualifying semantic or ontological context that should be applied to
    each taxonomic label._
 
-   * `subject_granularity` (`subject` _multiplicity specifier):_
+   * `subject_granularity` _(_`subject` _multiplicity specifier):_
       * _for each_ `subject` _record, pick one of
    [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
    and attach its_ `id` _to the_ `subject` _record using the_ `granularity` _foreign
