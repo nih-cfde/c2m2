@@ -412,7 +412,7 @@ experimental resources.
    * `subject_in_collection`
    * `biosample_in_collection`
    
-   _These tables encode basic containment relationships like "this_ `file` _is in
+   _These tables are used to express basic containment relationships like "this_ `file` _is in
    this_ `collection`_" or "this_ `project` _is a sub-project of this other_
    `project`_." The record format for all of these tables specifies four fields:_
       * _two (_`id_namespace` _and_ `id`_) encoding a foreign key representing
