@@ -210,7 +210,7 @@ to produce and maintain -- for Level 2. The following are **not modeled at Level
 _Build the black (core entity) and blue (containment relationship) tables
 shown in the diagram below. We'll give you copies of the gold tables to include
 with your submission: you'll reference IDs from these tables in the (blue and black) tables
-you're building directly. Once you've built the core entity and containment tables,
+you're building directly. Once you've built the core entity tables,
 the green tables can be built automatically using our
 [term-scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py), which will
 collect all relevant CV terms used throughout your tables and will create the
