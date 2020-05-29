@@ -406,7 +406,6 @@ experimental resources.
 ##### Association tables: expressing containment relationships
 
    * `project_in_project`
-   * `collection_defined_by_project`
    * `collection_in_collection`
    * `file_in_collection`
    * `subject_in_collection`
@@ -431,12 +430,14 @@ experimental resources.
    * `file_describes_subject`
    * `file_describes_biosample`
    * `biosample_from_subject`
+   * `collection_defined_by_project`
    
    _As with the containment association tables, records in these three tables
    will contain four fields, encoding two foreign keys: one (binary) key per
    entity involved in the relationship being asserted by each record._
    
-   _Table names define relationship types, and are by design somewhat nonspecific.
+   _Table names define relationship types, and are (with the exception
+   of_ `collection_defined_by_project`_) somewhat nonspecific by design.
    Note in particular that the relationships represented here **may** mask
    transitively-collapsed versions of more complex relationship networks in the native
    DCC metadataset. The specification of precise rules governing native-to-C2M2
