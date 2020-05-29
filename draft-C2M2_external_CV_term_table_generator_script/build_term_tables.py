@@ -4,9 +4,10 @@
 #                                     AUTHOR INFO
 ##########################################################################################
 
-# Arthur Brady (Univ. of MD Inst. for Genome Sciences) wrote this script to extract
-# HMP experimental data and transform it to conform to the draft C2M2 Level 1 data
-# specification prior to ingestion into a central CFDE database.
+# Arthur Brady (Univ. of MD Inst. for Genome Sciences) wrote this script to automatically
+# load and summarize (via term-tracking TSV files) controlled-vocabulary term usage across
+# all core resource entity records in a given C2M2 Level 1 ETL instance to assist with
+# instance preparation prior to ingestion into a central CFDE database.
 
 # Creation date: 2020-05-17
 # Lastmod date unless I forgot to change it: 2020-05-29
