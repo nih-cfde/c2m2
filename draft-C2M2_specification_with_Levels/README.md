@@ -468,9 +468,8 @@ experimental resources.
       [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
       each of which can be labeled independently with NCBI Taxonomy Database
       IDs via_ `subject_role_taxonomy`.
-   * `subject_role_taxonomy`: _Putting it all together, this table stores
-   three keys per record, connecting_ `subject` _components
-   (_`subject_role`s_) to taxonomic assignments:_
+   * `subject_role_taxonomy`: _Putting it all together: this association table
+   stores three keys per record, connecting_ `subject` _components (_`subject_role`_s) to taxonomic assignments:_
       * _A (binary:_ `{ subject.id_namespace, subject.id }`_) key identifying a C2M2_ `subject` _entity record_
       * _A (unitary:_ `{ subject_role.id }`_) ID denoting a_ `subject_role` _contextual qualifier_
       * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database entry_
