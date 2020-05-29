@@ -398,22 +398,27 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          newly-defined groupings of C2M2 resources independently of their original
          provenance associations._
 
-##### Taxonomy and the `subject` entity
-
-   * `subject_granularity`: `subject` _multiplicity specifier_
-   * `subject_role`: _constituent relationship to intra-_`subject` _system_
-   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents via_ `subject_role_taxonomy`
-
-##### Association tables and inter-entity relationships
+##### Association tables: inter-entity linkages
 
    * _file\_describes\_subject_
    * _file\_describes\_biosample_
    * _biosample\_from\_subject_
-   * _file\_describes\_subject_
-   * _file\_describes\_subject_
-   * _file\_describes\_subject_
-   * _file\_describes\_subject_
-   * _file\_describes\_subject_
+   
+##### Association tables: containment
+
+   * _project\_in\_project_
+   * _collection\_defined\_by\_project_
+   * _collection\_in\_collection_
+   
+   * _file\_in\_collection_
+   * _subject\_in\_collection_
+   * _biosample\_in\_collection_
+
+##### Association table: Taxonomy and the `subject` entity using `subject_role_taxonomy` 
+
+   * `subject_granularity`: `subject` _multiplicity specifier_
+   * `subject_role`: _constituent relationship to intra-_`subject` _system_
+   * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents via_ `subject_role_taxonomy`
 
 ##### Controlled vocabularies and term tables
 
