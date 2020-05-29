@@ -427,7 +427,8 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       * _data\_type (EDAM)_
       * _file\_format (EDAM)_
       * _ncbi\_taxonomy (...NCBI Taxonomy :)_
-   * _term parser script: auto-builds (green) CV term tables_
+   * [CV term scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py):
+   	_auto-builds (green) CV term tables_
       * _executed during bdbag-preparation stage, after core TSVs have been built_
       * _inflates (bare) CV terms cited in core-entity table fields into corresponding CV
       term-usage tables_
