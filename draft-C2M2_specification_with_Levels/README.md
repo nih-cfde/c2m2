@@ -372,7 +372,7 @@ experimental resources.
       (binary, explicit, namespace-decoupled) "primary project" FK in_
       `file`/`biosample`/`subject` _entity records to encode these attributions_
       * `project`s _can be nested (via the_ `project_in_project` _association
-      table; cf. below, §"Association tables: containment relationships")
+      table: cf. below, §"Association tables: containment relationships")
       into a hierarchical (directed, acyclic) network, but one and only one_
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
