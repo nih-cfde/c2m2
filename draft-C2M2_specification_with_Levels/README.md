@@ -419,7 +419,8 @@ experimental resources.
    the **containing**_ **`project`** _**or**_ **`collection`**_, and_
    * _two (another_ {`id_namespace`, `id`} _pair) acting as a foreign key
    referencing the table describing the **contained resource (or
-   subcollection)**. Please see the relevant sections of the_
+   subcollection)**.
+   Please see the relevant sections of the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
 
