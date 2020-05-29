@@ -364,7 +364,7 @@ experimental resources.
    * `project`
       * _unambiguous, unique, named, most-proximate research/administrative
       sphere of operations that **first generates** each experimental resource
-      modeled as a_ `file`/`subject`/`biosample` _record_
+      (_`file`/`subject`/`biosample`_) record_
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
       -- a corresponding hierarchy of grants, contracts or other **important
       administrative subdivisions of primary research funding**_ 
