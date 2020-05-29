@@ -475,6 +475,10 @@ experimental resources.
       * _A (unitary:_ `{ subject_role.id }`_) ID denoting a_ `subject_role` _contextual qualifier_
       * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database entry_
 
+   _Please refer to the definition of_ `subject_role_taxonomy` _in the_
+   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
+   _to find all technical details (field names and foreign-key constraints)._
+
 ##### Controlled vocabularies and term tables
 
    * _CVs in use at Level 1:_
