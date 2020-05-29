@@ -428,8 +428,9 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       * _data\_type (EDAM)_
       * _file\_format (EDAM)_
       * _ncbi\_taxonomy (...NCBI Taxonomy :)_
-   * _general guidance on usage: just do the best you can by picking through the given
-   CVs for now; null any field values that cause you any significant trouble of any kind._
+   * _**general guidance on usage:** for the moment, just do the best you can
+   by picking through the given CVs; leave blank CV-field values for any records that
+   wind up causing you any sort of trouble._
       * `#c2m2-internal-note: See the wish list (just below) for initial notes on improving the
       engineering solutions for this topic after the demo. Too many important issues remain
       to be studied, argued, decided, implemented and tested for us to make CV management
