@@ -427,11 +427,15 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
 ##### Controlled vocabularies and term tables
 
    * _enumerate CVs in use at Level 1:_
-      * _assay\_type (OBI)_
-      * _anatomy (Uberon)_
-      * _data\_type (EDAM)_
-      * _file\_format (EDAM)_
-      * _ncbi\_taxonomy (...NCBI Taxonomy :)_
+      * _assay\_type (OBI): used to describe **types of material** that can be Level
+      1_ `biosample`_s_
+      * _anatomy (Uberon): used to specify the source location within the physiology
+      of the_ `subject` _from which a_ `biosample` _was derived_
+      * _data\_type (EDAM): used to generally categorize the **contents** of a_ `file`
+      * _file\_format (EDAM): used to denote the **digital format or encoding** of a_ `file`
+      * _ncbi\_taxonomy (...NCBI Taxonomy :): used to link_ `subject` _entity records to
+      taxonomic labels (cf above, §"Association table: taxonomy and the_ `subject`
+      _entity: the_ `subject_role_taxonomy` _table")_
    * _**general guidance on usage:** for the moment, just do the best you can
    by picking through the given CVs; leave blank CV-field values for any records that
    wind up causing you any sort of trouble._
