@@ -450,7 +450,15 @@ experimental resources.
 
 ##### Association table: taxonomy and the `subject` entity: the `subject_role_taxonomy` table
 
-   * `subject_granularity`: `subject` _multiplicity specifier_
+   This (trinary: three-key) association table enables the attachment of
+   taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
+   `/^NCBI:txid[0-9]+$/`_) to C2M2_ `subject` _entities in a variety of ways,
+   depending on_ `subject` _type.
+   
+   * `subject_granularity` (`subject` _multiplicity specifier): pick one of
+   [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
+   and attach it to each_ `subject` _record via the given foreign key in the_
+   `subject` _entity table_
    * `subject_role`: _constituent relationship to intra-_`subject` _system_
    * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents via_ `subject_role_taxonomy`
 
