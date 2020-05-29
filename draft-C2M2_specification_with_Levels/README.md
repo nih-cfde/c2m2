@@ -429,8 +429,8 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
    * _enumerate CVs in use at Level 1:_
       * _assay\_type (OBI): used to describe **types of material** that can be Level
       1_ `biosample`_s_
-      * _anatomy (Uberon): used to specify the source location within the physiology
-      of the_ `subject` _from which a_ `biosample` _was derived_
+      * _anatomy (Uberon): used to specify the **physiological source location**
+      in or on the_ `subject` _from which a_ `biosample` _was derived_
       * _data\_type (EDAM): used to generally categorize the **contents** of a_ `file`
       * _file\_format (EDAM): used to denote the **digital format or encoding** of a_ `file`
       * _ncbi\_taxonomy (...NCBI Taxonomy :): used to link_ `subject` _entity records to
