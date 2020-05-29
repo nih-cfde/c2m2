@@ -423,14 +423,17 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       results to best serve user searches: LCA computation, keyword-set
       association/decoration, etc._
       * _policy specifying term-addition request process between CFDE
-      and CV managers (active and ongoing for OBI, e.g.)_
+      and CV managers (active and ongoing between HMP and OBI, e.g.:
+      terms are being added on request; managers are responsive)_
       * _establish and execute some sort of survey process to generate
       consensus on which particular CVs look like the best final selections
-      to serve as C2M2 reference sets (e.g. OBI vs. BAO)_
+      to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO)_
+      	* _criterion: comprehensive coverage of ontological space_
+      	* _criterion: response sensitivity to change requests_
       * _detailed ETL usage guide: should we pre-select sub-vocabularies of
       sanctioned CVs to distribute to ETL generators, updating these blessed
       subsets on an ongoing basis (as new term requirements arrive from
-      client metadata sources modeling their respective datasets)?_
+      client metadata sources as they try to model their respective datasets)?_
 
 #### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
