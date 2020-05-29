@@ -434,7 +434,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       * `#c2m2-internal-note: See the wish list (just below) for initial notes on improving the
       engineering solutions for this topic after the demo. Too many important issues remain
       to be studied, argued, decided, implemented and tested for us to make CV management
-      more than a quick and somewhat unsatisfying kludge and still meet our June development
+      more than a quick and intellectually unsatisfying kludge and still meet our June development
       deadline. (Note that once we've actually built a few C2M2 metadata instance
       collections, we can then compare notes to help us all get a much better collective
       grip on some of the problems that will need solving in this area.)`
