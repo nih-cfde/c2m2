@@ -440,7 +440,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       configuration_
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
-   * _wish list: everything listed here **must** be carefully addressed well in advance of
+   * _**wish list:** everything listed here **must** be carefully addressed well in advance of
    the final C2M2 full-production phase of development. Handling these issues will
    take place **independently of and in parallel to our June demo development
    process** (or after it concludes): any progress made on these topics
