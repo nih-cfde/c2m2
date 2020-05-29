@@ -431,8 +431,10 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       1_ `biosample`_s_
       * _anatomy (Uberon): used to specify the **physiological source location**
       in or on the_ `subject` _from which a_ `biosample` _was derived_
-      * _data\_type (EDAM): used to generally categorize the **contents** of a_ `file`
-      * _file\_format (EDAM): used to denote the **digital format or encoding** of a_ `file`
+      * _data\_type (EDAM): used to categorize the abstract **information content** of
+      a_ `file` _(e.g. "this is sequence data")_
+      * _file\_format (EDAM): used to denote the **digital format or encoding** of
+      a_ `file` _(e.g. "this is a FASTQ file")_
       * _ncbi\_taxonomy (...NCBI Taxonomy :): used to **link**_ **`subject`** _**entity
       records to taxonomic labels** (cf above, §"Association table: taxonomy and the_ `subject`
       _entity: the_ `subject_role_taxonomy` _table")_
