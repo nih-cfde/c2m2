@@ -269,19 +269,18 @@ from all_ `id_namespace` _fields to the header block of the_ `id_namespace` _tab
    	only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _can and should be
    	explicitly represented._
          * _The simplifications here are partially necessitated by the fact that
-   	   event modeling has been deliberately deferred to C2M2 Level 2, so many of the
-   	   associative relationships represented in Level 1 are undirected, and so the
-   	   notion of a well-defined "chain of provenance" cannot be fully supported at
-   	   this C2M2 Level. (Also, and more concretely: Level 1 does not represent
+   	   event modeling has been deliberately deferred to C2M2 Level 2: as a result,
+   	   the notion of a well-defined "chain of provenance" is not modeled at
+   	   this C2M2 Level. (More concretely: Level 1 does not represent
    	   inter-_`biosample` _relationships.)_
-         * _In addition to the event modeling just mentioned, experimental process modeling
-         has also been assigned to Level 2._
+         * _The modeling of details describing experimental processes has also been
+         assigned to Level 2._
          * _With both of these (more complex) aspects of experimental metadata
          masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
          `biosample` _entity should be modeled is as an abstract "material phase"
          (possibly masking what is in reality a chain of multiple distinct materials)
-         that enables an analytic (or observational or other scientific) process, which
-         originates in a_ `subject` _, to move forward and ultimately produce one or
+         that enables an analytic (or observational or other scientific) process (which
+         originates at a_ `subject` _) to move forward and ultimately produce one or
          more_ `file`_s._  
       * _In practice, a Level 1 C2M2 instance builder facing such a situation
    	might reasonably create one record for the originating_ `subject` _; create one_
