@@ -357,9 +357,9 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 
 ##### Containers
 
-C2M2 Level 1 offers two ways to define sets of related metadata entity records
-representing core (`file`/`subject`/`biosample`) experimental resources:
-`project` and `collection`.
+C2M2 Level 1 offers two ways -- `project` and `collection` -- to denote groups of
+related metadata entity records representing core (`file`/`subject`/`biosample`)
+experimental resources.
 
    * `project`
       * _unambiguous, unique, named, most-proximate research/administrative
