@@ -435,7 +435,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       term-usage tables_
       * _auto-loads and populates display-layer term-decorator data (name,
       description) from relevant (versioned) CV reference files_
-      * _usage:
+      * _usage:_
          * _change "_`USER-DEFINED PARAMETERS`_" section to match your local directory
       configuration
          * _make sure the prerequisite files are in the right directories_
