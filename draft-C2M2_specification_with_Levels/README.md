@@ -440,10 +440,10 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       configuration_
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
-   * _**wish list:** everything listed here **must** be carefully addressed well in advance of
+   * _**wish list:** Everything listed here **must** be carefully addressed well in advance of
    the final C2M2 full-production phase of development. Handling these issues will
    take place **independently of and in parallel to our June demo development
-   process** (or after it concludes): any progress made on these topics
+   process** (or after it concludes). Any progress made on these topics
    before the demo will be binned into one of two categories: (a) ETL-instance
    **data refinements** which do not affect the underlying Level 1 model structure,
    i.e., changes to field values and concomitant updates to the relevant Deriva
