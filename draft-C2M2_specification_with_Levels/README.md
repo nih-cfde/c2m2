@@ -499,11 +499,12 @@ experimental resources.
       _entity: the_ `subject_role_taxonomy` _table")_
    * _**general guidance on usage:** store bare CV terms (conforming to the pattern
    constraints specified for each CV's term set in the ER diagram, above) in the
-   entity-table fields (indicated by green dotted arrows); for the moment, in terms of
-   deciding how to select terms, just do the best you can by picking through the given
-   CVs; feel free to use more general ancestor terms if sufficiently-specific terms
-   aren't available in a particular ontological CV; leave blank CV-field values for
-   any records that wind up causing you any sort of trouble._
+   relevant entity-table fields (represented in the diagram as the sources of
+   dotted green arrows); for the moment -- with respect to deciding how to select
+   terms -- just do the best you can by picking through the term sets provided by the
+   given CVs; feel free to use more general ancestor terms if sufficiently-specific
+   terms aren't available in a particular ontological CV; aggressively leave blank
+   CV-field values for any records that wind up causing you the slightest bit of trouble._
       * `#c2m2-internal-note: See the wish list (two bullets below) for initial notes on improving the
       engineering solutions for this topic after the demo. Too many important issues remain
       to be studied, argued, decided, implemented and tested for us to make CV management
