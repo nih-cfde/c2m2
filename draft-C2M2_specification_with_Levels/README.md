@@ -461,7 +461,7 @@ experimental resources.
    the qualifying semantic or ontological context that should be applied to
    each taxonomic label._
 
-   * `subject_granularity` _(_`subject` _multiplicity specifier):_
+   * `subject_granularity`_:_ `subject` _multiplicity specifier:_
       * _for each_ `subject` _record, pick one of
    [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
    and attach its_ `id` _to the_ `subject` _record using the_ `granularity` _foreign
