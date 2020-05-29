@@ -437,7 +437,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       description) from relevant (versioned) CV reference files_
       * _usage:_
          * _change "_`USER-DEFINED PARAMETERS`_" section to match your local directory
-      configuration
+      configuration_
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
    * _wish list: everything listed here **must** be carefully addressed well in advance of
