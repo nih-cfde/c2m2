@@ -217,8 +217,12 @@ collect all relevant CV terms used throughout your core tables and will create t
 corresponding green tables, using data loaded from versioned, whole-CV reference
 documents (like OBO files)._
 
-_[guidance on blank/degenerate TSVs: when they're acceptable, what it means to include
-one, and precisely how they should be encoded]_
+_In the case of unpopulated tables (no_ `collection` _records, for example, are
+required for model compliance), please create the relevant TSV files anyway,
+with just one tab-separated header line containing the empty table's column
+names. (In contrast to simply omitting the blank table file, the recommended practice
+instead explicitly distinguishes the case in which no data is being submitted
+for a given table from the case in which a table has been omitted by mistake.)_
 
 _Color key:_
 
