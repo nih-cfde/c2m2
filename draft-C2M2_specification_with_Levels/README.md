@@ -455,9 +455,10 @@ experimental resources.
    `/^NCBI:txid[0-9]+$/`_) to C2M2_ `subject` _entities in a variety of ways,
    depending on_ `subject_granularity`.
 
-   * `subject_granularity` (`subject` _multiplicity specifier): pick one of
+   * `subject_granularity` (`subject` _multiplicity specifier):_
+      * _for each_ `subject` _record, pick one of
    [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
-   and attach it to each_ `subject` _record via the given foreign key in the_
+   and attach its_ `id` _to the_ `subject` _record using the foreign key provided in the_
    `subject` _entity table_
    * `subject_role`: _constituent relationship to intra-_`subject` _system_
    * `ncbi_taxonomy`: _examples of how to map taxa to_ `subject` _constituents via_ `subject_role_taxonomy`
