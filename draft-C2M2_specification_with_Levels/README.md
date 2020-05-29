@@ -473,7 +473,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       request process** between CFDE and CV owners (active and ongoing between HMP
       and OBI, e.g.: terms are being added on request; CV managers are responsive),
       driven by usage needs identified by DCC clients_
-      * _are **URIs better than bare CV terms** in terms of C2M2 field values?
+      * _are **URIs better than bare CV terms** in terms of C2M2 field values?_
          * _what sort of URI support do CVs already provide?_
          * _how deeply can we leverage their own preexisting constructs without
          having to handle maintenance, synchrony, version, etc., issues ourselves?_
