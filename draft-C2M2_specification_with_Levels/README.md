@@ -415,7 +415,7 @@ experimental resources.
    _The format for each record in each of these tables is four fields:
    two (_`id_namespace` _and_ `id`_) encoding a foreign key representing
    the **containing**_ **`project`** _**or**_ **`collection`**_, and two (again_
-   `id_namespace` _and_ `id`_) acting as a foreign key to the table
+   `id_namespace` _and_ `id`_) acting as a foreign key referencing the table
    describing the **contained resource (or subcollection)**. See the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _for field names and precise definitions of foreign-key constraints._
