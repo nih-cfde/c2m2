@@ -453,7 +453,7 @@ experimental resources.
    _The (trinary: three-key)_ `subject_role_taxonomy` _association table enables
    the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
    `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
-   `ncbi_taxonomy_database` _table) to C2M2_ `subject` _entities in a variety of
+   `ncbi_taxonomy` _table) to C2M2_ `subject` _entities in a variety of
    ways, depending on_ `subject_granularity`_, using_ `subject_role` _values to specify
    the qualifying semantic or ontological context that should be applied to
    each taxonomic label._
@@ -466,8 +466,14 @@ experimental resources.
    * `subject_role`: _constituent relationship to intra-_`subject` _system:_
       * _each_ `subject_granularity` _corresponds to a subset of
       [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
-      each of which can be labeled independently with NCBI Taxonomy Database IDs._
-   * `subject_role_taxonomy`
+      each of which can be labeled independently with NCBI Taxonomy Database
+      IDs via_ `subject_role_taxonomy`.
+   * `subject_role_taxonomy`: _Putting it all together, this table stores
+   three keys per record, connecting_ `subject` _components
+   (_`subject_role`s_) to taxonomic assignments:_
+      * _A (binary:_ `{ subject.id_namespace, subject.id }`_) key identifying a C2M2_ `subject` _entity record_
+      * _A (unitary:_ `{ subject_role.id }`_) ID denoting a_ `subject_role` _contextual qualifier_
+      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database entry_
 
 ##### Controlled vocabularies and term tables
 
