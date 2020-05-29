@@ -451,7 +451,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
    * `#c2m2-internal-note: `**`wish list:`**` Everything listed here `**`must`**` be carefully
-   addressed well in advance of the final C2M2 full-production phase of development.
+   addressed well in advance of the final full-production phase of C2M2 development.
    Handling these issues will take place `**`independently of and in parallel to our
    June demo development process`**` (or after it concludes). Any progress made on these
    topics before the demo will be binned into one of two categories: `**`(a) Data
