@@ -431,7 +431,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
    * _**general guidance on usage:** for the moment, just do the best you can
    by picking through the given CVs; leave blank CV-field values for any records that
    wind up causing you any sort of trouble._
-      * `#c2m2-internal-note: See the wish list (just below) for initial notes on improving the
+      * `#c2m2-internal-note: See the wish list (two bullets below) for initial notes on improving the
       engineering solutions for this topic after the demo. Too many important issues remain
       to be studied, argued, decided, implemented and tested for us to make CV management
       more than a quick and intellectually unsatisfying kludge and still meet our June development
@@ -450,18 +450,18 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       configuration_
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
-   * _**wish list:** Everything listed here **must** be carefully addressed well in advance of
-   the final C2M2 full-production phase of development. Handling these issues will
-   take place **independently of and in parallel to our June demo development
-   process** (or after it concludes). Any progress made on these topics
-   before the demo will be binned into one of two categories: (a) ETL-instance
-   **data refinements** which do not affect the underlying Level 1 model structure,
+   * `#c2m2-internal-note: **wish list:** Everything listed here **must** be carefully
+   addressed well in advance of the final C2M2 full-production phase of development.
+   Handling these issues will take place **independently of and in parallel to our
+   June demo development process** (or after it concludes). Any progress made on these
+   topics before the demo will be binned into one of two categories: **(a) Data
+   refinements** to ETL instances which do not affect the underlying Level 1 model structure,
    i.e., changes to field values and concomitant updates to the relevant Deriva
-   catalogs; or (b) **model-altering implementation decisions** (including but not limited
+   catalogs; **or (b) model-altering implementation decisions** (including but not limited
    to the replacement of any of the currently-selected CV ontologies, as well as any
    changes that would alter entity field-format syntax (or add new fields), e.g.
    URI encoding/handling) **whose execution will be deferred** until immediately after
-   the demo concludes.):_
+   the demo concludes.)`
       * _explicit **version control** policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
       results to **best serve users' search requests**:_
