@@ -413,7 +413,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
    * `file_describes_biosample`
    * `biosample_from_subject`
    
-##### Association table: Taxonomy and the `subject` entity using `subject_role_taxonomy` 
+##### Association table: Taxonomy and the `subject` entity: the `subject_role_taxonomy` table
 
    * `subject_granularity`: `subject` _multiplicity specifier_
    * `subject_role`: _constituent relationship to intra-_`subject` _system_
