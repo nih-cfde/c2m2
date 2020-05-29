@@ -400,7 +400,7 @@ experimental resources.
          * _this configuration is meant to facilitate data/metadata reuse and
          reanalysis, as well as to provide a specific and consistent anchoring
          structure through which authors anywhere can create (and study and cite)
-         newly-defined groupings of C2M2 resources independently of their original
+         newly-defined groupings of C2M2 resources, independently of their original
          provenance associations._
 
 ##### Association tables: expressing containment relationships
