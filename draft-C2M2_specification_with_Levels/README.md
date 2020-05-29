@@ -384,7 +384,7 @@ experimental resources.
       necessarily include any_ `collection` _records or attributions_
       * _**membership** of C2M2 entities in_ `collection`_s is encoded using the
       relevant association tables (cf. below, §"Association tables: containment relationships")_
-      * _used to define a **federation of any set of core resource entities (and,
+      * _used to describe the **federation of any set of core resource entities (and,
       recursively, other**_ **`collection`**_**s)** across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
       boundaries used to delimit or partition areas of primary purview or
