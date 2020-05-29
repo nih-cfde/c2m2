@@ -460,8 +460,8 @@ experimental resources.
    * `subject_granularity` (`subject` _multiplicity specifier):_
       * _for each_ `subject` _record, pick one of
    [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
-   and attach its_ `id` _to the_ `subject` _record using the foreign key provided in the_
-   `subject` _entity table_
+   and attach its_ `id` _to the_ `subject` _record using the_ `granularity` _foreign
+   key provided in the_ `subject` _entity table_
    * `subject_role`: _constituent relationship to intra-_`subject` _system:_
       * _each_ `subject_granularity` _corresponds to a subset of
       [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
