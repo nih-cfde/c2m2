@@ -388,7 +388,7 @@ experimental resources.
       recursively, other**_ **`collection`**_**s)** across inter-_`project` _boundaries
       (or across inter-DCC boundaries, or across any other structural
       boundaries used to delimit or partition areas of primary purview or
-      provenance, or across no_ `project` _boundaries at all)_
+      provenance, or crossing no such boundaries at all)_
       * _unconstrained with respect to "defining entity"_
          * _**may** be attributed to a (defining/generating) C2M2_ `project` _record_
             * _this attribution is **optional and (when null) will not always even
