@@ -435,8 +435,9 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       term-usage tables_
       * _auto-loads and populates display-layer term-decorator data (name,
       description) from relevant (versioned) CV reference files_
-      * _usage: change "user-defined parameters" section to match local directory
-      configuration, then run script (without arguments)_
+      * _usage: change "_`USER-DEFINED PARAMETERS`_" section to match your local directory
+      configuration; make sure the prerequisite files are in the right directories;
+      then just run the script without arguments_
    * _wish list: everything listed here **must** be carefully addressed well in advance of
    the final C2M2 full-production phase of development. Handling these issues will
    take place **independently of and in parallel to our June demo development
