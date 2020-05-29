@@ -400,18 +400,18 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
 
 ##### Association tables: containment
 
-   * _project\_in\_project_
-   * _collection\_defined\_by\_project_
-   * _collection\_in\_collection_
-   * _file\_in\_collection_
-   * _subject\_in\_collection_
-   * _biosample\_in\_collection_
+   * `project\_in\_project`
+   * `collection\_defined\_by\_project`
+   * `collection\_in\_collection`
+   * `file\_in\_collection`
+   * `subject\_in\_collection`
+   * `biosample\_in\_collection`
 
 ##### Association tables: inter-entity linkages
 
-   * _file\_describes\_subject_
-   * _file\_describes\_biosample_
-   * _biosample\_from\_subject_
+   * `file\_describes\_subject`
+   * `file\_describes\_biosample`
+   * `biosample\_from\_subject`
    
 ##### Association table: Taxonomy and the `subject` entity using `subject_role_taxonomy` 
 
