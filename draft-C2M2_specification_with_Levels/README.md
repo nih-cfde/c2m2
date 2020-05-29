@@ -478,7 +478,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
          * _how deeply can we leverage their own preexisting constructs without
          having to handle maintenance, synchrony, version, etc., issues ourselves?_
          * _can we establish a uniform URI policy to cover all C2M2-referenced CVs,
-         or will we need to establish a specific policy for each CV?_
+         or will we need to establish multiple policies for different CVs?_
       * _establish and execute some sort of survey process to create
       consensus on **which particular CVs look like the best final selections**
       to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
