@@ -432,6 +432,21 @@ experimental resources.
    * `file_describes_biosample`
    * `biosample_from_subject`
    
+   _As with the containment association tables, records in these three tables
+   will contain four fields, encoding two foreign keys: one (binary) key per
+   entity involved in the relationship being asserted by each record._
+   
+   _Note in particular that the relationships represented here **may** represent
+   transitively collapsed versions of more-complex relationship networks in the native
+   DCC metadataset. The specification of precise rules governing native-to-C2M2
+   metadata mappings (or approximations) are left to DCC serialization staff and relevant
+   investigators; CFDE staff will be available as needed to offer feedback and
+   guidance when navigating these issues._
+   
+   _Please see the relevant sections of the_
+   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
+   _to find all table-specific field names and foreign-key constraints._
+
 ##### Association table: taxonomy and the `subject` entity: the `subject_role_taxonomy` table
 
    * `subject_granularity`: `subject` _multiplicity specifier_
