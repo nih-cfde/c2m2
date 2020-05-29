@@ -436,7 +436,7 @@ representing core (`file`/`subject`/`biosample`) experimental resources:
       more than a quick and somewhat unsatisfying kludge and still meet our June development
       deadline. (Note that once we've actually built a few C2M2 metadata instance
       collections, we can then compare notes to help us all get a much better collective
-      grip on the problems that will need solving in this area.`
+      grip on some of the problems that will need solving in this area.)`
    * [CV term scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py):
    	_auto-builds (green) CV term tables_
       * _executed during bdbag-preparation stage, after core TSVs have been built_
