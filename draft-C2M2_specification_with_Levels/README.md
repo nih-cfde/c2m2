@@ -65,7 +65,9 @@ the life cycle of DCC/CFDE technical interaction matures.
 In its fullest form ([Level 2](#level-2-the-full-c2m2-model)),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
 that describes fundamental biomedical research resources
-like digital files, experimental events, project hierarchies,
+like digital [files](../draft-CFDE_glossary/glossary.md#file),
+experimental [events](../draft-CFDE_glossary/glossary.md#event),
+[project](../draft-CFDE_glossary/glossary.md#project) hierarchies,
 material [biosamples](../draft-CFDE_glossary/glossary.md#biosample)
 and the [subject organisms or environments](../draft-CFDE_glossary/glossary.md#subject)
 from which they derive. Essential relationships between these
@@ -76,8 +78,9 @@ drawn from (possibly obfuscated to protect patient privacy); or when
 a particular blood pressure measurement was made.
 
 Modeling and data wrangling are always difficult, even for
-experts. Requiring every DCC to model their metadata using
-all possible features of the [full (Level 2) C2M2 model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)
+experts. Requiring every DCC to represent their metadata using
+all possible features of the [full Level 2 C2M2
+model](#level-2-the-full-c2m2-model)
 as a precondition for submitting metadata to CFDE would
 be infeasible for several important reasons (apart from
 creating avoidable and unnecessary onboarding delays).
