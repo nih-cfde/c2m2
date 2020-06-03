@@ -138,7 +138,7 @@ experimental resources into named groups, based either on a
 hierarchy of [projects](../draft-CFDE_glossary/glossary.md#project)
 or on more arbitrarily structured
 [collections](../draft-CFDE_glossary/glossary.md#collection), which can
-be defined using any relevant scientific or operational categorization).
+be defined using any relevant scientific or operational categorization.
 
 _Level 2 currently requires work to (a) expand and finalize a [brainstorm-level checklist of supported concepts](../draft-C2M2_Levels_spreadsheets/Level_definitions.csv) followed by (b) harmonization of that checklist with an ongoing [draft ER model](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)._
 
