@@ -60,7 +60,7 @@ the life cycle of DCC/CFDE technical interaction matures.
 
 ## C2M2 Richness Levels
 
-In its fullest form ([Level 2](#Level-2-(the-full-C2M2-model))),
+In its fullest form ([Level 2](#level-2)),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
 that models common properties of resources fundamental
 to biomedical research like subjects, digital files,
@@ -602,7 +602,7 @@ an example Level-1-compliant TSV submission collection can be found
 
 --------------------------------------------------------------------------------
 
-### Level 2 (the full C2M2 model)
+### [Level 2 (the full C2M2 model)](#level-2)
 
 1. _**New modeling concept checklist:**_
 	* clinical **visit data**
