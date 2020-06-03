@@ -1,49 +1,66 @@
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
-This document introduces the Crosscut Metadata Model (C2M2),
-a flexible standard for describing biomedical experimental
+This document introduces the Crosscut Metadata Model
+([C2M2](../draft-CFDE_glossary/glossary.md#C2M2)), a
+flexible standard for describing biomedical experimental
 data. The Common Fund Data Ecosystem group is creating a new
-infrastructure, with C2M2 as its central concept, through
-which powerful cross-dataset searches, custom aggregation
-of experimental data and scale-powered statistical analysis
-methods will be made possible for the biomedical research
-community at an unprecedented scope.
+computing infrastructure, with C2M2 as its organizing principle,
+to offer the health research community an unprecedented
+array of intersectional data tools. The C2M2 system will
+connect researchers with scale-powered statistical analysis
+methods; deep, seamless searching across experimental data from
+multiple projects and organizations; and new ways to aggregate
+and integrate experimental data from multiple sources to
+facilitate scientific replication and to drive new discoveries.
 
-Using this new infrastructure, data coordinating centers
-([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) can
-share structured information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
+Using this new infrastructure, Common Fund data coordinating centers
+([DCCs](../draft-CFDE_glossary/glossary.md#DCCs)) will
+share structured, detailed information ([metadata](../draft-CFDE_glossary/glossary.md#metadata))
 about their experimental resources with the research
-community, widening and deepening access to usable
-observational data and accelerating discovery.
+community at large, widening and deepening access to usable
+observational data. Among other benefits, one immediate
+consequence will be a drastic simplification in the
+effort required to perform meta-analysis of results from
+multiple independent teams studying the bioinformatics of
+similar health-related phenomena.
 
 ## DCC Metadata Submissions
 
 DCCs will collect and provide metadata to CFDE describing
 experimental resources within their purview. Each metadata
-submission will take the form of a collection of tab-separated value
-files (TSVs): precise formatting requirements for these TSV
-collections will be specified by JSON Schema documents
-implementing the [Data Package](http://frictionlessdata.io/docs/data-package/)
-meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
-group. These schemas will be used by the CFDE software
-infrastructure to automatically validate submission format compliance
-and metadata integrity during the [ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
+submission will take the form of a set of tab-separated
+value files (TSVs): precise formatting requirements for these
+TSV filesets are specified by
+[JSON Schema documents](../draft-C2M2_JSON_Schema_datapackage_specs/),
+each of which is an instance of the
+[Data Package](http://frictionlessdata.io/docs/data-package/)
+meta-specification published by the
+[Frictionless Data](http://frictionlessdata.io/)
+group. This meta-specification is a formal way to
+define formatting requirements for sets of files
+configured as relational database tables: foreign-key
+relationships between tables, type checking of table fields
+and other similar basic validation processes for database
+management are supported. The C2M2 software infrastructure uses these schema
+files to automatically validate format compliance and metadata integrity,
+for each DCC's C2M2 metadata submission, during the
+[C2M2 ingestion process](../draft-CFDE_glossary/glossary.md#DCC-data-ingestion-process).
 
-CFDE will offer DCCs multiple alternatives for metadata submission
-formats, all of which will be automatically interoperable with the
-C2M2 ecosystem. These alternative formats are arranged in
-levels tiered according to increasing complexity, reflecting
-anticipated differences in the relative richness of metadata
-available to different DCCs at any particular time. The general
-expectation will be that the metadata submitted and managed by a
-DCC will be able to transition, over time, through
-increasingly rich modeling levels -- enabling increasingly powerful downstream
-applications -- as the life cycle of DCC/CFDE technical interaction
-progresses.
+CFDE offers DCCs three alternative metadata submission
+formats (Levels 0, 1 and 2), each of which is automatically
+interoperable with the entire C2M2 software ecosystem. These
+alternative formats are arranged in levels tiered according
+to increasing complexity, reflecting anticipated differences in
+the relative richness of metadata available to different DCCs at
+any particular time. The general expectation is that each DCC will,
+over time and as feasible, upgrade their submitted C2M2 metadata
+by encoding it with increasingly rich C2M2 modeling levels -- enabling
+increasingly powerful downstream search and integration tools -- as
+the life cycle of DCC/CFDE technical interaction matures.
 
 ## C2M2 Richness Levels
 
-In its [fullest form](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png),
+In its fullest form ([Level 2](../draft-C2M2_ER_diagrams/Level-2-C2M2-model.png)),
 C2M2 is an [entity-relationship system](../draft-CFDE_glossary/glossary.md#entity-relationship-model)
 that models common properties of resources fundamental
 to biomedical research like subjects, digital files,
