@@ -26,7 +26,7 @@ accounting, querying and reporting.
 
 |_Level 0 model diagram_|
 |:---:|
-|![Level 0 model diagram](../C2M2-ER-diagrams/C2M2-Level-0-ER-diagram.png "Level 0 model diagram")|
+|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
 
 #### Level 0 technical specification: properties of the `file` entity
 
@@ -48,4 +48,9 @@ A JSON Schema document (implementing [Frictionless
 Data](https://frictionlessdata.io/)'s "[Data
 Package](https://frictionlessdata.io/data-package/)" container meta-specification)
 defining the Level 0 TSV can be found
-[here](../C2M2-JSON-Schemas/C2M2_Level_0.datapackage.json).
+[here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json);
+an example Level-0-compliant TSV submission collection can be found
+[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv)
+(just the `file.tsv` portion) and
+[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz)
+(as a packaged BDBag archive).
