@@ -14,7 +14,7 @@ and integrate experimental data from different sources to
 facilitate scientific replication and to drive new discoveries.
 
 Using this new infrastructure, Common Fund data coordinating centers
-([DCCs](../draft-CFDE_glossary/CFDE-glossary.md#dcc)) will
+([DCCs](../draft-CFDE_glossary/CFDE-glossary.md#data-coordinating-center-dcc)) will
 share structured, detailed information ([metadata](../draft-CFDE_glossary/CFDE-glossary.md#metadata))
 about their experimental resources with the research
 community at large, widening and deepening access to usable
