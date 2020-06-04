@@ -1,7 +1,7 @@
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 This document introduces the Crosscut Metadata Model
-([C2M2](../draft-CFDE_glossary/CFDE-glossary.md#C2M2)), a
+([C2M2](../draft-CFDE_glossary/CFDE-glossary.md#crosscut-metadata-model-c2m2)), a
 flexible standard for describing biomedical experimental
 data. The Common Fund Data Ecosystem group is creating a new
 computing infrastructure, with C2M2 as its organizing principle,
@@ -14,7 +14,7 @@ and integrate experimental data from different sources to
 facilitate scientific replication and to drive new discoveries.
 
 Using this new infrastructure, Common Fund data coordinating centers
-([DCCs](../draft-CFDE_glossary/CFDE-glossary.md#DCC)) will
+([DCCs](../draft-CFDE_glossary/CFDE-glossary.md#dcc)) will
 share structured, detailed information ([metadata](../draft-CFDE_glossary/CFDE-glossary.md#metadata))
 about their experimental resources with the research
 community at large, widening and deepening access to usable
@@ -30,7 +30,7 @@ DCCs will collect and provide metadata to CFDE describing
 experimental resources within their purview. Each metadata
 submission will take the form of a set of tab-separated
 value files
-([TSVs](../draft-CFDE_glossary/CFDE-glossary.md#TSV)): precise formatting requirements for these
+([TSVs](../draft-CFDE_glossary/CFDE-glossary.md#tab-separated-value-file-tsv)): precise formatting requirements for these
 TSV filesets ([C2M2 instances](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-instance)) are specified by
 [JSON Schema documents](../draft-C2M2_JSON_Schema_datapackage_specs/),
 each of which is an instance of the
@@ -45,7 +45,7 @@ and other similar basic validation processes for database
 management are supported. The C2M2 software infrastructure uses these schema
 files to automatically validate format compliance and metadata integrity,
 for each DCC's C2M2 metadata submission, during the
-[C2M2 ingestion process](../draft-CFDE_glossary/CFDE-glossary.md#C2M2-ingestion-process).
+[C2M2 ingestion process](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-ingestion-process).
 
 CFDE offers DCCs three alternative metadata submission
 formats (C2M2 Levels [0](#level-0), [1](#level-1) and
@@ -63,7 +63,7 @@ the life cycle of DCC/CFDE technical interaction matures.
 ## C2M2 Richness Levels
 
 In its fullest form ([Level 2](#level-2-the-full-c2m2-model)),
-C2M2 is an [entity-relationship system](../draft-CFDE_glossary/CFDE-glossary.md#entity-relationship-model)
+C2M2 is an [entity-relationship system](../draft-CFDE_glossary/CFDE-glossary.md#entity-relationship-er-model)
 that describes fundamental biomedical research resources
 like digital [files](../draft-CFDE_glossary/CFDE-glossary.md#file),
 experimental [events](../draft-CFDE_glossary/CFDE-glossary.md#event),
@@ -118,7 +118,7 @@ CFDE in such a way as to maximize interoperability with
 more complex C2M2 variants, and the whole system should be
 structured to minimize side effects caused by model
 changes. These considerations have led to the
-specification of C2M2 [richness levels](../draft-CFDE_glossary/CFDE-glossary.md#richness-levels):
+specification of C2M2 [richness levels](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-richness-levels):
 concentric, canonical variants of C2M2 which are benchmarked at
 increasing levels of complexity and detail, wherein each successive
 level is a value-added superset of all of the metadata
@@ -160,8 +160,7 @@ for the Level 0 `file` entity (see below for
 diagram and definitions) will serve as the TSV's column
 headers; each TSV row will represent a single file. The
 Level 0 TSV itself thus represents a
-**[manifest](../draft-CFDE_glossary/CFDE-glossary.md#CFDE-asset-manifest)
-or inventory** of digital files that a DCC wants to
+**manifest or inventory** of digital files that a DCC wants to
 introduce into the C2M2 metadata ecosystem.
 
 This level encodes the most basic file metadata:
