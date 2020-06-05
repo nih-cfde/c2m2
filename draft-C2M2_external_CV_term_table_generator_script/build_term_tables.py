@@ -79,6 +79,11 @@ def progressReport( message ):
 # end sub: progressReport( message )
 ##########################################################################################
 
+def die(s):
+    print(s, file=sys.stderr)
+    raise Exception(s)
+   
+
 def identifyTermsUsed( termsUsed, draftDir, targetTSVs ):
    
    for basename in targetTSVs:
