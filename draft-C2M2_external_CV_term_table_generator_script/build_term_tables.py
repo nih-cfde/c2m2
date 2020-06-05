@@ -282,33 +282,20 @@ def writeTermsUsed( outDir, termsUsed ):
 ##########################################################################################
 
 def main():
-    ##########################################################################################
-    ##########################################################################################
-    ##########################################################################################
-    #                                USER-DEFINED PARAMETERS
-    ##########################################################################################
-    ##########################################################################################
-    ##########################################################################################
+    import argparse
+    p = argparse.ArgumentParser()
+    p.add_argument('--cvRefDir', default='external_CV_reference_files',
+                   help="""Directory containing full CV reference info (see 'cvFile' dictionary, for file list).""")
+    p.add_argument('--draftDir', default='../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents',
+                   help="""Directory in which core-entity ETL instance TSVs (for the purposes of this script, this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running this script.""")
+    p.add_argument('--outDir', default='./007_HMP-specific_CV_term_usage_TSVs',
+                   help="""Directory into which TSVs will be written (by this script) summarizing all controlled vocabulary term usage throughout this Level 1 C2M2 instance (as prescribed by the Level 1 specification).""")
 
-    ##########################################################################################
-    # Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
-    # list).
+    args = p.parse_args()
 
-    cvRefDir = 'external_CV_reference_files'
-
-    ##########################################################################################
-    # Directory in which core-entity ETL instance TSVs (for the purposes of this script,
-    # this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
-    # this script.
-
-    draftDir = '../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents'
-
-    ##########################################################################################
-    # Directory into which TSVs will be written (by this script) summarizing all
-    # controlled vocabulary term usage throughout this Level 1 C2M2 instance
-    # (as prescribed by the Level 1 specification).
-
-    outDir = './007_HMP-specific_CV_term_usage_TSVs'
+    cvRefDir = args.cvRefDir
+    draftDir = args.draftDir
+    outDir = args.outDir
 
     cvFile = {}
     for k, v in cvFileTemplate.items():
