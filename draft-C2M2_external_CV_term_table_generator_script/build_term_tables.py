@@ -22,34 +22,6 @@ import sys
 ##########################################################################################
 ##########################################################################################
 ##########################################################################################
-#                                USER-DEFINED PARAMETERS
-##########################################################################################
-##########################################################################################
-##########################################################################################
-
-##########################################################################################
-# Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
-# list).
-
-cvRefDir = 'external_CV_reference_files'
-
-##########################################################################################
-# Directory in which core-entity ETL instance TSVs (for the purposes of this script,
-# this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
-# this script.
-
-draftDir = '../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents'
-
-##########################################################################################
-# Directory into which TSVs will be written (by this script) summarizing all
-# controlled vocabulary term usage throughout this Level 1 C2M2 instance
-# (as prescribed by the Level 1 specification).
-
-outDir = './007_HMP-specific_CV_term_usage_TSVs'
-
-##########################################################################################
-##########################################################################################
-##########################################################################################
 #                          CONSTANT PARAMETERS: DO NOT MODIFY
 ##########################################################################################
 ##########################################################################################
@@ -59,11 +31,11 @@ outDir = './007_HMP-specific_CV_term_usage_TSVs'
 # Map of CV names to reference files. These files should be present in cvRefDir before
 # running this script.
 
-cvFile = {
+cvFileTemplate = {
    
-   'EDAM' : '%s/EDAM.version_1.21.tsv' % cvRefDir,
-   'OBI' : '%s/OBI.version_2019-08-15.obo' % cvRefDir,
-   'Uberon' : '%s/uberon.version_2019-06-27.obo' % cvRefDir
+   'EDAM' : '{cvRefDir}/EDAM.version_1.21.tsv',
+   'OBI' : '{cvRefDir}/OBI.version_2019-08-15.obo',
+   'Uberon' : '{cvRefDir}/uberon.version_2019-06-27.obo',
 }
 
 ##########################################################################################
@@ -107,10 +79,8 @@ def progressReport( message ):
 # end sub: progressReport( message )
 ##########################################################################################
 
-def identifyTermsUsed(  ):
+def identifyTermsUsed( termsUsed, draftDir, targetTSVs ):
    
-   global termsUsed, draftDir, targetTSVs
-
    for basename in targetTSVs:
       
       inFile = draftDir + '/' + basename
@@ -147,10 +117,8 @@ def identifyTermsUsed(  ):
 
 # end sub: identifyTermsUsed(  )
 
-def decorateTermsUsed(  ):
+def decorateTermsUsed( termsUsed, cvFile ):
    
-   global termsUsed, cvFile
-
    for categoryID in termsUsed:
       
       if categoryID == 'anatomy' or categoryID == 'assay_type':
@@ -285,10 +253,8 @@ def decorateTermsUsed(  ):
 
 # end sub decorateTermsUsed(  )
 
-def writeTermsUsed(  ):
+def writeTermsUsed( outDir, termsUsed ):
    
-   global outDir, termsUsed
-
    for categoryID in termsUsed:
       outFile = '%s/%s.tsv' % ( outDir, categoryID )
       print(f'Writing to {outFile}')
@@ -316,6 +282,37 @@ def writeTermsUsed(  ):
 ##########################################################################################
 
 def main():
+    ##########################################################################################
+    ##########################################################################################
+    ##########################################################################################
+    #                                USER-DEFINED PARAMETERS
+    ##########################################################################################
+    ##########################################################################################
+    ##########################################################################################
+
+    ##########################################################################################
+    # Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
+    # list).
+
+    cvRefDir = 'external_CV_reference_files'
+
+    ##########################################################################################
+    # Directory in which core-entity ETL instance TSVs (for the purposes of this script,
+    # this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
+    # this script.
+
+    draftDir = '../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents'
+
+    ##########################################################################################
+    # Directory into which TSVs will be written (by this script) summarizing all
+    # controlled vocabulary term usage throughout this Level 1 C2M2 instance
+    # (as prescribed by the Level 1 specification).
+
+    outDir = './007_HMP-specific_CV_term_usage_TSVs'
+
+    cvFile = {}
+    for k, v in cvFileTemplate.items():
+        cvFile[k] = v.format(cvRefDir=cvRefDir)
 
     # Create the output directory if need be.
 
@@ -328,17 +325,16 @@ def main():
        os.mkdir(outDir)
 
     # Find all the CV terms used in the ETL draft instance in "draftDir".
-
-    identifyTermsUsed()
+    identifyTermsUsed( termsUsed, draftDir, targetTSVs )
 
     # Load data from CV reference files to fill out needed columns in Level 1 C2M2
     # term-tracker tables.
 
-    decorateTermsUsed()
+    decorateTermsUsed( termsUsed, cvFile )
 
     # Write the term-tracker tables.
 
-    writeTermsUsed()
+    writeTermsUsed( outDir, termsUsed )
 
 
 if __name__ == '__main__':
