@@ -31,14 +31,14 @@ import sys
 # Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
 # list).
 
-cvRefDir = './003_external_CVs_versioned_reference_files'
+cvRefDir = 'external_CV_reference_files'
 
 ##########################################################################################
 # Directory in which core-entity ETL instance TSVs (for the purposes of this script,
 # this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
 # this script.
 
-draftDir = './006_HMP-specific_ETL_TSVs'
+draftDir = '../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents'
 
 ##########################################################################################
 # Directory into which TSVs will be written (by this script) summarizing all
@@ -290,8 +290,8 @@ def writeTermsUsed(  ):
    global outDir, termsUsed
 
    for categoryID in termsUsed:
-      
       outFile = '%s/%s.tsv' % ( outDir, categoryID )
+      print(f'Writing to {outFile}')
 
       with open(outFile, 'w') as OUT:
          
