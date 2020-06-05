@@ -22,3 +22,4 @@ It will load OBO and ontology files from `--cvRefDir` (default is `external_CV_r
 
 It will produce these four green tables for Level 1: `file_format.tsv`,`data_type.tsv`, `assay_type.tsv`, and `anatomy.tsv`. The outputs are saved in `--outDir` (default is `./007_HMP-specific_CV_term_usage_TSVs`). 
 
+Default paths direct to the HMP example [tsv files](https://github.com/nih-cfde/specifications-and-documentation/tree/master/draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents).
