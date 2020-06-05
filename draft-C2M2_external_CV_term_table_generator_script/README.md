@@ -1,26 +1,24 @@
-# Building 'green' tables from core tables
+# Building 'green' tables from core entity tables
 
-(please someone add links and so on so that this is more understandable)
+This term-scanner script is used to auto-generate the green tables for the C2M2 Model [Level 1 model](https://github.com/nih-cfde/specifications-and-documentation/tree/master/draft-C2M2_specification_with_Levels#Level-1). Currently, this script generates four of the five green tables for Level 1. 
 
-There are only green tables to be run for level 1, not for level 0.
-
-The script is named `build_term_tables.py` and you can run it like so:
+The term-scanner script is named `build_term_tables.py` and you can run it like so:
 
 ```
+# with default directory locations
 ./build_term_tables.py
+
+# full command, if not using any default paths
+./build_term_tables.py --draftDir [path/to/tsv/file/dir] --cvRefDir [path/to/external/CV/ref/files/dir] --outDir [dir/path/where/you/want/outputs/saved]
 ```
-
-It takes in `biosample.tsv` and `file.tsv` (core-entity ETL instance
-TSVs, aka two of the three gold tables) and produces `file_format`,
-`data_type`, `assay_type`, and `anatomy` TSV files.
-
-It will load OBO and ontology stuff from `--cvRefDir`, which is by default `external_CV_reference_files`.
-
-It will load `file.tsv` and `biosample.tsv` from the `--draftDir`
-which is by default
-`../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents`.
-
-It will output four TSVs into `--outDir`, which by default is `./007_HMP-specific_CV_term_usage_TSVs`.
-
 Run it with `-h` for command line help.
+
+It currently takes in `biosample.tsv` and `file.tsv` (two of the core-entity ETL instance TSVs, aka two of the three black tables) from the `--draftDir` (default is `../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents`)
+
+It will load OBO and ontology files from `--cvRefDir` (default is `external_CV_reference_files`):
+- `EDAM.version_1.21.tsv`
+- `OBI.version_2019-08-15.obo`
+- `uberon.version_2019-06-27.obo`
+
+It will produce these four green tables for Level 1: `file_format.tsv`,`data_type.tsv`, `assay_type.tsv`, and `anatomy.tsv`. The outputs are saved in `--outDir` (default is `./007_HMP-specific_CV_term_usage_TSVs`). 
 
