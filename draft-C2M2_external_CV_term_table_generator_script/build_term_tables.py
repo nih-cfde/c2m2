@@ -315,27 +315,31 @@ def writeTermsUsed(  ):
 ##########################################################################################
 ##########################################################################################
 
-# Create the output directory if need be.
+def main():
 
-if not os.path.isdir(outDir) and os.path.exists(outDir):
-   
-   die('%s exists but is not a directory; aborting.' % outDir)
+    # Create the output directory if need be.
 
-elif not os.path.isdir(outDir):
-   
-   os.mkdir(outDir)
+    if not os.path.isdir(outDir) and os.path.exists(outDir):
 
-# Find all the CV terms used in the ETL draft instance in "draftDir".
+       die('%s exists but is not a directory; aborting.' % outDir)
 
-identifyTermsUsed()
+    elif not os.path.isdir(outDir):
 
-# Load data from CV reference files to fill out needed columns in Level 1 C2M2
-# term-tracker tables.
+       os.mkdir(outDir)
 
-decorateTermsUsed()
+    # Find all the CV terms used in the ETL draft instance in "draftDir".
 
-# Write the term-tracker tables.
+    identifyTermsUsed()
 
-writeTermsUsed()
+    # Load data from CV reference files to fill out needed columns in Level 1 C2M2
+    # term-tracker tables.
+
+    decorateTermsUsed()
+
+    # Write the term-tracker tables.
+
+    writeTermsUsed()
 
 
+if __name__ == '__main__':
+    main()
