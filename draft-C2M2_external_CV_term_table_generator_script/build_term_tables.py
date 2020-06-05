@@ -315,7 +315,7 @@ def writeTermsUsed(  ):
 ##########################################################################################
 ##########################################################################################
 
-# Create the outpuit directory if need be.
+# Create the output directory if need be.
 
 if not os.path.isdir(outDir) and os.path.exists(outDir):
    
