@@ -274,7 +274,11 @@ def writeTermsUsed( outDir, termsUsed ):
             
             # The synonyms we loaded from the OBO files don't conform to the spec constraints. Punting to blank values for now.
 
-            OUT.write( '\t'.join( [ termID, termsUsed[categoryID][termID]['name'], termsUsed[categoryID][termID]['description'],                  ''                       ] ) + '\n' )
+            if 'name' not in termsUsed[categoryID][termID]:
+                print(f'WARNING: no name/description for categoryID {categoryID}/termID {termID} in termsUsed; skipping', file=sys.stderr)
+                print(f'(WARNING occurred when writing to {outFile})')
+            else:
+                OUT.write( '\t'.join( [ termID, termsUsed[categoryID][termID]['name'], termsUsed[categoryID][termID]['description'],                  ''                       ] ) + '\n' )
 
 # end sub writeTermsUsed(  )
 
