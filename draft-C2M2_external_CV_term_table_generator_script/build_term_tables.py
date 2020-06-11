@@ -22,34 +22,6 @@ import sys
 ##########################################################################################
 ##########################################################################################
 ##########################################################################################
-#                                USER-DEFINED PARAMETERS
-##########################################################################################
-##########################################################################################
-##########################################################################################
-
-##########################################################################################
-# Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
-# list).
-
-cvRefDir = './003_external_CVs_versioned_reference_files'
-
-##########################################################################################
-# Directory in which core-entity ETL instance TSVs (for the purposes of this script,
-# this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
-# this script.
-
-draftDir = './006_HMP-specific_ETL_TSVs'
-
-##########################################################################################
-# Directory into which TSVs will be written (by this script) summarizing all
-# controlled vocabulary term usage throughout this Level 1 C2M2 instance
-# (as prescribed by the Level 1 specification).
-
-outDir = './007_HMP-specific_CV_term_usage_TSVs'
-
-##########################################################################################
-##########################################################################################
-##########################################################################################
 #                          CONSTANT PARAMETERS: DO NOT MODIFY
 ##########################################################################################
 ##########################################################################################
@@ -59,11 +31,11 @@ outDir = './007_HMP-specific_CV_term_usage_TSVs'
 # Map of CV names to reference files. These files should be present in cvRefDir before
 # running this script.
 
-cvFile = {
+cvFileTemplate = {
    
-   'EDAM' : '%s/EDAM.version_1.21.tsv' % cvRefDir,
-   'OBI' : '%s/OBI.version_2019-08-15.obo' % cvRefDir,
-   'Uberon' : '%s/uberon.version_2019-06-27.obo' % cvRefDir
+   'EDAM' : '{cvRefDir}/EDAM.version_1.21.tsv',
+   'OBI' : '{cvRefDir}/OBI.version_2019-08-15.obo',
+   'Uberon' : '{cvRefDir}/uberon.version_2019-06-27.obo',
 }
 
 ##########################################################################################
@@ -107,10 +79,13 @@ def progressReport( message ):
 # end sub: progressReport( message )
 ##########################################################################################
 
-def identifyTermsUsed(  ):
+def die(s):
+    print(s, file=sys.stderr)
+    raise Exception(s)
    
-   global termsUsed, draftDir, targetTSVs
 
+def identifyTermsUsed( termsUsed, draftDir, targetTSVs ):
+   
    for basename in targetTSVs:
       
       inFile = draftDir + '/' + basename
@@ -147,10 +122,8 @@ def identifyTermsUsed(  ):
 
 # end sub: identifyTermsUsed(  )
 
-def decorateTermsUsed(  ):
+def decorateTermsUsed( termsUsed, cvFile ):
    
-   global termsUsed, cvFile
-
    for categoryID in termsUsed:
       
       if categoryID == 'anatomy' or categoryID == 'assay_type':
@@ -285,13 +258,11 @@ def decorateTermsUsed(  ):
 
 # end sub decorateTermsUsed(  )
 
-def writeTermsUsed(  ):
+def writeTermsUsed( outDir, termsUsed ):
    
-   global outDir, termsUsed
-
    for categoryID in termsUsed:
-      
       outFile = '%s/%s.tsv' % ( outDir, categoryID )
+      print(f'Writing to {outFile}')
 
       with open(outFile, 'w') as OUT:
          
@@ -303,7 +274,11 @@ def writeTermsUsed(  ):
             
             # The synonyms we loaded from the OBO files don't conform to the spec constraints. Punting to blank values for now.
 
-            OUT.write( '\t'.join( [ termID, termsUsed[categoryID][termID]['name'], termsUsed[categoryID][termID]['description'],                  ''                       ] ) + '\n' )
+            if 'name' not in termsUsed[categoryID][termID]:
+                print(f'WARNING: no name/description for categoryID {categoryID}/termID {termID} in termsUsed; skipping', file=sys.stderr)
+                print(f'(WARNING occurred when writing to {outFile})')
+            else:
+                OUT.write( '\t'.join( [ termID, termsUsed[categoryID][termID]['name'], termsUsed[categoryID][termID]['description'],                  ''                       ] ) + '\n' )
 
 # end sub writeTermsUsed(  )
 
@@ -315,27 +290,48 @@ def writeTermsUsed(  ):
 ##########################################################################################
 ##########################################################################################
 
-# Create the outpuit directory if need be.
+def main():
+    import argparse
+    p = argparse.ArgumentParser()
+    p.add_argument('--cvRefDir', default='external_CV_reference_files',
+                   help="""Directory containing full CV reference info (see 'cvFile' dictionary, for file list).""")
+    p.add_argument('--draftDir', default='../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents',
+                   help="""Directory in which core-entity ETL instance TSVs (for the purposes of this script, this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running this script.""")
+    p.add_argument('--outDir', default='./007_HMP-specific_CV_term_usage_TSVs',
+                   help="""Directory into which TSVs will be written (by this script) summarizing all controlled vocabulary term usage throughout this Level 1 C2M2 instance (as prescribed by the Level 1 specification).""")
 
-if not os.path.isdir(outDir) and os.path.exists(outDir):
-   
-   die('%s exists but is not a directory; aborting.' % outDir)
+    args = p.parse_args()
 
-elif not os.path.isdir(outDir):
-   
-   os.mkdir(outDir)
+    cvRefDir = args.cvRefDir
+    draftDir = args.draftDir
+    outDir = args.outDir
 
-# Find all the CV terms used in the ETL draft instance in "draftDir".
+    cvFile = {}
+    for k, v in cvFileTemplate.items():
+        cvFile[k] = v.format(cvRefDir=cvRefDir)
 
-identifyTermsUsed()
+    # Create the output directory if need be.
 
-# Load data from CV reference files to fill out needed columns in Level 1 C2M2
-# term-tracker tables.
+    if not os.path.isdir(outDir) and os.path.exists(outDir):
 
-decorateTermsUsed()
+       die('%s exists but is not a directory; aborting.' % outDir)
 
-# Write the term-tracker tables.
+    elif not os.path.isdir(outDir):
 
-writeTermsUsed()
+       os.mkdir(outDir)
+
+    # Find all the CV terms used in the ETL draft instance in "draftDir".
+    identifyTermsUsed( termsUsed, draftDir, targetTSVs )
+
+    # Load data from CV reference files to fill out needed columns in Level 1 C2M2
+    # term-tracker tables.
+
+    decorateTermsUsed( termsUsed, cvFile )
+
+    # Write the term-tracker tables.
+
+    writeTermsUsed( outDir, termsUsed )
 
 
+if __name__ == '__main__':
+    main()
