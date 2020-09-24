@@ -20,7 +20,7 @@
                   }
                },
                {
-                  "name": "id",
+                  "name": "local_id",
                   "description": "An ID representing this file, unique within this id_namespace",
                   "type": "string",
                   "constraints": {
@@ -36,7 +36,7 @@
                   }
                },
                {
-                  "name": "project",
+                  "name": "project_local_id",
                   "description": "Foreign key identifying the primary project within which this file was created",
                   "type": "string",
                   "constraints": {
@@ -57,7 +57,12 @@
                },
                {
                   "name": "size_in_bytes",
-                  "description": "The size of a file in bytes",
+                  "description": "The size of this file in bytes",
+                  "type": "integer"
+               },
+               {
+                  "name": "uncompressed_size_in_bytes",
+                  "description": "The total decompressed size in bytes of the contents of this file",
                   "type": "integer"
                },
                {
@@ -95,10 +100,23 @@
                   "constraints": {
                      "pattern": "^data:[0-9]+$"
                   }
+               },
+               {
+                  "name": "assay_type",
+                  "description": "An OBI CV term ID describing the type of experiment that generated the results summarized by this file",
+                  "type": "string",
+                  "constraints": {
+                     "pattern": "^OBI:[0-9]+$"
+                  }
+               },
+               {
+                  "name": "mime_type",
+                  "description": "A MIME type describing this file",
+                  "type": "string"
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "id" ],
+            "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
                   "fields": "id_namespace",
@@ -108,10 +126,10 @@
                   }
                },
                {
-                  "fields": [ "project_id_namespace", "project" ],
+                  "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
@@ -125,6 +143,13 @@
                   "fields": "data_type",
                   "reference": {
                      "resource": "data_type",
+                     "fields": "id"
+                  }
+               },
+               {
+                  "fields": "assay_type",
+                  "reference": {
+                     "resource": "assay_type",
                      "fields": "id"
                   }
                }
@@ -148,7 +173,7 @@
                   }
                },
                {
-                  "name": "id",
+                  "name": "local_id",
                   "description": "An ID representing this biosample, unique within this id_namespace",
                   "type": "string",
                   "constraints": {
@@ -164,7 +189,7 @@
                   }
                },
                {
-                  "name": "project",
+                  "name": "project_local_id",
                   "description": "Foreign key identifying the primary project within which this biosample was created",
                   "type": "string",
                   "constraints": {
@@ -184,14 +209,6 @@
                   "format": "any"
                },
                {
-                  "name": "assay_type",
-                  "description": "An OBI CV term ID describing the type of material represented by this biosample",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^OBI:[0-9]+$"
-                  }
-               },
-               {
                   "name": "anatomy",
                   "description": "An UBERON CV term ID used to locate the origin of this biosample within the physiology of its source or host organism",
                   "type": "string",
@@ -201,7 +218,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "id" ],
+            "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
                   "fields": "id_namespace",
@@ -211,17 +228,10 @@
                   }
                },
                {
-                  "fields": [ "project_id_namespace", "project" ],
+                  "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
-                  }
-               },
-               {
-                  "fields": "assay_type",
-                  "reference": {
-                     "resource": "assay_type",
-                     "fields": "id"
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
@@ -251,7 +261,7 @@
                   }
                },
                {
-                  "name": "id",
+                  "name": "local_id",
                   "description": "An ID representing this subject, unique within this id_namespace",
                   "type": "string",
                   "constraints": {
@@ -267,7 +277,7 @@
                   }
                },
                {
-                  "name": "project",
+                  "name": "project_local_id",
                   "description": "Foreign key identifying the primary project within which this subject was observed",
                   "type": "string",
                   "constraints": {
@@ -296,7 +306,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "id" ],
+            "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
                   "fields": "id_namespace",
@@ -306,10 +316,10 @@
                   }
                },
                {
-                  "fields": [ "project_id_namespace", "project" ],
+                  "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
@@ -317,6 +327,91 @@
                   "reference": {
                      "resource": "subject_granularity",
                      "fields": "id"
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "profile": "tabular-data-resource",
+         "name": "primary_dcc_contact",
+         "title": "primary_dcc_contact",
+         "path": "primary_dcc_contact.tsv",
+         "description": "One primary contact person for the Common Fund data coordinating center (DCC) that produced the top-level C2M2 metadataset identified by the given project foreign key",
+         "schema": {
+            "fields": [
+               {
+                  "name": "contact_email",
+                  "description": "Email address of this DCC contact",
+                  "type": "string",
+                  "format": "email",
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
+                  "name": "contact_name",
+                  "description": "Name of this DCC contact",
+                  "type": "string",
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
+                  "name": "project_id_namespace",
+                  "description": "ID of the identifier namespace for the project record representing the top-level C2M2 metadataset produced by this contact's DCC",
+                  "type": "string",
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
+                  "name": "project_local_id",
+                  "description": "Foreign key identifying the project record representing the top-level C2M2 metadataset produced by this contact's DCC",
+                  "type": "string",
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
+                  "name": "dcc_abbreviation",
+                  "description": "A very short display label for this contact's DCC",
+                  "type": "string",
+                  "constraints": {
+                     "pattern": "^[a-zA-Z0-9_]+$"
+                  }
+               },
+               {
+                  "name": "dcc_name",
+                  "description": "A short, human-readable, machine-read-friendly label for this contact's DCC",
+                  "type": "string",
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
+                  "name": "dcc_description",
+                  "description": "A human-readable description of this contact's DCC",
+                  "type": "string"
+               },
+               {
+                  "name": "dcc_url",
+                  "description": "URL of the front page of the website for this contact's DCC",
+                  "type": "string",
+                  "format": "uri",
+                  "constraints": {
+                     "required": true
+                  }
+               }
+            ],
+            "missingValues": [ "" ],
+            "primaryKey": [ "contact_email" ],
+            "foreignKeys": [
+               {
+                  "fields": [ "project_id_namespace", "project_local_id" ],
+                  "reference": {
+                     "resource": "project",
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -339,7 +434,7 @@
                   }
                },
                {
-                  "name": "id",
+                  "name": "local_id",
                   "description": "An ID representing this project, unique within this id_namespace",
                   "type": "string",
                   "constraints": {
@@ -379,7 +474,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "id" ],
+            "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
                   "fields": "id_namespace",
@@ -408,7 +503,7 @@
                   }
                },
                {
-                  "name": "parent_project_id",
+                  "name": "parent_project_local_id",
                   "description": "The ID of the containing (parent) project",
                   "type": "string",
                   "constraints": {
@@ -424,7 +519,7 @@
                   }
                },
                {
-                  "name": "child_project_id",
+                  "name": "child_project_local_id",
                   "description": "The ID of the contained (child) project",
                   "type": "string",
                   "constraints": {
@@ -434,23 +529,23 @@
             ],
             "primaryKey": [
                "parent_project_id_namespace",
-               "parent_project_id",
+               "parent_project_local_id",
                "child_project_id_namespace",
-               "child_project_id"
+               "child_project_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "parent_project_id_namespace", "parent_project_id" ],
+                  "fields": [ "parent_project_id_namespace", "parent_project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "child_project_id_namespace", "child_project_id" ],
+                  "fields": [ "child_project_id_namespace", "child_project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -473,7 +568,7 @@
                   }
                },
                {
-                  "name": "id",
+                  "name": "local_id",
                   "description": "An ID representing this collection, unique within this id_namespace",
                   "type": "string",
                   "constraints": {
@@ -513,7 +608,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "id" ],
+            "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
                   "fields": "id_namespace",
@@ -542,7 +637,7 @@
                   }
                },
                {
-                  "name": "superset_collection_id",
+                  "name": "superset_collection_local_id",
                   "description": "The ID of the superset collection",
                   "type": "string",
                   "constraints": {
@@ -558,7 +653,7 @@
                   }
                },
                {
-                  "name": "subset_collection_id",
+                  "name": "subset_collection_local_id",
                   "description": "The ID of the subset collection",
                   "type": "string",
                   "constraints": {
@@ -568,23 +663,23 @@
             ],
             "primaryKey": [
                "superset_collection_id_namespace",
-               "superset_collection_id",
+               "superset_collection_local_id",
                "subset_collection_id_namespace",
-               "subset_collection_id"
+               "subset_collection_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "superset_collection_id_namespace", "superset_collection_id" ],
+                  "fields": [ "superset_collection_id_namespace", "superset_collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "subset_collection_id_namespace", "subset_collection_id" ],
+                  "fields": [ "subset_collection_id_namespace", "subset_collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -607,7 +702,7 @@
                   }
                },
                {
-                  "name": "collection_id",
+                  "name": "collection_local_id",
                   "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
@@ -623,7 +718,7 @@
                   }
                },
                {
-                  "name": "project_id",
+                  "name": "project_local_id",
                   "description": "The ID of this project",
                   "type": "string",
                   "constraints": {
@@ -633,23 +728,23 @@
             ],
             "primaryKey": [
                "collection_id_namespace",
-               "collection_id",
+               "collection_local_id",
                "project_id_namespace",
-               "project_id"
+               "project_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "collection_id_namespace", "collection_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "project_id_namespace", "project_id" ],
+                  "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -672,7 +767,7 @@
                   }
                },
                {
-                  "name": "file_id",
+                  "name": "file_local_id",
                   "description": "The ID of this file",
                   "type": "string",
                   "constraints": {
@@ -688,7 +783,7 @@
                   }
                },
                {
-                  "name": "collection_id",
+                  "name": "collection_local_id",
                   "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
@@ -698,23 +793,23 @@
             ],
             "primaryKey": [
                "file_id_namespace",
-               "file_id",
+               "file_local_id",
                "collection_id_namespace",
-               "collection_id"
+               "collection_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "file_id_namespace", "file_id" ],
+                  "fields": [ "file_id_namespace", "file_local_id" ],
                   "reference": {
                      "resource": "file",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "collection_id_namespace", "collection_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -737,7 +832,7 @@
                   }
                },
                {
-                  "name": "biosample_id",
+                  "name": "biosample_local_id",
                   "description": "The ID of this biosample",
                   "type": "string",
                   "constraints": {
@@ -753,7 +848,7 @@
                   }
                },
                {
-                  "name": "collection_id",
+                  "name": "collection_local_id",
                   "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
@@ -763,23 +858,23 @@
             ],
             "primaryKey": [
                "biosample_id_namespace",
-               "biosample_id",
+               "biosample_local_id",
                "collection_id_namespace",
-               "collection_id"
+               "collection_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "biosample_id_namespace", "biosample_id" ],
+                  "fields": [ "biosample_id_namespace", "biosample_local_id" ],
                   "reference": {
                      "resource": "biosample",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "collection_id_namespace", "collection_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -802,7 +897,7 @@
                   }
                },
                {
-                  "name": "subject_id",
+                  "name": "subject_local_id",
                   "description": "The ID of this subject",
                   "type": "string",
                   "constraints": {
@@ -818,7 +913,7 @@
                   }
                },
                {
-                  "name": "collection_id",
+                  "name": "collection_local_id",
                   "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
@@ -828,23 +923,23 @@
             ],
             "primaryKey": [
                "subject_id_namespace",
-               "subject_id",
+               "subject_local_id",
                "collection_id_namespace",
-               "collection_id"
+               "collection_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "subject_id_namespace", "subject_id" ],
+                  "fields": [ "subject_id_namespace", "subject_local_id" ],
                   "reference": {
                      "resource": "subject",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "collection_id_namespace", "collection_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
                      "resource": "collection",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -867,7 +962,7 @@
                   }
                },
                {
-                  "name": "file_id",
+                  "name": "file_local_id",
                   "description": "The ID of this file",
                   "type": "string",
                   "constraints": {
@@ -883,7 +978,7 @@
                   }
                },
                {
-                  "name": "biosample_id",
+                  "name": "biosample_local_id",
                   "description": "The ID of this biosample",
                   "type": "string",
                   "constraints": {
@@ -893,23 +988,23 @@
             ],
             "primaryKey": [
                "file_id_namespace",
-               "file_id",
+               "file_local_id",
                "biosample_id_namespace",
-               "biosample_id"
+               "biosample_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "file_id_namespace", "file_id" ],
+                  "fields": [ "file_id_namespace", "file_local_id" ],
                   "reference": {
                      "resource": "file",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "biosample_id_namespace", "biosample_id" ],
+                  "fields": [ "biosample_id_namespace", "biosample_local_id" ],
                   "reference": {
                      "resource": "biosample",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -932,7 +1027,7 @@
                   }
                },
                {
-                  "name": "file_id",
+                  "name": "file_local_id",
                   "description": "The ID of this file",
                   "type": "string",
                   "constraints": {
@@ -948,7 +1043,7 @@
                   }
                },
                {
-                  "name": "subject_id",
+                  "name": "subject_local_id",
                   "description": "The ID of this subject",
                   "type": "string",
                   "constraints": {
@@ -958,23 +1053,23 @@
             ],
             "primaryKey": [
                "file_id_namespace",
-               "file_id",
+               "file_local_id",
                "subject_id_namespace",
-               "subject_id"
+               "subject_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "file_id_namespace", "file_id" ],
+                  "fields": [ "file_id_namespace", "file_local_id" ],
                   "reference": {
                      "resource": "file",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "subject_id_namespace", "subject_id" ],
+                  "fields": [ "subject_id_namespace", "subject_local_id" ],
                   "reference": {
                      "resource": "subject",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -997,7 +1092,7 @@
                   }
                },
                {
-                  "name": "biosample_id",
+                  "name": "biosample_local_id",
                   "description": "The ID of this biosample",
                   "type": "string",
                   "constraints": {
@@ -1013,7 +1108,7 @@
                   }
                },
                {
-                  "name": "subject_id",
+                  "name": "subject_local_id",
                   "description": "The ID of this subject",
                   "type": "string",
                   "constraints": {
@@ -1023,23 +1118,23 @@
             ],
             "primaryKey": [
                "biosample_id_namespace",
-               "biosample_id",
+               "biosample_local_id",
                "subject_id_namespace",
-               "subject_id"
+               "subject_local_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "biosample_id_namespace", "biosample_id" ],
+                  "fields": [ "biosample_id_namespace", "biosample_local_id" ],
                   "reference": {
                      "resource": "biosample",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
-                  "fields": [ "subject_id_namespace", "subject_id" ],
+                  "fields": [ "subject_id_namespace", "subject_local_id" ],
                   "reference": {
                      "resource": "subject",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                }
             ]
@@ -1062,7 +1157,7 @@
                   }
                },
                {
-                  "name": "subject_id",
+                  "name": "subject_local_id",
                   "description": "The ID of this subject",
                   "type": "string",
                   "constraints": {
@@ -1088,16 +1183,16 @@
             ],
             "primaryKey": [
                "subject_id_namespace",
-               "subject_id",
+               "subject_local_id",
                "role_id",
                "taxonomy_id"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "subject_id_namespace", "subject_id" ],
+                  "fields": [ "subject_id_namespace", "subject_local_id" ],
                   "reference": {
                      "resource": "subject",
-                     "fields": [ "id_namespace", "id" ]
+                     "fields": [ "id_namespace", "local_id" ]
                   }
                },
                {
@@ -1122,7 +1217,7 @@
          "name": "assay_type",
          "title": "assay_type",
          "path": "assay_type.tsv",
-         "description": "List of Ontology for Biomedical Investigations (OBI) CV terms used in this dataset to describe types of material that can be Level 1 biosamples",
+         "description": "List of Ontology for Biomedical Investigations (OBI) CV terms used in this dataset to describe types of experiment that generate results stored in Level 1 files",
          "schema": {
             "fields": [
                {
