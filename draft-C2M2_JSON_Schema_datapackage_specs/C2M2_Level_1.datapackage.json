@@ -300,6 +300,14 @@
                   "name": "granularity",
                   "description": "A CFDE CV term categorizing this subject by multiplicity",
                   "type": "string",
+                  "enum": [
+                     "cfde_subject_granularity:0",
+                     "cfde_subject_granularity:1",
+                     "cfde_subject_granularity:2",
+                     "cfde_subject_granularity:3",
+                     "cfde_subject_granularity:4",
+                     "cfde_subject_granularity:5"
+                  ],
                   "constraints": {
                      "required": true
                   }
@@ -320,13 +328,6 @@
                   "reference": {
                      "resource": "project",
                      "fields": [ "id_namespace", "local_id" ]
-                  }
-               },
-               {
-                  "fields": "granularity",
-                  "reference": {
-                     "resource": "subject_granularity",
-                     "fields": "id"
                   }
                }
             ]
@@ -1168,6 +1169,15 @@
                   "name": "role_id",
                   "description": "The ID of the role assigned to this organism-level constituent component of this subject",
                   "type": "string",
+                  "enum": [
+                     "cfde_subject_role:0",
+                     "cfde_subject_role:1",
+                     "cfde_subject_role:2",
+                     "cfde_subject_role:3",
+                     "cfde_subject_role:4",
+                     "cfde_subject_role:5",
+                     "cfde_subject_role:6"
+                  ],
                   "constraints": {
                      "required": true
                   }
@@ -1193,13 +1203,6 @@
                   "reference": {
                      "resource": "subject",
                      "fields": [ "id_namespace", "local_id" ]
-                  }
-               },
-               {
-                  "fields": "role_id",
-                  "reference": {
-                     "resource": "subject_role",
-                     "fields": "id"
                   }
                },
                {
@@ -1419,70 +1422,6 @@
                   "constraints": {
                      "pattern": "^(data:[0-9]+|)*data:[0-9]+$"
                   }
-               }
-            ],
-            "missingValues": [ "" ],
-            "primaryKey": "id"
-         }
-      },
-      {
-         "profile": "tabular-data-resource",
-         "name": "subject_role",
-         "title": "subject_role",
-         "path": "subject_role.tsv",
-         "description": "INTERNAL CV: The ontological role of an organism-level constituent component of a Level 1 subject, e.g.: unitary organism (e.g. 'this subject represents a single orchid and that's it'), host, pathogen, symbiont, taxon detected in microbiome, host associated with microbiome, taxon in lineage of cell line, etc.",
-         "schema": {
-            "fields": [
-               {
-                  "name": "id",
-                  "description": "A globally unique ID representing this subject_role",
-                  "type": "string",
-                  "constraints": {
-                     "required": true,
-                     "unique": true
-                  }
-               },
-               {
-                  "name": "name",
-                  "description": "A short, human-readable, machine-read-friendly label for this subject_role",
-                  "type": "string"
-               },
-               {
-                  "name": "description",
-                  "description": "A human-readable description of this subject_role",
-                  "type": "string"
-               }
-            ],
-            "missingValues": [ "" ],
-            "primaryKey": "id"
-         }
-      },
-      {
-         "profile": "tabular-data-resource",
-         "name": "subject_granularity",
-         "title": "subject_granularity",
-         "path": "subject_granularity.tsv",
-         "description": "INTERNAL CV: The category of a Level 1 subject in terms of multiplicity, e.g.: single organism; enumerated group of organisms and their relationships to one another (e.g. host X plus endosymbiont Y); host-associated microbiome; environmental microbiome; cell line",
-         "schema": {
-            "fields": [
-               {
-                  "name": "id",
-                  "description": "A globally unique ID representing this subject_granularity",
-                  "type": "string",
-                  "constraints": {
-                     "required": true,
-                     "unique": true
-                  }
-               },
-               {
-                  "name": "name",
-                  "description": "A short, human-readable, machine-read-friendly label for this subject_granularity",
-                  "type": "string"
-               },
-               {
-                  "name": "description",
-                  "description": "A human-readable description of this subject_granularity",
-                  "type": "string"
                }
             ],
             "missingValues": [ "" ],
