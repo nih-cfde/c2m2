@@ -685,8 +685,8 @@ experimental resources.
       configuration_
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
-   * `#c2m2-internal-note: `**`wish list:`**` Everything listed here `**`must`**` be carefully
-   addressed and drafted by RFC time.
+   * **non-optional wish list:** Everything listed in this segment must be
+   carefully addressed and drafted by RFC release.
       * _explicit **version control** policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
       results to **best serve users' search requests**:_
