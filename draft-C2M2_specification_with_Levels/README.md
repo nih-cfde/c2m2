@@ -166,8 +166,7 @@ where metadata has already harmonized across other DCCs, lowering
 barriers to rapid entry into the data ecosystem and meaningful
 participation in downstream services.
 
-Two C2M2 topics requiring special attention are _identifiers_
-and _file locations_.
+A C2M2 topic requiring special attention is the use of _identifiers_.
 
 --------------------------------------------------------------------------------
 
