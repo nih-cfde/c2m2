@@ -31,21 +31,21 @@ import sys
 # Directory containing full CV reference info (see below, 'cvFile' dictionary, for file
 # list).
 
-cvRefDir = './003_external_CVs_versioned_reference_files'
+cvRefDir = './002_external_CVs_versioned_reference_files'
 
 ##########################################################################################
 # Directory in which core-entity ETL instance TSVs (for the purposes of this script,
 # this means 'file.tsv' and 'biosample.tsv') have been built and stored, prior to running
 # this script.
 
-draftDir = './006_HMP-specific_ETL_TSVs'
+draftDir = './005_HMP-specific_ETL_TSVs'
 
 ##########################################################################################
 # Directory into which TSVs will be written (by this script) summarizing all
 # controlled vocabulary term usage throughout this Level 1 C2M2 instance
 # (as prescribed by the Level 1 specification).
 
-outDir = './007_HMP-specific_CV_term_usage_TSVs'
+outDir = './006_HMP-specific_CV_term_usage_TSVs'
 
 ##########################################################################################
 ##########################################################################################
