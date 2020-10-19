@@ -686,7 +686,7 @@ experimental resources.
          * _make sure the prerequisite files are in the right directories_
          * _then just run the script without arguments_
    * **non-optional wish list:** Everything listed in this segment must be
-   carefully addressed and drafted by RFC release.
+   carefully addressed and drafted in order to produce a mature policy on controlled vocabulary usage.
       * _explicit **version control** policy for reference CVs_
       * _detailed plan for handling app-layer aggregations of CV-term query
       results to **best serve users' search requests**:_
