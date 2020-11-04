@@ -10,7 +10,7 @@ By contributing, you agree:
     Public Domain) license
 
 If you are OK with these two conditions, then we welcome both you and
-your contribution\!
+your contribution.
 
 The C2M2 is actively under development. Discussion about improving or expanding the content of the model should be either:
 
