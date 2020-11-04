@@ -54,7 +54,7 @@ The published-documentation repo checks hourly for changes to the master branch 
 
 If those build checks all pass, it will then automatically merge update-specsdocs-preview into specspreview, and will build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
 
-If your preview site looks as expected go to [Publishing your changes](#Publishing-your-changes)
+If your preview site looks as expected, go to [Publishing your changes](#Publishing-your-changes)
 
 If your preview site does not look right, continue making changes to https://github.com/nih-cfde/specifications-and-documentation or look at Troubleshooting below.
 
