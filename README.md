@@ -7,7 +7,7 @@ This repository hosts all of the documentation and specifications for CFDE-CC pr
 Currently, it houses the C2M2 technical documentation. Eventually it will also contain documentation for other products.
 
 
-# Updating the documentation in the public documentation site
+# Updating the Documentation in the Public Documentation Site
 
 ## Overview
 
