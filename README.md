@@ -20,7 +20,7 @@ To update https://cfde-published-documentation.readthedocs-hosted.com/en/latest/
 
 You should use the preview site to check that the changes look the way you want. If they do, you should positively review the PR to the master branch so it can be merged in.
 
-## Detailed instructions for updating the Published Documentation website
+## Detailed Instructions for Updating the Published Documentation Website
 
 ### Make your desired changes
 
@@ -44,7 +44,7 @@ If you are adding or removing pages, or otherwise changing how the navigation of
   - you can make a link to a different web address with `- Link Title: https://lukasgeiter.com`
 - For more options and examples see [awesome pages documentation](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin)
 
-### Check the Preview site
+### Check the preview site
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it automatically:
 
