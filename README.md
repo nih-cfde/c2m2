@@ -24,7 +24,7 @@ You should use the preview site to check that the changes look the way you want.
 
 ### Make your desired changes
 
- All changes for files in this repo should be made in this repo (https://github.com/nih-cfde/specifications-and-documentation). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
+ All changes to files in this repo should be made in this repo (https://github.com/nih-cfde/specifications-and-documentation). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
 
  We recommend working in a personal branch, and pushing those changes to `master` once you are happy with them.
 
