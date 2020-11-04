@@ -16,7 +16,7 @@ This repo is a sub-module of https://github.com/nih-cfde/published-documentation
 To update https://cfde-published-documentation.readthedocs-hosted.com/en/latest/ you only need to update this repository. The published-documentation repo will automatically pull changes and do two major actions:
 
 - attempt to render them as a preview site for your preview
-- make a PR to incorporate your changes into the master branch
+- make a PR to incorporate your changes into the `stable` branch
 
 You should use the preview site to check that the changes look the way you want. If they do, you should positively review the PR to the master branch so it can be merged in.
 
@@ -69,7 +69,7 @@ There are three possible reasons the PR might not automatically merge into specs
 
 ### Publishing your changes
 
-The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it automatically:
+The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it also automatically:
 
 - makes a branch called update-specsdocs with the changes
 - makes a PR to merge that branch into stable
