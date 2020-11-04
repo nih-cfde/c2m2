@@ -4,7 +4,7 @@ Technical specs and docs for CFDE-CC products
 
 This repository hosts all of the documentation and specifications for CFDE-CC products relevant to DCC members of the CFDE.
 
-Currently, it houses the C2M2 technical documentation. Eventually it will also contain documentation for other products.
+Currently, it houses the C2M2 technical documentation. Eventually, it will also contain documentation for other products.
 
 
 # Updating the Documentation in the Public Documentation Site
