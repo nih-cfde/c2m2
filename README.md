@@ -39,7 +39,7 @@ If you are adding or removing pages, or otherwise changing how the navigation of
   - `title: XXX` will render that folder navigation title as XXX
   - you can redundantly hide a folder and its contents with `hide: true`
   - you can order the contents of the directory with `nav:`
-     - `nav:` should be followed by an ordered list of files as bullet points
+     - `nav:` should be followed by an ordered list of files as bullet points. Be sure to nest bullets with spaces. Tabs will cause it to fail.
      - It will render the file title from the yaml header or first header line as above. You can override this behavior by specifying a file title as in `First page: page1.md`
   - you can make a link to a different web address with `- Link Title: https://lukasgeiter.com`
 - For more options and examples see [awesome pages documentation](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin)
