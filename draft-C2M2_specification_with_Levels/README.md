@@ -1,7 +1,7 @@
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 This document introduces the Crosscut Metadata Model
-([C2M2](../draft-CFDE_glossary/CFDE-glossary.md#crosscut-metadata-model-c2m2)), a
+([C2M2](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2)), a
 flexible metadata standard for describing experimental resources in
 biomedicine and related fields. The Common Fund Data Ecosystem
 group is creating a new computing infrastructure, with C2M2 as its
@@ -14,8 +14,8 @@ and integrate experimental data from different sources to
 facilitate scientific replication and to drive new discoveries.
 
 Using this new infrastructure, Common Fund data coordinating centers
-([DCCs](../draft-CFDE_glossary/CFDE-glossary.md#data-coordinating-center-dcc)) will
-share structured, detailed information ([metadata](../draft-CFDE_glossary/CFDE-glossary.md#metadata))
+([DCCs](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc)) will
+share structured, detailed information ([metadata](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#metadata))
 about their experimental resources with the research
 community at large, widening and deepening access to usable
 observational data. One immediate consequence will be a
@@ -26,10 +26,10 @@ studying similar health-related phenomena.
 ## DCC Metadata Submissions
 
 DCCs collect and provide metadata submissions
-(C2M2 [instances](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-instance))
+(C2M2 [instances](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance))
 to CFDE describing experimental resources within their purview. Each
 submission is a set of tab-separated value files
-([TSVs](../draft-CFDE_glossary/CFDE-glossary.md#tab-separated-value-file-tsv));
+([TSVs](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv));
 precise formatting requirements for these filesets are specified by
 [JSON Schema documents](../draft-C2M2_JSON_Schema_datapackage_specs/),
 each of which is an instance of the
@@ -43,13 +43,13 @@ as a database management system stores definitions for
 database tables and automatically validates incoming data
 based on those definitions. Using this toolkit, the C2M2 JSON
 Schema specifications lay out
-[foreign-key](../draft-CFDE_glossary/CFDE-glossary.md#foreign-key)
+[foreign-key](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#foreign-key)
 relationships between metadata fields (TSV columns), rules
 governing missing data, required content types for particular fields,
 and other similar database management constraints to define
 basic structural integrity for C2M2 metadata submissions.
 During the
-[C2M2 ingestion process](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-ingestion-process),
+[C2M2 ingestion process](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-ingestion-process),
 the C2M2 software infrastructure uses these specifications
 to automatically validate format compliance and submission integrity,
 prior to loading metadata into its central database. Once loaded,
@@ -78,7 +78,7 @@ one short `file` table; Level 1 provides a larger `file` table than
 Level 0 (more fields), adds more tables describing other
 basic biomedical resource concepts including `biosample`,
 `subject`, and `project`, and introduces ways to express simple
-relationships between records in different tables; Level 2 is 
+relationships between records in different tables; Level 2 is
 an ever-growing mature metadata interchange standard, customized
 to advanced DCC metadata needs: it contains all Level 1 information,
 plus a library of more detailed metadata objects and extensions to
@@ -119,8 +119,8 @@ independently-developed custom DCC metadata systems (including e.g.
 metadata describing people and organizations, data provenance relationships,
 experimental protocols, protected data, or detailed event
 sequences), will require ongoing, iterative, case-based design
-and consensus-driven decisionmaking, often coordinated across multiple
-independent research groups. Design and decisionmaking in such
+and consensus-driven decision making, often coordinated across multiple
+independent research groups. Design and decision making in such
 contexts will require long-term planning, testing
 and execution. Metadata difficult (or even impossible) to
 integrate and harmonize is thus handled as part of the ongoing
@@ -139,7 +139,7 @@ Modeling and data wrangling are always difficult, even for
 experts. Part of the goal of the level system
 is to compartmentalize the C2M2 model so as to maintain flexibility --
 especially during developmental phases -- in order to best
-accomodate mutual learning between DCCs and CFDE as the
+accommodate mutual learning between DCCs and CFDE as the
 construction of this federated metadata system progresses. It
 is generally far more expensive and error-prone to repeatedly
 change a complex, over-built, inseparable, monolithic model than it is
@@ -271,20 +271,20 @@ views of resource metadata from multiple DCCs cannot be maintained._
 ### Level 0
 
 C2M2 Level 0 defines a **minimal valid
-[C2M2 instance](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-instance).**
+[C2M2 instance](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance).**
 Data submissions at this level of
-[metadata richness](../draft-CFDE_glossary/CFDE-glossary.md#c2m2-richness-levels)
+[metadata richness](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-richness-levels)
 will be the easiest to produce, and will support the simplest available
 functionality implemented by downstream applications.
 
 #### Level 0 submission process: overview
 
 Metadata submissions at Level 0 will consist of a single
-[TSV file](../draft-CFDE_glossary/CFDE-glossary.md#tab-separated-value-file-tsv)
+[TSV file](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv)
 describing a **collection of digital
-[files](../draft-CFDE_glossary/CFDE-glossary.md#file)**
+[files](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#file)**
 owned or managed by a
-[DCC](../draft-CFDE_glossary/CFDE-glossary.md#data-coordinating-center-dcc).
+[DCC](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc).
 The properties listed for the Level 0 `file` entity (see below for
 diagram and definitions) will serve as the TSV's column headers; each TSV
 row will represent a single file. The Level 0 TSV itself thus represents a
@@ -518,7 +518,7 @@ experimental resources.
       (_`file`/`subject`/`biosample`_) record_
       * _conceptually rooted in -- but not necessarily mapped one-to-one from
       -- a corresponding hierarchy of grants, contracts or other **important
-      administrative subdivisions of primary research funding**_ 
+      administrative subdivisions of primary research funding**_
       * `project` _attribution is **required** for core resource entity types: use
       FK specified in_ `file`/`biosample`/`subject` _entity records to encode these attributions_
       * `project`s _**can be nested** (via the_ `project_in_project` _association
@@ -567,17 +567,17 @@ experimental resources.
    * `file_in_collection`
    * `subject_in_collection`
    * `biosample_in_collection`
-   
+
    _These tables are used to express basic containment relationships like "this_ `file` _is in
    this_ `collection`_" or "this_ `project` _is a sub-project of this other_
    `project`_." The record format for all of these tables specifies four fields:_
-   
+
    * _two (an_ `id_namespace` _and a_ `local_id`_) encoding a foreign key representing
    the **containing**_ **`project`** _**or**_ **`collection`**_, and_
    * _two (another_ {`id_namespace`, `local_id`} _pair) acting as a foreign key
    referencing the table describing the **contained resource (or
    subcollection)**._
-   
+
    _Please see the relevant sections of the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
@@ -588,12 +588,12 @@ experimental resources.
    * `file_describes_biosample`
    * `biosample_from_subject`
    * `collection_defined_by_project`
-   
+
    _As with the containment association tables, records in these tables
    will contain four fields, encoding two foreign keys: one (composite
    `id_namespace+local_id`) key per entity involved in the particular
    relationship being asserted by each record._
-   
+
    _Table names define relationship types, and are (with the exception
    of_ `collection_defined_by_project`_) somewhat nonspecific by design.
    Note in particular that relationships between core entities represented
@@ -603,7 +603,7 @@ experimental resources.
    approximations) are left to DCC serialization staff and relevant
    investigators; CFDE staff will be available as needed to offer
    feedback and guidance when navigating these issues._
-   
+
    _Please see the relevant sections of the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
