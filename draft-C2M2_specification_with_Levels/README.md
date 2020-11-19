@@ -118,8 +118,8 @@ independently-developed custom DCC metadata systems (including e.g.
 metadata describing people and organizations, data provenance relationships,
 experimental protocols, protected data, or detailed event
 sequences), will require ongoing, iterative, case-based design
-and consensus-driven decision making, often coordinated across multiple
-independent research groups. Design and decision making in such
+and consensus-driven decision-making, often coordinated across multiple
+independent research groups. Design and decision-making in such
 contexts will require long-term planning, testing
 and execution. Metadata difficult (or even impossible) to
 integrate and harmonize is thus handled as part of the ongoing
@@ -566,17 +566,17 @@ experimental resources.
    * `file_in_collection`
    * `subject_in_collection`
    * `biosample_in_collection`
-
+   
    _These tables are used to express basic containment relationships like "this_ `file` _is in
    this_ `collection`_" or "this_ `project` _is a sub-project of this other_
    `project`_." The record format for all of these tables specifies four fields:_
-
+   
    * _two (an_ `id_namespace` _and a_ `local_id`_) encoding a foreign key representing
    the **containing**_ **`project`** _**or**_ **`collection`**_, and_
    * _two (another_ {`id_namespace`, `local_id`} _pair) acting as a foreign key
    referencing the table describing the **contained resource (or
    subcollection)**._
-
+   
    _Please see the relevant sections of the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
@@ -587,12 +587,12 @@ experimental resources.
    * `file_describes_biosample`
    * `biosample_from_subject`
    * `collection_defined_by_project`
-
+   
    _As with the containment association tables, records in these tables
    will contain four fields, encoding two foreign keys: one (composite
    `id_namespace+local_id`) key per entity involved in the particular
    relationship being asserted by each record._
-
+   
    _Table names define relationship types, and are (with the exception
    of_ `collection_defined_by_project`_) somewhat nonspecific by design.
    Note in particular that relationships between core entities represented
@@ -602,7 +602,7 @@ experimental resources.
    approximations) are left to DCC serialization staff and relevant
    investigators; CFDE staff will be available as needed to offer
    feedback and guidance when navigating these issues._
-
+   
    _Please see the relevant sections of the_
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
