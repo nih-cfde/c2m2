@@ -674,7 +674,7 @@ experimental resources.
       hear from DCCs which haven't yet submitted metadata as well, so they can help us anticipate difficulties.)`
    * [CV term scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py):
    	_auto-builds (green) CV term tables_
-      * _executed during bdbag-preparation stage, after core TSVs have been built_
+      * _executed during BDBag-preparation stage, after core TSVs have been built_
       * _inflates (bare) CV terms cited in core-entity table fields into corresponding CV
       term-usage tables_
       * _auto-loads and populates display-layer term-decorator data (name,
@@ -721,10 +721,10 @@ A JSON Schema document -- implementing
 container meta-specification -- defining the Level 1 TSV collection is
 [here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json);
 an example Level-1-compliant TSV submission collection can be found
-[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents/)
-(as a bare collection of TSV files) and
-[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.tgz)
-(as a packaged BDBag archive).
+[here](https://osf.io/uadny/) for inspection in two alternative forms: (1) a bare
+collection of TSV files, and (2) a single packaged BDBag archive file containing those
+TSVs along with some packaging/manifest metadata. (DCCs will package each C2M2
+submission as one of these BDBags: we provide a valid one here for reference.)
 
 --------------------------------------------------------------------------------
 
