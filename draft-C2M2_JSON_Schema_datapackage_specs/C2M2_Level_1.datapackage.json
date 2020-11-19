@@ -119,13 +119,6 @@
             "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
-                  "fields": "id_namespace",
-                  "reference": {
-                     "resource": "id_namespace",
-                     "fields": "id"
-                  }
-               },
-               {
                   "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
@@ -221,13 +214,6 @@
             "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
                {
-                  "fields": "id_namespace",
-                  "reference": {
-                     "resource": "id_namespace",
-                     "fields": "id"
-                  }
-               },
-               {
                   "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
                      "resource": "project",
@@ -316,13 +302,6 @@
             "missingValues": [ "" ],
             "primaryKey": [ "id_namespace", "local_id" ],
             "foreignKeys": [
-               {
-                  "fields": "id_namespace",
-                  "reference": {
-                     "resource": "id_namespace",
-                     "fields": "id"
-                  }
-               },
                {
                   "fields": [ "project_id_namespace", "project_local_id" ],
                   "reference": {
@@ -475,16 +454,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "local_id" ],
-            "foreignKeys": [
-               {
-                  "fields": "id_namespace",
-                  "reference": {
-                     "resource": "id_namespace",
-                     "fields": "id"
-                  }
-               }
-            ]
+            "primaryKey": [ "id_namespace", "local_id" ]
          }
       },
       {
@@ -609,16 +579,7 @@
                }
             ],
             "missingValues": [ "" ],
-            "primaryKey": [ "id_namespace", "local_id" ],
-            "foreignKeys": [
-               {
-                  "fields": "id_namespace",
-                  "reference": {
-                     "resource": "id_namespace",
-                     "fields": "id"
-                  }
-               }
-            ]
+            "primaryKey": [ "id_namespace", "local_id" ]
          }
       },
       {
@@ -1422,46 +1383,6 @@
                   "constraints": {
                      "pattern": "^(data:[0-9]+|)*data:[0-9]+$"
                   }
-               }
-            ],
-            "missingValues": [ "" ],
-            "primaryKey": "id"
-         }
-      },
-      {
-         "profile": "tabular-data-resource",
-         "name": "id_namespace",
-         "title": "id_namespace",
-         "path": "id_namespace.tsv",
-         "description": "INTERNAL CV: Dictionary of CFDE-generated identifier namespaces corresponding to top-level C2M2 metadatasets",
-         "schema": {
-            "fields": [
-               {
-                  "name": "id",
-                  "description": "A globally unique ID representing this identifier namespace",
-                  "type": "string",
-                  "constraints": {
-                     "required": true,
-                     "unique": true
-                  }
-               },
-               {
-                  "name": "abbreviation",
-                  "description": "A very short display label for this identifier namespace",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^[a-zA-Z0-9_]+$"
-                  }
-               },
-               {
-                  "name": "name",
-                  "description": "A short, human-readable, machine-read-friendly label for this identifier namespace",
-                  "type": "string"
-               },
-               {
-                  "name": "description",
-                  "description": "A human-readable description of this identifier namespace",
-                  "type": "string"
                }
             ],
             "missingValues": [ "" ],

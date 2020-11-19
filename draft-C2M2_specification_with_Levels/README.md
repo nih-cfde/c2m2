@@ -578,7 +578,7 @@ experimental resources.
    subcollection)**._
    
    _Please see the relevant sections of the_
-   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
+   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
 
 ##### Association tables: inter-entity linkages
@@ -604,7 +604,7 @@ experimental resources.
    feedback and guidance when navigating these issues._
    
    _Please see the relevant sections of the_
-   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
+   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
 
 ##### Association table: taxonomy and the `subject` entity: the `subject_role_taxonomy` table
@@ -635,7 +635,7 @@ experimental resources.
       entry classifying the given_ `subject` _by way of the given_ `subject_role`
 
    _Please refer to the definition of_ `subject_role_taxonomy` _in the_
-   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json)
+   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all technical details (field names and foreign-key constraints)._
 
 ##### Controlled vocabularies and term tables
@@ -719,11 +719,11 @@ A JSON Schema document -- implementing
 [Frictionless Data](https://frictionlessdata.io/)'s
 "[Data Package](https://frictionlessdata.io/data-package/)"
 container meta-specification -- defining the Level 1 TSV collection is
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/swap_in_as_canonical_after_2020.10.31/C2M2_Level_1.datapackage.json);
+[here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json);
 an example Level-1-compliant TSV submission collection can be found
-[here](../draft-C2M2_example_submission_data/swap_in_as_canonical_after_2020.10.31/HMP__sample_C2M2_Level_1_bdbag.contents/)
+[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.contents/)
 (as a bare collection of TSV files) and
-[here](../draft-C2M2_example_submission_data/swap_in_as_canonical_after_2020.10.31/HMP__sample_C2M2_Level_1_bdbag.tgz)
+[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_1_bdbag.tgz)
 (as a packaged BDBag archive).
 
 --------------------------------------------------------------------------------
