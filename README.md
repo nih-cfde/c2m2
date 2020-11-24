@@ -52,13 +52,17 @@ The published-documentation repo checks hourly for changes to the master branch 
 - makes a PR to merge that branch into specspreview
 - runs a series of build checks
 
-If those build checks all pass, it will then automatically merge update-specsdocs-preview into specspreview, and will build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
+If those build checks all pass, it will then automatically merge update-specsdocs-preview into specspreview, close the pull request, and build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
 
 If your preview site looks as expected, go to [Publishing your changes](#Publishing-your-changes)
 
 If your preview site does not look right, continue making changes to https://github.com/nih-cfde/specifications-and-documentation or look at Troubleshooting below.
 
 #### Troubleshooting
+
+If this preview pull request runs and closes itself without you doing anything, then it worked as intended! 
+
+If the preview pull request does not merge and close itself, then there was a problem.
 
 There are three possible reasons the PR might not automatically merge into specspreview:
 
