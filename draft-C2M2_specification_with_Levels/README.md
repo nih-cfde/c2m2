@@ -378,10 +378,14 @@ for a given table from the case in which a table has been omitted by mistake.)_
 
 _Color key:_
 
-* _Black: core entities and the direct associative relationships between them (plus_
-`subject` _<->_ `subject_role_taxonomy` _)_
-* _Blue: containers (projects and collections) and their containment relationships_
-* _Green: external CVs (term & display-decoration tracking tables) and their foreign-key relationships_
+* ![#000000](https://via.placeholder.com/15/000000/000000?text=+) _Black: C2M2 Level 1 core entities: files, biosamples and subjects_
+* ![#a52a2a](https://via.placeholder.com/15/a52a2a/000000?text=+) _Dark red: Associative relationships between Level 1 core entities_
+* ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) _Blue: Level 1 container entities (projects and collections) and their containment relationships_
+* ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) _Green: Tables recording all third-party ontology or controlled-vocabulary terms used within a Level 1 submission, including extra information about UI display labels_
+* ![#8b6914](https://via.placeholder.com/15/8b6914/000000?text=+) _Gold: Single-record table listing basic contact information for DCC staff managing a Level 1 submission_
+* ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) _Yellow: Association table optionally annotating each Level 1 subject record with_
+   * _(possibly multiple) NCBI Taxonomy ID attributions_
+   * _specification (and individual annotation) of subject sub-entities based on generic roles in observational ecosystems, like "host," "pathogen," "site-specific microbiome," "basic single organism" (default), etc._
 
 |_Level 1 model diagram_|
 |:---:|
