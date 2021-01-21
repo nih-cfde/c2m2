@@ -48,11 +48,11 @@ If you are adding or removing pages, or otherwise changing how the navigation of
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it automatically:
 
-- makes a branch called update-specsdocs-preview with the changes
+- makes a branch called update-c2m2-preview with the changes
 - makes a PR to merge that branch into specspreview
 - runs a series of build checks
 
-If those build checks all pass, it will then automatically merge update-specsdocs-preview into specspreview, close the pull request, and build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
+If those build checks all pass, it will then automatically merge update-c2m2-preview into specspreview, close the pull request, and build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
 
 If your preview site looks as expected, go to [Publishing your changes](#Publishing-your-changes)
 
@@ -75,7 +75,7 @@ There are three possible reasons the PR might not automatically merge into specs
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it also automatically:
 
-- makes a branch called update-specsdocs with the changes
+- makes a branch called update-c2m2 with the changes
 - makes a PR to merge that branch into stable
 - runs a series of build checks
 
