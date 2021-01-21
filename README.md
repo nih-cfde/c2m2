@@ -11,9 +11,9 @@ Currently, it houses the C2M2 technical documentation. Eventually, it will also 
 
 ## Overview
 
-This repo is a sub-module of https://github.com/nih-cfde/published-documentation which is rendered at https://cfde-published-documentation.readthedocs-hosted.com/en/latest/
+This repo is a sub-module of https://github.com/nih-cfde/published-documentation which is rendered at https://docs.nih-cfde.org/en/latest/
 
-To update https://cfde-published-documentation.readthedocs-hosted.com/en/latest/ you only need to update this repository. The published-documentation repo will automatically pull changes and do two major actions:
+To update https://docs.nih-cfde.org/en/latest/ you only need to update this repository. The published-documentation repo will automatically pull changes and do two major actions:
 
 - attempt to render them as a preview site for your preview
 - make a PR to incorporate your changes into the `stable` branch
@@ -24,7 +24,7 @@ You should use the preview site to check that the changes look the way you want.
 
 ### Make your desired changes
 
- All changes to files in this repo should be made in this repo (https://github.com/nih-cfde/specifications-and-documentation). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
+ All changes to files in this repo should be made in this repo (https://github.com/nih-cfde/c2m2). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
 
  We recommend working in a personal branch, and pushing those changes to `master` once you are happy with them.
 
@@ -56,11 +56,11 @@ If those build checks all pass, it will then automatically merge update-specsdoc
 
 If your preview site looks as expected, go to [Publishing your changes](#Publishing-your-changes)
 
-If your preview site does not look right, continue making changes to https://github.com/nih-cfde/specifications-and-documentation or look at Troubleshooting below.
+If your preview site does not look right, continue making changes to https://github.com/nih-cfde/c2m2 or look at Troubleshooting below.
 
 #### Troubleshooting
 
-If this preview pull request runs and closes itself without you doing anything, then it worked as intended! 
+If this preview pull request runs and closes itself without you doing anything, then it worked as intended!
 
 If the preview pull request does not merge and close itself, then there was a problem.
 
