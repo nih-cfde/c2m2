@@ -1,19 +1,15 @@
-# Documentation Overview
 
-Technical specs and docs for CFDE-CC products
-
-This repository hosts all of the documentation and specifications for CFDE-CC products relevant to DCC members of the CFDE.
-
-Currently, it houses the C2M2 technical documentation. Eventually, it will also contain documentation for other products.
+# Technical specifications and docs for the Cross Cut Metadata Model 
 
 
-# Updating the Documentation in the Public Documentation Site
 
-## Overview
+## Updating the Documentation in the Public Documentation Site
 
-This repo is a sub-module of https://github.com/nih-cfde/published-documentation which is rendered at https://cfde-published-documentation.readthedocs-hosted.com/en/latest/
+### Overview
 
-To update https://cfde-published-documentation.readthedocs-hosted.com/en/latest/ you only need to update this repository. The published-documentation repo will automatically pull changes and do two major actions:
+This repo is a sub-module of https://github.com/nih-cfde/published-documentation which is rendered at https://docs.nih-cfde.org/en/latest/
+
+To update https://docs.nih-cfde.org/en/latest/ you only need to update this repository. The published-documentation repo will automatically pull changes and do two major actions:
 
 - attempt to render them as a preview site for your preview
 - make a PR to incorporate your changes into the `stable` branch
@@ -24,7 +20,7 @@ You should use the preview site to check that the changes look the way you want.
 
 ### Make your desired changes
 
- All changes to files in this repo should be made in this repo (https://github.com/nih-cfde/specifications-and-documentation). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
+ All changes to files in this repo should be made in this repo (https://github.com/nih-cfde/c2m2). The published-documentation repo checks hourly for changes to the `master` branch of this repository.
 
  We recommend working in a personal branch, and pushing those changes to `master` once you are happy with them.
 
@@ -48,34 +44,34 @@ If you are adding or removing pages, or otherwise changing how the navigation of
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it automatically:
 
-- makes a branch called update-specsdocs-preview with the changes
-- makes a PR to merge that branch into specspreview
+- makes a branch called update-c2m2-preview with the changes
+- makes a PR to merge that branch into c2m2preview
 - runs a series of build checks
 
-If those build checks all pass, it will then automatically merge update-specsdocs-preview into specspreview, close the pull request, and build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/specspreview/
+If those build checks all pass, it will then automatically merge update-c2m2-preview into c2m2preview, close the pull request, and build a preview site for you to browse at: https://cfde-published-documentation.readthedocs-hosted.com/en/c2m2preview/
 
 If your preview site looks as expected, go to [Publishing your changes](#Publishing-your-changes)
 
-If your preview site does not look right, continue making changes to https://github.com/nih-cfde/specifications-and-documentation or look at Troubleshooting below.
+If your preview site does not look right, continue making changes to https://github.com/nih-cfde/c2m2 or look at Troubleshooting below.
 
 #### Troubleshooting
 
-If this preview pull request runs and closes itself without you doing anything, then it worked as intended! 
+If this preview pull request runs and closes itself without you doing anything, then it worked as intended!
 
 If the preview pull request does not merge and close itself, then there was a problem.
 
-There are three possible reasons the PR might not automatically merge into specspreview:
+There are three possible reasons the PR might not automatically merge into c2m2preview:
 
-- The most likely reason, is that the preview branch needs to be refreshed, that a stale preview was already in the specspreview branch and is clashing with yours. To fix it delete the specspreview branch and wait for the next hourly run
+- The most likely reason, is that the preview branch needs to be refreshed, that a stale preview was already in the c2m2preview branch and is clashing with yours. To fix it delete the c2m2preview branch and wait for the next hourly run
 - If it's a fresh preview branch, your changes may have made the repos incompatible. Tag @Acharbonneau in your PR and she'll help
-- Very occasionally, the github robot fails for server related reasons when there is otherwise no problem. Removing the specspreview branch so that the robot tries again generally fixes this. Or tag @Acharbonneau
+- Very occasionally, the github robot fails for server related reasons when there is otherwise no problem. Removing the c2m2preview branch so that the robot tries again generally fixes this. Or tag @Acharbonneau
 
 
 ### Publishing your changes
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it also automatically:
 
-- makes a branch called update-specsdocs with the changes
+- makes a branch called update-c2m2 with the changes
 - makes a PR to merge that branch into stable
 - runs a series of build checks
 
