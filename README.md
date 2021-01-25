@@ -71,7 +71,7 @@ There are three possible reasons the PR might not automatically merge into C2M2p
 
 The published-documentation repo checks hourly for changes to the master branch of this repository. If it finds changes, it also automatically:
 
-- makes a branch called update-c2m2 with the changes
+- makes a branch called update-C2M2 with the changes
 - makes a PR to merge that branch into stable
 - runs a series of build checks
 
