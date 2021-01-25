@@ -1,12 +1,11 @@
-# Documentation Overview
 
 # Technical specifications and docs for the Cross Cut Metadata Model 
 
 
 
-# Updating the Documentation in the Public Documentation Site
+## Updating the Documentation in the Public Documentation Site
 
-## Overview
+### Overview
 
 This repo is a sub-module of https://github.com/nih-cfde/published-documentation which is rendered at https://docs.nih-cfde.org/en/latest/
 
