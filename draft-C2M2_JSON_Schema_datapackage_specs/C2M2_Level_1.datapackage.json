@@ -418,8 +418,7 @@
                   "description": "An identifier representing this project, unique within this id_namespace [part 2 of 2-component composite primary key]",
                   "type": "string",
                   "constraints": {
-                     "required": true,
-                     "unique": true
+                     "required": true
                   }
                },
                {
@@ -543,8 +542,7 @@
                   "description": "An identifier representing this collection, unique within this id_namespace [part 2 of 2-component composite primary key]",
                   "type": "string",
                   "constraints": {
-                     "required": true,
-                     "unique": true
+                     "required": true
                   }
                },
                {
