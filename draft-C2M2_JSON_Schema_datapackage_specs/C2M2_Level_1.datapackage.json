@@ -46,8 +46,7 @@
                {
                   "name": "persistent_id",
                   "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this file",
-                  "type": "string",
-                  "format": "uri"
+                  "type": "string"
                },
                {
                   "name": "creation_time",
@@ -192,8 +191,7 @@
                {
                   "name": "persistent_id",
                   "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this biosample",
-                  "type": "string",
-                  "format": "uri"
+                  "type": "string"
                },
                {
                   "name": "creation_time",
@@ -273,8 +271,7 @@
                {
                   "name": "persistent_id",
                   "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this subject",
-                  "type": "string",
-                  "format": "uri"
+                  "type": "string"
                },
                {
                   "name": "creation_time",
@@ -378,7 +375,6 @@
                   "name": "dcc_url",
                   "description": "URL of the front page of the website for this contact's DCC",
                   "type": "string",
-                  "format": "uri",
                   "constraints": {
                      "required": true
                   }
@@ -424,8 +420,7 @@
                {
                   "name": "persistent_id",
                   "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this project",
-                  "type": "string",
-                  "format": "uri"
+                  "type": "string"
                },
                {
                   "name": "creation_time",
@@ -548,8 +543,7 @@
                {
                   "name": "persistent_id",
                   "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this collection",
-                  "type": "string",
-                  "format": "uri"
+                  "type": "string"
                },
                {
                   "name": "creation_time",
