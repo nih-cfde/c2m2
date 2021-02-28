@@ -18,12 +18,12 @@ Using this new infrastructure, Common Fund data coordinating centers
 share structured, detailed information ([metadata](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#metadata))
 about their experimental resources with the research
 community at large, widening and deepening access to usable
-observational data. One immediate consequence will be a
-drastic simplification in the effort required to perform
+observational data. One of C2M2's primary missions is to
+meaningfully reduce the effort needed to perform
 meta-analysis of results from multiple independent teams
 studying similar health-related phenomena.
 
-## DCC Metadata Submissions
+## DCC metadata submissions
 
 DCCs collect and provide metadata submissions
 (C2M2 [instances](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance))
@@ -41,129 +41,165 @@ automatic validation can be performed on those files, just
 as a database management system stores definitions for
 database tables and automatically validates incoming data
 based on those definitions. Using this toolkit, the C2M2 JSON
-Schema specifications lay out
+Schema specification defines
 [foreign-key](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#foreign-key)
 relationships between metadata fields (TSV columns), rules
-governing missing data, required content types for particular fields,
-and other similar database management constraints to define
-basic structural integrity for C2M2 metadata submissions.
-During the
-[C2M2 ingestion process](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-ingestion-process),
-the C2M2 software infrastructure uses these specifications
-to automatically validate format compliance and submission integrity,
-prior to loading metadata into its central database. Once loaded,
-metadata are used to fuel downstream services like search results,
-customized statistical summaries, dynamic display graphics, and asset
-browsing within experimental resource collections.
+governing missing data, required content types and formats for
+particular fields, and other similar database management
+constraints. These architectural rules help to guarantee
+the internal structural integrity of each C2M2 submission,
+while also serving as a baseline standard to create
+compatibility across multiple submissions received from different DCCs. During the
+[C2M2 submission process](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-ingestion-process),
+the CFDE software infrastructure uses these schematic specifications
+to automatically validate format compliance and submission integrity
+prior to loading C2M2 metadata into its central database. Once loaded,
+C2M2 metadata will be used to fuel downstream services like web and API searching,
+customized statistical summaries, dynamic display graphics, asset
+browsing within experimental resource collections, and the automated
+forwarding of stable, accessible experimental data files (inventoried
+and annotated as part of a C2M2 metadata submission) to analytic workflow
+environments.
 
-## C2M2 Levels
+## C2M2 overview
 
-CFDE offers DCCs three alternative metadata submission
-formats (C2M2 Levels 0, 1 and 2), each of which is automatically
-interoperable with the entire C2M2 software ecosystem. Levels
-are tiered primarily according to increasing complexity.
-The general idea is that DCC resource collections can be
+C2M2 offers DCCs a fairly sparse set of minimum structural
+benchmarks to meet when building a submission. The general
+idea is that DCC resource collections can initially be
 represented quickly (and thus begin driving downstream
-applications quickly) using metadata encoded at lower (simpler)
-C2M2 levels: over time, and as feasible, DCC data managers
-can upgrade their C2M2 metadata submissions by expanding
-into higher levels.
+applications quickly) using metadata meeting minimal richness
+requirements -- enough to provide a basic level of harmonization
+with biomedical experimental metadata coming from other C2M2
+sources (DCCs). Over time, DCC data managers can (and should)
+upgrade their C2M2 metadata submissions by adding more detailed
+descriptive information to their resource records; by
+elaborating on provenance, timing and other relationships
+between resources; and by working with the CFDE to expand C2M2
+itself to better fit models and automation requirements already
+in production elsewhere.
 
-C2M2 Levels 0, 1 and 2 are increasingly large and complex variants of the
-same metadata model (C2M2): each level is a defined collection of
-data tables (encoded as TSVs: see above on
-[submissions](#dcc-metadata-submissions)). Level 0 defines just
-one short `file` table; Level 1 provides a larger `file` table than
-Level 0 (more fields), adds more tables describing other
-basic biomedical resource concepts including `biosample`,
-`subject`, and `project`, and introduces ways to express simple
-relationships between records in different tables; Level 2 is
-an ever-growing mature metadata interchange standard, customized
-to advanced DCC metadata needs: it contains all Level 1 information,
-plus a library of more detailed metadata objects and extensions to
-existing objects. Lower levels are strict subsets of higher ones:
-Level 1's `file` table contains all Level 0 `file` fields and
-more; Level 2's `biosample` is an expanded superset of the Level
-1 `biosample`, etc. Upgrades from one level to the next are
-therefore limited by design to be done only by expansion: moving
-up a level will not require DCCs to make changes to any metadata
-already provided.
+A C2M2 [submission](#dcc-metadata-submissions) (or instance) is a
+collection of data tables encoded as tab-separated value files (TSVs).
+Only three metadata records (three rows, across three C2M2 tables)
+are strictly required, so most of these tables can optionally be
+left empty in a minimally compliant submission. The three required records are
+
+1. a short contact sheet (name, email, etc.) referencing the DCC technical contact responsible for the submission,
+2. a single `project` record representing the submitting DCC itself (for resource attribution), and
+3. at least one **identifier namespace**, registered in advance with the CFDE (to protect IDs used by the submitting DCC to represent files, samples, etc. from potential conflicts with identifiers generated independently by other DCCs -- [see below](#c2m2-identifiers) for a full discussion of identifiers and namespaces in C2M2).
+
+A minimally compliant submission -- containing just the
+three required records and no more -- would clearly not be
+of much use. The simplest _usable_ submission configuration
+will also contain at least one nonempty data table (TSV)
+representing a **flat inventory of experimental resources** (like
+data files or biosamples). A more complex variant might similarly
+inventory a few different resources like `biosamples`, `files` and
+`subjects`, and then also encode **basic associative relationships**
+between those resources: for example, asserting which `biosamples`
+were materially descended from which `subjects`, or listing
+which `files` have been analytically derived from which `biosamples`.
+Beyond the single mandatory "this DCC owns this submission" record (2,
+above), DCCs can also attach a hierarchy of `project` records to
+their experimental metadata, to group resources by research purview.
+The most mature submission variants will also model
+**events and timing**; express **more complex relationships** between
+entities; and provide richer information about **people and organizations**
+involved in research and provenance, among other anticipated
+extensions. CFDE expects new core structures (that is, new C2M2
+_core entities:_ fundamental types of experimental resource) beyond
+basic `files`, `biosamples` and `subjects` to appear, based on
+direct collaboration with DCCs to model other relevant, usable
+experimental metadata while keeping a continual eye on maximizing
+harmonization and interoperability across the whole C2M2 metadata
+space.
 
 A foundational purpose of the C2M2 system is to facilitate
 metadata harmonization: finding ways wherever possible to
 represent comparable things in standard ways, without compromising
-meaning, context or accuracy. In addition to complexity
-management, C2M2 levels are also intended to roughly encapsulate
-groups of concepts according to increasing harmonization
-difficulty.
+meaning, context or accuracy (although _precision_ may occasionally
+be weakened so as to preserve the robustness of the rest). In
+addition to building bridges and crosswalks between disparate but
+related resources, C2M2 is also meant to facilitate the graded
+introduction of metadata into the system, as discussed above.
+The paradigm of gradually increasing submission complexity is
+by design a (roughly) staged process: new layers of metadata
+can be added according to increasing complexity and harmonization
+difficulty, ranging from basic flat asset inventories to
+well-decorated networks of relationships between resources that
+are described in full operational detail. In addition to
+flattening the learning curve for onboarding DCC data managers
+into the C2M2 ecosystem, the ability to submit C2M2 metadata
+in managed stages of complexity lets DCC data managers test
+and see how downstream functionality is interacting with their
+C2M2 metadata -- and, critically, to provide feedback to CFDE to
+investigate and create any needed changes -- before investing
+more heavily in creating a more complex C2M2 instance.
 
-Some examples, sorted by increasingly heavy challenges to harmonization:
+Examples of C2M2 submissions reflecting two introductory complexity
+configurations are given below under [C2M2 examples](#c2m2-examples):
 
-* All DCCs have file resources, describable (at a _very_ high level)
-in a standard, noncontroversial way (size + filename: [Level 0](#level-0)).
-* In addition to data files, virtually all DCCs deal in some way
-with biosamples and/or subjects: metadata describing basic aspects
+* Most DCCs have file resources, listable (at a _very_ high level)
+in a standard, noncontroversial way (size + filename + MD5): this could serve
+as the basis for a [minimal inventory submission](#a-minimal-c2m2-submission).
+* In addition to experimental data files, virtually all DCCs deal in some way
+with biosamples and/or subjects: metadata describing basic properties
 of these common concepts can be fairly (if still quite broadly) expressed by a
-shared model ([Level 1](#level-1)), thereby enabling the beginnings of cross-dataset search
-and analysis.
-* Many DCCs have at least some specialized data, unique to their
-own spheres of operation, which (at least for some time) will not be
-meaningful candidates for system-level harmonization ([Level 2](#level-2) includes specialized
-extension modeling).
+C2M2 submission following a [basic relational model](#a-basic-relational-c2m2-submission)
+paradigm (not only adding richer information to the data space, but also
+powering more powerful downstream applications than a minimal flat-inventory
+submission would support).
+
+These examples are followed by a full [C2M2 technical specification](#c2m2-technical-specification),
+which explains all of the available structures, constraints and
+requirements in detail.
+
+## DCC integration and the evolution of C2M2
 
 Most DCCs already have some form of internal metadata model in use
-for their own curation operations. C2M2 integration of similar but
+for their own curation operations. C2M2 representation of similar but
 distinct packages of important information, taken from multiple
-independently-developed custom DCC metadata systems (including e.g.
-metadata describing people and organizations, data provenance relationships,
-experimental protocols, protected data, or detailed event
-sequences), will require ongoing, iterative, case-based design
-and consensus-driven decision-making, often coordinated across multiple
-independent research groups. Design and decision-making in such
-contexts will require long-term planning, testing
-and execution. Metadata difficult (or even impossible) to
-integrate and harmonize is thus handled as part of the ongoing
-evolution and expansion of Level 2, leaving Level 1 tasked with
-supporting relatively universal, simple and uncontroversial
-metadata concepts to maintain streamlined development and deployment of
-important core metadata packages without unnecessarily blocking feasible
-tasks to wait on more expensive custom integration.
+independently-developed custom DCC metadata systems (e.g.
+metadata describing people and organizations, data provenance,
+experimental protocols, or detailed event sequences), will
+require ongoing, iterative, case-based design and consensus-driven
+decision-making, coordinated across multiple research groups.
+Design and decision-making in such contexts will require
+long-term planning, testing and execution. Metadata difficult to
+integrate and harmonize will be handled by the creation of
+generalizable, well-defined extensions to C2M2 if possible, and
+by pruning (at least pro tem) if not. The core of the C2M2 data
+space is tasked first with harmonizing relatively universal and
+uncontroversial metadata concepts -- to be made stable and available
+according to FAIRness principles -- for streamlined
+submission construction and usable deployment of DCC metadata.
+C2M2's second (longer-term) priority takes a slower road to make robust
+decisions about integration of less immediately tractable information,
+in concert with the Common Fund community and an awareness of
+global standards.
 
-With the design of C2M2, we are splitting the difference
-between the ease of evolution inherent in a simple model and
-the operational power provided to downstream applications by more
-complicated and difficult-to-maintain extended frameworks.
+With the flexible (but still well-defined) design of C2M2,
+we seek to split the difference between the ease of evolution
+inherent in a simple model and the operational power provided
+to downstream applications by more complicated and difficult-to-maintain
+extended frameworks.
 
-Modeling and data wrangling are always difficult, even for
-experts. Part of the goal of the level system
-is to compartmentalize the C2M2 model so as to maintain flexibility --
-especially during developmental phases -- in order to best
-accommodate mutual learning between DCCs and CFDE as the
-construction of this federated metadata system progresses. It
-is generally far more expensive and error-prone to repeatedly
-change a complex, over-built, inseparable, monolithic model than it is
-to build one gradually from a simpler core of agreement which
-can be relatively quickly stabilized while more specialized
-branches are built in parallel and transitioned into more general use.
-
-At any given moment, participating Common Fund DCCs will
-span a broad range of experience and available funding,
-based on mission details and lifecycle phases. DCCs with
-advanced, operationalized metadata modeling systems of
-their own should not encounter arbitrary barriers to
-C2M2 support for more extensive relational modeling of
-their metadata if they want it; CFDE will maintain such
-support by iteratively refining Level 2
-according to needs identified while working with DCCs
-already wielding complex metadata models. Newer or smaller
-DCCs, by contrast, may not have enough readily-available
-information to feasibly describe their experimental resources
-using Level 2 structures (either existing or proposed): C2M2
-Level 1 thus also aims to actively support such cases by
-offering simpler but still well-structured metadata models
-where metadata has already harmonized across other DCCs, lowering
-barriers to rapid entry into the data ecosystem and meaningful
-participation in downstream services.
+This flexibility is also intended to simultaneously address the needs
+of DCCs at widely different scales of data complexity or
+funding depth, which will differ based on organization life-cycle
+phases, scope of research purview, etc. DCCs with advanced,
+operationalized metadata modeling systems of their own
+should not encounter arbitrary barriers to C2M2 support for
+more extensive relational modeling of their metadata if
+they want it; newer or smaller DCCs, by contrast,
+may not have enough readily-available information to feasibly
+describe their experimental resources beyond giving basic
+asset lists and project attributions. By committing both to
+developing modular C2M2 extensions for the most advanced DCC
+metadata and to offering simpler but well-structured model options
+(already harmonized across C2M2 metadata from other
+DCCs), we aim to minimize barriers to rapid entry into the C2M2
+ecosystem and its downstream applications.
 
 A C2M2 topic requiring special attention is the use of _identifiers_.
 
@@ -171,103 +207,125 @@ A C2M2 topic requiring special attention is the use of _identifiers_.
 
 ### C2M2 identifiers
 
-* _Two complementary identifier slots for DCC-issued records_
-   * `persistent_id`: _persistent and resolvable ID (ideal, but optional)_
-   * `id_namespace`, `local_id`: _2-part key is as least-common denominator_
-* _The optional persistent identifier is a DOI, ARK, MINID, etc._
-* _The 2-element composite identifier conveys fragments of a record URI_
-   * `local_id` _bears a name from some namespace, e.g. an accession ID_
-   * `id_namespace` _specifies which namespace, i.e. left-hand side of a URI_
-   * _concatenation of namespace + local yields the full record URI_
-   * _URIs are cheap and easy: low barrier to entry, no hosting requirements_
-* _To steer users directly to data, we require_ `persistent_id`_!_
-* _Otherwise, we can steer users towards the DCC contact._
-* _For consistency, we repeat this scheme on several entity tables._
+C2M2 is designed to be a framework for sharing information with the
+global research community about useful experimental resources.
+To be scientifically useful, this information (metadata) should be
+**well-described** and **self-contained**: enough, at least, to
+direct unambiguous future replication of the experiments involved.
+More to the point, C2M2 metadata should also be directly
+**reusable in new experiments** wherever possible.
 
-_Not all DCCs arrive having adopted robust, persistent and resolvable identifiers,
-or we could just mandate their use to identify all records. We need to
-support different DCC identifier maturity levels, and so we need to keep_
-`persistent_id` _optional._
+C2M2 metadata will be managed and curated by Common Fund DCCs
+to standardize and stabilize it for future research use. CFDE's
+explicit mission for C2M2 is to create an information archive that can
+usefully serve researchers working without access to follow-up information,
+including (among other scenarios) for future work done after the funding
+lifecycle of each managing DCC has ended.
 
-_We add a 2-part composite identifier as something which can lower the barrier
-to entry: this is a URI that has been split into two parts. The web rules for
-forming URIs are very flexible: it takes essentially no cost and no real
-infrastructure to generate URIs, which are just rules for namespace hygiene
-laying out how a DCC can claim a namespace out of the ether, ideally rooted in
-some other basic name they own such as a DNS name (website domain) or even
-just an email address._
+C2M2 metadata will be created at different times by different
+DCCs working independently of one another. The first requirement
+for any system trying to integrate such information is to provide
+a standard way to unambiguously attach identifiers (IDs: formal names
+or labels) to resources described by the C2M2 metadata submitted
+by each DCC. As a minimum promise of structural integrity,
+C2M2 requirements guarantee that C2M2 IDs used by each DCC will
+not clash with any others in the system (present or future).
 
-_(For those who don’t know, the difference between a URI and a URL is that a
-URI is just an identifier.  It doesn’t have to address any actual web server
-which responds to messages, so you can produce URIs all day long and never
-worry about hosting costs, availability, etc.)_
+Beyond basic structural integrity, C2M2 also offers support for
+optional citation-stable IDs which encode actionable information
+that users or automated software can follow to further interact
+with the resource named by the ID.
 
-_The core idea is that most DCCs will have some accession ID or other
-locally-unique key for their assets already. They can copy that value
-into the_ `local_id` _part or define some other mapping of their own
-choosing, there. Then, they can either define a new_ `id_namespace` _or pass
-through an applicable, existing URI prefix as the_ `id_namespace` _component.
-As long as each DCC follows the web rules to use an_ `id_namespace` _they “own”,
-collisions are automatically avoided (where two DCCs might try to use the
-same composite identifier)._
+Resources represented as C2M2 entities (`file`, `biosample`,
+`project`, etc.; see the
+[C2M2 technical specification](#c2m2-technical-specification)
+for scope and detail) **must** be identified with a C2M2 ID,
+and **may also** be identified with a `persistent_id`.
+C2M2 IDs ensure the basic structural integrity of the overall C2M2
+system. Optional `persistent_id` identifiers are meant to be
+stable enough to be scientifically cited, and to provide for further
+investigation by accessing related resolver services.
 
-_We also allow for the use of persistent, resolvable identifiers for things
-which are not really data. We suspect that many of the same practical
-benefits of these identifiers for data might apply to other entity
-types, even if resolution might lead to landing pages and contact
-info which at most guides users to documentation or other possible
-actions they might take in the real world or in the parallel
-bureaucratic world. (Attempting to directly download subjects or
-biosamples might trigger some unexpected and unpleasant -- although
-possibly comical -- downstream side effects.)_
+To be used as a C2M2 `persistent_id`, an ID
+1. will represent an explicit commitment by the managing DCC that the attachment of the ID to the resource it represents is **permanent and final**
+2. must be a format-compliant [URI](https://tools.ietf.org/html/rfc3986) or a [compact identifier](https://n2t.net/e/compact_ids.html), where
+the protocol (the "scheme" or "prefix") specified in the ID is registered with at least one of the following (see the given lists for examples of URIs and compact identifiers)
+   * the IANA ([list of registered schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml))
+      * scheme used must be assigned either "Permanent" or "Provisional" status
+   * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
+   * N2T (Name-To-Thing) ([list of registered prefixes](https://n2t.net/e/n2t_full_prefixes.yaml))
+3. if representing a `file`, an ID used as a `persistent_id` **cannot** be
+a direct-download URL for that `file`: it must instead be an identifier
+permanently attached to the `file` and only **indirectly resolvable**
+(through the scheme or prefix specified within the ID) to the `file` itself
+
+These requirements constitute a minimal set of rules to ensure
+that C2M2 resources can be stably cited in scientific literature
+and automatically reused in future research. Clearly, though,
+the production and maintenance of `persistent_ids` represents a substantial
+investment of time, thought and effort, and we also emphasize
+that not every C2M2 resource record that _can_ receive a `persistent_id`
+will necessarily ever _need_ one. These IDs -- while representing a gold
+standard for stability and long-term access -- are **strictly optional**.
+DCCs should also note that without `persistent_ids`, digital
+file assets represented in C2M2 will serve _only_ as inventory items and
+annotated search results: permanent, indirected `persistent_ids` are
+required in order to enable _any_ automated interoperability between actual
+data files referenced by C2M2 records and external software systems (including
+direct download access to files).
+
+Since `persistent_id` is always optional, C2M2 provides a separate
+structure to provide for universal identification: the basic **C2M2 ID** is
+a two-part label comprised of a prefix (`id_namespace`)
+and a suffix (`local_id`) which, concatenated, make up the ID.
+C2M2 IDs fall into categories described by three main cases:
+
+1. A `persistent_id` already exists for the object being named.
+   * if the `persistent_id` is a URI, then that URI should be split
+   to form a C2M2 ID (see the [URI reference](https://tools.ietf.org/html/rfc3986)
+   for precise definitions of terms like "scheme" and "path" in
+   this context):
+	   * `id_namespace` (prefix): `scheme://authority/`
+	   * `local_id` (suffix): `path`
+	   * Example: an SRA accession URI `https://www.ncbi.nlm.nih.gov/sra/SRX000007`
+	   stored in C2M2 as a `persistent_id` would	be split, to form a corresponding
+	   C2M2 ID, into
+	      * an `id_namespace` prefix of `https://www.ncbi.nlm.nih.gov/sra/`
+	      * and a `local_id` suffix of `SRX000007`
+   * if the existing `persistent_id` is not a URI but instead is a compact identifier,
+   it should be split similarly, with the details determined according to
+   the particular format specification for the prefix being used: the issuing
+   or owning authority (plus a delimiter) should constitute the `id_namespace` prefix,
+   and the ID of the particular thing being referenced should be stored in the `local_id` suffix.
+      * Example: the DOI compact identifier `doi:10.1006/jmbi.1998.2354` would be split into
+         * an `id_namespace` prefix of `doi:10.1006/`
+         * and a `local_id` suffix of `jmbi.1998.2354`
+
+2. A DCC already uses URIs to identify things that correspond to C2M2 entities (`files`,
+`biosamples`, etc.), but those URIs don't meet all the criteria to be C2M2
+`persistent_ids` (e.g. they're not guaranteed to be permanent), those URIs
+can still be split into an `id_namespace` prefix (describing the controlling
+authority, e.g. the DCC or one of its organizational data sources) and a
+`local_id` suffix (describing the object being identified) to form a C2M2 ID.
+(For records with IDs built like this, `persistent_id` would be left blank.)
+
+3. A DCC only has local identifiers for such entities. In this case, each local
+identifier will be the corresponding C2M2 `local_id` suffix (sanitized as necessary
+for URI safety), and the `id_namespace` prefix can be constructed according to the
+['tag' URI proposal](https://tools.ietf.org/html/rfc4151).
+   * Example: The tag-URI-based `id_namespace`/`local_id` C2M2 ID for
+   a C2M2 `biosample` record representing Sample A-867-5309 at
+   the Flerbiger's Disease Project (FDP) -- a non-permanent, strictly local
+   sample ID assigned by the FDP for their C2M2 submission built at the end
+   of the first quarter of 2021 -- might be (an email address would also work in place of 'flerbiger.org' below)
+      * `id_namespace`: `tag:flerbiger.org,2021-03-31:`
+      * `local_id`: `A-867-5309`
 
 --------------------------------------------------------------------------------
 
-* _For a DCC already issuing persistent, resolvable IDs_
-   * `persistent_id`: _fill with canonical ID_
-   * `id_namespace`, `local_id`: _fill with (split) copy of canonical ID_
-* _For a DCC already issuing relatively stable URIs_
-   * `persistent_id`: _leave blank until ready_
-   * `id_namespace`, `local_id`: _fill with (split) copy of URI_
-* _For a DCC already issuing local accession IDs_
-   * `persistent_id`: _leave blank until ready_
-   * `local_id`: _fill with local accession ID_
-   * `id_namespace`: _choose an appropriate namespace URI-prefix_
-* _For a DCC without local ID stability_
-   * _Need to invent something approximating accession ID and proceed as above_
+### C2M2 examples
 
-_If a DCC already uses persistent identifiers such as DOIs, ARKs, or_
-_other short identifiers resolvable by some name-to-thing service then they can_
-_just put that value into all the identifier fields:_
-
-* _verbatim in the_ `persistent_id` _field so that consumers know a_ `persistent_id` _is available for this record_
-* _split and replicated into the_ `id_namespace` _and_ `local_id` _fields so that the core C2M2 requirement for a record key is met_
-* _there is no need for the DCC to issue and juggle two separate identifier formats, but the compromise C2M2 format requires the fields to be populated_
-
-_If a DCC already uses URIs or URLs for entities having a one-to-one
-correspondence to C2M2 record concepts, they can split that URI or
-URL into a namespace prefix part and a final local part and use
-those values to fill the 2-part composite record identifier. They would
-probably leave_ `persistent_id` _blank._
-
-_If a DCC only has local identifiers for such entities, they can put
-that in the_ `local_id` _part and then fabricate a new_ `id_namespace`
-_representing their DCC or the sub-organizational scope where these
-local identifiers are indeed unique. The same _ `id_namespace` _should
-be reused for all peer records with local parts coming from the
-same DCC naming system._
-
-_Having stable identifier management is, unavoidably, basic
-“table stakes” for a DCC to produce reusable data. Archiving
-and indexing options like those provided by C2M2 are extremely
-limited in the absence of some method of persistent
-bookkeeping to track inventory: persistent identifiers are
-a core requirement precisely because without them, federated
-views of resource metadata from multiple DCCs cannot be maintained._
-
---------------------------------------------------------------------------------
-
-### Level 0
+#### A minimal C2M2 submission
 
 C2M2 Level 0 defines a **minimal valid
 [C2M2 instance](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance).**
@@ -326,7 +384,7 @@ an example Level-0-compliant TSV submission collection can be found
 
 --------------------------------------------------------------------------------
 
-### Level 1
+### A basic relational C2M2 submission
 
 C2M2 Level 1 models **basic experimental resources and associations between them**.
 This level of metadata richness is more difficult to produce than Level 0's flat
@@ -734,7 +792,7 @@ submission as one of these BDBags: we provide a valid one here for reference.)
 
 --------------------------------------------------------------------------------
 
-### Level 2
+### C2M2 technical specification
 
 _C2M2 Level 2 is currently being drafted: publication of a complete specification is expected by the end of 2020._
 
