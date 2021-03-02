@@ -332,31 +332,38 @@ for URI safety), and the `id_namespace` prefix can be constructed according to t
 
 ### C2M2 examples
 
-#### A minimal C2M2 submission
+#### Example 1: A minimal C2M2 submission
 
-C2M2 Level 0 defines a **minimal valid
-[C2M2 instance](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance).**
-Data submissions at this level of
-[metadata richness](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-richness-levels)
-will be the easiest to produce, and will support the simplest available
-functionality implemented by downstream applications.
+As an introductory example, we demonstrate a small-scale, minimal
+[C2M2 submission](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance).
+This sample [DCC](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc)
+submission (a real-life first-draft submission from <a href="https://commonfund.nih.gov/idg">IDG</a>)
+represents a flat inventory of DCC [files](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#file),
+and its contents are limited to the minimum metadata needed to build a valid C2M2 instance.
 
-#### Level 0 submission process: overview
+Data submissions with this level of metadata richness will be the
+easiest to produce, but will support only the simplest functionality
+implemented by downstream applications, e.g. contributing byte counts to
+display interfaces summarizing DCC resources, or serving as
+information-only resource targets for basic user searches.
 
-Metadata submissions at Level 0 will consist of a single
-[TSV file](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv)
-describing a **collection of digital
-[files](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#file)**
-owned or managed by a
-[DCC](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc).
-The properties listed for the Level 0 `file` entity (see below for
-diagram and definitions) will serve as the TSV's column headers; each TSV
-row will represent a single file. The Level 0 TSV itself thus represents a
-**manifest or inventory** of digital files that a DCC wants to introduce
-into the C2M2 metadata ecosystem.
+A JSON Schema document (implementing [Frictionless Data](https://frictionlessdata.io/)'s
+"[Data Package](https://frictionlessdata.io/data-package/)" container
+meta-specification) defining the example TSV collection for this example can be found
+[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/C2M2_minimal_submission_example.datapackage.json),
+with the submission itself
+[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/)
+(as a bare collection of [TSV](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv) files) and
+[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG.tgz)
+(as a packaged BDBag archive).
 
-This level encodes the most basic file metadata: its use by downstream applications will be
-limited to informing the least specific level of data accounting, querying and reporting.
+Our minimal example submission contains three one-line tables containing
+the minimum required [attributional metadata](#c2m2-overview) for a valid C2M2
+submission (information about the [DCC itself](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/project.tsv);
+a [technical contact](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/primary_dcc_contact.tsv) for the submission;
+and an [identifier namespace](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/id_namespace.tsv)),
+plus a `file` table listing basic information about DCC file
+assets.
 
 |_Minimal C2M2 submission: example model diagram_|
 |:---:|
@@ -367,42 +374,34 @@ for pedagogical clarity during this introductory example, as have entire
 C2M2 tables that aren't directly relevant to the basic example. For the
 full list of C2M2 tables and fields please see the complete C2M2 ER diagram
 in the [C2M2 technical specification](#c2m2-technical-specification) below.
+
 (For validation purposes, all actual C2M2 submissions to CFDE should
 contain one TSV file for each C2M2 table -- including tables not drawn above
 -- but most of these can optionally be sent in as header-only stub files
 (with no record rows), if that ends up being appropriate to the design of the
-submission.
+submission.)
 
-#### Level 0 technical specification: properties of the `file` entity
+The names of the fields given below for the `file` entity serve as
+column headers in this submission's [`file.tsv`](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/file.tsv);
+each subsequent row in `file.tsv` represents a single file asset being described by the submitting DCC.
+So `file.tsv` represents a **manifest or inventory** of digital files that
+a DCC decides to introduce into the C2M2 metadata ecosystem.
 
 **Required: `id_namespace` `local_id` `sha256|md5`**
 
-|property|description|
+|field|description|
 |:---:|:---|
-| `id_namespace` | String **identifier devised by the DCC managing this `file`** (cleared by CFDE-CC to avoid clashes with any preexisting `id_namespace` values). The value of this property will be used together with `local_id` as a **composite key structure formally identifying Level 0 `file` entities** within the total C2M2 data space. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
-| `local_id` | Unrestricted-format **string identifying this `file`**: can be any string as long as it **uniquely identifies each `file`** within the scope defined by the accompanying `id_namespace` value. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
-| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
+| `id_namespace` | A CFDE-cleared identifier representing the top-level data space containing this `file`: part 1 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
+| `local_id` | An identifier representing this file, unique within this `id_namespace`: part 2 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
+| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around.  See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
 | `size_in_bytes` | The **size of this `file` in bytes**. This varies (even for "copies" of the same `file`) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: precise, reproducible file size integrity metadata will be provided in the form of checksum data in the `sha256` and/or `md5` properties. `size_in_bytes` will instead underpin automatic reporting of approximate storage statistics across different C2M2 collections of DCC metadata. |
 | `sha256` | **CFDE-preferred** file checksum string: the output of the SHA-256 cryptographic hash function after being run on this `file`. One or both of `sha256` and `md5` is required. |
 | `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. One or both of `sha256` and `md5` is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, CFDE will accept them.) |
 | `filename` | A filename with no prepended PATH information. |
 
-#### Level 0 technical specification: JSON Schema and example TSVs
+#### Example 2: A basic relational C2M2 submission
 
-A JSON Schema document (implementing
-[Frictionless Data](https://frictionlessdata.io/)'s
-"[Data Package](https://frictionlessdata.io/data-package/)"
-container meta-specification) defining the Level 0 TSV can be found
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_0.datapackage.json);
-an example Level-0-compliant TSV submission collection can be found
-[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.contents/file.tsv)
-(just the `file.tsv` portion) and
-[here](../draft-C2M2_example_submission_data/HMP__sample_C2M2_Level_0_bdbag.tgz)
-(as a packaged BDBag archive).
-
---------------------------------------------------------------------------------
-
-### A basic relational C2M2 submission
+_this section is under construction: rewrite is imminent, apologies; some terminology here is obsolete; most of this will be merged down into the subsequent [technical specification](#c2m2-technical-specification) section_ 
 
 C2M2 Level 1 models **basic experimental resources and associations between them**.
 This level of metadata richness is more difficult to produce than Level 0's flat
@@ -433,8 +432,6 @@ Level 2. The following are **not modeled at Level 1**:
       * full collection of features like anatomy, taxonomy, and assay type,
       plus formal vocabularies to describe them
       * prerequisite to offering research users deep and detailed search possibilities
-
-#### Level 1 submission process: overview
 
 _Build the core C2M2 entity tables (black) and the C2M2 container tables (blue)
 shown in the diagram below, and fill out the DCC contact sheet (grey).
@@ -477,8 +474,6 @@ contain one TSV file for each C2M2 table -- including tables not drawn above
 -- but most of these can optionally be sent in as header-only stub files
 (with no record rows), if that ends up being appropriate to the design of the
 submission.
-
-#### Level 1 technical specification
 
 ##### Core entities
 
@@ -806,15 +801,14 @@ experimental resources.
       CV subsets on an ongoing basis (as new term requirements roll in from
       client metadata sources (DCCs) as they try to model their respective datasets)?_
 
-#### Level 1 metadata submission examples: Data Package JSON Schema and example TSVs
 
 A JSON Schema document -- implementing
 [Frictionless Data](https://frictionlessdata.io/)'s
 "[Data Package](https://frictionlessdata.io/data-package/)"
 container meta-specification -- defining the Level 1 TSV collection is
-[here](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json);
+**here**;
 an example Level-1-compliant TSV submission collection can be found
-[here](https://osf.io/uadny/) for inspection in two alternative forms: (1) a bare
+**here** for inspection in two alternative forms: (1) a bare
 collection of TSV files, and (2) a single packaged BDBag archive file containing those
 TSVs along with some packaging/manifest metadata. (DCCs will package each C2M2
 submission as one of these BDBags: we provide a valid one here for reference.)
