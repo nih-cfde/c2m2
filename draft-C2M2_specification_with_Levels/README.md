@@ -285,19 +285,24 @@ C2M2 IDs fall into categories described by three main cases:
    to form a C2M2 ID (see the [URI reference](https://tools.ietf.org/html/rfc3986)
    for precise definitions of terms like "scheme" and "path" in
    this context):
+
 	   * `id_namespace` (prefix): `scheme://authority/`
 	   * `local_id` (suffix): `path`
 	   * Example: an SRA accession URI `https://www.ncbi.nlm.nih.gov/sra/SRX000007`
 	   stored in C2M2 as a `persistent_id` would	be split, to form a corresponding
 	   C2M2 ID, into
+
 	      * an `id_namespace` prefix of `https://www.ncbi.nlm.nih.gov/sra/`
 	      * and a `local_id` suffix of `SRX000007`
+
    * if the existing `persistent_id` is not a URI but instead is a compact identifier,
    it should be split similarly, with the details determined according to
    the particular format specification for the prefix being used: the issuing
    or owning authority (plus a delimiter) should constitute the `id_namespace` prefix,
    and the ID of the particular thing being referenced should be stored in the `local_id` suffix.
+
       * Example: the DOI compact identifier `doi:10.1006/jmbi.1998.2354` would be split into
+
          * an `id_namespace` prefix of `doi:10.1006/`
          * and a `local_id` suffix of `jmbi.1998.2354`
 
@@ -313,11 +318,13 @@ authority, e.g. the DCC or one of its organizational data sources) and a
 identifier will be the corresponding C2M2 `local_id` suffix (sanitized as necessary
 for URI safety), and the `id_namespace` prefix can be constructed according to the
 ['tag' URI proposal](https://tools.ietf.org/html/rfc4151).
+
    * Example: The tag-URI-based `id_namespace`/`local_id` C2M2 ID for
    a C2M2 `biosample` record representing Sample A-867-5309 at
    the Flerbiger's Disease Project (FDP) -- a non-permanent, strictly local
    sample ID assigned by the FDP for their C2M2 submission built at the end
    of the first quarter of 2021 -- might be (an email address would also work in place of 'flerbiger.org' below)
+
       * `id_namespace`: `tag:flerbiger.org,2021-03-31:`
       * `local_id`: `A-867-5309`
 
