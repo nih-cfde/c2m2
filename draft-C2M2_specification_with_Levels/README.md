@@ -280,7 +280,7 @@ a two-part label comprised of a prefix (`id_namespace`)
 and a suffix (`local_id`) which, concatenated, make up the ID.
 C2M2 IDs fall into categories described by three main cases:
 
-1. A `persistent_id` already exists for the object being named.
+**[1]** A `persistent_id` already exists for the object being named.**
 
    * if the `persistent_id` is a URI, then that URI should be split
    to form a C2M2 ID (see the [URI reference](https://tools.ietf.org/html/rfc3986)
@@ -307,7 +307,7 @@ C2M2 IDs fall into categories described by three main cases:
          * an `id_namespace` prefix of `doi:10.1006/`
          * and a `local_id` suffix of `jmbi.1998.2354`
 
-2. A DCC already uses URIs to identify things that correspond to C2M2 entities (`files`,
+**[2]** A DCC already uses URIs to identify things that correspond to C2M2 entities (`files`,
 `biosamples`, etc.), but those URIs don't meet all the criteria to be C2M2
 `persistent_ids` (e.g. they're not guaranteed to be permanent), those URIs
 can still be split into an `id_namespace` prefix (describing the controlling
@@ -315,7 +315,7 @@ authority, e.g. the DCC or one of its organizational data sources) and a
 `local_id` suffix (describing the object being identified) to form a C2M2 ID.
 (For records with IDs built like this, `persistent_id` would be left blank.)
 
-3. A DCC only has local identifiers for such entities. In this case, each local
+**[3]** A DCC only has local identifiers for such entities. In this case, each local
 identifier will be the corresponding C2M2 `local_id` suffix (sanitized as necessary
 for URI safety), and the `id_namespace` prefix can be constructed according to the
 ['tag' URI proposal](https://tools.ietf.org/html/rfc4151).
