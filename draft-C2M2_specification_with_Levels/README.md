@@ -281,6 +281,7 @@ and a suffix (`local_id`) which, concatenated, make up the ID.
 C2M2 IDs fall into categories described by three main cases:
 
 1. A `persistent_id` already exists for the object being named.
+
    * if the `persistent_id` is a URI, then that URI should be split
    to form a C2M2 ID (see the [URI reference](https://tools.ietf.org/html/rfc3986)
    for precise definitions of terms like "scheme" and "path" in
