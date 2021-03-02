@@ -840,9 +840,7 @@ here: neither completeness nor any particular priority order is implied.
 has begun to address this problem space) 
 * structured addressbook for documenting and linking **organizations
 (`common_fund_program`), roles/personae and actual people** to C2M2 metadata
-* fuller and more robust elaboration of scientific attributes of C2M2 entities using
-**controlled-vocabulary metadata decorations** (a dedicated CFDE ontology working
-group has begun to address this problem space)
+* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations** (a dedicated CFDE ontology working group has begun to address this problem space)
    * i.e., substrate data for facet-search targets
 	* e.g., `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
 
