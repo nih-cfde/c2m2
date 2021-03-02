@@ -351,9 +351,20 @@ into the C2M2 metadata ecosystem.
 This level encodes the most basic file metadata: its use by downstream applications will be
 limited to informing the least specific level of data accounting, querying and reporting.
 
-|_Level 0 model diagram_|
+|_Minimal C2M2 submission: example model diagram_|
 |:---:|
-|![Level 0 model diagram](../draft-C2M2_ER_diagrams/Level-0-C2M2-model.png "Level 0 model diagram")|
+|<img src="../draft-C2M2_ER_diagrams/minimal_submission_example.png" alt="Minimal C2M2 submission: example model diagram" width="500">|
+
+Note: some optional fields have been omitted from tables in this diagram
+for pedagogical clarity during this introductory example, as have entire
+C2M2 tables that aren't directly relevant to the basic example. For the
+full list of C2M2 tables and fields please see the complete C2M2 ER diagram
+in the [C2M2 technical specification](#c2m2-technical-specification) below.
+(For validation purposes, all actual C2M2 submissions to CFDE should
+contain one TSV file for each C2M2 table -- including tables not drawn above
+-- but most of these can optionally be sent in as header-only stub files
+(with no record rows), if that ends up being appropriate to the design of the
+submission.
 
 #### Level 0 technical specification: properties of the `file` entity
 
@@ -445,9 +456,20 @@ _Color key:_
       * _(possibly multiple) NCBI Taxonomy ID attributions_
       * _specification (and individual annotation) of subject sub-entities based on generic roles in observational ecosystems, like "host," "pathogen," "site-specific microbiome," "basic single organism" (default), etc._
 
-|_Level 1 model diagram_|
+|_Basic relational C2M2 submission: example model diagram_|
 |:---:|
-|![Level 1 model diagram](../draft-C2M2_ER_diagrams/Level-1-C2M2-model.png "Level 1 model diagram")|
+|<img src="../draft-C2M2_ER_diagrams/relational_submission_example.png" alt="Basic relational C2M2 submission: example model diagram">|
+
+Note: some optional fields have been omitted from tables in this diagram
+for pedagogical clarity during this introductory example, as have entire
+C2M2 tables that aren't directly relevant to the basic example. For the
+full list of C2M2 tables and fields please see the complete C2M2 ER diagram
+in the [C2M2 technical specification](#c2m2-technical-specification) below.
+(For validation purposes, all actual C2M2 submissions to CFDE should
+contain one TSV file for each C2M2 table -- including tables not drawn above
+-- but most of these can optionally be sent in as header-only stub files
+(with no record rows), if that ends up being appropriate to the design of the
+submission.
 
 #### Level 1 technical specification
 
@@ -794,20 +816,35 @@ submission as one of these BDBags: we provide a valid one here for reference.)
 
 ### C2M2 technical specification
 
-_C2M2 Level 2 is currently being drafted: publication of a complete specification is expected by the end of 2020._
+|_C2M2 model diagram_|
+|:---:|
+|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
 
-1. _**New modeling concept checklist:**_
-	* clinical **visit data**
-	* modular **experimental flow (`protocol`)**
-	* resource (entity) **provenance (`[data|material]_event` network)**
-	* structured addressbook for documenting and linking **organizations
-	(`common_fund_program`), roles/personae and actual people** to C2M2 metadata
-	* **protected data**
-	* full elaboration of scientific attributes of C2M2 entities using
-	**controlled-vocabulary metadata decorations**
-	   * i.e., substrate data for facet-search targets
-	   * e.g., Level 1's `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
-	   * [enumerate requirements and scope for more complex modeling of scientific
-	   metadata_]
+
+--------------------------------------------------------------------------------
+
+### Future work
+
+Publication of a complete RFC specification describing the initial formal version of C2M2
+is expected by April 2021.
+
+Several modeling concepts not finalized prior to the release of the first version
+are slated for immediate consideration following the publication of the RFC. Some are listed
+here: neither completeness nor any particular priority order is implied.
+
+* clinical **visit data**
+* `file_in_file` relationships to allow publication of (sub-`file`) archive contents
+* modular **experimental flow (`protocol`)**
+* resource (entity) **provenance (`[data|material]_event` network)**
+* some sort of support for gene-level metadata (a dedicated CFDE gene working group
+has begun to address this problem space) 
+* structured addressbook for documenting and linking **organizations
+(`common_fund_program`), roles/personae and actual people** to C2M2 metadata
+* fuller and more robust elaboration of scientific attributes of C2M2 entities using
+**controlled-vocabulary metadata decorations** (a dedicated CFDE ontology working
+group has begun to address this problem space)
+   * i.e., substrate data for facet-search targets
+	* e.g., `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
+
 
 --------------------------------------------------------------------------------

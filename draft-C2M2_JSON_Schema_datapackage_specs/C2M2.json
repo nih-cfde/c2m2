@@ -8,7 +8,7 @@
          "name": "file",
          "title": "file",
          "path": "file.tsv",
-         "description": "A digital asset",
+         "description": "A stable digital asset",
          "schema": {
             "fields": [
                {
@@ -45,7 +45,7 @@
                },
                {
                   "name": "persistent_id",
-                  "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this file",
+                  "description": "A persistent, resolvable (not necessarily retrievable) URI or compact ID permanently attached to this file",
                   "type": "string"
                },
                {
@@ -190,7 +190,7 @@
                },
                {
                   "name": "persistent_id",
-                  "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this biosample",
+                  "description": "A persistent, resolvable (not necessarily retrievable) URI or compact ID permanently attached to this biosample",
                   "type": "string"
                },
                {
@@ -270,7 +270,7 @@
                },
                {
                   "name": "persistent_id",
-                  "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this subject",
+                  "description": "A persistent, resolvable (not necessarily retrievable) URI or compact ID permanently attached to this subject",
                   "type": "string"
                },
                {
@@ -314,7 +314,7 @@
          "name": "primary_dcc_contact",
          "title": "primary_dcc_contact",
          "path": "primary_dcc_contact.tsv",
-         "description": "One primary contact person for the Common Fund data coordinating center (DCC) that produced the top-level C2M2 metadataset identified by the given project foreign key",
+         "description": "One primary contact person for the Common Fund data coordinating center (DCC, identified by the given project foreign key) that produced this C2M2 instance",
          "schema": {
             "fields": [
                {
@@ -336,7 +336,7 @@
                },
                {
                   "name": "project_id_namespace",
-                  "description": "The id_namespace of the project record representing the top-level C2M2 metadataset produced by this contact's DCC [part 1 of 2-component composite foreign key]",
+                  "description": "The id_namespace of the project record representing this contact's DCC [part 1 of 2-component composite foreign key]",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -344,7 +344,7 @@
                },
                {
                   "name": "project_local_id",
-                  "description": "The local_id of the project record representing the top-level C2M2 metadataset produced by this contact's DCC [part 2 of 2-component composite foreign key]",
+                  "description": "The local_id of the project record representing this contact's DCC [part 2 of 2-component composite foreign key]",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -419,7 +419,7 @@
                },
                {
                   "name": "persistent_id",
-                  "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this project",
+                  "description": "A persistent, resolvable (not necessarily retrievable) URI or compact ID permanently attached to this project",
                   "type": "string"
                },
                {
@@ -542,7 +542,7 @@
                },
                {
                   "name": "persistent_id",
-                  "description": "A persistent, resolvable (not necessarily retrievable) URI permanently attached to this collection",
+                  "description": "A persistent, resolvable (not necessarily retrievable) URI or compact ID permanently attached to this collection",
                   "type": "string"
                },
                {
@@ -1391,7 +1391,7 @@
             "fields": [
                {
                   "name": "id",
-                  "description": "ID of the identifier namespace",
+                  "description": "ID of this identifier namespace",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -1399,7 +1399,7 @@
                },
                {
                   "name": "abbreviation",
-                  "description": "A very short display label for this ID namespace",
+                  "description": "A very short display label for this identifier namespace",
                   "type": "string",
                   "constraints": {
                      "pattern": "^[a-zA-Z0-9_]+$"
@@ -1407,12 +1407,12 @@
                },
                {
                   "name": "name",
-                  "description": "A short, human-readable, machine-read-friendly label for this ID namespace",
+                  "description": "A short, human-readable, machine-read-friendly label for this identifier namespace",
                   "type": "string"
                },
                {
                   "name": "description",
-                  "description": "A human-readable description of this ID namespace",
+                  "description": "A human-readable description of this identifier namespace",
                   "type": "string"
                }
             ],
