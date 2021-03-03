@@ -336,27 +336,25 @@ for URI safety), and the `id_namespace` prefix can be constructed according to t
 #### Example 1: A minimal C2M2 submission
 
 As an introductory example, we demonstrate a small-scale, minimal
-[C2M2 submission](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance).
-This sample [DCC](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc)
-submission (a real-life first-draft submission from <a href="https://commonfund.nih.gov/idg">IDG</a>)
-represents a flat inventory of DCC [files](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#file),
-and its contents are limited to the minimum metadata needed to build a valid C2M2 instance.
+C2M2 submission.
+This sample DCC submission (based on a real-life first-draft submission
+from <a href="https://commonfund.nih.gov/idg">IDG</a>) represents a
+flat inventory of DCC `files`, and its contents are limited to the
+minimum metadata needed to build a valid C2M2 instance.
 
 Data submissions with this level of metadata richness will be the
 easiest to produce, but will support only the simplest functionality
-implemented by downstream applications, e.g. contributing byte counts to
-display interfaces summarizing DCC resources, or serving as
-information-only resource targets for basic user searches.
+implemented by downstream applications, for example by contributing
+byte counts to display interfaces broadly summarizing DCC resources, or
+serving as information-only metadata resource targets for basic user
+searches.
 
 A JSON Schema document (implementing [Frictionless Data](https://frictionlessdata.io/)'s
 "[Data Package](https://frictionlessdata.io/data-package/)" container
 meta-specification) defining the entire C2M2 TSV collection can be found
-[here](https://osf.io/e5tc2/),
-with the submission itself available
-[here](https://osf.io/mqey3/)
-(as a bare collection of [TSV](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv) files) and
-[here](https://osf.io/rasm8/)
-(as a packaged BDBag archive).
+[here](https://osf.io/e5tc2/), with the submission itself available
+[here](https://osf.io/mqey3/) (as a bare collection of TSV files) and
+[here](https://osf.io/rasm8/) (as a packaged BDBag archive).
 
 Our minimal example submission contains three one-line tables containing
 the minimum required [attributional metadata](#c2m2-overview) for a valid C2M2
