@@ -426,6 +426,8 @@ apologies. Some terminology between this paragraph and the
 down into the more general [C2M2 technical specification](#c2m2-technical-specification)
 section below. Thanks in advance for your patience._
 
+--------------------------------------------------------------------------------
+
 #### Example 2: A basic relational C2M2 submission
 
 C2M2 Level 1 models **basic experimental resources and associations between them**.
@@ -862,13 +864,9 @@ here: neither completeness nor any particular priority order is implied.
 * `file_in_file` relationships to allow publication of (sub-`file`) archive contents
 * modular **experimental flow (`protocol`)**
 * resource (entity) **provenance (`[data|material]_event` network)**
-* some sort of support for gene-level metadata (a dedicated CFDE gene working group
-has begun to address this problem space) 
+* some sort of support for gene-level metadata  (A dedicated **CFDE gene working group** has begun to address this problem space.)
 * structured addressbook for documenting and linking **organizations
 (`common_fund_program`), roles/personae and actual people** to C2M2 metadata
-* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations** (a dedicated CFDE ontology working group has begun to address this problem space)
-   * i.e., substrate data for facet-search targets
-	* e.g., `anatomy`, `assay_type`, `ncbi_taxonomy`, etc.)
-
+* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations**, i.e. substrate data for facet-search targets: current examples include `anatomy`, `assay_type`, `ncbi_taxonomy`, etc. (A dedicated **CFDE ontology working group** has begun to address this problem space.)
 
 --------------------------------------------------------------------------------
