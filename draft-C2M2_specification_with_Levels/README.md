@@ -333,58 +333,77 @@ for URI safety), and the `id_namespace` prefix can be constructed according to t
 
 ### C2M2 examples
 
+--------------------------------------------------------------------------------
+
 #### Example 1: A minimal C2M2 submission
 
-As an introductory example, we demonstrate a small-scale, minimal
-C2M2 submission.
-This sample DCC submission (based on a real-life first-draft submission
-from <a href="https://commonfund.nih.gov/idg">IDG</a>) represents a
-flat inventory of DCC `files`, and its contents are limited to the
-minimum metadata needed to build a valid C2M2 instance.
+As an introductory example, we offer a sample small-scale, minimal
+C2M2 submission. Based on a real-life first-draft submission
+from the <a href="https://druggablegenome.net/">IDG</a> DCC, this
+datapackage represents a flat inventory of DCC `files`,
+and its contents are limited to the minimum metadata needed
+to build a valid C2M2 instance.
 
-Data submissions with this level of metadata richness will be the
-easiest to produce, but will support only the simplest functionality
-implemented by downstream applications, for example by contributing
-byte counts to display interfaces broadly summarizing DCC resources, or
-serving as information-only metadata resource targets for basic user
-searches.
+| _resource_ | _available as_ |
+| :--- | :---: |
+| Submission (metadata tables only) | [collection of separate TSV tables](https://osf.io/mqey3/) |
+| Submission (complete) | [one bundled BDBag file](https://osf.io/m52pr/) |
+| C2M2 JSON Schema | [`C2M2_datapackage.json`](https://osf.io/e5tc2/) |
 
-A JSON Schema document (implementing [Frictionless Data](https://frictionlessdata.io/)'s
-"[Data Package](https://frictionlessdata.io/data-package/)" container
-meta-specification) defining the entire C2M2 TSV collection can be found
-[here](https://osf.io/e5tc2/), with the submission itself available
-[here](https://osf.io/mqey3/) (as a bare collection of TSV files) and
-[here](https://osf.io/rasm8/) (as a packaged BDBag archive).
+This sample submission contains three one-row tables, storing
+just the minimum required [attributional metadata](#c2m2-overview) for a
+valid C2M2 submission (basic information about the [DCC itself](https://osf.io/rc4ug/),
+a [technical contact](https://osf.io/wh42f/) for the submission,
+and an [identifier namespace](https://osf.io/seqxh/)), plus a
+[`file`](https://osf.io/8yvsb/) table listing basic metadata about
+specific DCC files. Also attached is the JSON Schema describing the entire
+C2M2 system, both to assist in submission preparation and to enable
+automated validation of the C2M2 metadata during the submission
+process.
 
-Our minimal example submission contains three one-line tables containing
-the minimum required [attributional metadata](#c2m2-overview) for a valid C2M2
-submission (information about the [DCC itself](https://osf.io/rc4ug/);
-a [technical contact](https://osf.io/wh42f/) for the submission;
-and an [identifier namespace](https://osf.io/seqxh/)),
-plus a [`file`](https://osf.io/8yvsb/) table listing basic information about DCC file
-assets.
+Data submissions with this minimal level of metadata richness will be the
+easiest to produce -- only four of the 22 available C2M2 tables have
+any data in them, in this case --  but will support only the simplest
+functionality implemented by downstream applications. For example,
+submissions like this can contribute byte counts to displays summarizing
+DCC resources, or can provide simple metadata resource targets for
+user searches meant to gather preliminary information about DCC resources
+of possible interest.
 
-|_Minimal C2M2 submission: example model diagram_|
+The following is a diagram sketching the (nonempty) tables that
+constitute this sample submission, along with
+[foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key)
+relationships between tables (drawn as solid arrows).
+
+|_Minimal C2M2 submission example: relevant tables and relationships_|
 |:---:|
 |<img src="../draft-C2M2_ER_diagrams/minimal_submission_example.png" alt="Minimal C2M2 submission: example model diagram" width="500">|
 
-Note: some optional fields have been omitted from tables in this diagram
-for pedagogical clarity during this introductory example, as have entire
-C2M2 tables that aren't directly relevant to the basic example. For the
-full list of C2M2 tables and fields please see the complete C2M2 ER diagram
-in the [C2M2 technical specification](#c2m2-technical-specification) below.
+For simplicity of focus in this introductory example, some optional
+fields have been omitted from tables drawn in the diagram above (although
+we note that all _required_ fields have been preserved, marked with solid
+bullets next to field names). Similarly, 18 entire C2M2 tables that aren't
+directly relevant to this basic sample submission have also been left undrawn.
+A full list of all 22 C2M2 tables and fields (optional and otherwise)
+is given along with the complete C2M2 model diagram in the
+[C2M2 technical specification](#c2m2-technical-specification).)
 
-(For validation purposes, all actual C2M2 submissions to CFDE should
-contain one TSV file for each C2M2 table -- including tables not drawn above
--- but most of these can optionally be sent in as header-only stub files
-(with no record rows), if that ends up being appropriate to the design of the
-submission.)
+To facilitate validation and ensure standardization, all C2M2
+submissions to CFDE should contain one TSV file for each of the 22 C2M2
+tables, including tables not drawn above. (Inspection will show that this
+is in reality how the sample data has been configured: 18 tables specified in the
+[master C2M2 JSON Schema](https://osf.io/e5tc2/) are included in the
+[example TSV collection](https://osf.io/mqey3/) only as header rows followed by
+no data.) Most C2M2 tables can optionally be submitted as header-only stub
+files in this way, with no record rows, if that ends up being appropriate to
+the design of the particular submission being prepared.
 
-The names of the fields given below for the `file` entity serve as
-column headers in this submission's [`file.tsv`](https://osf.io/8yvsb/);
-each subsequent row in `file.tsv` represents a single file asset being described by the submitting DCC.
-So `file.tsv` represents a **manifest or inventory** of digital files that
-a DCC decides to introduce into the C2M2 metadata ecosystem.
+Key columns in the [C2M2 `file` table](https://osf.io/8yvsb/) for this
+submission -- which contains the entirety of the actual DCC-resource metadata
+for the submission -- are discussed below. Each row in a submission's
+`file.tsv` table describes a single (reproducible, non-ephemeral) file
+asset managed by the submitting DCC. (The [C2M2 technical specification](#c2m2-technical-specification)
+gives a complete list of fields in this and all other C2M2 tables.)
 
 **Required: `id_namespace` `local_id` `sha256|md5`**
 
@@ -392,15 +411,22 @@ a DCC decides to introduce into the C2M2 metadata ecosystem.
 |:---:|:---|
 | `id_namespace` | A CFDE-cleared identifier representing the top-level data space containing this `file`: part 1 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
 | `local_id` | An identifier representing this file, unique within this `id_namespace`: part 2 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
-| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around.  See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
+| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around.  See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. (Resolvable `persistent_ids` are not actually used in this sample submission, but we include the field here to emphasize both its potential and the fact that it's fully optional everywhere it appears.) |
 | `size_in_bytes` | The **size of this `file` in bytes**. This varies (even for "copies" of the same `file`) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: precise, reproducible file size integrity metadata will be provided in the form of checksum data in the `sha256` and/or `md5` properties. `size_in_bytes` will instead underpin automatic reporting of approximate storage statistics across different C2M2 collections of DCC metadata. |
 | `sha256` | **CFDE-preferred** file checksum string: the output of the SHA-256 cryptographic hash function after being run on this `file`. One or both of `sha256` and `md5` is required. |
-| `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. One or both of `sha256` and `md5` is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, CFDE will accept them.) |
+| `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. One or both of `sha256` and `md5` is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, we will accept those.) |
 | `filename` | A filename with no prepended PATH information. |
 
-#### Example 2: A basic relational C2M2 submission
+--------------------------------------------------------------------------------
 
-_this section is under construction: rewrite is imminent, apologies; some terminology here is obsolete; most of this will be merged down into the subsequent [technical specification](#c2m2-technical-specification) section_ 
+_The following section is under heavy construction at this moment: full
+restructuring is imminent (**really** imminent: first week of March 2021);
+apologies. Some terminology between this paragraph and the
+[tech spec](#c2m2-technical-specification) is obsolete; most of this section will be merged
+down into the more general [C2M2 technical specification](#c2m2-technical-specification)
+section below. Thanks in advance for your patience._
+
+#### Example 2: A basic relational C2M2 submission
 
 C2M2 Level 1 models **basic experimental resources and associations between them**.
 This level of metadata richness is more difficult to produce than Level 0's flat
