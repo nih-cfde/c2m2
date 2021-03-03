@@ -280,7 +280,7 @@ a two-part label comprised of a prefix (`id_namespace`)
 and a suffix (`local_id`) which, concatenated, make up the ID.
 C2M2 IDs fall into categories described by three main cases:
 
-**[1]** A `persistent_id` already exists for the object being named.**
+**[1]** A `persistent_id` already exists for the object being named.
 
    * if the `persistent_id` is a URI, then that URI should be split
    to form a C2M2 ID (see the [URI reference](https://tools.ietf.org/html/rfc3986)
@@ -350,20 +350,20 @@ information-only resource targets for basic user searches.
 
 A JSON Schema document (implementing [Frictionless Data](https://frictionlessdata.io/)'s
 "[Data Package](https://frictionlessdata.io/data-package/)" container
-meta-specification) defining the example TSV collection for this example can be found
-[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/C2M2_minimal_submission_example.datapackage.json),
-with the submission itself
-[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/)
+meta-specification) defining the entire C2M2 TSV collection can be found
+[here](https://osf.io/e5tc2/),
+with the submission itself available
+[here](https://osf.io/mqey3/)
 (as a bare collection of [TSV](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv) files) and
-[here](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG.tgz)
+[here](https://osf.io/rasm8/)
 (as a packaged BDBag archive).
 
 Our minimal example submission contains three one-line tables containing
 the minimum required [attributional metadata](#c2m2-overview) for a valid C2M2
-submission (information about the [DCC itself](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/project.tsv);
-a [technical contact](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/primary_dcc_contact.tsv) for the submission;
-and an [identifier namespace](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/id_namespace.tsv)),
-plus a `file` table listing basic information about DCC file
+submission (information about the [DCC itself](https://osf.io/rc4ug/);
+a [technical contact](https://osf.io/wh42f/) for the submission;
+and an [identifier namespace](https://osf.io/seqxh/)),
+plus a [`file`](https://osf.io/8yvsb/) table listing basic information about DCC file
 assets.
 
 |_Minimal C2M2 submission: example model diagram_|
@@ -383,7 +383,7 @@ contain one TSV file for each C2M2 table -- including tables not drawn above
 submission.)
 
 The names of the fields given below for the `file` entity serve as
-column headers in this submission's [`file.tsv`](../draft-C2M2_example_submission_data/minimal_C2M2_submission__IDG/file.tsv);
+column headers in this submission's [`file.tsv`](https://osf.io/8yvsb/);
 each subsequent row in `file.tsv` represents a single file asset being described by the submitting DCC.
 So `file.tsv` represents a **manifest or inventory** of digital files that
 a DCC decides to introduce into the C2M2 metadata ecosystem.
