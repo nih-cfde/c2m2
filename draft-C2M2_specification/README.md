@@ -306,19 +306,20 @@ C2M2 IDs fall into categories described by three main cases:
 
    * if the existing `persistent_id` is not a URI but instead is a compact identifier,
    it should be split similarly, with the details determined according to
-   the particular format specification for the prefix being used: the issuing
-   or owning authority (plus a delimiter) should constitute the `id_namespace` prefix,
-   and the ID of the particular thing being referenced should be stored in the `local_id` suffix.
+   the particular format specification for the prefix being used: a scheme label and
+   a reference to the issuing or owning authority (plus a delimiter) should constitute
+   the `id_namespace` prefix, and the ID of the particular thing being referenced
+   should be stored in the `local_id` suffix.
 
       * Example: the DOI compact identifier `doi:10.1006/jmbi.1998.2354` would be split into
 
-         * an `id_namespace` prefix of `doi:10.1006/`
+         * an `id_namespace` prefix of `doi:10.1006/`, specifying the identifier type (`doi`) and the registered owner of the object (`10.1006`)
          * and a `local_id` suffix of `jmbi.1998.2354`
 
 **[2]** A DCC already uses URIs to identify things that correspond to C2M2 entities (`files`,
 `biosamples`, etc.), but those URIs don't meet all the criteria to be C2M2
-`persistent_ids` (e.g. they're not guaranteed to be permanent), those URIs
-can still be split into an `id_namespace` prefix (describing the controlling
+`persistent_ids` (e.g. they're not guaranteed to be permanent). Such URIs
+can still be split into an `id_namespace` prefix (containing a reference to the controlling
 authority, e.g. the DCC or one of its organizational data sources) and a
 `local_id` suffix (describing the object being identified) to form a C2M2 ID.
 (For records with IDs built like this, `persistent_id` would be left blank.)
