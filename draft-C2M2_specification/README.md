@@ -252,13 +252,16 @@ stable enough to be scientifically cited, and to provide for further
 investigation by accessing related resolver services.
 
 To be used as a C2M2 `persistent_id`, an ID
+
 1. will represent an explicit commitment by the managing DCC that the attachment of the ID to the resource it represents is **permanent and final**
+
 2. must be a format-compliant [URI](https://tools.ietf.org/html/rfc3986) or a [compact identifier](https://n2t.net/e/compact_ids.html), where
 the protocol (the "scheme" or "prefix") specified in the ID is registered with at least one of the following (see the given lists for examples of URIs and compact identifiers)
    * the IANA ([list of registered schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml))
       * scheme used must be assigned either "Permanent" or "Provisional" status
    * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
    * N2T (Name-To-Thing) ([list of registered prefixes](https://n2t.net/e/n2t_full_prefixes.yaml))
+
 3. if representing a `file`, an ID used as a `persistent_id` **cannot** be
 a direct-download URL for that `file`: it must instead be an identifier
 permanently attached to the `file` and only **indirectly resolvable**
@@ -389,9 +392,9 @@ fields have been omitted from tables drawn in the diagram above (although
 we note that all _required_ fields have been preserved, marked with solid
 bullets next to field names). Similarly, 18 entire C2M2 tables that aren't
 directly relevant to this basic sample submission have also been left undrawn.
-A full list of all 22 C2M2 tables and fields (optional and otherwise)
+A full list of all 22 C2M2 tables and fields, optional and otherwise,
 is given along with the complete C2M2 model diagram in the
-[C2M2 technical specification](#c2m2-technical-specification).)
+[C2M2 technical specification](#c2m2-technical-specification).
 
 To facilitate validation and ensure standardization, all C2M2
 submissions to CFDE should contain one TSV file for each of the 22 C2M2
@@ -403,8 +406,8 @@ no data.) Most C2M2 tables can optionally be submitted as header-only stub
 files in this way, with no record rows, if that ends up being appropriate to
 the design of the particular submission being prepared.
 
-Key columns in the [C2M2 `file` table](https://osf.io/8yvsb/) for this
-submission -- which contains the entirety of the actual DCC-resource metadata
+Key columns in the [C2M2 `file` table for this submission](https://osf.io/8yvsb/)
+-- which contains the entirety of the actual DCC-resource metadata
 for the submission -- are discussed below. Each row in a submission's
 `file.tsv` table describes a single (reproducible, non-ephemeral) file
 asset managed by the submitting DCC. (The [C2M2 technical specification](#c2m2-technical-specification)
