@@ -253,20 +253,20 @@ investigation by accessing related resolver services.
 
 To be used as a C2M2 `persistent_id`, an ID
 
-* will represent an explicit commitment by the managing DCC that the attachment of the ID to the resource it represents is **permanent and final**
+1. will represent an explicit commitment by the managing DCC that the attachment of the ID to the resource it represents is **permanent and final**
 
-* must be a format-compliant [URI](https://tools.ietf.org/html/rfc3986) or a [compact identifier](https://n2t.net/e/compact_ids.html), where
+2. must be a format-compliant [URI](https://tools.ietf.org/html/rfc3986) or a [compact identifier](https://n2t.net/e/compact_ids.html), where
 the protocol (the "scheme" or "prefix") specified in the ID is registered with at least one of the following (see the given lists for examples of URIs and compact identifiers)
 
-   * the IANA ([list of registered schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml))
+    * the IANA ([list of registered schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml))
 
-      * scheme used must be assigned either "Permanent" or "Provisional" status
+        * scheme used must be assigned either "Permanent" or "Provisional" status
 
-   * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
+    * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
 
-   * N2T (Name-To-Thing) ([list of registered prefixes](https://n2t.net/e/n2t_full_prefixes.yaml))
+    * N2T (Name-To-Thing) ([list of registered prefixes](https://n2t.net/e/n2t_full_prefixes.yaml))
 
-* if representing a `file`, an ID used as a `persistent_id` **cannot** be
+3. if representing a `file`, an ID used as a `persistent_id` **cannot** be
 a direct-download URL for that `file`: it must instead be an identifier
 permanently attached to the `file` and only **indirectly resolvable**
 (through the scheme or prefix specified within the ID) to the `file` itself
