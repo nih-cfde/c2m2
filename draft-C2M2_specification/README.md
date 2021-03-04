@@ -1,6 +1,6 @@
 ---
 layout: page
-title: C2M2
+title: C2M2 Documentation
 ---
 
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
