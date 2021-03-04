@@ -257,6 +257,7 @@ To be used as a C2M2 `persistent_id`, an ID
 
 2. must be a format-compliant [URI](https://tools.ietf.org/html/rfc3986) or a [compact identifier](https://n2t.net/e/compact_ids.html), where
 the protocol (the "scheme" or "prefix") specified in the ID is registered with at least one of the following (see the given lists for examples of URIs and compact identifiers)
+
    * the IANA ([list of registered schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml))
       * scheme used must be assigned either "Permanent" or "Provisional" status
    * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
