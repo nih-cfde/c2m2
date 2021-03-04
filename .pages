@@ -1,5 +1,4 @@
 title: "C2M2 Documentation"
 nav:
-    - ...
-    - CONTRIBUTING.md
-order: desc
+    - draft-C2M2_specification_with_Levels
+    - 
