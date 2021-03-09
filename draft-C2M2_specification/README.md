@@ -433,7 +433,7 @@ gives a complete list of fields in this and all other C2M2 tables.)
 --------------------------------------------------------------------------------
 
 _The following section is under heavy construction at this moment: full
-restructuring is imminent (**really** imminent: first week of March 2021);
+restructuring is imminent (**really** imminent: second week of March 2021);
 apologies. Some terminology between this paragraph and the
 [tech spec](#c2m2-technical-specification) is obsolete; most of this section will be merged
 down into the more general [C2M2 technical specification](#c2m2-technical-specification)
