@@ -470,21 +470,16 @@ difficulty -- while introducing C2M2 concepts in a graded fashion, some
 content-optional tables have been omitted from this diagram
 for pedagogical clarity during this introductory example. For the
 full list of C2M2 tables and fields please see the complete C2M2 ER diagram
-in the [C2M2 technical specification](#c2m2-technical-specification).
-For validation purposes, all actual C2M2 submissions to CFDE should
-contain one TSV file for each C2M2 table -- including tables not drawn above
--- but most of these can optionally be sent in as header-only stub files
-(with no record rows), if that ends up being appropriate to the design of the
-submission. We emphasize that **all example submissions given here are valid C2M2
-submissions**: only optional material has been pruned from these introductory
-presentations.
+in the [C2M2 technical specification](#c2m2-technical-specification). We
+emphasize that **all example submissions given here are valid C2M2 submissions**:
+only optional material has been pruned from these introductory presentations.
 
 To facilitate validation and ensure standardization, all C2M2
 submissions to CFDE should contain one TSV file for each of the 22 C2M2
 tables, including tables not drawn above. (Inspection will show that this
 is in reality how the sample data has been configured: XX tables specified in the
 [master C2M2 JSON Schema](https://osf.io/e5tc2/) are included in the
-[example TSV collection](https://osf.io/mqey3/) only as header rows followed by
+**example TSV collection** only as header rows followed by
 no data.) Most C2M2 tables can optionally be submitted as header-only stub
 files in this way, with no record rows, if that ends up being appropriate to
 the design of the particular submission being prepared.
