@@ -348,7 +348,7 @@ for URI safety), and the `id_namespace` prefix can be constructed according to t
 
 --------------------------------------------------------------------------------
 
-### Example 1: A minimal C2M2 submission
+### A minimal C2M2 submission
 
 As an introductory example, we offer a sample small-scale, minimal
 C2M2 submission. Based on a real-life first-draft submission
@@ -434,7 +434,7 @@ gives a complete list of fields in this and all other C2M2 tables.)
 
 --------------------------------------------------------------------------------
 
-### Example 2: A basic relational C2M2 submission
+### A basic relational C2M2 submission
 
 This more complex sample C2M2 submission describes **basic experimental resources
 and associations between them**. This level of metadata richness is more difficult 
@@ -597,7 +597,14 @@ the design of the particular submission being prepared.
 |:---:|
 |![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
 
-### QUICK START BLOCK
+### QUICK-START BLOCK
+
+* _concept checklist_
+* _compliance checklist / flat terse list of tables, fields & reqs_
+* [sample C2m2 metadata submission: minimal inventory](#a-minimal-c2m2-submission)
+* [sample C2M2 metadata submission: basic relational model](#a-basic-relational-c2m2-submission)
+* [ER diagram](#c2m2-technical-specification)
+* [JSON Schema](https://osf.io/e5tc2/)
 
 _Build the core C2M2 entity tables (black) and the C2M2 container tables (blue)
 shown in the diagram, and fill out the DCC contact sheet (grey).
