@@ -471,7 +471,7 @@ content-optional tables have been omitted from this diagram
 for pedagogical clarity during this introductory example. For the
 full list of C2M2 tables and fields please see the complete C2M2 ER diagram
 in the [C2M2 technical specification](#c2m2-technical-specification).
-(For validation purposes, all actual C2M2 submissions to CFDE should
+For validation purposes, all actual C2M2 submissions to CFDE should
 contain one TSV file for each C2M2 table -- including tables not drawn above
 -- but most of these can optionally be sent in as header-only stub files
 (with no record rows), if that ends up being appropriate to the design of the
