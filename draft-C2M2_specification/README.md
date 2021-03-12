@@ -91,7 +91,7 @@ left empty in a minimally compliant submission. The three required records are
 
 1. a short contact sheet (name, email, etc.) referencing the DCC technical contact responsible for the submission,
 2. a single `project` record representing the submitting DCC itself (for resource attribution), and
-3. at least one **identifier namespace**, registered in advance with the CFDE (to protect IDs used by the submitting DCC to represent files, samples, etc. from potential conflicts with identifiers generated independently by other DCCs -- [see below](#c2m2-identifiers) for a full discussion of identifiers and namespaces in C2M2).
+3. at least one **identifier namespace**, registered in advance with the CFDE (to protect IDs used by the submitting DCC to represent files, samples, etc. from potential conflicts with identifiers generated independently by other DCCs -- see the [section on IDs](#c2m2-identifiers) for a full discussion of identifiers and namespaces in C2M2).
 
 A minimally compliant submission -- containing just the
 three required records and no more -- would clearly not be
@@ -155,7 +155,7 @@ paradigm (not only adding richer information to the data space, but also
 powering more powerful downstream applications than a minimal flat-inventory
 submission would support).
 
-These examples are followed by a full [C2M2 technical specification](#c2m2-technical-specification),
+These examples are accompanied by a full [C2M2 technical specification](#c2m2-technical-specification),
 which explains all of the available structures, constraints and
 requirements in detail.
 
@@ -399,7 +399,9 @@ bullets next to field names). Similarly, 18 entire C2M2 tables that aren't
 directly relevant to this basic sample submission have also been left undrawn.
 A full list of all 22 C2M2 tables and fields, optional and otherwise,
 is given along with the complete C2M2 model diagram in the
-[C2M2 technical specification](#c2m2-technical-specification).
+[C2M2 technical specification](#c2m2-technical-specification). We emphasize
+that **all example submissions given here are valid C2M2 submissions**:
+only optional material has been pruned from these introductory presentations.
 
 To facilitate validation and ensure standardization, all C2M2
 submissions to CFDE should contain one TSV file for each of the 22 C2M2
@@ -432,49 +434,178 @@ gives a complete list of fields in this and all other C2M2 tables.)
 
 --------------------------------------------------------------------------------
 
-_The following section is under heavy construction at this moment: full
-restructuring is imminent (**really** imminent: second week of March 2021);
-apologies. Some terminology between this paragraph and the
-[tech spec](#c2m2-technical-specification) is obsolete; most of this section will be merged
-down into the more general [C2M2 technical specification](#c2m2-technical-specification)
-section below. Thanks in advance for your patience._
+### Example 2: A basic relational C2M2 submission
+
+This more complex sample C2M2 submission describes **basic experimental resources
+and associations between them**. This level of metadata richness is more difficult 
+to produce than a flat inventory of file assets: accordingly, it offers 
+users more powerful downstream tools than are available for truly minimal submissions
+like our first example. These include
+
+   * faceted searching across relevant features (like `anatomy`
+   and `data_type`) of experimental resources (like `biosample` and `file`, resp.)
+   * displays summarizing subdivisions of DCC metadata collections by `project`
+   (grant or contract) and/or `collection` (any scientifically relevant grouping
+   of resources: like a **dataset** but not limited only to "data" elements)
+   * reporting on changes in DCC metadata over time
+
+| _resource_ | _available as_ |
+| :--- | :---: |
+| Submission (metadata tables only) | **collection of separate TSV tables** |
+| Submission (complete) | **one bundled BDBag file** |
+| C2M2 JSON Schema | [`C2M2_datapackage.json`](https://osf.io/e5tc2/) |
+
+The following is a diagram sketching the (nonempty) tables that
+constitute this sample submission, along with
+[foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key)
+relationships between tables (drawn as solid arrows).
+
+|_Basic relational C2M2 submission: example model diagram_|
+|:---:|
+|<img src="../draft-C2M2_ER_diagrams/relational_submission_example.png" alt="Basic relational C2M2 submission: example model diagram">|
+
+Please note that because our example submission datasets are meant to demonstrate
+C2M2 metadata prepared with increasing levels of complexity -- and hence
+difficulty -- while introducing C2M2 concepts in a graded fashion, some
+content-optional tables have been omitted from this diagram
+for pedagogical clarity during this introductory example. For the
+full list of C2M2 tables and fields please see the complete C2M2 ER diagram
+in the [C2M2 technical specification](#c2m2-technical-specification).
+(For validation purposes, all actual C2M2 submissions to CFDE should
+contain one TSV file for each C2M2 table -- including tables not drawn above
+-- but most of these can optionally be sent in as header-only stub files
+(with no record rows), if that ends up being appropriate to the design of the
+submission. We emphasize that **all example submissions given here are valid C2M2
+submissions**: only optional material has been pruned from these introductory
+presentations.
+
+To facilitate validation and ensure standardization, all C2M2
+submissions to CFDE should contain one TSV file for each of the 22 C2M2
+tables, including tables not drawn above. (Inspection will show that this
+is in reality how the sample data has been configured: XX tables specified in the
+[master C2M2 JSON Schema](https://osf.io/e5tc2/) are included in the
+[example TSV collection](https://osf.io/mqey3/) only as header rows followed by
+no data.) Most C2M2 tables can optionally be submitted as header-only stub
+files in this way, with no record rows, if that ends up being appropriate to
+the design of the particular submission being prepared.
+
+#### Technical notes: C2M2 entities in the basic relational C2M2 submission example
+
+   * **`file` revisited** _(superset additions: cf. below, §"Common entity fields" and also §"Controlled
+   vocabularies and term tables")_
+   * **`biosample` introduced** _(also cf. below, §"Common entity fields" and §"Controlled vocabularies and
+   term tables")_
+      * _Level 1 models_ `biosample`_s as abstract materials that are directly consumed
+      by one or more analytic processes. Simple provenance relationships -- between each
+      such_ `biosample` _and the_ `subject` _from which it was originally derived, as well
+      as between each_ `biosample` _and any_ `file`_s analytically derived from it -- are
+      represented using association tables, with one such table dedicated to each
+      relationship type (cf. below, §"Association tables: inter-entity linkages").
+      Actual DCC-managed provenance metadata will sometimes (maybe always) represent more complex and
+      detailed provenance networks: in such situations, chains of "_`this` _produced_
+      `that`_" relationships too complex to model at Level 1 will need to be
+      transitively collapsed. As an example: let's say a research team collects a
+      cheek-swab sample from a hospital patient; subjects that swab sample to several
+      successive preparatory treatments like centrifugation, chemical ribosomal-RNA
+      depletion and targeted amplification; then runs the final fully-processed
+      remnant material through a sequencing machine, generating a FASTQ sequence
+      file as the output of the sequencing process. In physical terms our team
+      will have created a series of distinct material samples, connected one to another
+      by (directed) "_`X` `derived_from` `Y`_" relationships, represented as a (possibly
+      branching) graph path (in fully general terms, a directed acyclic graph) running
+      from a starting node set (here, our original cheek-swab sample) through intermediate
+   	nodes (one for each coherent material product of each individual preparatory process)
+   	to some terminal node set (in our case, the final-stage, immediately-pre-sequencer
+   	library preparation material). C2M2 Level 2 will offer metadata structures to model
+   	this entire process in full detail, including representational support for all
+   	intermediate_ `biosample`_s, and for the various preparatory processes involved.
+   	For the purposes envisioned to be served by Level 1 C2M2 metadata, on the other hand,
+   	only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _can and should be
+   	explicitly represented._
+         * _The simplifications here are partially necessitated by the fact that
+   	   event modeling has been deliberately deferred to C2M2 Level 2: as a result,
+   	   the notion of a well-defined "chain of provenance" is not modeled at
+   	   this C2M2 Level. (More concretely: Level 1 does not represent
+   	   inter-_`biosample` _relationships.)_
+         * _The modeling of details describing experimental processes has also been
+         assigned to Level 2._
+         * _With both of these (more complex) aspects of experimental metadata
+         masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
+         `biosample` _entity should be modeled is as an abstract "material phase"
+         (possibly masking what is in reality a chain of multiple distinct materials)
+         that enables an analytic (or observational or other scientific) process (which
+         originates at a_ `subject` _) to move forward and ultimately produce one or
+         more_ `file`_s._  
+      * _In practice, a Level 1 C2M2 instance builder facing such a situation
+   	might reasonably create one record for the originating_ `subject` _; create one_
+   	`biosample` _entity record; create a_ `file` _record for the FASTQ file produced
+   	by the sequencing process; and hook up_ `subject` _<->_ `biosample` _and_
+   	`biosample` _<->_ `file` _relationships via the corresponding association tables
+   	(cf. below, §"Association tables: inter-entity linkages")._
+         * _In terms of deciding (in a well-defined way) specifically which native DCC
+         metadata should be attached to this Level 1_ `biosample` _record, one
+         might for example choose to import metadata (IDs, etc.) describing the
+         final pre-sequencer material. The creation of specific rules governing maps
+         from native DCC data to (simplified, abstracted) Level 1 entity records
+         is of necessity left up to the best judgment of the serialization staff
+         creating each DCC's Level 1 C2M2 ETL instance; we recommend consistency,
+         but beyond that, custom solutions will have to be developed to handle
+         different data sources. Real-life examples of solution configurations
+	 will be published (as they are collected) to help inform decisionmaking,
+	 and CFDE staff will be available as needed to help create mappings between
+	 the native details of DCC sample metadata and the approximation that is
+	 the C2M2 Level 1_ `biosample` _entity._
+         * _Note in particular that this example doesn't preclude attaching multiple_
+         `biosample`_s to a single originating_ `subject`_; nor does it preclude modeling a
+         single_ `biosample` _that produces multiple_ `file`_s._
+         * _Note also that the actual end-stage material prior to the production of a_
+         `file` _might not always prove to be the most appropriate metadata source from
+         which to populate a corresponding_ `biosample` _entity. Let's say a
+         pre-sequencing library prepration material_ `M` _is divided in two to
+         produce derivative materials_ `M1` _and_ `M2` _, with_ `M1` _and_ `M2` _then
+         amplified separately and sequenced under separate conditions producing_
+         `file`_s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
+         experimental context -- the final separation and amplification processes
+         producing_ `M1` _and_ `M2` _might reasonably be ignored for the purposes
+         of Level 1 modeling, instead attaching a single (slightly upstream)_
+         `biosample` _entity -- based on metadata describing_ `M` _-- to both_ `M1.fastq`
+         _and_ `M2.fastq`_. As above, final decisions regarding detailed rules
+         mapping native DCC data to Level 1 entities are necessarily left to
+         DCC-associated investigators and serialization engineers; CFDE staff will be available as needed to offer
+         feedback and guidance when navigating mapping issues._
+   * **`subject` introduced** _(also cf. below, §"Common entity fields" and §"Taxonomy and the `subject` entity")_
+      * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
+      entity from which a Level 1_ `biosample` _can be generated (the notion of_ `biosample`_s
+      being generated by other_ `biosample`_s is more appropriately modeled at C2M2
+      Level 2: cf. §"_`biosample` **introduced**_", immediately above)_
+      * _Alongside shared metadata fields (cf. below, §"Common entity fields") and inter-entity
+      associations (cf. below, §"Association tables: inter-entity linkages"), C2M2
+      Level 1 models two additional details specific to_ `subject` _entities:_
+         * _internal structural configuration (referred to as_ `subject_granularity` _and
+         included in each_ `subject` _record as one of an enumerated list
+	 of categorical value codes (for concepts like, e.g., "single organism,"
+	 "microbiome," "cell line") -- reference list of granularity terms (with descriptions) is given
+	 [here](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)_
+         * _taxonomic assignments attached to subcomponents ("roles," another ontological enumeration
+	 listed [here](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv) for reference) of_ `subject` _entities, e.g. "cell line ancestor ->
+         NCBI:txid9606" or "host (of host-pathogen symbiont system) -> NCBI:txid10090":
+         this is accomplished via the_ `subject_role_taxonomy` _categorical association table
+         (cf. below, §"Association table: taxonomy and the_ `subject` _entity: the_ `subject_role_taxonomy` _table")_
+      * _all other_ `subject`_-specific metadata -- including any protected data -- is deferred by
+      design to Level 2_
 
 --------------------------------------------------------------------------------
 
-### Example 2: A basic relational C2M2 submission
+## C2M2 technical specification
 
-C2M2 Level 1 models **basic experimental resources and associations between them**.
-This level of metadata richness is more difficult to produce than Level 0's flat
-inventory of digital file assets. As a result, Level 1 metadata offers users more powerful
-downstream tools than are available for Level 0, including
+|_C2M2 model diagram_|
+|:---:|
+|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
 
-   * faceted searches on a (small) set of biologically relevant features (like anatomy
-   and taxonomy) of experimental resources like `biosample` and `subject`
-   * organization of summary displays using subdivisions of experimental metadata
-   collections by `project` (grant or contract) and `collection` (any scientifically
-   relevant grouping of resources)
-   * basic reporting on changes in metadata over time, tracking (for example)
-   creation times for `file` and `biosample`
-
-C2M2 Level 1 is designed to offer an intermediate tier of difficulty, in terms of
-preparing metadata submissions, between Level 0's basic digital inventory
-and the full intricacy of Level 2. Accordingly, we have reserved several
-modeling concepts -- requiring the most effort to produce and maintain -- for
-Level 2. The following are **not modeled at Level 1**:
-
-   * any and all **protected data**
-   * documentation of  **experimental protocols**
-   * event-based resource generation/**provenance networks**
-   * detailed information on **organizations and people** governing the research
-   being documented
-   * a **comprehensive suite** of options to model **scientific attributes of
-   experimental resources**
-      * full collection of features like anatomy, taxonomy, and assay type,
-      plus formal vocabularies to describe them
-      * prerequisite to offering research users deep and detailed search possibilities
+### QUICK START BLOCK
 
 _Build the core C2M2 entity tables (black) and the C2M2 container tables (blue)
-shown in the diagram below, and fill out the DCC contact sheet (grey).
+shown in the diagram, and fill out the DCC contact sheet (grey).
 Once you've built the core entity tables, the green tables can be built
 automatically using our
 [term-scanner script](../draft-C2M2_external_CV_term_table_generator_script/build_term_tables.py),
@@ -491,29 +622,14 @@ for a given table from the case in which a table has been omitted by mistake.)_
 
 _Color key:_
 
-   * ![#000000](https://via.placeholder.com/15/000000/000000?text=+) _Black: C2M2 Level 1 core entities: files, biosamples and subjects_
-   * ![#a52a2a](https://via.placeholder.com/15/a52a2a/000000?text=+) _Dark red: Associative relationships between Level 1 core entities_
-   * ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) _Blue: Level 1 container entities (projects and collections) and their containment relationships_
-   * ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) _Green: Tables recording all third-party ontology or controlled-vocabulary terms used within a Level 1 submission, including extra information about UI display labels_
-   * ![#8b6914](https://via.placeholder.com/15/8b6914/000000?text=+) _Gold: Single-record table listing basic contact information for DCC staff managing a Level 1 submission_
-   * ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) _Yellow: Association table optionally annotating each Level 1 subject record with_
+   * ![#000000](https://via.placeholder.com/15/000000/000000?text=+) _Black: C2M2 core entities: files, biosamples and subjects_
+   * ![#a52a2a](https://via.placeholder.com/15/a52a2a/000000?text=+) _Dark red: Associative relationships between core entities_
+   * ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) _Blue: Container entities (projects and collections) and their containment relationships_
+   * ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) _Green: Tables recording all third-party ontology or controlled-vocabulary terms used within a C2M2 submission, including extra information about UI display labels_
+   * ![#8b6914](https://via.placeholder.com/15/8b6914/000000?text=+) _Gold: Single-record table listing basic contact information for DCC staff managing a C2M2 submission_
+   * ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) _Yellow: Association table optionally annotating each C2M2 subject record with_
       * _(possibly multiple) NCBI Taxonomy ID attributions_
       * _specification (and individual annotation) of subject sub-entities based on generic roles in observational ecosystems, like "host," "pathogen," "site-specific microbiome," "basic single organism" (default), etc._
-
-|_Basic relational C2M2 submission: example model diagram_|
-|:---:|
-|<img src="../draft-C2M2_ER_diagrams/relational_submission_example.png" alt="Basic relational C2M2 submission: example model diagram">|
-
-Note: some optional fields have been omitted from tables in this diagram
-for pedagogical clarity during this introductory example, as have entire
-C2M2 tables that aren't directly relevant to the basic example. For the
-full list of C2M2 tables and fields please see the complete C2M2 ER diagram
-in the [C2M2 technical specification](#c2m2-technical-specification) below.
-(For validation purposes, all actual C2M2 submissions to CFDE should
-contain one TSV file for each C2M2 table -- including tables not drawn above
--- but most of these can optionally be sent in as header-only stub files
-(with no record rows), if that ends up being appropriate to the design of the
-submission.
 
 #### Core entities
 
@@ -841,27 +957,6 @@ experimental resources.
       CV subsets on an ongoing basis (as new term requirements roll in from
       client metadata sources (DCCs) as they try to model their respective datasets)?_
 
-
-A JSON Schema document -- implementing
-[Frictionless Data](https://frictionlessdata.io/)'s
-"[Data Package](https://frictionlessdata.io/data-package/)"
-container meta-specification -- defining the Level 1 TSV collection is
-**here**;
-an example Level-1-compliant TSV submission collection can be found
-**here** for inspection in two alternative forms: (1) a bare
-collection of TSV files, and (2) a single packaged BDBag archive file containing those
-TSVs along with some packaging/manifest metadata. (DCCs will package each C2M2
-submission as one of these BDBags: we provide a valid one here for reference.)
-
---------------------------------------------------------------------------------
-
-## C2M2 technical specification
-
-|_C2M2 model diagram_|
-|:---:|
-|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
-
-
 --------------------------------------------------------------------------------
 
 ## Future work
@@ -873,7 +968,7 @@ Several modeling concepts not finalized prior to the release of the first versio
 are slated for immediate consideration following the publication of the RFC. Some are listed
 here: neither completeness nor any particular priority order is implied.
 
-* clinical **visit data**
+* **clinical observation metadata** and all other relevant **access-protected metadata**: CFDE-CC is currently soliciting concrete, detailed use case examples from DCCs so that we can establish realistic technical requirements
 * `file_in_file` relationships to allow publication of (sub-`file`) archive contents
 * modular **experimental flow (`protocol`)**
 * resource (entity) **provenance (`[data|material]_event` network)**
