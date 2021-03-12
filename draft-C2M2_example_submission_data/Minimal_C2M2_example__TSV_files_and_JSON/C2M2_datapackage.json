@@ -1195,14 +1195,6 @@
                   "name": "description",
                   "description": "A human-readable description of this OBI term",
                   "type": "string"
-               },
-               {
-                  "name": "synonyms",
-                  "description": "Pipe-separated list of synonyms (alternate OBI terms) equivalent to this OBI term",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^(OBI:[0-9]+|)*OBI:[0-9]+$"
-                  }
                }
             ],
             "missingValues": [ "" ],
@@ -1244,14 +1236,6 @@
                   "name": "description",
                   "description": "A human-readable description of this taxon",
                   "type": "string"
-               },
-               {
-                  "name": "synonyms",
-                  "description": "Pipe-separated list of synonyms (alternate NCBI Taxonomy IDs) equivalent to this taxon",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^([0-9]+|)*[0-9]+$"
-                  }
                }
             ],
             "missingValues": [ "" ],
@@ -1285,14 +1269,6 @@
                   "name": "description",
                   "description": "A human-readable description of this Uberon term",
                   "type": "string"
-               },
-               {
-                  "name": "synonyms",
-                  "description": "Pipe-separated list of synonyms (alternate Uberon terms) equivalent to this Uberon term",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^(UBERON:[0-9]+|)*UBERON:[0-9]+$"
-                  }
                }
             ],
             "missingValues": [ "" ],
@@ -1326,14 +1302,6 @@
                   "name": "description",
                   "description": "A human-readable description of this EDAM format term",
                   "type": "string"
-               },
-               {
-                  "name": "synonyms",
-                  "description": "Pipe-separated list of synonyms (alternate EDAM format terms) equivalent to this EDAM format term",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^(format:[0-9]+|)*format:[0-9]+$"
-                  }
                }
             ],
             "missingValues": [ "" ],
@@ -1367,14 +1335,6 @@
                   "name": "description",
                   "description": "A human-readable description of this EDAM data term",
                   "type": "string"
-               },
-               {
-                  "name": "synonyms",
-                  "description": "Pipe-separated list of synonyms (alternate EDAM data terms) equivalent to this EDAM data term",
-                  "type": "string",
-                  "constraints": {
-                     "pattern": "^(data:[0-9]+|)*data:[0-9]+$"
-                  }
                }
             ],
             "missingValues": [ "" ],
