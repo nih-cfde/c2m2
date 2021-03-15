@@ -593,10 +593,6 @@ the design of the particular submission being prepared.
 
 ## C2M2 technical specification
 
-|_C2M2 model diagram_|
-|:---:|
-|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
-
 ### QUICK-START BLOCK
 
 * _concept checklist_
@@ -605,6 +601,65 @@ the design of the particular submission being prepared.
 * [sample C2M2 metadata submission: basic relational model](#a-basic-relational-c2m2-submission)
 * [ER diagram](#c2m2-technical-specification)
 * [JSON Schema](https://osf.io/e5tc2/)
+
+The CFDE Crosscut Metadata Model (C2M2) is a relational database model
+designed to encode scientifically usable metadata that describes
+collections of accessible, standardized, and ideally replicable
+resources and results relevant to research in biomedicine.
+
+_Things_ are represented in C2M2 as **data tables**: specifically,
+rectangular data matrices, each **row** of which is a **data record**
+comprised of a small collection of named bits of data (**fields**).
+Each field has an agreed-upon meaning that helps to describe
+whatever "thing" the table represents; "things" (and the tables describing
+them) can refer to physical objects, like numbered biosamples;
+virtual objects, like digital files; or abstract concepts,
+like a project, or a standardized scientific term for "salmon louse."
+
+_Relationships between things_ are represented as **associations**,
+whereby data records describing things are linked together in
+predefined ways so as to indicate that the linked things are
+meaningfully connected in some way. One might for example
+express the fact that
+
+> a biopsy biosample was collected from a particular anatomical
+> site located somewhere on a goat
+
+by
+
+* creating a record in a `biosample` table representing the biopsy material
+* selecting a record from some (pre-existing, CFDE-provided dictionary) table
+representing the proper location on the Ideal Goat in some globally standardized
+`goat_anatomy` reference table, and
+* using an _association_ called "`sampled_from`" (or maybe more explicitly
+"`biosample_sampled_from_goat_anatomy`") to link the two records together: the
+biopsy `biosample` was `sampled_from` its precise location in the `goat_anatomy`.
+
+Our hypothetical goat biosample annotation describes an association linking
+two data tables of different types (`biosample` and `anatomy`) in a
+well-defined way. C2M2 also uses associations to link data records of the
+same type. As an example,
+
+> project RNA\_17.2 is a subproject of project RNA\_17
+
+would be expressed by
+
+* creating a record in the `project` table to represent `RNA_17`
+* creating another record in the `project` table to represent `RNA_17.2`
+* using the `project_in_project` association to link the two records together
+(in a predetermined parent->child order; details [below](#containers)):
+`RNA_17.2` is a subproject (`project_in_project`) of `RNA_17`.
+
+Following the literature we will be calling "things" **entities**.
+The next graphic is an **entity-relationship (ER) diagram** describing
+C2M2. Entities (things) are drawn as full tables: boxes with descriptions
+of named fields. **Associations** (relationships between entities) are
+named inside small boxes: arrows are drawn connecting each association with the
+entities that participate in the relationship that the association represents.
+
+|_C2M2 model diagram_|
+|:---:|
+|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
 
 _Build the core C2M2 entity tables (black) and the C2M2 container tables (blue)
 shown in the diagram, and fill out the DCC contact sheet (grey).
