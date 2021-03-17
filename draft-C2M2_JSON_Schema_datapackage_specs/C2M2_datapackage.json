@@ -355,6 +355,7 @@
                   "description": "A very short display label for this contact's DCC",
                   "type": "string",
                   "constraints": {
+                     "required": true,
                      "pattern": "^[a-zA-Z0-9_]+$"
                   }
                },
