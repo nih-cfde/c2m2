@@ -565,7 +565,7 @@ Color key:
    * ![#000000](https://via.placeholder.com/15/000000/000000?text=+) Black: **Core entities** (basic experimental resources): `file`, `biosample` and `subject`
    * ![#a52a2a](https://via.placeholder.com/15/a52a2a/000000?text=+) Dark red: **Association relationships** between core entities
    * ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) Blue: **Container entities** (`project` and `collection`) and their containment relationships
-   * ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra information (synonyms, descriptions) to facilitate user searching and web displays
+   * ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays
    * ![#8b6914](https://via.placeholder.com/15/8b6914/000000?text=+) Gold: **Administrative entities** giving basic contact information for DCC creators of C2M2 submissions and describing CFDE-registered, DCC-controlled identifier namespaces
    * ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) Yellow: `subject_role_taxonomy`: a special association relationship optionally linking each `subject` record with
       * (possibly multiple) NCBI Taxonomy IDs
