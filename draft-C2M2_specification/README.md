@@ -615,7 +615,7 @@ tables with no data, including this requirement helps us differentiate
 "by design, no data is being submitted" from "this table was left out by
 mistake."
 
-#### Common entity fields
+### Common entity fields
 
 The following properties all have the same meaning and function across
 the various entities they describe (`file`, `biosample`, `project`, etc.).
@@ -628,7 +628,7 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
 | `creation_time` | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision.<ul><li>_We are aware (and unconcerned) that this technically renders one particular_ **`HH:MM:SS`** _value --_ "`00:00:00`" _-- ambiguous. Forestalling this ambiguity (by allowing select omissions of constituent sub-segments of_ `creation_time` _string values as an alternative mechanism to denote missing data, or by introducing nonstandard and increasingly artificial special-case encodings like_ "`99:99:99`"_) was determined to be of less immediate concern than maintaining the technical advantages conferred by the (stronger) constraint of requiring a fixed-length_ `creation_time` _string that remains fully conformant with (a constrained subset of) the RFC 3339 standard. The canonical C2M2 interpretation of_ "`00:00:00`" _is thus explicitly defined to be "_**`HH:MM:SS`** _information unknown" and not "exactly midnight."_</li></ul> |
 | `abbreviation`, `name` and `description` | _Values which will be used, unmodified, for contextual display throughout portal and dashboard user interfaces: severely restricted, whitespace-free_ `abbreviation` _(must match_ `/[a-zA-Z0-9_]*/`_); terse but flexible_ `name` _; abstract-length_ `description` |
 
-#### Core entities
+### Core entities
 
    * **`file`**
 
@@ -742,7 +742,7 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
       * _all other_ `subject`_-specific metadata -- including any protected data -- is deferred by
       design to Level 2_
 
-#### Association tables: inter-entity linkages
+### Association tables: inter-entity linkages
 
    * `file_describes_subject`
    * `file_describes_biosample`
@@ -768,7 +768,7 @@ the various entities they describe (`file`, `biosample`, `project`, etc.).
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
 
-#### Container entities
+### Container entities
 
 C2M2 Level 1 offers two ways -- `project` and `collection` -- to denote groups of
 related metadata entity records representing core (`file`/`subject`/`biosample`)
@@ -822,7 +822,7 @@ experimental resources.
          provenance associations. (FAIRness is generally increased by
 	 provisioning for consistent reference frameworks.)_
 
-#### Association relationship tables: expressing containment
+### Association relationship tables: expressing containment
 
    * `project_in_project`
    * `collection_in_collection`
@@ -844,7 +844,7 @@ experimental resources.
    [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
    _to find all table-specific field names and foreign-key constraints._
 
-#### Controlled vocabularies and term entity tables
+### Controlled vocabularies and term entity tables
 
    * _C2M2 CVs currently in use:_
       * _**assay\_type (OBI):** used to describe **types of experiment** that can be produce
@@ -883,7 +883,7 @@ experimental resources.
       	* _how comprehensive is a CV's coverage of the relevant ontological space?_
       	* _how responsive are the CV owners to change requests?_
 
-#### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
+### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
 
    _The_ `subject_role_taxonomy` _ "categorical association" table enables
    the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
