@@ -451,8 +451,8 @@ like our first example. These include
 
 | _resource_ | _available as_ |
 | :--- | :---: |
-| Submission (metadata tables only) | **collection of separate TSV tables** |
-| Submission (complete) | **one bundled BDBag file** |
+| Submission (metadata tables only) | [collection of separate TSV tables](https://osf.io/wgvh6/) |
+| Submission (complete) | [one bundled BDBag file](https://osf.io/3tqnr/) |
 | C2M2 JSON Schema | [`C2M2_datapackage.json`](https://osf.io/e5tc2/) |
 
 The following is a diagram sketching the (nonempty) tables that
