@@ -925,14 +925,15 @@ Several modeling concepts not finalized prior to the release of the first versio
 are slated for immediate consideration following the publication of the RFC. Some are listed
 here: neither completeness nor any particular priority order is implied.
 
-* explicit representation (likely through some form of controlled ontological scheme) of well-defined **molecular entities** like drugs or virions
+* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations**, i.e. substrate data for facet-search targets: current examples include `anatomy`, `assay_type`, `ncbi_taxonomy`, etc. (A dedicated **CFDE ontology working group** has begun to address this problem space.)
+    * the addition of an **ontology describing disease** is a top priority
+    * another top priority is a standardized representation of well-defined **molecular entities** (like drugs or virions)
 * **clinical observation metadata** and all other relevant **access-protected metadata**: CFDE-CC is currently soliciting concrete, detailed use case examples from DCCs so that we can establish realistic technical requirements
 * `file_in_file` relationships to allow publication of (sub-`file`) archive contents
 * modular **experimental flow (`protocol`)**
 * resource (entity) **provenance (`[data|material]_event` network)**
-* some sort of support for gene-level metadata  (A dedicated **CFDE gene working group** has begun to address this problem space.)
+* some sort of support for **gene-level metadata** (A dedicated **CFDE gene working group** has begun to address this problem space.)
 * structured addressbook for documenting and linking **organizations
 (`common_fund_program`), roles/personae and actual people** to C2M2 metadata
-* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations**, i.e. substrate data for facet-search targets: current examples include `anatomy`, `assay_type`, `ncbi_taxonomy`, etc. (A dedicated **CFDE ontology working group** has begun to address this problem space.)
 
 --------------------------------------------------------------------------------
