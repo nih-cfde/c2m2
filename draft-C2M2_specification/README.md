@@ -494,12 +494,11 @@ _[under construction]_
 
 ### QUICK-START BLOCK
 
-* _concept checklist_
-* _compliance checklist / flat terse list of tables, fields & reqs_
-* [sample C2m2 metadata submission: minimal inventory](#a-minimal-c2m2-submission)
-* [sample C2M2 metadata submission: basic relational model](#a-basic-relational-c2m2-submission)
-* [ER diagram](#c2m2_model_diagram)
-* [JSON Schema](https://osf.io/e5tc2/)
+* compliance: complete (terse) [list of C2M2 tables, fields & requirements](https://github.com/nih-cfde/published-documentation/wiki/C2M2-Table-Summary)
+* example C2M2 metadata submission: [minimal inventory](#a-minimal-c2m2-submission)
+* example C2M2 metadata submission: [basic relational model](#a-basic-relational-c2m2-submission)
+* [C2M2 ER diagram](#c2m2_model_diagram)
+* [C2M2 JSON Schema](https://osf.io/e5tc2/)
 
 The CFDE Crosscut Metadata Model (C2M2) is a relational database model
 designed to encode scientifically usable metadata that describes
@@ -646,13 +645,13 @@ entity table is a record describing a single file.
 | `local_id` | required: [primary key](https://en.wikipedia.org/wiki/Primary_key) | **URI-suffix identifier identifying this entity**: a string that **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. The value of this field will be used together with `id_namespace` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
 | `persistent_id` | optional | **An optional, resolvable URI permanently attached to this entity**: a permanent address which must resolve (via some service like <a href="http://identifiers.org/">identifiers.org</a>) to some network-retrievable object describing the entity, like a landing page with basic descriptive information, or a direct-download URL. **Actual network locations (e.g. bare download URLs) must not be embedded directly within this identifier**: one level of indirection (the resolver service) is required in order to protect `persistent_id` values from changes in network location over time as data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
 | `creation_time` | optional | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the primary `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision. |
-| `abbreviation`, `name` and `description` | optional* | Text describing this entity, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li> |
+| `abbreviation`, `name` and `description` | optional* | **Text describing this entity**, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li></ul> |
 | `project_id_namespace`, `project_local_id` | required: `project` [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) | This pair of fields stores a **required [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) into this submission's `project` table**. The row in the `project` table identified by this key represents the **primary project under which this entity was first created, observed, documented or otherwise encountered.** (See the section on the [project table](#container-entities) for more on the meaning of `project` and usage details, including options for constructing simplified default values for these required fields.) |
 
 *`primary_dcc_contact.dcc_abbreviation` is a required field, as is the value of
     `project.abbreviation` for one special `project` record representing the
-    submitting DCC: see the [`primary_dcc_contact`](#the-primary_dcc_contact-table)
-    and [project table](#container-entities) sections, respectively, for details. 
+    submitting DCC: see the [`primary_dcc_contact` table](#the-primary_dcc_contact-table)
+    and [`project` table](#container-entities) sections, respectively, for details. 
 
 ### Core C2M2 entities
 
@@ -675,42 +674,85 @@ entity table is a record describing a single file.
 
 |field(s)|required?|description|
 |:---:|:---:|:---|
-
+| `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
+| `anatomy` | optional | An **UBERON CV term ID** used to locate the origin of this biosample within the physiology of a source organism. (Pattern: `UBERON:[0-9]+`) |
 
 #### The **`subject`** entity: a biological entity from which a C2M2 biosample can be generated
 
 |field(s)|required?|description|
 |:---:|:---:|:---|
+| `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
+| `granularity` | required | A CFDE-controlled vocabulary categorizing broad classes of possible biosample sources. |
+
+The `granularity` field categorizes each subject in the broadest possible terms:
+
+|`subject.granularity` field value|name|description|
+|---:|:---|:---|
+| `cfde_subject_granularity:0` | single organism | One organism. |
+| `cfde_subject_granularity:1` | symbiont system | A mixed system of consisting of two or more organisms (symbionts) in symbiosis (living colocated in time and space): one such symbiont may optionally be identified as a host. |
+| `cfde_subject_granularity:2` | host-pathogen system | A special case of a symbiont system consisting of one symbiont, designated as a host, plus one or more other symbionts acting to create or sustain disease within the host organism. |
+| `cfde_subject_granularity:3` | microbiome | A symbiont system consisting of a collection of (potentially unknown or partially characterized) taxa, where the environment in which the system resides is well-characterized, but the taxonomic composition of the system may be unknown; optionally contains one symbiont specially identified as a host. |
+| `cfde_subject_granularity:4` | cell line | A cell line derived from one or more species or strains. |
+| `cfde_subject_granularity:5` | synthetic | A synthetic biological entity. |
+
+_This is a draft list: we do not imagine it to be in its final form._
+
+For details on how to specify taxonomic metadata describing subcomponents of
+`subject` granularities like "host-pathogen system", please see the
+section below on [the `subject_role_taxonomy`
+table](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table).
 
 ### Association tables: inter-entity linkages
 
    * `file_describes_subject`
+
+C2M2 **association tables** codify relationships between specific entities
+of different types: in database terms, they spell out relationships between
+particular rows across different tables. Each row in the C2M2
+`file_describes_subject` association table consists of two identifiers, used as
+foreign keys: one for a `file` record (a row in the `file` table describing
+one particular file), and one for a `subject` record (a row in the `subject`
+table describing one particular subject or source organism). Since C2M2 identifiers
+each have two parts -- `id_namespace` and `local_id` -- this gives a total of
+four fields for this table (all fields are required):
+
+|`file_id_namespace` | `file_local_id` | `subject_id_namespace` | `subject_local_id` |
+
+Each row of `file_describes_subject` declares that some particular file _F_ contains
+data describing a particular subject _S_. The file _F_ is identified by C2M2 ID
+(`file_id_namespace` + `file_local_id`) as a specific row in the C2M2 `file` table;
+the subject _S_ is similarly referenced (`subject_id_namespace` + `subject_local_id`) as
+a particular row in the `subject` table.
+
+The following tables work in the same way:
+
    * `file_describes_biosample`
    * `biosample_from_subject`
    * `collection_defined_by_project`
+
+**All of these association tables are optional**: valid C2M2 submissions do not need
+to express all (or any) of these relationships in this way. If included, they can be
+used for smarter downstream discovery than is possible when limited only to
+manifests of isolated/unlinked resources.
+
+Each association table's name defines the relationship it represents, and these
+are generally nonspecific by design, to facilitate harmonization in the
+federated C2M2 data space along basic conceptual lines.
+`collection_defined_by_project` optionally attaches a primary generating
+`project` to a C2M2 `collection`: this relationship is
+more specific than the others given here, and is meant to express the
+same relationship between a `project` and a `collection` as is (for example)
+expressed by the mandatory `project` foreign key in the `file` table:
+"`collection` _C_ was defined under the auspices of `project` _P_". Not every
+`collection` will have a well-defined DCC-modeled `project` under which it
+was created, so this association is also optional.
    
-   _As with the containment association tables, records in these tables
-   will contain four fields, encoding two foreign keys: one (composite
-   `id_namespace+local_id`) key per entity involved in the particular
-   relationship being asserted by each record._
-   
-   _Table names define relationship types, and are (with the exception
-   of_ `collection_defined_by_project`_) somewhat nonspecific by design.
-   Note in particular that relationships between core entities represented
-   here **may** mask transitively-collapsed versions of more complex
-   relationship networks in the native DCC metadataset. The specification
-   of precise rules governing native-to-C2M2 metadata mappings (or
-   approximations) are left to DCC serialization staff and relevant
-   investigators; CFDE staff will be available as needed to offer
-   feedback and guidance when navigating these issues._
-   
-   _Please see the relevant sections of the_
-   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
-   _to find all table-specific field names and foreign-key constraints._
+Please see the relevant sections of the [C2M2 JSON Schema](https://osf.io/e5tc2/) to find all
+table-specific field names and foreign-key constraints for these tables.
 
 ### Container entities
 
-C2M2 Level 1 offers two ways -- `project` and `collection` -- to denote groups of
+C2M2 offers two ways -- `project` and `collection` -- to denote groups of
 related metadata entity records representing core (`file`/`subject`/`biosample`)
 experimental resources.
 
@@ -728,7 +770,7 @@ experimental resources.
       into a hierarchical (directed, acyclic) network, but one and only one_
       `project` _node in one and only one_ `project` _hierarchy can be attached
       to each core entity record._
-      * _by convention, for C2M2 Level 1, one artificial_ `project` _node must
+      * _by convention, one artificial_ `project` _node must
       be created and identified as the root (topmost ancestor) node of each
       DCC's_ `project` _hierarchy: this node will represent the DCC itself: it
       is referenced directly (via foreign key) by the_ `primary_dcc_contact` _table,
@@ -738,7 +780,7 @@ experimental resources.
       * _**contextually unconstrained:** a generalization of the "dataset" concept
       which additionally and explicitly supports the inclusion of elements
       (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
-      * _**wholly optional**: Level 1 C2M2 serialization of DCC metadata need not
+      * _**wholly optional**: C2M2 serialization of DCC metadata need not
       necessarily include any_ `collection` _records or attributions_
       * _**membership** of C2M2 entities in_ `collection`_s is encoded using the
       relevant association tables (cf. below, §"Association tables: expressing containment relationships")_
@@ -781,8 +823,35 @@ experimental resources.
    subcollection)**._
    
    _Please see the relevant sections of the_
-   [Level 1 JSON Schema](../draft-C2M2_JSON_Schema_datapackage_specs/C2M2_Level_1.datapackage.json)
+   [C2M2 JSON Schema](https://osf.io/e5tc2/)
    _to find all table-specific field names and foreign-key constraints._
+
+### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
+
+   _The_ `subject_role_taxonomy` _ "categorical association" table enables
+   the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
+   `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
+   `ncbi_taxonomy` _table) to C2M2_ `subject` _entities in a variety of
+   ways, depending on_ [`subject.granularity`](#the-subject-entity-a-biological-entity-from-which-a-c2m2-biosample-can-be-generated)_, using_ `subject_role` _values to specify
+   the qualifying semantic or ontological context that should be applied to
+   each taxonomic label._
+
+   * `subject_role`: _constituent relationship to intra-_`subject` _system:_
+      * _each_ `subject_granularity` _corresponds to a subset of
+      [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
+      each of which can be labeled independently with NCBI Taxonomy Database
+      IDs via_ `subject_role_taxonomy`.
+   * `subject_role_taxonomy`: _Putting it all together: this association table
+   stores **three items per record**, connecting components of_ `subject` _entities
+   (_`subject_role`_s) to taxonomic assignments:_
+      * _A (binary:_ `{ subject.id_namespace, subject.local_id }`_) key identifying a C2M2_ `subject` _entity record_
+      * _An enumerated category code (the `id` field in [this table](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv)) denoting a_ `subject_role` _contextual qualifier_
+      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
+      entry classifying the given_ `subject` _by way of the given_ `subject_role`
+
+   _Please refer to the definition of_ `subject_role_taxonomy` _in the_
+   [C2M2 JSON Schema](https://osf.io/e5tc2/)
+   _to find all technical details (field names and foreign-key constraints)._
 
 ### Controlled vocabularies and term entity tables
 
@@ -810,8 +879,7 @@ experimental resources.
       terms aren't available in a particular ontological CV_
       * _aggressively leave blank CV-field values for any records that wind up causing
       you the slightest bit of trouble._
-   * **non-optional wish list:** Everything listed in this segment must be
-   carefully addressed and drafted in order to produce a mature policy on controlled vocabulary usage.
+   * **imminent:**
       * _policy specifying (or standardizing or prohibiting or ...?) a **term-addition
       request process** between CFDE and CV owners (active and ongoing between HMP
       and OBI, e.g.: terms are being added on request; CV managers are responsive),
@@ -819,9 +887,7 @@ experimental resources.
       * _**URIs are probably better than bare CV terms** -- expect us to upgrade later this year_
       * _ontology WG is hot on trail of stable CV/ontology usage solution for C2M2_
       _creating consensus on **which particular CVs look like the best final selections**
-      to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
-      	* _how comprehensive is a CV's coverage of the relevant ontological space?_
-      	* _how responsive are the CV owners to change requests?_
+      to serve as sanctioned C2M2 reference sets, including possible hybrids_
 
 ### The `primary_dcc_contact` table
 
@@ -834,37 +900,6 @@ experimental resources.
 | `dcc_name` | required | A short, human-readable, machine-read-friendly label for this contact's DCC. |
 | `dcc_description` | optional | A paragraph-length description of this contact's DCC. |
 | `dcc_url` | required | URL of the front page of the website for this contact's DCC. |
-
-### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
-
-   _The_ `subject_role_taxonomy` _ "categorical association" table enables
-   the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
-   `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
-   `ncbi_taxonomy` _table) to C2M2_ `subject` _entities in a variety of
-   ways, depending on_ `subject_granularity`_, using_ `subject_role` _values to specify
-   the qualifying semantic or ontological context that should be applied to
-   each taxonomic label._
-
-   * `subject_granularity`_:_ `subject` _multiplicity specifier:_
-      * _for each_ `subject` _record, pick one of
-   [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)
-   and include its_ `id` _in the_ `granularity` _field in that record._
-   * `subject_role`: _constituent relationship to intra-_`subject` _system:_
-      * _each_ `subject_granularity` _corresponds to a subset of
-      [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
-      each of which can be labeled independently with NCBI Taxonomy Database
-      IDs via_ `subject_role_taxonomy`.
-   * `subject_role_taxonomy`: _Putting it all together: this association table
-   stores **three items per record**, connecting components of_ `subject` _entities
-   (_`subject_role`_s) to taxonomic assignments:_
-      * _A (binary:_ `{ subject.id_namespace, subject.local_id }`_) key identifying a C2M2_ `subject` _entity record_
-      * _An enumerated category code (the `id` field in [this table](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv)) denoting a_ `subject_role` _contextual qualifier_
-      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
-      entry classifying the given_ `subject` _by way of the given_ `subject_role`
-
-   _Please refer to the definition of_ `subject_role_taxonomy` _in the_
-   [C2M2 JSON Schema](https://osf.io/e5tc2/)
-   _to find all technical details (field names and foreign-key constraints)._
 
 --------------------------------------------------------------------------------
 
