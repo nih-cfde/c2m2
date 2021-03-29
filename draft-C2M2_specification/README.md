@@ -640,128 +640,47 @@ group of values organized according to named fields -- describing exactly one
 entity of the type represented by that table. Example: one row in the `file`
 entity table is a record describing a single file.
 
-|property|description|
-|:---:|:---|
-| `id_namespace` | **URI-prefix identifier devised by the DCC managing this entity and pre-registered with CFDE-CC.** The value of this field will be used together with `local_id` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
-| `local_id` | **URI-suffix identifier identifying this entity**: a string that **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. The value of this field will be used together with `id_namespace` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
-| `persistent_id` | **An optional, resolvable URI permanently attached to this entity**: a permanent address which must resolve (via some service like <a href="http://identifiers.org/">identifiers.org</a>) to some network-retrievable object describing the entity, like a landing page with basic descriptive information, or a direct-download URL. **Actual network locations (e.g. bare download URLs) must not be embedded directly within this identifier**: one level of indirection (the resolver service) is required in order to protect `persistent_id` values from changes in network location over time as data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
-| `creation_time` | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the primary `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision. |
-| `abbreviation`, `name` and `description` | Text describing this entity, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li> |
-| `project_id_namespace`, `project_local_id` | This pair of fields stores a **required [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) into this submission's `project` table**. The row in the `project` table identified by this key represents the **primary project under which this entity was first created, observed, documented or otherwise encountered.** (See the section on the [project table](#container-entities) for more on the meaning of `project` and usage details, including options for constructing simplified default values for these required fields.) |
+|field(s)|required?|description|
+|:---:|:---:|:---|
+| `id_namespace` | required: [primary key](https://en.wikipedia.org/wiki/Primary_key) | **URI-prefix identifier devised by the DCC managing this entity and pre-registered with CFDE-CC.** The value of this field will be used together with `local_id` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `local_id` | required: [primary key](https://en.wikipedia.org/wiki/Primary_key) | **URI-suffix identifier identifying this entity**: a string that **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. The value of this field will be used together with `id_namespace` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `persistent_id` | optional | **An optional, resolvable URI permanently attached to this entity**: a permanent address which must resolve (via some service like <a href="http://identifiers.org/">identifiers.org</a>) to some network-retrievable object describing the entity, like a landing page with basic descriptive information, or a direct-download URL. **Actual network locations (e.g. bare download URLs) must not be embedded directly within this identifier**: one level of indirection (the resolver service) is required in order to protect `persistent_id` values from changes in network location over time as data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `creation_time` | optional | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the primary `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision. |
+| `abbreviation`, `name` and `description` | optional* | Text describing this entity, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li> |
+| `project_id_namespace`, `project_local_id` | required: `project` [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) | This pair of fields stores a **required [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) into this submission's `project` table**. The row in the `project` table identified by this key represents the **primary project under which this entity was first created, observed, documented or otherwise encountered.** (See the section on the [project table](#container-entities) for more on the meaning of `project` and usage details, including options for constructing simplified default values for these required fields.) |
 
-### Core entities
+*`primary_dcc_contact.dcc_abbreviation` is a required field, as is the value of
+    `project.abbreviation` for one special `project` record representing the
+    submitting DCC: see the [`primary_dcc_contact`](#the-primary_dcc_contact-table)
+    and [project table](#container-entities) sections, respectively, for details. 
 
-   * **`file`**
+### Core C2M2 entities
 
-|field|description|
-|:---:|:---|
-| `id_namespace` | A CFDE-cleared identifier representing the top-level data space containing this `file`: part 1 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
-| `local_id` | An identifier representing this file, unique within this `id_namespace`: part 2 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
-| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around.  See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. (Resolvable `persistent_ids` are not actually used in this sample submission, but we include the field here to emphasize both its potential and the fact that it's fully optional everywhere it appears.) |
-| `size_in_bytes` | The **size of this `file` in bytes**. This varies (even for "copies" of the same `file`) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: precise, reproducible file size integrity metadata will be provided in the form of checksum data in the `sha256` and/or `md5` properties. `size_in_bytes` will instead underpin automatic reporting of approximate storage statistics across different C2M2 collections of DCC metadata. |
-| `sha256` | **CFDE-preferred** file checksum string: the output of the SHA-256 cryptographic hash function after being run on this `file`. One or both of `sha256` and `md5` is required. |
-| `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. One or both of `sha256` and `md5` is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, we will accept those.) |
-| `filename` | A filename with no prepended PATH information. |
+#### The **`file`** entity: a stable digital asset
 
-   * **`biosample`**
-      * _C2M2 models_ `biosample`_s as abstract materials that are directly consumed
-      by one or more analytic processes. Simple provenance relationships -- between each
-      such_ `biosample` _and the_ `subject` _from which it was originally derived, as well
-      as between each_ `biosample` _and any_ `file`_s analytically derived from it -- are
-      represented using association tables, with one such table dedicated to each
-      relationship type (cf. below, §"Association tables: inter-entity linkages").
-      Actual DCC-managed provenance metadata will sometimes (maybe always) represent more complex and
-      detailed provenance networks: in such situations, chains of "_`this` _produced_
-      `that`_" relationships too complex to model at Level 1 will need to be
-      transitively collapsed. As an example: let's say a research team collects a
-      cheek-swab sample from a hospital patient; subjects that swab sample to several
-      successive preparatory treatments like centrifugation, chemical ribosomal-RNA
-      depletion and targeted amplification; then runs the final fully-processed
-      remnant material through a sequencing machine, generating a FASTQ sequence
-      file as the output of the sequencing process. In physical terms our team
-      will have created a series of distinct material samples, connected one to another
-      by (directed) "_`X` `derived_from` `Y`_" relationships, represented as a (possibly
-      branching) graph path (in fully general terms, a directed acyclic graph) running
-      from a starting node set (here, our original cheek-swab sample) through intermediate
-   	nodes (one for each coherent material product of each individual preparatory process)
-   	to some terminal node set (in our case, the final-stage, immediately-pre-sequencer
-   	library preparation material). C2M2 Level 2 will offer metadata structures to model
-   	this entire process in full detail, including representational support for all
-   	intermediate_ `biosample`_s, and for the various preparatory processes involved.
-   	For the purposes envisioned to be served by Level 1 C2M2 metadata, on the other hand,
-   	only_ `subject` _<->_ `some_monolothic_stuff` _<->_ `(FASTQ) file` _can and should be
-   	explicitly represented._
-         * _The simplifications here are partially necessitated by the fact that
-   	   event modeling has been deliberately deferred to C2M2 Level 2: as a result,
-   	   the notion of a well-defined "chain of provenance" is not modeled at
-   	   this C2M2 Level. (More concretely: Level 1 does not represent
-   	   inter-_`biosample` _relationships.)_
-         * _The modeling of details describing experimental processes has also been
-         assigned to Level 2._
-         * _With both of these (more complex) aspects of experimental metadata
-         masked at C2M2 Level 1, the most appropriate granularity at which a Level 1_
-         `biosample` _entity should be modeled is as an abstract "material phase"
-         (possibly masking what is in reality a chain of multiple distinct materials)
-         that enables an analytic (or observational or other scientific) process (which
-         originates at a_ `subject` _) to move forward and ultimately produce one or
-         more_ `file`_s._  
-      * _In practice, a C2M2 submission builder facing such a situation
-   	might reasonably create one record for the originating_ `subject` _; create one_
-   	`biosample` _entity record; create a_ `file` _record for the FASTQ file produced
-   	by the sequencing process; and hook up_ `subject` _<->_ `biosample` _and_
-   	`biosample` _<->_ `file` _relationships via the corresponding association tables
-   	(cf. below, §"Association tables: inter-entity linkages")._
-         * _In terms of deciding (in a well-defined way) specifically which native DCC
-         metadata should be attached to this Level 1_ `biosample` _record, one
-         might for example choose to import metadata (IDs, etc.) describing the
-         final pre-sequencer material. The creation of specific rules governing maps
-         from native DCC data to (simplified, abstracted) Level 1 entity records
-         is of necessity left up to the best judgment of the serialization staff
-         creating each DCC's Level 1 C2M2 ETL instance; we recommend consistency,
-         but beyond that, custom solutions will have to be developed to handle
-         different data sources. Real-life examples of solution configurations
-	 will be published (as they are collected) to help inform decisionmaking,
-	 and CFDE staff will be available as needed to help create mappings between
-	 the native details of DCC sample metadata and the approximation that is
-	 the C2M2_ `biosample` _entity._
-         * _Note in particular that this example doesn't preclude attaching multiple_
-         `biosample`_s to a single originating_ `subject`_; nor does it preclude modeling a
-         single_ `biosample` _that produces multiple_ `file`_s._
-         * _Note also that the actual end-stage material prior to the production of a_
-         `file` _might not always prove to be the most appropriate metadata source from
-         which to populate a corresponding_ `biosample` _entity. Let's say a
-         pre-sequencing library prepration material_ `M` _is divided in two to
-         produce derivative materials_ `M1` _and_ `M2` _, with_ `M1` _and_ `M2` _then
-         amplified separately and sequenced under separate conditions producing_
-         `file`_s_ `M1.fastq` _and_ `M2.fastq` _. In such a case -- depending on
-         experimental context -- the final separation and amplification processes
-         producing_ `M1` _and_ `M2` _might reasonably be ignored for the purposes
-         of Level 1 modeling, instead attaching a single (slightly upstream)_
-         `biosample` _entity -- based on metadata describing_ `M` _-- to both_ `M1.fastq`
-         _and_ `M2.fastq`_. As above, final decisions regarding detailed rules
-         mapping native DCC data to Level 1 entities are necessarily left to
-         DCC-associated investigators and serialization engineers; CFDE staff will be available as needed to offer
-         feedback and guidance when navigating mapping issues._
-   * **`subject` introduced** _(also cf. below, §"Common entity fields" and §"Taxonomy and the `subject` entity")_
-      * _The Level 1_ `subject` _entity is a generic container meant to represent any biological
-      entity from which a Level 1_ `biosample` _can be generated (the notion of_ `biosample`_s
-      being generated by other_ `biosample`_s is more appropriately modeled at C2M2
-      Level 2: cf. §"_`biosample` **introduced**_", immediately above)_
-      * _Alongside shared metadata fields (cf. below, §"Common entity fields") and inter-entity
-      associations (cf. below, §"Association tables: inter-entity linkages"), C2M2
-      Level 1 models two additional details specific to_ `subject` _entities:_
-         * _internal structural configuration (referred to as_ `subject_granularity` _and
-         included in each_ `subject` _record as one of an enumerated list
-	 of categorical value codes (for concepts like, e.g., "single organism,"
-	 "microbiome," "cell line") -- reference list of granularity terms (with descriptions) is given
-	 [here](../draft-C2M2_internal_CFDE_CV_tables/subject_granularity.tsv)_
-         * _taxonomic assignments attached to subcomponents ("roles," another ontological enumeration
-	 listed [here](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv) for reference) of_ `subject` _entities, e.g. "cell line ancestor ->
-         NCBI:txid9606" or "host (of host-pathogen symbiont system) -> NCBI:txid10090":
-         this is accomplished via the_ `subject_role_taxonomy` _categorical association table
-         (cf. below, §"Association table: taxonomy and the_ `subject` _entity: the_ `subject_role_taxonomy` _table")_
-      * _all other_ `subject`_-specific metadata -- including any protected data -- is deferred by
-      design to Level 2_
+|field(s)|required?|description|
+|:---:|:---:|:---|
+| `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
+| `size_in_bytes` | optional | **The size of this `file` in bytes.** (integer) |
+| `uncompressed_size_in_bytes` | optional | The **total decompressed size in bytes** of the contents of this file. (integer) |
+| `sha256` | required if `md5` is null | **CFDE-preferred file checksum string**: the output of the SHA-256 cryptographic hash function after being run on this file. One or both of `sha256` and `md5` is required. |
+| `md5` | required if `sha256` is null | **Permitted file checksum string**: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this file. One or both of `sha256` and `md5` is required. |
+| `filename` | optional | **A filename with no prepended PATH information.** (e.g. "example.txt" and not "/usr/foo/example.txt") |
+| `file_format` | optional | An **EDAM CV term ID** identifying the **digital format** of this file (e.g. TSV or FASTQ). (Pattern: `format:[0-9]+`) |
+| `data_type` | optional | An **EDAM CV term ID** identifying the **type of information** stored in this file (e.g. RNA sequence reads). (Pattern: `data:[0-9]+`) |
+| `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated the results summarized by this file. (Pattern: `OBI:[0-9]+`) |
+| `mime_type` | optional | A **MIME type** (or "IANA media type") describing this file, e.g. "text/plain" or "application/octet-stream". See [this page](https://training.nih-cfde.org/en/latest/CFDE-Internal-Training/MIME-type/) for a tutorial introduction and [this list](https://www.iana.org/assignments/media-types/media-types.xhtml) for a complete reference. |
+
+#### The **`biosample`** entity: a tissue sample or other physical specimen
+
+|field(s)|required?|description|
+|:---:|:---:|:---|
+
+
+#### The **`subject`** entity: a biological entity from which a C2M2 biosample can be generated
+
+|field(s)|required?|description|
+|:---:|:---:|:---|
 
 ### Association tables: inter-entity linkages
 
@@ -903,6 +822,18 @@ experimental resources.
       to serve as sanctioned C2M2 reference sets (e.g. OBI vs. BAO); criteria:_
       	* _how comprehensive is a CV's coverage of the relevant ontological space?_
       	* _how responsive are the CV owners to change requests?_
+
+### The `primary_dcc_contact` table
+
+|field(s)|required?|description|
+|:---:|:---:|:---|
+| `contact_email` | required: [primary key](https://en.wikipedia.org/wiki/Primary_key) | Email address of the primary DCC contact for this C2M2 submission. (Format: valid email address) |
+| `contact_name` | required | Name of this DCC contact. |
+| `project_id_namespace`, `project_local_id` | required: `project` [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) | The `id_namespace` and `local_id` fields of the `project` row representing this contact's DCC. |
+| `dcc_abbreviation` | required | A short label for this contact's DCC. (Pattern: `[a-zA-Z0-9_]+`) |
+| `dcc_name` | required | A short, human-readable, machine-read-friendly label for this contact's DCC. |
+| `dcc_description` | optional | A paragraph-length description of this contact's DCC. |
+| `dcc_url` | required | URL of the front page of the website for this contact's DCC. |
 
 ### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
 
