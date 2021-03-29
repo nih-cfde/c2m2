@@ -704,17 +704,18 @@ table](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-ta
 
 ### Association tables: inter-entity linkages
 
-   * `file_describes_subject`
-
 C2M2 **association tables** codify relationships between specific entities
 of different types: in database terms, they spell out relationships between
-particular rows across different tables. Each row in the C2M2
-`file_describes_subject` association table consists of two identifiers, used as
-foreign keys: one for a `file` record (a row in the `file` table describing
-one particular file), and one for a `subject` record (a row in the `subject`
-table describing one particular subject or source organism). Since C2M2 identifiers
-each have two parts -- `id_namespace` and `local_id` -- this gives a total of
-four fields for this table (all fields are required):
+particular rows across different tables.
+
+   * `file_describes_subject`
+
+Each row in the C2M2 `file_describes_subject` association table consists of
+two identifiers, used as foreign keys: one for a `file` record (a row in the
+`file` table describing one particular file), and one for a `subject` record
+(a row in the `subject` table describing one particular subject or source organism).
+Since C2M2 identifiers each have two parts -- `id_namespace` and `local_id` --
+this gives a total of four fields for this table:
 
 |`file_id_namespace` | `file_local_id` | `subject_id_namespace` | `subject_local_id` |
 
@@ -731,30 +732,32 @@ The following tables work in the same way:
    * `collection_defined_by_project`
 
 **All of these association tables are optional**: valid C2M2 submissions do not need
-to express all (or any) of these relationships in this way. If included, they can be
-used for smarter downstream discovery than is possible when limited only to
-manifests of isolated/unlinked resources.
+to express all (or any) of these relationships. If included, association table
+information about relationships between entities can be used to power smarter
+downstream discovery than would be possible if limited only to manifests of
+isolated, unlinked resources.
 
 Each association table's name defines the relationship it represents, and these
-are generally nonspecific by design, to facilitate harmonization in the
-federated C2M2 data space along basic conceptual lines.
-`collection_defined_by_project` optionally attaches a primary generating
-`project` to a C2M2 `collection`: this relationship is
-more specific than the others given here, and is meant to express the
-same relationship between a `project` and a `collection` as is (for example)
-expressed by the mandatory `project` foreign key in the `file` table:
-"`collection` _C_ was defined under the auspices of `project` _P_". Not every
-`collection` will have a well-defined DCC-modeled `project` under which it
-was created, so this association is also optional.
-   
-Please see the relevant sections of the [C2M2 JSON Schema](https://osf.io/e5tc2/) to find all
-table-specific field names and foreign-key constraints for these tables.
+are generally nonspecific by design, to facilitate harmonization along basic
+conceptual lines across the federated C2M2 metadata space. `collection_defined_by_project`
+optionally attaches a primary generating `project` to a C2M2 `collection`:
+this relationship is more specific than the others given here, and is meant
+to express the same relationship between a `project` and a `collection` as
+is (for example) expressed by the `project` foreign key in the `file` table:
+"`collection` _C_ was defined under the auspices of `project` _P_," just as "`file` _F_
+was created by `project` _P_," or "`biosample` _B_ was obtained and catalogued
+during project _P_." Not every `collection` will have a well-defined DCC-modeled
+`project` under which it was created, so the `collection_defined_by_project`
+association is optional.
+
+Please see the relevant sections of the [C2M2 JSON Schema](https://osf.io/e5tc2/) to
+find all field names and foreign-key constraints for these tables.
 
 ### Container entities
 
-C2M2 offers two ways -- `project` and `collection` -- to denote groups of
-related metadata entity records representing core (`file`/`subject`/`biosample`)
-experimental resources.
+C2M2 offers two ways -- `project` and `collection` -- to define **groups of
+related experimental resources** (represented as C2M2 entities: `file`, `subject`,
+`biosample`, etc.).
 
    * `project`
       * _unambiguous, unique, named, most-proximate research/administrative
@@ -812,23 +815,30 @@ experimental resources.
    * `subject_in_collection`
    * `biosample_in_collection`
    
-   _These tables are used to express basic containment relationships like "this_ `file` _is in
-   this_ `collection`_" or "this_ `project` _is a sub-project of this other_
-   `project`_." The record format for all of these tables specifies four fields:_
+These tables are used to express basic containment relationships like "this `file` is in
+this `collection`" or "this `project` is a sub-project of this other
+`project`." Rows in these tables consist of four fields:
    
-   * _two (an_ `id_namespace` _and a_ `local_id`_) encoding a foreign key representing
-   the **containing**_ **`project`** _**or**_ **`collection`**_, and_
-   * _two (another_ {`id_namespace`, `local_id`} _pair) acting as a foreign key
-   referencing the table describing the **contained resource (or
-   subcollection)**._
-   
-   _Please see the relevant sections of the_
-   [C2M2 JSON Schema](https://osf.io/e5tc2/)
-   _to find all table-specific field names and foreign-key constraints._
+* two (an `id_namespace` and a `local_id`) comprising a foreign key representing
+   the **containing `project` or `collection`**, and
+* two (a second {`id_namespace`, `local_id`} pair) acting as a foreign key
+    referencing the **contained resource** (`file`, `biosample`, etc.) **or group**
+    (e.g., a "child `project`" or subproject).
+
+Example set of fields (from `project_in_project`):
+
+|`parent_project_id_namespace` | `parent_project_local_id` | `child_project_id_namespace` | `child_project_local_id` |
+
+Another example (from `file_in_collection`):
+
+|`file_id_namespace` | `file_local_id` | `collection_id_namespace` | `collection_local_id` |
+
+Please see the relevant sections of the [C2M2 JSON Schema](https://osf.io/e5tc2/)
+to find all field names and foreign-key constraints for each of these association tables.
 
 ### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
 
-   _The_ `subject_role_taxonomy` _ "categorical association" table enables
+   _The_ `subject_role_taxonomy` _"categorical association" table enables
    the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
    `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
    `ncbi_taxonomy` _table) to C2M2_ `subject` _entities in a variety of
@@ -836,22 +846,18 @@ experimental resources.
    the qualifying semantic or ontological context that should be applied to
    each taxonomic label._
 
-   * `subject_role`: _constituent relationship to intra-_`subject` _system:_
-      * _each_ `subject_granularity` _corresponds to a subset of
-      [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
-      each of which can be labeled independently with NCBI Taxonomy Database
-      IDs via_ `subject_role_taxonomy`.
-   * `subject_role_taxonomy`: _Putting it all together: this association table
-   stores **three items per record**, connecting components of_ `subject` _entities
-   (_`subject_role`_s) to taxonomic assignments:_
-      * _A (binary:_ `{ subject.id_namespace, subject.local_id }`_) key identifying a C2M2_ `subject` _entity record_
-      * _An enumerated category code (the `id` field in [this table](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv)) denoting a_ `subject_role` _contextual qualifier_
-      * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
-      entry classifying the given_ `subject` _by way of the given_ `subject_role`
-
-   _Please refer to the definition of_ `subject_role_taxonomy` _in the_
-   [C2M2 JSON Schema](https://osf.io/e5tc2/)
-   _to find all technical details (field names and foreign-key constraints)._
+* `subject_role`: _constituent relationship to intra-_`subject` _system:_
+    * _each_ `subject_role` _corresponds to a subset of
+        [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
+        each of which can be labeled independently with NCBI Taxonomy Database
+        IDs via_ `subject_role_taxonomy`_._
+* `subject_role_taxonomy`: _Putting it all together: this association table
+    stores **three items per record**, connecting components of_ `subject` _entities
+    (_`subject_role`_s) to taxonomic assignments:_
+    * _A (binary:_ `{ subject.id_namespace, subject.local_id }`_) key identifying a C2M2_ `subject` _entity record_
+    * _An enumerated category code (the `id` field in [this table](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv)) denoting a_ `subject_role` _contextual qualifier_
+    * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
+        entry classifying the given_ `subject` _by way of the given_ `subject_role`
 
 ### Controlled vocabularies and term entity tables
 
