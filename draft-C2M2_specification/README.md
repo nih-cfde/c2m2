@@ -498,7 +498,7 @@ _[under construction]_
 * _compliance checklist / flat terse list of tables, fields & reqs_
 * [sample C2m2 metadata submission: minimal inventory](#a-minimal-c2m2-submission)
 * [sample C2M2 metadata submission: basic relational model](#a-basic-relational-c2m2-submission)
-* [ER diagram](#c2m2-technical-specification)
+* [ER diagram](#c2m2_model_diagram)
 * [JSON Schema](https://osf.io/e5tc2/)
 
 The CFDE Crosscut Metadata Model (C2M2) is a relational database model
@@ -556,6 +556,7 @@ of named fields. **Associations** (relationships between entities) are
 named inside small boxes: arrows are drawn connecting each association with the
 entities that participate in the relationship that the association represents.
 
+<a name="c2m2_model_diagram"></a>
 |_C2M2 model diagram_|
 |:---:|
 |![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
@@ -607,26 +608,46 @@ required records are
 
 More information than this will clearly be required for a C2M2 metadata
 submission to be of any _use,_  but regardless of individual metadata
-configuration, we stress that one TSV file must be created to represent
-each table, whether or not the table has any row data. For blank tables,
-a TSV file will be included containing just one tab-separated header line
-which lists the (empty) table's field names. Instead of just omitting
-tables with no data, including this requirement helps us differentiate
-"by design, no data is being submitted" from "this table was left out by
-mistake."
+configuration, **one TSV file must be created to represent each table,
+whether or not the table has any row data in it**. Any blank table
+will be represented by a TSV file containing just one tab-separated
+header line which lists the (empty) table's field names. Instead of
+just omitting files for tables with no data, this requirement helps
+us differentiate "by design, no data is being submitted" from "this
+table was left out by mistake."
 
 ### Common entity fields
 
-The following properties all have the same meaning and function across
-the various entities they describe (`file`, `biosample`, `project`, etc.).
+The following fields all have the same meaning and serve the same function across
+the various entity tables that include them (`file`, `biosample`, `project`, etc.).
+
+The phrase "this entity," in field descriptions below, refers to the
+particular entity (`file`, `biosample`, etc.) record stored in the
+row containing the field in question. For example: when we describe
+the `persistent_id` field as a "URI permanently attached to this
+entity," we mean "for any particular row **_R_** in any C2M2 entity table,
+if **_R_** contains a `persistent_id` value, then that `persistent_id` value
+will be a URI uniquely and permanently associated with the particular
+thing described by **_R_**." So if **_R_** is a row (describing one
+particular file, say **_F_**) in a C2M2 `file` table, then any
+value present in **_R_**'s `persistent_id` field must be an
+identifier that's permanently attached to the file **_F_** (and to
+nothing else).
+
+In this document the terms "record" and "row" are generally synonymous:
+one row in a C2M2 entity table represents a single metadata record -- an ordered
+group of values organized according to named fields -- describing exactly one
+entity of the type represented by that table. Example: one row in the `file`
+entity table is a record describing a single file.
 
 |property|description|
 |:---:|:---|
-| `id_namespace` | String **identifier devised by the DCC managing this entity** (cleared by CFDE-CC to avoid clashes with any preexisting `id_namespace` values). The value of this property will be used together with `local_id` as a **composite key structure formally identifying Level 1 C2M2 entities** within the total C2M2 data space. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
-| `local_id` | Unrestricted-format **string identifying this entity**: can be any string as long as it **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
-| `persistent_id` | **A permanent, resolvable URI permanently attached to this entity**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this entity) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the entity can be viewed, downloaded, or otherwise directly investigated. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as entity data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion and examples.) |
-| `creation_time` | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision.<ul><li>_We are aware (and unconcerned) that this technically renders one particular_ **`HH:MM:SS`** _value --_ "`00:00:00`" _-- ambiguous. Forestalling this ambiguity (by allowing select omissions of constituent sub-segments of_ `creation_time` _string values as an alternative mechanism to denote missing data, or by introducing nonstandard and increasingly artificial special-case encodings like_ "`99:99:99`"_) was determined to be of less immediate concern than maintaining the technical advantages conferred by the (stronger) constraint of requiring a fixed-length_ `creation_time` _string that remains fully conformant with (a constrained subset of) the RFC 3339 standard. The canonical C2M2 interpretation of_ "`00:00:00`" _is thus explicitly defined to be "_**`HH:MM:SS`** _information unknown" and not "exactly midnight."_</li></ul> |
-| `abbreviation`, `name` and `description` | _Values which will be used, unmodified, for contextual display throughout portal and dashboard user interfaces: severely restricted, whitespace-free_ `abbreviation` _(must match_ `/[a-zA-Z0-9_]*/`_); terse but flexible_ `name` _; abstract-length_ `description` |
+| `id_namespace` | **URI-prefix identifier devised by the DCC managing this entity and pre-registered with CFDE-CC.** The value of this field will be used together with `local_id` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `local_id` | **URI-suffix identifier identifying this entity**: a string that **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. The value of this field will be used together with `id_namespace` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `persistent_id` | **An optional, resolvable URI permanently attached to this entity**: a permanent address which must resolve (via some service like <a href="http://identifiers.org/">identifiers.org</a>) to some network-retrievable object describing the entity, like a landing page with basic descriptive information, or a direct-download URL. **Actual network locations (e.g. bare download URLs) must not be embedded directly within this identifier**: one level of indirection (the resolver service) is required in order to protect `persistent_id` values from changes in network location over time as data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
+| `creation_time` | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the primary `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision. |
+| `abbreviation`, `name` and `description` | Text describing this entity, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li> |
+| `project_id_namespace`, `project_local_id` | This pair of fields stores a **required [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) into this submission's `project` table**. The row in the `project` table identified by this key represents the **primary project under which this entity was first created, observed, documented or otherwise encountered.** (See the section on the [project table](#container-entities) for more on the meaning of `project` and usage details, including options for constructing simplified default values for these required fields.) |
 
 ### Core entities
 
