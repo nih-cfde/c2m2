@@ -756,30 +756,54 @@ find all field names and foreign-key constraints for these tables.
 ### Container entities
 
 C2M2 offers two ways -- `project` and `collection` -- to define **groups of
-related experimental resources** (represented as C2M2 entities: `file`, `subject`,
-`biosample`, etc.).
+related entities** (`file`, `subject`, `biosample`, etc.). All valid
+C2M2 submissions must provide at least minimal information describing a `project`
+hierarchy, with each metadata record attached to a well-defined `project` space.
+Operations essential to data discovery (sorting, searching and binning) depend
+on this information, so that as data is discovered by users, it can be more easily
+associated with its proper research context. The C2M2 `collection` container,
+a generalization of "dataset", is optional, with its scope and complexity of usage
+generally left to the submitting DCC.
 
-   * `project`
-      * _unambiguous, unique, named, most-proximate research/administrative
-      sphere of operations that **first generates** each experimental resource
-      (_`file`/`subject`/`biosample`_) record_
-      * _conceptually rooted in -- but not necessarily mapped one-to-one from
-      -- a corresponding hierarchy of grants, contracts or other **important
-      administrative subdivisions of primary research funding**_
-      * `project` _attribution is **required** for core resource entity types: use
-      FK specified in_ `file`/`biosample`/`subject` _entity records to encode these attributions_
-      * `project`s _**can be nested** (via the_ `project_in_project` _association
-      table: cf. below, §"Association tables: expressing containment relationships")
-      into a hierarchical (directed, acyclic) network, but one and only one_
-      `project` _node in one and only one_ `project` _hierarchy can be attached
-      to each core entity record._
-      * _by convention, one artificial_ `project` _node must
-      be created and identified as the root (topmost ancestor) node of each
-      DCC's_ `project` _hierarchy: this node will represent the DCC itself: it
-      is referenced directly (via foreign key) by the_ `primary_dcc_contact` _table,
-      and serves as an anchor point for creating roll-up summaries or other
-      aggregations of C2M2 metadata arranged according to managing DCC._
+The C2M2 `project` entity models an unambiguous, unique, named, most-proximate
+research/administrative sphere of operations that **first generates or observes**
+experimental resources represented by core C2M2 entities (`file`, `subject`, etc.).
+The concept of `project` is loosely rooted in -- but not necessarily mapped
+one-to-one from -- some corresponding hierarchy of grants, contracts or other
+**important administrative subdivisions of primary research purview.** Specifically
+what that means -- exactly what these administrative subdivisions are, and how
+metadata is to be allocated to them -- is left to the submitting DCC, subject to
+the structural constraints we impose on `project` in anticipation of using it
+consistently across metadata spaces from different DCCs.
+
+The `project` hierarchy described by any valid C2M2 submission must represent
+a directed, rooted, acyclic graph (a directed tree). Nodes (vertices) on this
+tree are represented as rows in the C2M2 `project` table. Edges between pairs
+of nodes, representing parent/child relationships between projects (or more
+awkwardly "containing project"/"subproject" relationships), are expressed
+as rows in the `project_in_project` association table ([see
+below](#association-tables-expressing-containment-relationships)). Each row in `project_in_project`
+lists one parent project and a second child project; taken together, these
+rows represent the entire `project` hierarchy within the submission.
+
+Regardless of whether a DCC has a natural "top-level project" under which
+to nest all other `project` records, **C2M2 requires by convention that one
+artificial `project` row be created and identified as the root node of the
+`project` hierarchy: this node will represent the DCC itself.** This row is
+referenced via foreign key by the contact entry in the `primary_dcc_contact` table
+([see below](#the-primary_dcc_contact-table)), and serves as an anchor point for creating roll-up summaries
+or other aggregations of C2M2 metadata arranged according to submitting DCC.
+
+A unique `project` attribution is **required** for each row of all core entity
+types: foreign keys (discussed [above](#common-entity-fields)) are provided
+for this purpose in the `file`, `biosample` and `subject` tables. In a truly
+minimal case, a DCC's `project` hierarchy can just consist of the artificial
+root node representing the DCC itself, and all resources can be attributed to
+that one node. This will disable any downstream advantages of more fine-grained
+accounting, but will enable a valid submission.
+
    * `collection`
+
       * _**contextually unconstrained:** a generalization of the "dataset" concept
       which additionally and explicitly supports the inclusion of elements
       (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
@@ -804,10 +828,10 @@ related experimental resources** (represented as C2M2 entities: `file`, `subject
          reanalysis, as well as to provide a specific and consistent anchoring
          structure through which authors anywhere can create (and study and cite)
          newly-defined groupings of C2M2 resources, independently of their original
-         provenance associations. (FAIRness is generally increased by
-	 provisioning for consistent reference frameworks.)_
+         provenance associations. (FAIRness is generally increased by provisioning
+         for consistent reference frameworks.)_
 
-### Association relationship tables: expressing containment
+### Association tables: expressing containment relationships
 
    * `project_in_project`
    * `collection_in_collection`
