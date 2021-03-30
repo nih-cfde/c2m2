@@ -783,8 +783,9 @@ of nodes, representing parent/child relationships between projects (or more
 awkwardly "containing project"/"subproject" relationships), are expressed
 as rows in the `project_in_project` association table ([see
 below](#association-tables-expressing-containment-relationships)). Each row in `project_in_project`
-lists one parent project and a second child project; taken together, these
-rows represent the entire `project` hierarchy within the submission.
+lists one parent project and one child project; taken together, all of
+the rows in `project_in_project` represent the entire `project` tree hierarchy
+within the submission.
 
 Regardless of whether a DCC has a natural "top-level project" under which
 to nest all other `project` records, **C2M2 requires by convention that one
@@ -795,7 +796,7 @@ referenced via foreign key by the contact entry in the `primary_dcc_contact` tab
 or other aggregations of C2M2 metadata arranged according to submitting DCC.
 
 A unique `project` attribution is **required** for each row of all core entity
-types: foreign keys (discussed [above](#common-entity-fields)) are provided
+types: foreign keys ([discussed above](#common-entity-fields)) are provided
 for this purpose in the `file`, `biosample` and `subject` tables. In a truly
 minimal case, a DCC's `project` hierarchy can just consist of the artificial
 root node representing the DCC itself, and all resources can be attributed to
