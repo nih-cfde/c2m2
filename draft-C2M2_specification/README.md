@@ -556,6 +556,7 @@ named inside small boxes: arrows are drawn connecting each association with the
 entities that participate in the relationship that the association represents.
 
 <a name="c2m2_model_diagram"></a>
+
 |_C2M2 model diagram_|
 |:---:|
 |![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
