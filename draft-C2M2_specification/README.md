@@ -562,12 +562,12 @@ entities that participate in the relationship that the association represents.
 
 Color key:
 
-   * ![#000000](https://via.placeholder.com/15/000000/000000?text=+) Black: **Core entities** (basic experimental resources): `file`, `biosample` and `subject`
-   * ![#a52a2a](https://via.placeholder.com/15/a52a2a/000000?text=+) Dark red: **Association relationships** between core entities
-   * ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) Blue: **Container entities** (`project` and `collection`) and their containment relationships
-   * ![#1e7a1e](https://via.placeholder.com/15/1e7a1e/000000?text=+) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays
-   * ![#8b6914](https://via.placeholder.com/15/8b6914/000000?text=+) Gold: **Administrative entities** giving basic contact information for DCC creators of C2M2 submissions and describing CFDE-registered, DCC-controlled identifier namespaces
-   * ![#ffa500](https://via.placeholder.com/15/ffa500/000000?text=+) Yellow: `subject_role_taxonomy`: a special association relationship optionally linking each `subject` record with
+   * ![#000000](000000.png) Black: **Core entities** (basic experimental resources): `file`, `biosample` and `subject`
+   * ![#a52a2a](A52A2A.png) Dark red: **Association relationships** between core entities
+   * ![#0000ff](0000FF.png) Blue: **Container entities** (`project` and `collection`) and their containment relationships
+   * ![#1e7a1e](1E7A1E.png) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays
+   * ![#8b6914](8B6914.png) Gold: **Administrative entities** giving basic contact information for DCC creators of C2M2 submissions and describing CFDE-registered, DCC-controlled identifier namespaces
+   * ![#ffa500](FFA500.png) Yellow: `subject_role_taxonomy`: a special association relationship optionally linking each `subject` record with
       * (possibly multiple) NCBI Taxonomy IDs
       * a user-supplied group of sub-entities of a `subject` -- like "host," "pathogen," or "microbiome constituent" -- identified according to **roles** describing components of commonly observed biosystem types. ("Single organism (with no further subdivisions)" is the default **role**).
 
