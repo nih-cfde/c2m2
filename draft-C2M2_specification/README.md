@@ -566,7 +566,7 @@ Color key:
    * ![#000000](000000.png) Black: **Core entities** (basic experimental resources): `file`, `biosample` and `subject`
    * ![#a52a2a](A52A2A.png) Dark red: **Association relationships** between core entities
    * ![#0000ff](0000FF.png) Blue: **Container entities** (`project` and `collection`) and their containment relationships
-   * ![#1e7a1e](1E7A1E.png) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays
+   * ![#1e7a1e](1E7A1E.png) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays ([see below](#controlled-vocabularies-and-term-entity-tables) for details)
    * ![#8b6914](8B6914.png) Gold: **Administrative entities** giving basic contact information for DCC creators of C2M2 submissions and describing CFDE-registered, DCC-controlled identifier namespaces
    * ![#ffa500](FFA500.png) Yellow: `subject_role_taxonomy`: a special association relationship optionally linking each `subject` record with
       * (possibly multiple) NCBI Taxonomy IDs
@@ -898,39 +898,102 @@ to find all field names and foreign-key constraints for each of these associatio
 
 ### Controlled vocabularies and term entity tables
 
-   * _C2M2 CVs currently in use:_
-      * _**assay\_type (OBI):** used to describe **types of experiment** that can be produce
-      1_ `file`_s_
-      * _**anatomy (Uberon):** used to specify the **physiological source location**
-      in or on the_ `subject` _from which a_ `biosample` _was derived_
-      * _**data\_type (EDAM):** used to categorize the abstract **information content** of
-      a_ `file` _(e.g. "this is sequence data")_
-      * _**file\_format (EDAM):** used to denote the **digital format or encoding** of
-      a_ `file` _(e.g. "this is a FASTQ file")_
-      * _**ncbi\_taxonomy (...NCBI Taxonomy :):** used to **link**_ **`subject`** _**entity
-      records to taxonomic labels** (cf above, §"Association table: taxonomy and the_ `subject`
-      _entity: the_ `subject_role_taxonomy` _table")_
-   * _**general guidance on usage:**_
-      * _store bare CV terms (conforming to the pattern
-      constraints specified for each CV's term set in the ER diagram, above) in the
-      relevant entity-table fields (represented in the diagram as the sources of
-      dotted green arrows)_
-      * _for the moment -- with respect to deciding how to select
-      terms -- just do the best you can by picking through the term sets provided by the
-      given CVs_
-      * _feel free to use more general ancestor terms if sufficiently-specific
-      terms aren't available in a particular ontological CV_
-      * _aggressively leave blank CV-field values for any records that wind up causing
-      you the slightest bit of trouble._
-   * **imminent:**
-      * _policy specifying (or standardizing or prohibiting or ...?) a **term-addition
-      request process** between CFDE and CV owners (active and ongoing between HMP
-      and OBI, e.g.: terms are being added on request; CV managers are responsive),
-      driven by usage needs identified by DCC clients_
-      * _**URIs are probably better than bare CV terms** -- expect us to upgrade later this year_
-      * _ontology WG is hot on trail of stable CV/ontology usage solution for C2M2_
-      _creating consensus on **which particular CVs look like the best final selections**
-      to serve as sanctioned C2M2 reference sets, including possible hybrids_
+Support for the **detailed description of C2M2 metadata with terms from standard
+scientific ontologies** is a key component of cross-collection metadata
+harmonization within the CFDE. C2M2 currently provides a small number of
+(relatively uncontroversial) fields through which controlled (standardized,
+curated) scientific vocabulary terms can be attached to core C2M2 entities.
+
+At present all C2M2 controlled vocabulary annotations are **optional**. Curated
+ontologies currently supplying supported term sets are
+
+* the [Ontology for Biomedical Investigations (OBI)](http://obi-ontology.org/)
+    (a good browser is available at [EMBL-EBI](https://www.ebi.ac.uk/ols/ontologies/obi))
+* the [Uber-Anatomy Ontology (UBERON)](https://www.ebi.ac.uk/ols/ontologies/uberon)
+* the [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)
+* [EDAM](http://edamontology.org), an ontology for bioinformatics concepts including
+    data types and formats ([browser](https://www.ebi.ac.uk/ols/ontologies/edam))
+
+The following table lists all current C2M2 controlled vocabulary fields: each CV field
+is listed as `C2M2_entity_table.field_name`. We list the source ontology for each
+field along with a general description of that field's intended annotation context
+within C2M2.
+
+|CV field|ontology|description|
+|---:|:---|:---|
+| `file.assay_type` | OBI | the **type of experiment** that produced a `file` |
+| `biosample.anatomy` | UBERON | the **physiological source location** in or on the `subject` from which a `biosample` was derived |
+| `file.data_type` | EDAM | the **type of information** contained in a `file` (e.g. "sequence data") |
+| `file.file_format` | EDAM | the **digital format or encoding** of a `file` (e.g. "FASTQ") |
+| `ncbi_taxonomy.id` | NCBI Taxonomy | a **taxonomic name** associated with a `subject` record (usage details [discussed above](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)) |
+
+Exact formatting constraints for including CV terms in their designated C2M2 fields
+are given the the [C2M2 JSON schema](https://osf.io/e5tc2/) and are summarized below
+(as POSIX regular expressions and in English prose):
+
+| field | POSIX RE | English |
+|---:|:---:|:---|
+| `file.assay_type` | `/^OBI:\d\+$/` | the prefix `OBI:` followed by the numeric ID of the OBI term (e.g. "`OBI:0002503`") |
+| `biosample.anatomy` | `/^UBERON:\d\+$/` | the prefix `UBERON:` followed by the numeric ID of the UBERON term (e.g. "`UBERON:0001988`") |
+| `file.data_type` | `/^data:\d\+$/` | the prefix `data:` (indicating an EDAM term from that ontology's `data` subdivision) followed by the numeric ID of the EDAM `data` term (e.g. `data:2044`) |
+| `file.file_format` | `/^format:\d\+$/` | the prefix `format:` (indicating an EDAM term from that ontology's `format` subdivision) followed by the numeric ID of the EDAM `format` term (e.g. `format:1930`) |
+| `ncbi_taxonomy.id` | `/^NCBI:txid\d\+$/` | the prefix `NCBI:txid` followed by a numeric NCBI Taxonomy ID (e.g. `NCBI:txid422239`)|
+
+Note again that **all CV fields are optional**: if any of these annotations are
+unavailable or inappropriate for particular C2M2 records, or if the supported
+ontologies prevent proper encoding of the relevant information, then the associated CV
+fields can and should be left blank.
+
+If sufficiently specific terms cannot be found in the supported ontologies, we
+encourage DCC data managers to provisionally include more general ancestor terms
+(as available), and simultaneously to contact the CFDE Ontology Working Group with
+descriptions of any needed additions to the supported controlled vocabularies. CFDE
+is establishing direct communication channels with the curation authorities for each
+ontology, and the Ontology WG explicitly aims to expedite the addition of any
+missing terms, rather than forcing bad choices.
+
+For each controlled vocabulary supported by C2M2, a **term table** must
+be included as part of any valid submission. (These are the green tables in the 
+[ER diagram](#c2m2_model_diagram) above.) Each of these tables should list one
+row for each (unique) CV term used in the submission, along with basic
+descriptive information for each term (to empower both downstream user searches and
+automated display interfaces). Descriptive information is provided directly by
+each ontology, and these tables **should not be built by hand** by DCC staff
+preparing submissions; rather, core entity and association tables should be
+prepared _first_, with CV terms included in the appropriate fields: once these
+are built, a CFDE-provided script can automatically scan them. The script will
+find all CV terms used throughout the submission, then combine this information
+with descriptive data (drawn from ontology reference files) to automatically
+construct the necessary (green) term tables. These automatically-generated term
+tables (TSVs) are then bundled along with the rest of the C2M2 submission
+(as prepared directly by the DCC data management team).
+
+_We note that C2M2 controlled vocabulary usage is in its adolescence at present,
+and we really appreciate DCC patience as we work through the complex set of
+related harmonization issues. As mentioned above, an Ontology Working Group
+has recently begun operation, and all interested DCC staff are encouraged to
+attend; this group will be developing more robust vocabulary-related policies
+for CFDE and C2M2 over the coming months._
+
+_The following general changes should be expected in the near future, specifically
+with respect to C2M2 model support for the annotation of C2M2 metadata with
+controlled vocabulary terms:_
+
+* _We expect to shift to **storing terms as URIs** rather than regexp-described bare CV terms_
+* _We expect to change the structure of how CV terms are included in C2M2 submissions: 
+    instead of a singular term value stored in a field embedded in the table of one
+    core C2M2 entity (like_ `file.assay_type`_), **terms will be connected to
+    core entity records via association tables**. This will allow **multiple terms of
+    the same type to be attached to the same record**, where appropriate, instead of
+    always having to choose just one; it will also facilitate **the attachment of one
+    vocabulary to multiple entities**. (An_ `assay_type` _could for example be associated
+    with either a_ `biosample` _or a_ `file` _instead of being hard-coded to one or the other,
+    or replicated across multiple tables as an intrinsic field.)_
+* _**Controlled vocabulary field selection and placement is not final**; we welcome
+    all input regarding rearrangements, additions, replacements, etc._
+* _**The list of supported ontologies is not final**: CFDE is currently evaluating each
+    curation authority for responsiveness to addition requests, and is also considering
+    adjustments based on ongoing incoming DCC feedback._
 
 ### The `primary_dcc_contact` table
 
@@ -965,5 +1028,6 @@ here: neither completeness nor any particular priority order is implied.
 * some sort of support for **gene-level metadata** (A dedicated **CFDE gene working group** has begun to address this problem space.)
 * structured addressbook for documenting and linking **organizations
 (`common_fund_program`), roles/personae and actual people** to C2M2 metadata
+* a **model versioning scheme** for C2M2
 
 --------------------------------------------------------------------------------
