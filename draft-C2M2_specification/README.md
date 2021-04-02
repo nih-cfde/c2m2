@@ -685,7 +685,19 @@ entity table is a record describing a single file.
 | `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
 | `granularity` | required | A CFDE-controlled vocabulary categorizing broad classes of possible biosample sources. |
 
-The `granularity` field categorizes each subject in the broadest possible terms:
+The C2M2 `subject` entity is a generic data type meant to represent any biological
+entity from which a `biosample` can be generated. (The notion of a `biosample`
+being derived from another `biosample` will be modeled explicitly in future C2M2
+versions; please [see the `biosample` section](#the-biosample-entity-a-tissue-sample-or-other-physical-specimen)
+above for more.)
+
+In addition to the [common entity fields](#common-entity-fields), C2M2 metadata includes
+two details specific to `subject` entities: a **structural configuration**
+called `granularity`, and **taxonomic labels**.
+
+A required `granularity` field is included in each `subject` row and
+contains one of a fixed list of categorical value codes. These codes
+characterize each C2M2 `subject` record in the broadest possible terms:
 
 |`subject.granularity` field value|name|description|
 |---:|:---|:---|
@@ -698,10 +710,29 @@ The `granularity` field categorizes each subject in the broadest possible terms:
 
 _This is a draft list for_ `granularity`: _we do not imagine it to be in its final form._
 
-For details on how to specify taxonomic metadata describing subcomponents of
-`subject` granularities like "host-pathogen system", please see the
-section below on [the `subject_role_taxonomy`
-table](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table).
+Taxonomic labels can also be attached to `subject` records. For the most basic "single
+organism" `granularity`, this will be a one-to-one relationship: "this `subject` was a
+member of _`Speciesella exemplarensis`_." On the other hand, since a C2M2 `subject` entity can
+represent more complex `biosample` sources, like an entire microbiome or a
+multi-organism symbiont system, more complex `granularity` types may require that
+multiple parallel taxonomic labels be attached to a single `subject` record.
+The C2M2 `subject_role_taxonomy` table provides a way to do this by linking
+taxonomic labels to `subject` records while also specifying, for each such
+label, which sort of `subject` subcomponent (categorized as a "**role**"; [see
+below](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table))
+the label should be attached to. For example, the information "host: _Homo sapiens_;
+pathogen: _Francisella tularensis_" could be attached to a single `subject` record
+representing a biopsy from a (human-based) "host-pathogen-system". Please see the [section below on
+`subject_role_taxonomy`](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)
+for all the details on how to use this table.
+
+_(Wait, where's all the clinical metadata going to go? Good question: all
+**inherently protected** `subject`-specific metadata -- which in the case of human subjects
+is virtually all metadata -- is deferred by design to (near) future C2M2 versions, pending
+a deep review of associated access barriers, security concerns, use cases and
+technological issues. We encourage DCC data managers to reach out to us and describe
+realistic use cases for harmonizing, storing and/or indirectly referencing any protected
+metadata of potential relevance to C2M2 submissions._
 
 ### Association tables: inter-entity linkages
 
@@ -875,26 +906,58 @@ to find all field names and foreign-key constraints for each of these associatio
 
 ### Taxonomy and the `subject` entity: the `subject_role_taxonomy` association table
 
-   _The_ `subject_role_taxonomy` _"categorical association" table enables
-   the attachment of taxonomic labels (NCBI Taxonomy Database identifiers, of the form_
-   `/^NCBI:txid[0-9]+$/` _and stored for reference locally in the C2M2_
-   `ncbi_taxonomy` _table) to C2M2_ `subject` _entities in a variety of
-   ways, depending on_ [`subject.granularity`](#the-subject-entity-a-biological-entity-from-which-a-c2m2-biosample-can-be-generated)_, using_ `subject_role` _values to specify
-   the qualifying semantic or ontological context that should be applied to
-   each taxonomic label._
+In [the `subject`
+section](#the-subject-entity-a-biological-entity-from-which-a-c2m2-biosample-can-be-generated)
+above, we introduced the idea of flexibly attaching (possibly multiple) taxonomic labels
+to `subject` records. For the most basic "single organism" `granularity`, such
+a labeling will be a straightforward one-to-one map: "`subject S-24601` was a
+member of _`Speciesella exemplarensis`_." On the other hand, since a C2M2 `subject`
+entity can represent more complex types of `biosample` sources -- like a multi-organism
+symbiont system -- more complex `granularity` types may require that several
+taxonomic labels be attached to a single `subject` record in parallel, to directly
+describe the various constituent components of the `subject`. The `subject_role_taxonomy`
+is a **ternary association table**; each row contains _three_ identifiers:
 
-* `subject_role`: _constituent relationship to intra-_`subject` _system:_
-    * _each_ `subject_role` _corresponds to a subset of
-        [these values](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv),
-        each of which can be labeled independently with NCBI Taxonomy Database
-        IDs via_ `subject_role_taxonomy`_._
-* `subject_role_taxonomy`: _Putting it all together: this association table
-    stores **three items per record**, connecting components of_ `subject` _entities
-    (_`subject_role`_s) to taxonomic assignments:_
-    * _A (binary:_ `{ subject.id_namespace, subject.local_id }`_) key identifying a C2M2_ `subject` _entity record_
-    * _An enumerated category code (the `id` field in [this table](../draft-C2M2_internal_CFDE_CV_tables/subject_role.tsv)) denoting a_ `subject_role` _contextual qualifier_
-    * _A (unitary:_ `{ ncbi_taxonomy.id }`_) ID denoting an NCBI Taxonomy Database
-        entry classifying the given_ `subject` _by way of the given_ `subject_role`
+1. the **C2M2 ID** (`id_namespace`+`local_id`) of a `subject` record
+2. a **`role_id`** drawn from a preset list of `subject` sub-component types:
+
+|`subject_role_taxonomy.role_id` field value|name|description|
+|---:|:---|:---|
+| `cfde_subject_role:0` | single organism | The organism represented by a `subject` in the 'single organism' granularity category |
+| `cfde_subject_role:1` | host | Any organism identified as a host for a `subject` assigned to the 'symbiont system', 'host-pathogen system', or 'microbiome' `granularity` categories |
+| `cfde_subject_role:2` | symbiont | An organism identified as a symbiont within a `subject` assigned to the 'symbiont system' `granularity` category |
+| `cfde_subject_role:3` | pathogen | An organism identified as a pathogen symbiont in a `subject` assigned to the 'host-pathogen system' `granularity` category |
+| `cfde_subject_role:4` | microbiome taxon | A constituent taxon of a `subject` assigned to the 'microbiome' `granularity` category |
+| `cfde_subject_role:5` | cell line ancestor | A taxon identified as a source organism for a `subject` assigned to the 'cell line' `granularity` category |
+| `cfde_subject_role:6` | synthetic | A synthetic biological entity |
+
+_(This is a draft list for_ `role_id`: _we do not imagine it to be in its final form.)_
+
+3. a **taxonomic label** (specifically, an identifier of the form `NCBI:txid######`,
+where `######` is the numeric ID of the desired label in the NCBI Taxonomy database)
+
+Each row in `subject_role_taxonomy` thus attaches one taxonomic label to one `subject`
+via one specified `role_id` subcomponent type.
+
+For example, the information "host: _Homo sapiens_; pathogen: _Francisella tularensis_"
+could be attached to a single `subject` record -- representing a biopsy from a
+(human-based) "host-pathogen-system" -- by doing the following three things (`||` symbols represent
+tab characters separating TSV fields, in the example rows below):
+
+1. setting the `granularity` of the `subject` record (in the `subject` table)
+    to `cfde_subject_granularity:2` ("host-pathogen system": see
+    [here](#the-subject-entity-a-biological-entity-from-which-a-c2m2-biosample-can-be-generated)
+    for the complete list)
+
+> `id_namespace: DCC_X_namespace || local_id: SUBJ_24601 || [...] || granularity: cfde_subject_granularity:2`    
+
+2. adding one row to `subject_role_taxonomy` specifying that the host of the `subject` system is _Homo sapiens_
+
+> `subject_id_namespace: DCC_X_namespace || subject_local_id: SUBJ_24601 || role_id: cfde_subject_role:1 || taxonomy_id: NCBI:txid9606`
+
+3. adding one more row to `subject_role_taxonomy` specifying _F. tularensis_ as a pathogen in the `subject` system
+
+> `subject_id_namespace: DCC_X_namespace || subject_local_id: SUBJ_24601 || role_id: cfde_subject_role:3 || taxonomy_id: NCBI:txid263`
 
 ### Controlled vocabularies and term entity tables
 
