@@ -696,7 +696,7 @@ The `granularity` field categorizes each subject in the broadest possible terms:
 | `cfde_subject_granularity:4` | cell line | A cell line derived from one or more species or strains. |
 | `cfde_subject_granularity:5` | synthetic | A synthetic biological entity. |
 
-_This is a draft list: we do not imagine it to be in its final form._
+_This is a draft list for_ `granularity`: _we do not imagine it to be in its final form._
 
 For details on how to specify taxonomic metadata describing subcomponents of
 `subject` granularities like "host-pathogen system", please see the
@@ -766,6 +766,8 @@ associated with its proper research context. The C2M2 `collection` container,
 a generalization of "dataset", is optional, with its scope and complexity of usage
 generally left to the submitting DCC.
 
+#### `project`
+
 The C2M2 `project` entity models an unambiguous, unique, named, most-proximate
 research/administrative sphere of operations that **first generates or observes**
 experimental resources represented by core C2M2 entities (`file`, `subject`, etc.).
@@ -804,34 +806,43 @@ root node representing the DCC itself, and all resources can be attributed to
 that one node. This will disable any downstream advantages of more fine-grained
 accounting, but will enable a valid submission.
 
-   * `collection`
+#### `collection`
 
-      * _**contextually unconstrained:** a generalization of the "dataset" concept
-      which additionally and explicitly supports the inclusion of elements
-      (C2M2 metadata entities) representing_ `subject`_s and_ `biosample`_s_
-      * _**wholly optional**: C2M2 serialization of DCC metadata need not
-      necessarily include any_ `collection` _records or attributions_
-      * _**membership** of C2M2 entities in_ `collection`_s is encoded using the
-      relevant association tables (cf. below, §"Association tables: expressing containment relationships")_
-      * _used to describe the **federation of any set of core resource entities (and,
-      recursively, other**_ **`collection`**_**s)** across inter-_`project` _boundaries
-      (or across inter-DCC boundaries, or across any other structural
-      boundaries used to delimit or partition areas of primary purview or
-      provenance, or crossing no such boundaries at all)_
-      * _unconstrained with respect to "defining entity"_
-         * _**may optionally** be attributed to a (defining/generating) C2M2_ `project` _record_
-            * _this attribution is **optional and (when null) will not always even
-            be well-defined**: the power to define new_ `collection`_s,
-            on an ongoing basis, will be offered to all (approved? registered?) members
-            of the interested research community at large, without being specifically
-            restricted to researchers or groups already operating under the
-            auspices of a well-defined_ `project` _entity in the C2M2 system._
-         * _this configuration is meant to facilitate data/metadata reuse and
-         reanalysis, as well as to provide a specific and consistent anchoring
-         structure through which authors anywhere can create (and study and cite)
-         newly-defined groupings of C2M2 resources, independently of their original
-         provenance associations. (FAIRness is generally increased by provisioning
-         for consistent reference frameworks.)_
+**The C2M2 `collection` entity is a generalization of "dataset."** Elements of
+a `collection` can be data resources like the C2M2 `file` entity, but a
+`collection` can also contain non-data entities (e.g. `biosample` or `subject`).
+It is meant to serve as a generic container for grouping related core C2M2
+entities; no semantic context, superstructure, or usage assumptions are built
+in. The `collection` entity should be used to represent all relevant, extant
+groupings of experimental resources represented as C2M2 core entities, especially
+those with already-created permanent and citation-ready identifiers (e.g. datasets
+for which DOIs have been registered). Eventually we expect to offer
+researchers using C2M2 metadata the opportunity to define and cite `collection`
+entities federating existing C2M2 resources across multiple source DCCs: providing
+the ability to **stably cite groups of C2M2 resources** is in fact the central
+purpose of `collection`. As a structural support for FAIRness principles
+within CFDE, the C2M2 `collection` entity is designed to facilitate reliable
+reuse and reanalysis of Common Fund data and metadata.
+
+In terms of minimal valid C2M2 submissions, `collection` is **entirely optional**:
+DCC metadata need not necessarily include any `collection` records or attributions.
+
+Membership of core C2M2 entities in a `collection` is expressed with the
+relevant ("`X_in_collection`") association tables; nested `collection`
+entities are listed in the `collection_in_collection` association
+table. ([See below](#association-tables-expressing-containment-relationships)
+for complete usage details.)
+
+We emphasize that **no relationship is assumed between `project` and `collection`.**
+A `collection` **may optionally** be attributed to a primary (defining or
+generating) C2M2 `project` -- via the `collection_defined_by_project`
+association table ([see above](#association-tables-inter-entity-linkages)) --
+but **`collection`-`project` associations will not even always be well-defined,**
+and are not at all required. We expect eventually to extend the ability to
+define new `collection` entities, on an ongoing basis, to interested community
+members (beyond DCC data managers) whose work may not be related to any C2M2
+`project` records and whose new `collection` entities won't be attributable
+in this way.
 
 ### Association tables: expressing containment relationships
 
