@@ -3,10 +3,23 @@ layout: page
 title: C2M2 Documentation
 ---
 
+# QUICK-START BLOCK
+
+* the full [C2M2 technical documentation](#c2m2-technical-specification) (skip prose intro)
+* the [C2M2 ER diagram](#c2m2_model_diagram)
+* the [C2M2 JSON Schema](https://osf.io/c63aw/)
+* current [release notes](#c2m2-release-details)
+* [upcoming C2M2 features](#upcoming-c2m2-features) (next release)
+* a blank reference set of [all C2M2 TSV files](https://osf.io/rdeks/) (column-header lines only)
+<!-- * sample C2M2 submission datapackages (populated with valid metadata):
+   * [minimal asset inventory](https://osf.io/mqey3/)
+   * [basic relational model](https://osf.io/wgvh6/) -->
+<!-- * compliance checking: complete (terse) [list of C2M2 tables, fields & requirements](https://github.com/nih-cfde/published-documentation/wiki/C2M2-Table-Summary) -->
+
 # The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 This document introduces the Crosscut Metadata Model
-([C2M2](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2)), a
+([C2M2](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#c2m2)), a
 flexible metadata standard for describing experimental resources in
 biomedicine and related fields. The Common Fund Data Ecosystem
 group is creating a new computing infrastructure, with C2M2 as its
@@ -19,8 +32,8 @@ and integrate experimental data from different sources to
 facilitate scientific replication and to drive new discoveries.
 
 Using this new infrastructure, Common Fund data coordinating centers
-([DCCs](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#dcc)) will
-share structured, detailed information ([metadata](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#metadata))
+([DCCs](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#dcc)) will
+share structured, detailed information ([metadata](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#metadata))
 about their experimental resources with the research
 community at large, widening and deepening access to usable
 observational data. One of C2M2's primary missions is to
@@ -31,23 +44,23 @@ studying similar health-related phenomena.
 ## DCC metadata submissions
 
 DCCs collect and provide metadata submissions
-(C2M2 [instances](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-instance))
+(C2M2 [instances](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#c2m2-instance))
 to CFDE describing experimental resources within their purview. Each
 submission is a set of tab-separated value files
-([TSVs](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#tsv));
+([TSVs](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#tsv));
 precise formatting requirements for these filesets are specified by
 JSON Schema documents, each of which is an instance of the
 [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the
 [Frictionless Data](http://frictionlessdata.io/)
-group. The Data Package meta-specification is a toolkit for
+group. The Data Package meta-specification is a platform-agnostic toolkit for
 defining format and content requirements for files so that
 automatic validation can be performed on those files, just
 as a database management system stores definitions for
 database tables and automatically validates incoming data
 based on those definitions. Using this toolkit, the C2M2 JSON
 Schema specification defines
-[foreign-key](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#foreign-key)
+[foreign-key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key)
 relationships between metadata fields (TSV columns), rules
 governing missing data, required content types and formats for
 particular fields, and other similar database management
@@ -55,7 +68,7 @@ constraints. These architectural rules help to guarantee
 the internal structural integrity of each C2M2 submission,
 while also serving as a baseline standard to create
 compatibility across multiple submissions received from different DCCs. During the
-[C2M2 submission process](https://cfde-published-documentation.readthedocs-hosted.com/en/latest/CFDE-glossary/#c2m2-ingestion-process),
+[C2M2 submission process](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#c2m2-ingestion-process),
 the CFDE software infrastructure uses these schematic specifications
 to automatically validate format compliance and submission integrity
 prior to loading C2M2 metadata into its central database. Once loaded,
@@ -75,7 +88,7 @@ represented quickly (and thus begin driving downstream
 applications quickly) using metadata meeting minimal richness
 requirements -- enough to provide a basic level of harmonization
 with biomedical experimental metadata coming from other C2M2
-sources (DCCs). Over time, DCC data managers can (and should)
+sources (DCCs). Over time, DCC data managers can and should
 upgrade their C2M2 metadata submissions by adding more detailed
 descriptive information to their resource records; by
 elaborating on provenance, timing and other relationships
@@ -83,7 +96,7 @@ between resources; and by working with the CFDE to expand C2M2
 itself to better fit models and automation requirements already
 in production elsewhere.
 
-A C2M2 [submission](#dcc-metadata-submissions) (or instance) is a
+A C2M2 [submission](#dcc-metadata-submissions) (an "instance" or "datapackage") is a
 collection of data tables encoded as tab-separated value files (TSVs).
 Only three metadata records (three rows, across three C2M2 tables)
 are strictly required, so most of these tables can optionally be
@@ -107,17 +120,17 @@ which `files` have been analytically derived from which `biosamples`.
 Beyond the single mandatory "this DCC owns this submission" record (2,
 above), DCCs can also attach a hierarchy of `project` records to
 their experimental metadata, to group resources by research purview.
-The most mature submission variants will also model
-**events and timing**; express **more complex relationships** between
-entities; and provide richer information about **people and organizations**
-involved in research and provenance, among other anticipated
-extensions. CFDE expects new core structures (that is, new C2M2
-_core entities:_ fundamental types of experimental resource) beyond
-basic `files`, `biosamples` and `subjects` to appear, based on
-direct collaboration with DCCs to model other relevant, usable
-experimental metadata while keeping a continual eye on maximizing
-harmonization and interoperability across the whole C2M2 metadata
-space.
+Future submission variants will allow submitters to model
+**events and timing** (both for provenance and to describe
+time-indexed data), among other anticipated extensions. Core
+structures (that is, C2M2 _core entities:_ fundamental types
+of experimental resource) currently include `files`,
+`biosamples` and `subjects`; more (including `gene`
+and `chemical substance`) are scheduled to appear in the coming
+months, based on direct collaboration with DCCs to model other
+relevant, usable experimental metadata while keeping a continual
+eye on maximizing harmonization and interoperability across the
+whole C2M2 metadata space.
 
 A foundational purpose of the C2M2 system is to facilitate
 metadata harmonization: finding ways wherever possible to
@@ -126,38 +139,24 @@ meaning, context or accuracy (although _precision_ may occasionally
 be weakened so as to preserve the robustness of the rest). In
 addition to building bridges and crosswalks between disparate but
 related resources, C2M2 is also meant to facilitate the graded
-introduction of metadata into the system, as discussed above.
+introduction of metadata into the CFDE system, as discussed above.
 The paradigm of gradually increasing submission complexity is
 by design a (roughly) staged process: new layers of metadata
 can be added according to increasing complexity and harmonization
 difficulty, ranging from basic flat asset inventories to
 well-decorated networks of relationships between resources that
-are described in full operational detail. In addition to
+are described in finer operational detail. In addition to
 flattening the learning curve for onboarding DCC data managers
-into the C2M2 ecosystem, the ability to submit C2M2 metadata
+into the CFDE ecosystem, the ability to submit C2M2 metadata
 in managed stages of complexity lets DCC data managers test
 and see how downstream functionality is interacting with their
 C2M2 metadata -- and, critically, to provide feedback to CFDE to
 investigate and create any needed changes -- before investing
-more heavily in creating a more complex C2M2 instance.
+more heavily in creating more complex C2M2 submissions.
 
-Examples of C2M2 submissions reflecting two introductory complexity
-configurations are given below under [C2M2 examples](#c2m2-examples):
-
-* Most DCCs have file resources, listable (at a _very_ high level)
-in a standard, noncontroversial way (size + filename + MD5): this could serve
-as the basis for a [minimal inventory submission](#a-minimal-c2m2-submission).
-* In addition to experimental data files, virtually all DCCs deal in some way
-with biosamples and/or subjects: metadata describing basic properties
-of these common concepts can be fairly (if still quite broadly) expressed by a
-C2M2 submission following a [basic relational model](#a-basic-relational-c2m2-submission)
-paradigm (not only adding richer information to the data space, but also
-powering more powerful downstream applications than a minimal flat-inventory
-submission would support).
-
-These examples are accompanied by a full [C2M2 technical specification](#c2m2-technical-specification),
-which explains all of the available structures, constraints and
-requirements in detail.
+The full [C2M2 technical specification](#c2m2-technical-specification)
+can be found below, which explains all available submission structures,
+constraints and requirements in detail.
 
 ## DCC integration and the evolution of C2M2
 
@@ -166,22 +165,22 @@ for their own curation operations. C2M2 representation of similar but
 distinct packages of important information, taken from multiple
 independently-developed custom DCC metadata systems (e.g.
 metadata describing people and organizations, data provenance,
-experimental protocols, or detailed event sequences), will
-require ongoing, iterative, case-based design and consensus-driven
+experimental protocols, or detailed event sequences),
+requires ongoing, iterative, case-based design and consensus-driven
 decision-making, coordinated across multiple research groups.
-Design and decision-making in such contexts will require
-long-term planning, testing and execution. Metadata difficult to
+Design and decision-making in such contexts requires
+long-term planning, testing and execution. New metadata difficult to
 integrate and harmonize will be handled by the creation of
 generalizable, well-defined extensions to C2M2 if possible, and
 by pruning (at least pro tem) if not. The core of the C2M2 data
 space is tasked first with harmonizing relatively universal and
 uncontroversial metadata concepts -- to be made stable and available
-according to FAIRness principles -- for streamlined
-submission construction and usable deployment of DCC metadata.
-C2M2's second (longer-term) priority takes a slower road to make robust
-decisions about integration of less immediately tractable information,
-in concert with the Common Fund community and an awareness of
-global standards.
+according to [FAIRness principles](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#fair)
+-- for streamlined submission construction and usable deployment
+of DCC metadata. C2M2's second (longer-term) priority takes a
+slower road to make robust decisions about integration of less
+immediately tractable information, in concert with the Common
+Fund community and an awareness of global standards.
 
 With the flexible (but still well-defined) design of C2M2,
 we seek to split the difference between the ease of evolution
@@ -220,14 +219,15 @@ direct unambiguous future replication of the experiments involved.
 More to the point, C2M2 metadata should also be directly
 **reusable in new experiments** wherever possible.
 
-C2M2 metadata will be managed and curated by Common Fund DCCs
+C2M2 metadata is managed and curated by Common Fund DCCs
 to standardize and stabilize it for future research use. CFDE's
 explicit mission for C2M2 is to create an information archive that can
-usefully serve researchers working without access to follow-up information,
-including (among other scenarios) for future work done after the funding
-lifecycle of each managing DCC has ended.
+usefully serve researchers who work without guaranteed access to
+follow-up information, including (among other scenarios) for
+future work done after the funding lifecycle of each managing
+DCC has ended.
 
-C2M2 metadata will be created at different times by different
+C2M2 metadata is created at different times by different
 DCCs working independently of one another. The first requirement
 for any system trying to integrate such information is to provide
 a standard way to unambiguously attach identifiers (IDs: formal names
@@ -344,161 +344,7 @@ for URI safety), and the `id_namespace` prefix can be constructed according to t
 
 --------------------------------------------------------------------------------
 
-## C2M2 examples
-
---------------------------------------------------------------------------------
-
-### A minimal C2M2 submission
-
-As an introductory example, we offer a sample small-scale, minimal
-C2M2 submission. Based on a real-life first-draft submission
-from the <a href="https://druggablegenome.net/">IDG</a> DCC, this
-datapackage represents a flat inventory of DCC `files`,
-and its contents are limited to the minimum metadata needed
-to build a valid C2M2 instance.
-
-| _resource_ | _available as_ |
-| :--- | :---: |
-| Submission (metadata tables only) | [collection of separate TSV tables](https://osf.io/mqey3/) |
-| Submission (complete) | [one bundled BDBag file](https://osf.io/m52pr/) |
-| C2M2 JSON Schema | [`C2M2_datapackage.json`](https://osf.io/e5tc2/) |
-
-This sample submission contains three one-row tables, storing
-just the minimum required [attributional metadata](#c2m2-overview) for a
-valid C2M2 submission (basic information about the [DCC itself](https://osf.io/rc4ug/),
-a [technical contact](https://osf.io/wh42f/) for the submission,
-and an [identifier namespace](https://osf.io/seqxh/)), plus a
-[`file`](https://osf.io/8yvsb/) table listing basic metadata about
-specific DCC files. Also attached is the JSON Schema describing the entire
-C2M2 system, both to assist in submission preparation and to enable
-automated validation of the C2M2 metadata during the submission
-process.
-
-Data submissions with this minimal level of metadata richness will be the
-easiest to produce -- only four of the 22 available C2M2 tables have
-any data in them, in this case --  but will support only the simplest
-functionality implemented by downstream applications. For example,
-submissions like this can contribute byte counts to displays summarizing
-DCC resources, or can provide simple metadata resource targets for
-user searches meant to gather preliminary information about DCC resources
-of possible interest.
-
-The following is a diagram sketching the (nonempty) tables that
-constitute this sample submission, along with
-[foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key)
-relationships between tables (drawn as solid arrows).
-
-|_Minimal C2M2 submission example: relevant tables and relationships_|
-|:---:|
-|<img src="../draft-C2M2_ER_diagrams/minimal_submission_example.png" alt="Minimal C2M2 submission: example model diagram" width="500">|
-
-For simplicity of focus in this introductory example, some optional
-fields have been omitted from tables drawn in the diagram above (although
-we note that all _required_ fields have been preserved, marked with solid
-bullets next to field names). Similarly, 18 entire C2M2 tables that aren't
-directly relevant to this basic sample submission have also been left undrawn.
-A full list of all 22 C2M2 tables and fields, optional and otherwise,
-is given along with the complete C2M2 model diagram in the
-[C2M2 technical specification](#c2m2-technical-specification). We emphasize
-that **all example submissions given here are valid C2M2 submissions**:
-only optional material has been pruned from these introductory presentations.
-
-To facilitate validation and ensure standardization, all C2M2
-submissions to CFDE should contain one TSV file for each of the 22 C2M2
-tables, including tables not drawn above. (Inspection will show that this
-is in reality how the sample data has been configured: 18 tables specified in the
-[master C2M2 JSON Schema](https://osf.io/e5tc2/) are included in the
-[example TSV collection](https://osf.io/mqey3/) only as header rows followed by
-no data.) Most C2M2 tables can optionally be submitted as header-only stub
-files in this way, with no record rows, if that ends up being appropriate to
-the design of the particular submission being prepared.
-
-Important columns in the [C2M2 `file` table for this submission](https://osf.io/8yvsb/)
--- which contains the entirety of the actual DCC-resource metadata
-for the submission -- are discussed below. Each row in a submission's
-`file.tsv` table describes a single (reproducible, non-ephemeral) file
-asset managed by the submitting DCC. (The [C2M2 technical specification](#c2m2-technical-specification)
-gives a complete list of fields in this and all other C2M2 tables.)
-
-**Required: `id_namespace` `local_id` `sha256|md5`**
-
-|field|description|
-|:---:|:---|
-| `id_namespace` | A CFDE-cleared identifier representing the top-level data space containing this `file`: part 1 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
-| `local_id` | An identifier representing this file, unique within this `id_namespace`: part 2 of a 2-component composite primary key. See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. |
-| `persistent_id` | **A permanent, resolvable URI permanently attached to this `file`**, meant to serve as a permanent address to which landing pages (which summarize metadata associated with this `file`) and other relevant annotations and functions can optionally be attached, including information enabling resolution to a network location from which the `file` can be downloaded. **Actual network locations must not be embedded directly within this identifier**: one level of indirection is required in order to protect `persistent_id` values from changes in network location over time as files are moved around.  See [C2M2 identifiers](#c2m2-identifiers) for a complete discussion and examples. (Resolvable `persistent_ids` are not actually used in this sample submission, but we include the field here to emphasize both its potential and the fact that it's fully optional everywhere it appears.) |
-| `size_in_bytes` | The **size of this `file` in bytes**. This varies (even for "copies" of the same `file`) across differences in storage hardware and operating system. CFDE does not require any particular method of byte computation: precise, reproducible file size integrity metadata will be provided in the form of checksum data in the `sha256` and/or `md5` properties. `size_in_bytes` will instead underpin automatic reporting of approximate storage statistics across different C2M2 collections of DCC metadata. |
-| `sha256` | **CFDE-preferred** file checksum string: the output of the SHA-256 cryptographic hash function after being run on this `file`. One or both of `sha256` and `md5` is required. |
-| `md5` | **Permitted** file checksum string: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this `file`. One or both of `sha256` and `md5` is required. (CFDE recommends SHA-256 if feasible, but we recognize the nontrivial overhead involved in recomputing these hash values for large collections of files, so if MD5 values have already been generated, we will accept those.) |
-| `filename` | A filename with no prepended PATH information. |
-
---------------------------------------------------------------------------------
-
-### A basic relational C2M2 submission
-
-This more complex sample C2M2 submission describes **basic experimental resources
-and associations between them**. This level of metadata richness is more difficult 
-to produce than a flat inventory of file assets: accordingly, it offers 
-users more powerful downstream tools than are available for truly minimal submissions
-like our first example. These include
-
-   * faceted searching across relevant features (like `anatomy`
-   and `data_type`) of experimental resources (like `biosample` and `file`, resp.)
-   * displays summarizing subdivisions of DCC metadata collections by `project`
-   (grant or contract) and/or `collection` (any scientifically relevant grouping
-   of resources: like a **dataset** but not limited only to "data" elements)
-   * reporting on changes in DCC metadata over time
-
-| _resource_ | _available as_ |
-| :--- | :---: |
-| Submission (metadata tables only) | [collection of separate TSV tables](https://osf.io/wgvh6/) |
-| Submission (complete) | [one bundled BDBag file](https://osf.io/3tqnr/) |
-| C2M2 JSON Schema | [`C2M2_datapackage.json`](https://osf.io/e5tc2/) |
-
-The following is a diagram sketching the (nonempty) tables that
-constitute this sample submission, along with
-[foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key)
-relationships between tables (drawn as solid arrows).
-
-|_Basic relational C2M2 submission: example model diagram_|
-|:---:|
-|<img src="../draft-C2M2_ER_diagrams/relational_submission_example.png" alt="Basic relational C2M2 submission: example model diagram">|
-
-Please note that because our example submission datasets are meant to demonstrate
-C2M2 metadata prepared with increasing levels of complexity -- and hence
-difficulty -- while introducing C2M2 concepts in a graded fashion, some
-content-optional tables have been omitted from this diagram
-for pedagogical clarity during this introductory example. For the
-full list of C2M2 tables and fields please see the complete C2M2 ER diagram
-in the [C2M2 technical specification](#c2m2-technical-specification). We
-emphasize that **all example submissions given here are valid C2M2 submissions**:
-only optional material has been pruned from these introductory presentations.
-
-To facilitate validation and ensure standardization, all C2M2
-submissions to CFDE should contain one TSV file for each of the 22 C2M2
-tables, including tables not drawn above. (Inspection will show that this
-is in reality how the sample data has been configured: XX tables specified in the
-[master C2M2 JSON Schema](https://osf.io/e5tc2/) are included in the
-**example TSV collection** only as header rows followed by
-no data.) Most C2M2 tables can optionally be submitted as header-only stub
-files in this way, with no record rows, if that ends up being appropriate to
-the design of the particular submission being prepared.
-
-#### Technical notes: C2M2 entities in the basic relational C2M2 submission example
-
-_[under construction]_
-
---------------------------------------------------------------------------------
-
 ## C2M2 technical specification
-
-### QUICK-START BLOCK
-
-* compliance: complete (terse) [list of C2M2 tables, fields & requirements](https://github.com/nih-cfde/published-documentation/wiki/C2M2-Table-Summary)
-* example C2M2 metadata submission: [minimal inventory](#a-minimal-c2m2-submission)
-* example C2M2 metadata submission: [basic relational model](#a-basic-relational-c2m2-submission)
-* [C2M2 ER diagram](#c2m2_model_diagram)
-* [C2M2 JSON Schema](https://osf.io/e5tc2/)
 
 The CFDE Crosscut Metadata Model (C2M2) is a relational database model
 designed to encode scientifically usable metadata that describes
@@ -512,7 +358,7 @@ Each field has an agreed-upon meaning that helps to describe
 whatever "thing" the table represents; "things" (and the tables describing
 them) can refer to physical objects, like numbered biosamples;
 virtual objects, like digital files; or abstract concepts,
-like a project, or a standardized scientific term for "salmon louse."
+like a project or a standard name for "salmon louse."
 
 _Relationships between things_ are represented as **associations**,
 whereby data records describing things are linked together in
@@ -520,33 +366,54 @@ predefined ways so as to indicate that the linked things are
 meaningfully connected in some way. One might for example
 express the fact that
 
-> a biopsy biosample was collected from a particular anatomical
-> site located somewhere on a goat
+> beard biopsy number "BB44" was collected from a billy goat named Abner 
 
 by
 
-* creating a record in a `biosample` table representing the biopsy material
-* selecting a record from some (pre-existing, CFDE-provided dictionary) table
-representing the proper location on the Ideal Goat in some globally standardized
-`goat_anatomy` reference table, and
-* using an _association_ called "`sampled_from`" (or maybe more explicitly
-"`biosample_sampled_from_goat_anatomy`") to link the two records together: the
-biopsy `biosample` was `sampled_from` its precise location in the `goat_anatomy`.
+1. creating a record (representing the biopsy material
+BB44) in a `biosample` table (representing all biosamples
+being described), which might look like
+
+`biosample`
+| id | name | ... |
+|:---|:---|:---:|
+|BB44|goat beard biopsy number BB44|...|
+
+2. creating a record (representing Abner) in a `subject` table (representing
+all creatures from which biosamples have been taken), for example
+
+`subject`
+| id | species | age | ... |
+|:---|:---|:---|:---:|
+|Abner|goat|8|...|
+
+3. using an _association table_ called "`biosample_from_subject`" to link
+the two records together: "the given biopsy `biosample` (BB44) was sampled from the
+given `subject` (Abner)", or
+
+`biosample_from_subject`
+| biosample | subject |
+|:---|:---|
+| BB44 | Abner |
 
 Our hypothetical goat biosample annotation describes an association linking
-two data tables of different types (`biosample` and `anatomy`) in a
-well-defined way. C2M2 also uses associations to link data records of the
-same type. As an example,
+records in two different data tables representing different types of thing
+(`biosample` and `subject`) in a well-defined way. Associations can also
+connect data records of the _same_ type of thing (i.e. within the same data
+table). As an example,
 
 > project RNA\_17.2 is a subproject of project RNA\_17
 
-would be expressed by
+could be expressed by
 
-* creating a record in the `project` table to represent `RNA_17`
-* creating another record in the `project` table to represent `RNA_17.2`
-* using the `project_in_project` association to link the two records together
-(in a predetermined parent->child order; details [below](#containers)):
-`RNA_17.2` is a subproject (`project_in_project`) of `RNA_17`.
+* creating a record in a `project` table to represent `RNA_17`
+* creating another record in the _same_ `project` table to represent `RNA_17.2`
+* using an association like `project_in_project` to link the two records together:
+`project` record `RNA_17.2` is a _subproject_ (`project_in_project`) of `project` record `RNA_17`.
+
+(The example sketches above are intended only to illustrate the use of
+association tables and do not precisely represent any particular C2M2
+tables or fields.)
 
 Following the literature we will be calling "things" **entities**.
 The next graphic is an **entity-relationship (ER) diagram** describing
@@ -559,12 +426,12 @@ entities that participate in the relationship that the association represents.
 
 |_C2M2 model diagram_|
 |:---:|
-|![C2M2 model diagram](../draft-C2M2_ER_diagrams/C2M2.png "C2M2 model diagram")|
+|![C2M2 model diagram](../ER_diagrams/C2M2.png "C2M2 model diagram")|
 
 Color key:
 
    * ![#000000](000000.png) Black: **Core entities** (basic experimental resources): `file`, `biosample` and `subject`
-   * ![#a52a2a](A52A2A.png) Dark red: **Association relationships** between core entities
+   * ![#a52a2a](A52A2A.png) Dark red: **Association relationships** between entities
    * ![#0000ff](0000FF.png) Blue: **Container entities** (`project` and `collection`) and their containment relationships
    * ![#1e7a1e](1E7A1E.png) Green: **Term entities** recording all standardized controlled-vocabulary terms submitted as C2M2 annotation metadata, plus extra descriptive information to facilitate user searching and web displays ([see below](#controlled-vocabularies-and-term-entity-tables) for details)
    * ![#8b6914](8B6914.png) Gold: **Administrative entities** giving basic contact information for DCC creators of C2M2 submissions and describing CFDE-registered, DCC-controlled identifier namespaces
@@ -572,15 +439,16 @@ Color key:
       * (possibly multiple) NCBI Taxonomy IDs
       * a user-supplied group of sub-entities of a `subject` -- like "host," "pathogen," or "microbiome constituent" -- identified according to **roles** describing components of commonly observed biosystem types. ("Single organism (with no further subdivisions)" is the default **role**).
 
-Each valid C2M2 submission will contain 22 tab-separated value (TSV)
-files: one for each rectangle (whether entity or association) in the
-ER diagram above. Formats for all 22 files and their constituent fields
-are given in the [C2M2 JSON Schema](https://osf.io/e5tc2/). This schema
+Each valid C2M2 submission will contain 26 tab-separated value (TSV)
+files: one for each rectangle (entity or association) in the
+ER diagram above. Formats for all 26 files and their constituent fields
+are given in the [C2M2 JSON Schema](https://osf.io/e5tc2/), and blank example files
+are provided for reference [here](https://osf.io/rdeks/). This schema
 document is an instance of the [Data Package](http://frictionlessdata.io/docs/data-package/)
 meta-specification published by the [Frictionless Data](http://frictionlessdata.io/)
 group. It is a precise, machine-readable and (patient) human-readable JSON document
-that explicitly describes all the structural components of C2M2 as drawn in
-the diagram above. 
+that explicitly describes and explains all the structural components of C2M2
+as drawn in the diagram above. 
 
 Each TSV file in a C2M2 submission will be a plain-text file representing a tabular
 data matrix, with rows delimited by newlines and fields (columns) delimited
@@ -593,7 +461,7 @@ defines the required relational data structure of a valid C2M2 submission.
 A minimal set of additional _content_ requirements -- not expressible
 as relational database constraints, but still required to support
 downstream C2M2-driven automation -- complete the definition of a
-fully valid C2M2 submission; these are given in this document, along with
+fully valid C2M2 submission; these are given in this document, alongside
 prose descriptions of the terse technical expressions in the C2M2
 JSON Schema.
 
@@ -646,13 +514,18 @@ entity table is a record describing a single file.
 | `local_id` | required: [primary key](https://en.wikipedia.org/wiki/Primary_key) | **URI-suffix identifier identifying this entity**: a string that **uniquely identifies each entity** within the scope defined by the accompanying `id_namespace` value. The value of this field will be used together with `id_namespace` as a **composite key structure formally identifying C2M2 entities** within the total C2M2 data space. The concatenation of `id_namespace` + `local_id` must form a valid URI. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
 | `persistent_id` | optional | **An optional, resolvable URI permanently attached to this entity**: a permanent address which must resolve (via some service like <a href="http://identifiers.org/">identifiers.org</a>) to some network-retrievable object describing the entity, like a landing page with basic descriptive information, or a direct-download URL. **Actual network locations (e.g. bare download URLs) must not be embedded directly within this identifier**: one level of indirection (the resolver service) is required in order to protect `persistent_id` values from changes in network location over time as data is moved around. (See [C2M2 identifiers](#c2m2-identifiers) for discussion, examples and content restrictions.) |
 | `creation_time` | optional | An ISO 8601 / RFC 3339 (subset)-compliant timestamp documenting this entity's creation time (or, in the case of a `subject` entity, the time at which the `subject` was first documented by the primary `project` under which the `subject` was first observed): **`YYYY-MM-DDTHH:MM:SS±NN:NN`**, where<br><ul><li>**`YYYY`** is a four-digit Gregorian **year**</li><li>**`MM`** is a zero-padded, one-based, two-digit **month** between `01` and `12`, inclusive</li><li>**`DD`** is a zero-padded, one-based, two-digit **day** of the month between `01` and `31`, inclusive</li><li>**`HH`** is a zero-padded, zero-based, two-digit **hour** label between `00` and `23`, inclusive (12-hour time encoding is specifically prohibited)</li><li>**`MM`** and **`SS`** represent zero-padded, zero-based integers between `00` and `59`, inclusive, denoting Babylonian-sexagesimal **minutes** and **seconds**, respectively</li><li>**`±`** denotes exactly one of `+` or `-`, indicating the direction of the offset from GMT (Zulu) to the local time zone (or `-` in the special case encoded as `-00:00`, in which the local time zone is unknown or not asserted)</li><li>**`NN:NN`** represents the **hours:minutes** differential between GMT/Zulu and the local time zone context of this `creation_time` (qualified by the preceding `+` or `-` to indicate offset direction), with `-00:00` encoding the special case in which time zone is unknown or not asserted (`+00:00`, by contrast, denotes the GMT/UTC/Zulu time zone itself)</li></ul><br>Apart from the **time zone** segment of `creation_time` (**`±NN:NN`**, just described) and the **year** (**`YYYY`**) segment, **all other constituent segments of `creation_time` named here may be rendered as `00` to indicate a lack of available data** at the corresponding precision. |
-| `abbreviation`, `name` and `description` | optional* | **Text describing this entity**, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li></ul> |
+| `abbreviation`, `name` and `description` | optional*† | **Text describing this entity**, to be used in C2M2 user interface displays showing row-level data.<br>&nbsp;<br>_Final length limits on these fields have not yet been established, but will be soon, so content in these fields should be kept as terse as possible. Expect a rough maximum of 10 characters for abbreviations, 25 chars for names and the length of a typical paper abstract for descriptions._<br>&nbsp;<br><ul><li>a short, alphanumeric, whitespace-free `abbreviation` (must match `/[a-zA-Z0-9_]+/`)</li><li>a terse but flexible `name`</li><li>an abstract-length `description`</li></ul> |
 | `project_id_namespace`, `project_local_id` | required: `project` [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) | This pair of fields stores a **required [foreign key](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#foreign-key) into this submission's `project` table**. The row in the `project` table identified by this key represents the **primary project under which this entity was first created, observed, documented or otherwise encountered.** (See the section on the [project table](#container-entities) for more on the meaning of `project` and usage details, including options for constructing simplified default values for these required fields.) |
 
-*`primary_dcc_contact.dcc_abbreviation` is a required field, as is the value of
+*`primary_dcc_contact.dcc_abbreviation` and `primary_dcc_contact.dcc_name` are required fields, as is the value of
     `project.abbreviation` for one special `project` record representing the
     submitting DCC: see the [`primary_dcc_contact` table](#the-primary_dcc_contact-table)
-    and [`project` table](#container-entities) sections, respectively, for details. 
+    and [`project` table](#container-entities) sections, respectively, for details.
+    `project.name` is also universally required (and must be unique to each project).
+
+†the `name` field is required for all term tables (the green tables in the diagram above); note
+that this information is automatically generated from existing ontology references
+([see below](#controlled-vocabularies-and-term-entity-tables) for details on how these tables are built)
 
 ### Core C2M2 entities
 
@@ -665,10 +538,10 @@ entity table is a record describing a single file.
 | `uncompressed_size_in_bytes` | optional | The **total decompressed size in bytes** of the contents of this file. (integer) |
 | `sha256` | required if `md5` is null | **CFDE-preferred file checksum string**: the output of the SHA-256 cryptographic hash function after being run on this file. One or both of `sha256` and `md5` is required. |
 | `md5` | required if `sha256` is null | **Permitted file checksum string**: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this file. One or both of `sha256` and `md5` is required. |
-| `filename` | optional | **A filename with no prepended PATH information.** (e.g. "example.txt" and not "/usr/foo/example.txt") |
-| `file_format` | optional | An **EDAM CV term ID** identifying the **digital format** of this file (e.g. TSV or FASTQ). (Pattern: `format:[0-9]+`) |
-| `data_type` | optional | An **EDAM CV term ID** identifying the **type of information** stored in this file (e.g. RNA sequence reads). (Pattern: `data:[0-9]+`) |
-| `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated the results summarized by this file. (Pattern: `OBI:[0-9]+`) |
+| `filename` | optional | **A filename with no prepended PATH information.** (e.g. `example.txt` and not `/usr/foo/example.txt`) |
+| `file_format` | optional | An **EDAM CV term ID** identifying the **digital format** of this file (e.g. `format:3475` for "TSV", or `format:1930` for "FASTQ"). |
+| `data_type` | optional | An **EDAM CV term ID** identifying the **type of information** stored in this file (e.g. `data:3495` for "RNA sequence reads"). |
+| `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated the results summarized by this file. |
 | `mime_type` | optional | A **MIME type** (or "IANA media type") describing this file, e.g. "text/plain" or "application/octet-stream". See [this page](https://training.nih-cfde.org/en/latest/CFDE-Internal-Training/MIME-type/) for a tutorial introduction and [this list](https://www.iana.org/assignments/media-types/media-types.xhtml) for a complete reference. |
 
 #### The **`biosample`** entity: a tissue sample or other physical specimen
@@ -676,7 +549,8 @@ entity table is a record describing a single file.
 |field(s)|required?|description|
 |:---:|:---:|:---|
 | `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
-| `anatomy` | optional | An **UBERON CV term ID** used to locate the origin of this biosample within the physiology of a source organism. (Pattern: `UBERON:[0-9]+`) |
+| `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated this biosample. |
+| `anatomy` | optional | An **UBERON CV term ID** used to locate the origin of this biosample within the physiology of a source organism. |
 
 #### The **`subject`** entity: a biological entity from which a C2M2 biosample can be generated
 
@@ -710,6 +584,9 @@ characterize each C2M2 `subject` record in the broadest possible terms:
 
 _This is a draft list for_ `granularity`: _we do not imagine it to be in its final form._
 
+A reference table describing current `granularity` values and descriptions can be found
+[here](https://osf.io/gpf3d/).
+
 Taxonomic labels can also be attached to `subject` records. For the most basic "single
 organism" `granularity`, this will be a one-to-one relationship: "this `subject` was a
 member of _`Speciesella exemplarensis`_." On the other hand, since a C2M2 `subject` entity can
@@ -725,14 +602,6 @@ pathogen: _Francisella tularensis_" could be attached to a single `subject` reco
 representing a biopsy from a (human-based) "host-pathogen-system". Please see the [section below on
 `subject_role_taxonomy`](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)
 for all the details on how to use this table.
-
-_(Wait, where's all the clinical metadata going to go? Good question: all
-**inherently protected** `subject`-specific metadata -- which in the case of human subjects
-is virtually all metadata -- is deferred by design to (near) future C2M2 versions, pending
-a deep review of associated access barriers, security concerns, use cases and
-technological issues. We encourage DCC data managers to reach out to us and describe
-realistic use cases for harmonizing, storing and/or indirectly referencing any protected
-metadata of potential relevance to C2M2 submissions._
 
 ### Association tables: inter-entity linkages
 
@@ -762,9 +631,10 @@ The following tables work in the same way:
    * `file_describes_biosample`
    * `biosample_from_subject`
    * `collection_defined_by_project`
+   * `file_describes_collection` (for any file describing an entire C2M2 `collection`)
 
-**All of these association tables are optional**: valid C2M2 submissions do not need
-to express all (or any) of these relationships. If included, association table
+**These association tables are optional**: valid C2M2 submissions do not need
+to express all (or indeed any) of these relationships. If included, association table
 information about relationships between entities can be used to power smarter
 downstream discovery than would be possible if limited only to manifests of
 isolated, unlinked resources.
@@ -933,6 +803,9 @@ is a **ternary association table**; each row contains _three_ identifiers:
 
 _(This is a draft list for_ `role_id`: _we do not imagine it to be in its final form.)_
 
+A reference table describing current `subject_role` values and descriptions can be found
+[here](https://osf.io/fapnr/).
+
 3. a **taxonomic label** (specifically, an identifier of the form `NCBI:txid######`,
 where `######` is the numeric ID of the desired label in the NCBI Taxonomy database)
 
@@ -970,6 +843,7 @@ curated) scientific vocabulary terms can be attached to core C2M2 entities.
 At present all C2M2 controlled vocabulary annotations are **optional**. Curated
 ontologies currently supplying supported term sets are
 
+* the [Disease Ontology (DO)](https://disease-ontology.org/)
 * the [Ontology for Biomedical Investigations (OBI)](http://obi-ontology.org/)
     (a good browser is available at [EMBL-EBI](https://www.ebi.ac.uk/ols/ontologies/obi))
 * the [Uber-Anatomy Ontology (UBERON)](https://www.ebi.ac.uk/ols/ontologies/uberon)
@@ -985,78 +859,55 @@ within C2M2.
 |CV field|ontology|description|
 |---:|:---|:---|
 | `file.assay_type` | OBI | the **type of experiment** that produced a `file` |
-| `biosample.anatomy` | UBERON | the **physiological source location** in or on the `subject` from which a `biosample` was derived |
-| `file.data_type` | EDAM | the **type of information** contained in a `file` (e.g. "sequence data") |
 | `file.file_format` | EDAM | the **digital format or encoding** of a `file` (e.g. "FASTQ") |
+| `file.data_type` | EDAM | the **type of information** contained in a `file` (e.g. "sequence data") |
+| `biosample.assay_type` | OBI | the **type of experiment** that produced a `biosample` |
+| `biosample.anatomy` | UBERON | the **physiological source location** in or on the `subject` from which a `biosample` was derived |
 | `ncbi_taxonomy.id` | NCBI Taxonomy | a **taxonomic name** associated with a `subject` record (usage details [discussed above](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)) |
 
-Exact formatting constraints for including CV terms in their designated C2M2 fields
-are given the the [C2M2 JSON schema](https://osf.io/e5tc2/) and are summarized below
-(as POSIX regular expressions and in English prose):
+In addition to these fields, (possibly multiple) diseases can be optionally
+associated with each `biosample` or `subject` record via the `biosample_disease` and
+`subject_disease` tables, which connect `biosamples` or `subjects` (via their C2M2 IDs)
+to [Disease Ontology](https://disease-ontology.org/) terms.
 
-| field | POSIX RE | English |
-|---:|:---:|:---|
-| `file.assay_type` | `/^OBI:\d\+$/` | the prefix `OBI:` followed by the numeric ID of the OBI term (e.g. "`OBI:0002503`") |
-| `biosample.anatomy` | `/^UBERON:\d\+$/` | the prefix `UBERON:` followed by the numeric ID of the UBERON term (e.g. "`UBERON:0001988`") |
-| `file.data_type` | `/^data:\d\+$/` | the prefix `data:` (indicating an EDAM term from that ontology's `data` subdivision) followed by the numeric ID of the EDAM `data` term (e.g. `data:2044`) |
-| `file.file_format` | `/^format:\d\+$/` | the prefix `format:` (indicating an EDAM term from that ontology's `format` subdivision) followed by the numeric ID of the EDAM `format` term (e.g. `format:1930`) |
-| `ncbi_taxonomy.id` | `/^NCBI:txid\d\+$/` | the prefix `NCBI:txid` followed by a numeric NCBI Taxonomy ID (e.g. `NCBI:txid422239`)|
+Submitters should use bare CV terms in the relevant fields (e.g.
+`file.file_format` might be populated with `format:1930` to express that the
+containing record represents a FASTQ-formatted file). In the case of NCBI Taxon
+IDs, which are integers in their "barest" form, values should be encoded as
+`NCBI:txid####`, where the `####` suffix represents the integer ID of the taxon in
+question: _Homo sapiens_ would thus be represented as `NCBI:txid9606`.
 
-Note again that **all CV fields are optional**: if any of these annotations are
+Note again that **all CV fields are optional**: if any of these annotations is
 unavailable or inappropriate for particular C2M2 records, or if the supported
 ontologies prevent proper encoding of the relevant information, then the associated CV
-fields can and should be left blank.
+fields (or records in CV association tables like `biosample_disease`) can and
+should be left blank.
 
 If sufficiently specific terms cannot be found in the supported ontologies, we
 encourage DCC data managers to provisionally include more general ancestor terms
 (as available), and simultaneously to contact the CFDE Ontology Working Group with
 descriptions of any needed additions to the supported controlled vocabularies. CFDE
-is establishing direct communication channels with the curation authorities for each
-ontology, and the Ontology WG explicitly aims to expedite the addition of any
-missing terms, rather than forcing bad choices.
+has established direct update channels with the curation authorities for each
+supported ontology, and the Ontology WG explicitly aims to expedite the addition of any
+missing terms on behalf of Common Fund DCCs, rather than forcing bad choices.
 
 For each controlled vocabulary supported by C2M2, a **term table** must
 be included as part of any valid submission. (These are the green tables in the 
-[ER diagram](#c2m2_model_diagram) above.) Each of these tables should list one
-row for each (unique) CV term used in the submission, along with basic
-descriptive information for each term (to empower both downstream user searches and
-automated display interfaces). Descriptive information is provided directly by
-each ontology, and these tables **should not be built by hand** by DCC staff
-preparing submissions; rather, core entity and association tables should be
-prepared _first_, with CV terms included in the appropriate fields: once these
-are built, a CFDE-provided script can automatically scan them. The script will
-find all CV terms used throughout the submission, then combine this information
-with descriptive data (drawn from ontology reference files) to automatically
-construct the necessary (green) term tables. These automatically-generated term
-tables (TSVs) are then bundled along with the rest of the C2M2 submission
+[ER diagram](#c2m2_model_diagram) above.) Each such table will contain one
+row for each (unique) CV term used anywhere in the containing C2M2 submission,
+along with basic descriptive information for each term (to empower both
+downstream user searches and automated display interfaces). All term metadata is
+to be automatically loaded directly from the ontology reference data: green term-tracker
+tables **_should not be built by hand_** by DCC staff preparing submissions. Instead,
+the other C2M2 entity and association tables should be prepared _first_, with CV
+terms included in the appropriate fields. Once these are built, a [CFDE-provided
+script](https://osf.io/bq6k9/) must be used to automatically scan the prepared
+tables. The script will find all CV terms used throughout the submission, validate
+them against externally-provided ontology reference files, and then combine
+this information with descriptive data drawn directly from the reference files,
+to automatically build all necessary (green) term tables. These automatically-generated
+term tables (TSVs) are then to be bundled along with the rest of the C2M2 submission
 (as prepared directly by the DCC data management team).
-
-_We note that C2M2 controlled vocabulary usage is in its adolescence at present,
-and we really appreciate DCC patience as we work through the complex set of
-related harmonization issues. As mentioned above, an Ontology Working Group
-has recently begun operation, and all interested DCC staff are encouraged to
-attend; this group will be developing more robust vocabulary-related policies
-for CFDE and C2M2 over the coming months._
-
-_The following general changes should be expected in the near future, specifically
-with respect to C2M2 model support for the annotation of C2M2 metadata with
-controlled vocabulary terms:_
-
-* _We expect to shift to **storing terms as URIs** rather than regexp-described bare CV terms_
-* _We expect to change the structure of how CV terms are included in C2M2 submissions: 
-    instead of a singular term value stored in a field embedded in the table of one
-    core C2M2 entity (like_ `file.assay_type`_), **terms will be connected to
-    core entity records via association tables**. This will allow **multiple terms of
-    the same type to be attached to the same record**, where appropriate, instead of
-    always having to choose just one; it will also facilitate **the attachment of one
-    vocabulary to multiple entities**. (An_ `assay_type` _could for example be associated
-    with either a_ `biosample` _or a_ `file` _instead of being hard-coded to one or the other,
-    or replicated across multiple tables as an intrinsic field.)_
-* _**Controlled vocabulary field selection and placement is not final**; we welcome
-    all input regarding rearrangements, additions, replacements, etc._
-* _**The list of supported ontologies is not final**: CFDE is currently evaluating each
-    curation authority for responsiveness to addition requests, and is also considering
-    adjustments based on ongoing incoming DCC feedback._
 
 ### The `primary_dcc_contact` table
 
@@ -1072,25 +923,67 @@ controlled vocabulary terms:_
 
 --------------------------------------------------------------------------------
 
-## Future work
+## C2M2 release details
 
-Publication of a complete RFC specification describing the initial formal version of C2M2
-is expected by April 2021.
+SEP 2021 RELEASE: CHANGELOG
 
-Several modeling concepts not finalized prior to the release of the first version
-are slated for immediate consideration following the publication of the RFC. Some are listed
-here: neither completeness nor any particular priority order is implied.
+* removed regex pattern constraints on included CV terms
+   * OBI, for example, imports terms from other ontologies: being pattern-proscriptive
+   about this proved impossible. We now just directly check each detected term against
+   the ontology's reference store.
+* added `disease` (support for Disease Ontology terms) plus `biosample_disease`
+and `subject_disease` associations
+* added (auto-built) `synonyms` array fields to CV term tables
+* added `file_describes_collection`
+* added `biosample.assay_type`
+* restored `id_namespace` foreign key assertions to `file`, `biosample`, `subject`,
+`project`, `collection`
+* tightened constraints on most `name` fields
+   * required, unique: see [above](#common-entity-fields) for full usage details
+* updated [term builder script](https://osf.io/bq6k9/)
+   * now handles `disease`
+   * now handles `ncbi_taxonomy`
+   * [other stability improvements]
+   * construction of all (green) CV-usage tables now fully automated as of this release
 
-* fuller and more robust elaboration of scientific attributes of C2M2 entities using **controlled-vocabulary metadata decorations**, i.e. substrate data for facet-search targets: current examples include `anatomy`, `assay_type`, `ncbi_taxonomy`, etc. (A dedicated **CFDE ontology working group** has begun to address this problem space.)
-    * the addition of an **ontology describing disease** is a top priority
-    * another top priority is a standardized representation of well-defined **molecular entities** (like drugs or virions)
-* **clinical observation metadata** and all other relevant **access-protected metadata**: CFDE-CC is currently soliciting concrete, detailed use case examples from DCCs so that we can establish realistic technical requirements
+--------------------------------------------------------------------------------
+
+## Upcoming C2M2 features
+
+All of these lists are formally subject to change until their release dates, but the
+closer ones (especially the very next one) should be viewed as having been fairly
+well established.
+
+NOV 2021 RELEASE
+
+* new entities: `compound`, `substance`
+   * simplified mirror of same-named PubChem structures
+   * meant to model "small molecules" of various types (e.g. drugs)
+   	* _not_ proteins or genes or other abstract structures with more baggage than
+   	"unambiguous chemical compound" -- such will be modeled separately later on
+* new entity: `gene`
+	* just a flat ID (or list of synonymous IDs) for now
+	* deeper functional metadata or ontological categorization must wait until
+	further working-group progress is made
+* new fields on `subject` for (public) clinical metadata:
+	* `sex`, `race`, `ethnicity`, `cause_of_death`, `age_at_enrollment`, `age_at_sampling` (latter two: floats representing years, with precision fixed at "hundredths")
+
+FEB 2022 RELEASE (list not complete)
+
+* additional back-end support for resolver processing, forwarding of C2M2
+`file` data and CFDE portal "shopping cart" functionality
+
+MAY 2022 RELEASE (list not complete)
+
+* event model
+   * including provenance assertions and operational timing annotations
+
+SCHEDULE NOT YET FINALIZED (EXPECTED BY MID-2022 AT LATEST)
+
+* comprehensive client-side datapackage validation software
+	* to be decoupled from CFDE submission tool
 * `file_in_file` relationships to allow publication of (sub-`file`) archive contents
-* modular **experimental flow (`protocol`)**
-* resource (entity) **provenance (`[data|material]_event` network)**
-* some sort of support for **gene-level metadata** (A dedicated **CFDE gene working group** has begun to address this problem space.)
-* structured addressbook for documenting and linking **organizations
-(`common_fund_program`), roles/personae and actual people** to C2M2 metadata
-* a **model versioning scheme** for C2M2
+	* possibly including added decorators for compression types/algorithms
+* a formal versioning scheme for C2M2
 
 --------------------------------------------------------------------------------
