@@ -944,7 +944,7 @@ and `subject_disease` associations
 * updated [term builder script](https://osf.io/bq6k9/)
    * now handles `disease`
    * now handles `ncbi_taxonomy`
-   * [other stability improvements]
+   * other stability improvements
    * construction of all (green) CV-usage tables now fully automated as of this release
 
 --------------------------------------------------------------------------------
