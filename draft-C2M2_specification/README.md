@@ -36,10 +36,10 @@ share structured, detailed information ([metadata](https://docs.nih-cfde.org/en/
 about their experimental resources with the research
 community at large, widening and deepening access to usable
 observational data. One of C2M2's primary missions is to support search
-of crossdiciplinary datasets without moving or warehousing the data. 
-The C2M2 also can support user analysis use cases, such as
-meaningfully reducing the effort needed to perform
-meta-analysis of results from multiple independent teams
+across cross-disciplinary datasets without moving or warehousing data. 
+C2M2 is also designed to support large-scale analytic research,
+for example by substantially reducing the effort needed to perform
+meta-analysis of results produced by multiple independent teams
 studying similar health-related phenomena.
 
 ## DCC metadata submissions
