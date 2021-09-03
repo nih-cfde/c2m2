@@ -929,9 +929,9 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 SEP 2021 RELEASE: CHANGELOG
 
 * removed regex pattern constraints on included CV terms
-   * OBI, for example, imports terms from other ontologies: being pattern-proscriptive
-   about this proved impossible. We now just directly check each detected term against
-   the ontology's reference store.
+    * OBI, for example, imports terms from other ontologies: being pattern-proscriptive
+    about this proved impossible. We now just directly check each detected term against
+    the ontology's reference store.
 * added `disease` (support for Disease Ontology terms) plus `biosample_disease`
 and `subject_disease` associations
 * added (auto-built) `synonyms` array fields to CV term tables
@@ -940,12 +940,12 @@ and `subject_disease` associations
 * restored `id_namespace` foreign key assertions to `file`, `biosample`, `subject`,
 `project`, `collection`
 * tightened constraints on most `name` fields
-   * required, unique: see [above](#common-entity-fields) for full usage details
+    * required, unique: see [above](#common-entity-fields) for full usage details
 * updated [term builder script](https://osf.io/bq6k9/)
-   * now handles `disease`
-   * now handles `ncbi_taxonomy`
-   * other stability improvements
-   * construction of all (green) CV-usage tables now fully automated as of this release
+    * now handles `disease`
+    * now handles `ncbi_taxonomy`
+    * other stability improvements
+    * construction of all (green) CV-usage tables now fully automated as of this release
 
 --------------------------------------------------------------------------------
 
