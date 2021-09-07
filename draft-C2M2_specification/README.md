@@ -958,16 +958,14 @@ well established.
 NOV 2021 RELEASE
 
 * new entities: `compound`, `substance`
-   * simplified mirror of same-named PubChem structures
-   * meant to model "small molecules" of various types (e.g. drugs)
-   	* _not_ proteins or genes or other abstract structures with more baggage than
-   	"unambiguous chemical compound" -- such will be modeled separately later on
+    * simplified mirror of same-named PubChem structures
+    * meant to model "small molecules" of various types (e.g. drugs)
+        * _not_ proteins or genes or other abstract structures with more baggage than "unambiguous chemical compound" -- such will be modeled separately later on
 * new entity: `gene`
-	* just a flat ID (or list of synonymous IDs) for now
-	* deeper functional metadata or ontological categorization must wait until
-	further working-group progress is made
+    * just a flat ID (or list of synonymous IDs) for now
+    * deeper functional metadata or ontological categorization must wait until further working-group progress is made
 * new fields on `subject` for (public) clinical metadata:
-	* `sex`, `race`, `ethnicity`, `cause_of_death`, `age_at_enrollment`, `age_at_sampling` (latter two: floats representing years, with precision fixed at "hundredths")
+    * `sex`, `race`, `ethnicity`, `cause_of_death`, `age_at_enrollment`, `age_at_sampling` (latter two: floats representing years, with precision fixed at "hundredths")
 
 FEB 2022 RELEASE (list not complete)
 
@@ -977,14 +975,14 @@ FEB 2022 RELEASE (list not complete)
 MAY 2022 RELEASE (list not complete)
 
 * event model
-   * including provenance assertions and operational timing annotations
+    * including provenance assertions and operational timing annotations
 
 SCHEDULE NOT YET FINALIZED (EXPECTED BY MID-2022 AT LATEST)
 
 * comprehensive client-side datapackage validation software
-	* to be decoupled from CFDE submission tool
+    * to be decoupled from CFDE submission tool
 * `file_in_file` relationships to allow publication of (sub-`file`) archive contents
-	* possibly including added decorators for compression types/algorithms
+    * possibly including added decorators for compression types/algorithms
 * a formal versioning scheme for C2M2
 
 --------------------------------------------------------------------------------
