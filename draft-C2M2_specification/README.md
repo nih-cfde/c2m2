@@ -1,3 +1,8 @@
+---
+title: C2M2 Documentation
+---
+
+
 # QUICK-START BLOCK
 
 * Full [C2M2 technical documentation](#c2m2-technical-specification) (skip introduction)
