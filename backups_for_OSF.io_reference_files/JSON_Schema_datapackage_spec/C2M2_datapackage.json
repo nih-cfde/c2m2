@@ -8,6 +8,13 @@
          "name": "file",
          "title": "file",
          "path": "file.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A stable digital asset",
          "schema": {
             "fields": [
@@ -151,6 +158,13 @@
          "name": "biosample",
          "title": "biosample",
          "path": "biosample.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A tissue sample or other physical specimen",
          "schema": {
             "fields": [
@@ -247,6 +261,13 @@
          "name": "subject",
          "title": "subject",
          "path": "subject.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A biological entity from which a C2M2 biosample can be generated",
          "schema": {
             "fields": [
@@ -335,6 +356,13 @@
          "name": "primary_dcc_contact",
          "title": "primary_dcc_contact",
          "path": "primary_dcc_contact.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "One primary contact person for the Common Fund data coordinating center (DCC, identified by the given project foreign key) that produced this C2M2 instance",
          "schema": {
             "fields": [
@@ -420,6 +448,13 @@
          "name": "project",
          "title": "project",
          "path": "project.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A node in the C2M2 project hierarchy subdividing all resources described by this DCC's C2M2 metadata",
          "schema": {
             "fields": [
@@ -491,6 +526,13 @@
          "name": "project_in_project",
          "title": "project_in_project",
          "path": "project_in_project.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a child project and its parent",
          "schema": {
             "fields": [
@@ -556,6 +598,13 @@
          "name": "collection",
          "title": "collection",
          "path": "collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A grouping of C2M2 files, biosamples and/or subjects",
          "schema": {
             "fields": [
@@ -623,6 +672,13 @@
          "name": "collection_in_collection",
          "title": "collection_in_collection",
          "path": "collection_in_collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a containing collection (superset) and a contained collection (subset)",
          "schema": {
             "fields": [
@@ -688,6 +744,13 @@
          "name": "file_describes_collection",
          "title": "file_describes_collection",
          "path": "file_describes_collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a summary file and an entire collection described by that file",
          "schema": {
             "fields": [
@@ -753,6 +816,13 @@
          "name": "collection_defined_by_project",
          "title": "collection_defined_by_project",
          "path": "collection_defined_by_project.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "(Shallow) association between a collection and a project that defined it",
          "schema": {
             "fields": [
@@ -818,6 +888,13 @@
          "name": "file_in_collection",
          "title": "file_in_collection",
          "path": "file_in_collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a file and a (containing) collection",
          "schema": {
             "fields": [
@@ -883,6 +960,13 @@
          "name": "biosample_in_collection",
          "title": "biosample_in_collection",
          "path": "biosample_in_collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a biosample and a (containing) collection",
          "schema": {
             "fields": [
@@ -948,6 +1032,13 @@
          "name": "subject_in_collection",
          "title": "subject_in_collection",
          "path": "subject_in_collection.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a subject and a (containing) collection",
          "schema": {
             "fields": [
@@ -1013,6 +1104,13 @@
          "name": "file_describes_biosample",
          "title": "file_describes_biosample",
          "path": "file_describes_biosample.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a biosample and a file containing information about that biosample",
          "schema": {
             "fields": [
@@ -1078,6 +1176,13 @@
          "name": "file_describes_subject",
          "title": "file_describes_subject",
          "path": "file_describes_subject.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a subject and a file containing information about that subject",
          "schema": {
             "fields": [
@@ -1143,6 +1248,13 @@
          "name": "biosample_from_subject",
          "title": "biosample_from_subject",
          "path": "biosample_from_subject.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a biosample and its source subject",
          "schema": {
             "fields": [
@@ -1208,6 +1320,13 @@
          "name": "biosample_disease",
          "title": "biosample_disease",
          "path": "biosample_disease.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a C2M2 biosample and a disease known to be associated with that biosample",
          "schema": {
             "fields": [
@@ -1264,6 +1383,13 @@
          "name": "subject_disease",
          "title": "subject_disease",
          "path": "subject_disease.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Association between a C2M2 subject and a disease positively identified in that subject",
          "schema": {
             "fields": [
@@ -1320,6 +1446,13 @@
          "name": "subject_role_taxonomy",
          "title": "subject_role_taxonomy",
          "path": "subject_role_taxonomy.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "Trinary association linking IDs representing (1) a subject, (2) a subject_role (a named organism-level constituent component of a subject, like 'host', 'pathogen', 'endosymbiont', 'taxon detected inside a microbiome subject', etc.) and (3) a taxonomic label (which is hereby assigned to this particular subject_role within this particular subject)",
          "schema": {
             "fields": [
@@ -1394,6 +1527,13 @@
          "name": "assay_type",
          "title": "assay_type",
          "path": "assay_type.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of Ontology for Biomedical Investigations (OBI) CV terms used to describe types of experiment that generate C2M2 biosamples or results stored in C2M2 files",
          "schema": {
             "fields": [
@@ -1435,6 +1575,13 @@
          "name": "ncbi_taxonomy",
          "title": "ncbi_taxonomy",
          "path": "ncbi_taxonomy.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of NCBI Taxonomy Database IDs identifying taxa used to describe C2M2 subjects",
          "schema": {
             "fields": [
@@ -1485,6 +1632,13 @@
          "name": "anatomy",
          "title": "anatomy",
          "path": "anatomy.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of Uber-anatomy ontology (UBERON) CV terms used to locate the origin of a C2M2 biosample within the physiology of its source or host organism",
          "schema": {
             "fields": [
@@ -1526,6 +1680,13 @@
          "name": "file_format",
          "title": "file_format",
          "path": "file_format.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of EDAM CV 'format:' terms used to describe formats of C2M2 files",
          "schema": {
             "fields": [
@@ -1567,6 +1728,13 @@
          "name": "data_type",
          "title": "data_type",
          "path": "data_type.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of EDAM CV 'data:' terms used to describe data in C2M2 files",
          "schema": {
             "fields": [
@@ -1608,6 +1776,13 @@
          "name": "disease",
          "title": "disease",
          "path": "disease.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "List of Disease Ontology terms used to describe diseases associated with C2M2 subjects or biosamples",
          "schema": {
             "fields": [
@@ -1649,6 +1824,13 @@
          "name": "id_namespace",
          "title": "id_namespace",
          "path": "id_namespace.tsv",
+         "dialect": {
+            "delimiter": "\t",
+            "doubleQuote": false,
+            "lineTerminator": "\n",
+            "skipInitialSpace": true,
+            "header": true
+         },
          "description": "A table listing identifier namespaces registered by the DCC submitting this C2M2 instance",
          "schema": {
             "fields": [
