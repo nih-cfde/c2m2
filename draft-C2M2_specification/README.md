@@ -968,7 +968,7 @@ NOV 2021 RELEASE ([draft schema is here](https://osf.io/29cde/))
     * `biosample_gene` association added as a limited prototype for knockout data
     * deeper metadata, ontological categorization and more associative relationships expected pending further WG progress
 * new fields on `subject` for (public) clinical metadata:
-    * `sex`, `race`, `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
+    * `sex`, `race` (multi-select-capable), `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
 * `primary_dcc_contact` renamed to `dcc`; `id` field added; mirrors portal registry data
 * new `bundle_collection` foreign key from `file` into `collection`
     * allows enumeration of contents of archive files containing multiple subfiles (e.g. TAR archive files)
@@ -977,7 +977,6 @@ NOV 2021 RELEASE ([draft schema is here](https://osf.io/29cde/))
 
 FEB 2022 RELEASE (list not complete)
 
-* `subject.race`: multi-select, not radio
 * clarifications for `subject.sex` minimal enum values
 * add negative-assertion observation relationships
     * `subject_not_observed_disease`
