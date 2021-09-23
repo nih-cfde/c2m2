@@ -2,7 +2,6 @@
 title: C2M2 Documentation
 ---
 
-
 # QUICK-START BLOCK
 
 * Full [C2M2 technical documentation](#c2m2-technical-specification) (skip introduction)
@@ -935,7 +934,7 @@ SEP 2021 RELEASE: CHANGELOG
     the ontology's reference store.
 * added `disease` (support for Disease Ontology terms) plus `biosample_disease`
 and `subject_disease` associations
-* added (auto-built) `synonyms` array fields to CV term tables
+* added (auto-built) `synonyms` fields (JSON arrays) to CV term tables
 * added `file_describes_collection`
 * added `biosample.assay_type`
 * restored `id_namespace` foreign key assertions to `file`, `biosample`, `subject`,
@@ -956,34 +955,49 @@ All of these lists are formally subject to change until their release dates, but
 closer ones (especially the very next one) should be viewed as having been fairly
 well established.
 
-NOV 2021 RELEASE
+NOV 2021 RELEASE ([draft schema is here](https://osf.io/29cde/))
 
 * new entities: `compound`, `substance`
     * simplified mirror of same-named PubChem structures
     * meant to model "small molecules" of various types (e.g. drugs)
-        * _not_ proteins or genes or other abstract structures with more baggage than "unambiguous chemical compound" -- such will be modeled separately later on
+        * _not_ proteins or genes or other abstract structures with
+        more baggage than "unambiguous chemical compound" -- such will be modeled separately later on
+    * new associations: `biosample_substance`, `subject_substance`
 * new entity: `gene`
-    * just a flat ID (or list of synonymous IDs) for now
-    * deeper functional metadata or ontological categorization must wait until further working-group progress is made
+    * prototype: list of Ensembl IDs as a CV with metadata describing names, synonyms and source organisms
+    * `biosample_gene` association added as a limited prototype for knockout data
+    * deeper metadata, ontological categorization and more associative relationships expected pending further WG progress
 * new fields on `subject` for (public) clinical metadata:
-    * `sex`, `race`, `ethnicity`, `cause_of_death`, `age_at_enrollment`, `age_at_sampling` (latter two: floats representing years, with precision fixed at "hundredths")
+    * `sex`, `race`, `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
+* `primary_dcc_contact` renamed to `dcc`; `id` field added; mirrors portal registry data
+* new `bundle_collection` foreign key from `file` into `collection`
+    * allows enumeration of contents of archive files containing multiple subfiles (e.g. TAR archive files)
+* new `file.compression_format` CV (EDAM) for clearer expression of file compression configurations
+
 
 FEB 2022 RELEASE (list not complete)
 
-* additional back-end support for resolver processing, forwarding of C2M2
-`file` data and CFDE portal "shopping cart" functionality
+* `subject.race`: multi-select, not radio
+* clarifications for `subject.sex` minimal enum values
+* add negative-assertion observation relationships
+    * `subject_not_observed_disease`
+    * `biosample_not_observed_disease`
+* add phenotype observation data (new CV: HPO)
+	 * `subject_observed_phenotype`
+	 * `subject_not_observed_phenotype`
+* add `biosample.healthy_control` for flagging healthy baseline experimental controls
+* (as needed) additional back-end support for resolver processing, forwarding of
+C2M2 `file` data and CFDE portal "shopping cart" functionality
 
 MAY 2022 RELEASE (list not complete)
 
 * event model
     * including provenance assertions and operational timing annotations
 
-SCHEDULE NOT YET FINALIZED (EXPECTED BY MID-2022 AT LATEST)
+ONGOING & EVOLVING THROUGH MAY 2022
 
 * comprehensive client-side datapackage validation software
     * to be decoupled from CFDE submission tool
-* `file_in_file` relationships to allow publication of (sub-`file`) archive contents
-    * possibly including added decorators for compression types/algorithms
 * a formal versioning scheme for C2M2
 
 --------------------------------------------------------------------------------
