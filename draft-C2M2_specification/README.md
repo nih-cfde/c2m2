@@ -986,6 +986,7 @@ FEB 2022 RELEASE (list not complete)
 	 * `subject_observed_phenotype`
 	 * `subject_not_observed_phenotype`
 * add `biosample.healthy_control` for flagging healthy baseline experimental controls
+* add `file.analysis_type` (OBI)
 * (as needed) additional back-end support for resolver processing, forwarding of
 C2M2 `file` data and CFDE portal "shopping cart" functionality
 
