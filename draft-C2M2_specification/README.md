@@ -926,7 +926,27 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 ## C2M2 release details
 
-SEP 2021 RELEASE: CHANGELOG
+NOV 2021 RELEASE
+
+* new entities: `compound`, `substance`
+    * simplified mirror of same-named PubChem structures
+    * meant to model "small molecules" of various types (e.g. drugs)
+        * _not_ proteins or genes or other abstract structures with
+        more baggage than "unambiguous chemical compound" -- such will be modeled separately later on
+    * new associations: `biosample_substance`, `subject_substance`
+* new entity: `gene`
+    * prototype: list of Ensembl IDs as a CV with metadata describing names, synonyms and source organisms
+    * `biosample_gene` association added as a limited prototype for knockout data
+    * deeper metadata, ontological categorization and more associative relationships expected pending further WG progress
+* new fields on `subject` for (public) clinical metadata:
+    * `sex`, `race` (multi-select-capable), `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
+* `primary_dcc_contact` renamed to `dcc`; `id` field added; mirrors portal registry data
+* new `bundle_collection` foreign key from `file` into `collection`
+    * allows enumeration of contents of archive files containing multiple subfiles (e.g. TAR archive files)
+* new `file.compression_format` CV (EDAM) for clearer expression of file compression configurations
+* _updated term builder script coming shortly_
+
+SEP 2021 RELEASE
 
 * removed regex pattern constraints on included CV terms
     * OBI, for example, imports terms from other ontologies: being pattern-proscriptive
@@ -955,27 +975,7 @@ All of these lists are formally subject to change until their release dates, but
 closer ones (especially the very next one) should be viewed as having been fairly
 well established.
 
-NOV 2021 RELEASE ([draft schema is here](https://osf.io/29cde/))
-
-* new entities: `compound`, `substance`
-    * simplified mirror of same-named PubChem structures
-    * meant to model "small molecules" of various types (e.g. drugs)
-        * _not_ proteins or genes or other abstract structures with
-        more baggage than "unambiguous chemical compound" -- such will be modeled separately later on
-    * new associations: `biosample_substance`, `subject_substance`
-* new entity: `gene`
-    * prototype: list of Ensembl IDs as a CV with metadata describing names, synonyms and source organisms
-    * `biosample_gene` association added as a limited prototype for knockout data
-    * deeper metadata, ontological categorization and more associative relationships expected pending further WG progress
-* new fields on `subject` for (public) clinical metadata:
-    * `sex`, `race` (multi-select-capable), `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
-* `primary_dcc_contact` renamed to `dcc`; `id` field added; mirrors portal registry data
-* new `bundle_collection` foreign key from `file` into `collection`
-    * allows enumeration of contents of archive files containing multiple subfiles (e.g. TAR archive files)
-* new `file.compression_format` CV (EDAM) for clearer expression of file compression configurations
-
-
-FEB 2022 RELEASE (list not complete)
+FEB 2022 RELEASE (draft JSON schema coming shortly)
 
 * clarifications for `subject.sex` minimal enum values
 * add negative-assertion observation relationships
