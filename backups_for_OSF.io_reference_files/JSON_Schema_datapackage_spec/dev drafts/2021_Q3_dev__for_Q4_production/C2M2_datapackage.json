@@ -261,13 +261,6 @@
                   "name": "anatomy",
                   "description": "An UBERON CV term ID used to locate the origin of this biosample within the physiology of its source or host organism",
                   "type": "string"
-               },
-               {
-               	"name": "healthy_control",
-               	"description": "Is this biosample a member of a healthy experimental control group?",
-               	"type": "boolean",
-               	"trueValues": [ "true", "True", "TRUE", "1" ],
-               	"falseValues": [ "false", "False", "FALSE", "0" ]
                }
             ],
             "missingValues": [ "" ],
@@ -1409,9 +1402,9 @@
       },
       {
          "profile": "tabular-data-resource",
-         "name": "biosample_observed_disease",
-         "title": "biosample_observed_disease",
-         "path": "biosample_observed_disease.tsv",
+         "name": "biosample_disease",
+         "title": "biosample_disease",
+         "path": "biosample_disease.tsv",
          "dialect": {
             "delimiter": "\t",
             "doubleQuote": false,
@@ -1419,7 +1412,7 @@
             "skipInitialSpace": true,
             "header": true
          },
-         "description": "Association between a C2M2 biosample and a disease known to be associated with that biosample",
+         "description": "Association between a C2M2 biosample and a disease positively (e.g. cancer tumor tissue sample) OR negatively (e.g. cancer-free tissue sample) identified for that biosample",
          "schema": {
             "fields": [
                {
@@ -1439,6 +1432,18 @@
                   }
                },
                {
+                  "name": "association_type",
+                  "description": "The relationship between this biosample and this disease (e.g. 'observed' or '(tested for, but) not observed')",
+                  "type": "string",
+                  "enum": [
+                     "cfde_disease_association_type:0",
+                     "cfde_disease_association_type:1"
+                  ],
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
                   "name": "disease",
                   "description": "A Disease Ontology CV term ID describing this disease",
                   "type": "string",
@@ -1450,6 +1455,7 @@
             "primaryKey": [
                "biosample_id_namespace",
                "biosample_local_id",
+               "association_type",
                "disease"
             ],
             "foreignKeys": [
@@ -1472,9 +1478,9 @@
       },
       {
          "profile": "tabular-data-resource",
-         "name": "biosample_not_observed_disease",
-         "title": "biosample_not_observed_disease",
-         "path": "biosample_not_observed_disease.tsv",
+         "name": "subject_disease",
+         "title": "subject_disease",
+         "path": "subject_disease.tsv",
          "dialect": {
             "delimiter": "\t",
             "doubleQuote": false,
@@ -1482,70 +1488,7 @@
             "skipInitialSpace": true,
             "header": true
          },
-         "description": "Association between a C2M2 biosample and a disease observed not to be associated with that biosample",
-         "schema": {
-            "fields": [
-               {
-                  "name": "biosample_id_namespace",
-                  "description": "Identifier namespace for this biosample",
-                  "type": "string",
-                  "constraints": {
-                     "required": true
-                  }
-               },
-               {
-                  "name": "biosample_local_id",
-                  "description": "The ID of this biosample",
-                  "type": "string",
-                  "constraints": {
-                     "required": true
-                  }
-               },
-               {
-                  "name": "disease",
-                  "description": "A Disease Ontology CV term ID describing this disease",
-                  "type": "string",
-                  "constraints": {
-                     "required": true
-                  }
-               }
-            ],
-            "primaryKey": [
-               "biosample_id_namespace",
-               "biosample_local_id",
-               "disease"
-            ],
-            "foreignKeys": [
-               {
-                  "fields": [ "biosample_id_namespace", "biosample_local_id" ],
-                  "reference": {
-                     "resource": "biosample",
-                     "fields": [ "id_namespace", "local_id" ]
-                  }
-               },
-               {
-                  "fields": "disease",
-                  "reference": {
-                     "resource": "disease",
-                     "fields": "id"
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "profile": "tabular-data-resource",
-         "name": "subject_observed_disease",
-         "title": "subject_observed_disease",
-         "path": "subject_observed_disease.tsv",
-         "dialect": {
-            "delimiter": "\t",
-            "doubleQuote": false,
-            "lineTerminator": "\n",
-            "skipInitialSpace": true,
-            "header": true
-         },
-         "description": "Association between a C2M2 subject and a disease positively identified in that subject",
+         "description": "Association between a C2M2 subject and a disease positively OR negatively clinically identified in that subject",
          "schema": {
             "fields": [
                {
@@ -1565,6 +1508,18 @@
                   }
                },
                {
+                  "name": "association_type",
+                  "description": "The relationship between this subject and this disease (e.g. 'observed' or '(tested for, but) not observed')",
+                  "type": "string",
+                  "enum": [
+                     "cfde_disease_association_type:0",
+                     "cfde_disease_association_type:1"
+                  ],
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
                   "name": "disease",
                   "description": "A Disease Ontology CV term ID describing this disease",
                   "type": "string",
@@ -1576,6 +1531,7 @@
             "primaryKey": [
                "subject_id_namespace",
                "subject_local_id",
+               "association_type",
                "disease"
             ],
             "foreignKeys": [
@@ -1598,9 +1554,9 @@
       },
       {
          "profile": "tabular-data-resource",
-         "name": "subject_not_observed_disease",
-         "title": "subject_not_observed_disease",
-         "path": "subject_not_observed_disease.tsv",
+         "name": "collection_disease",
+         "title": "collection_disease",
+         "path": "collection_disease.tsv",
          "dialect": {
             "delimiter": "\t",
             "doubleQuote": false,
@@ -1608,20 +1564,20 @@
             "skipInitialSpace": true,
             "header": true
          },
-         "description": "Association between a C2M2 subject and a disease for which that subject tested negative",
+         "description": "Association between a disease and a C2M2 collection containing experimental resources directly related to the study of that disease",
          "schema": {
             "fields": [
                {
-                  "name": "subject_id_namespace",
-                  "description": "Identifier namespace for this subject",
+                  "name": "collection_id_namespace",
+                  "description": "Identifier namespace for this collection",
                   "type": "string",
                   "constraints": {
                      "required": true
                   }
                },
                {
-                  "name": "subject_local_id",
-                  "description": "The ID of this subject",
+                  "name": "collection_local_id",
+                  "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -1637,15 +1593,15 @@
                }
             ],
             "primaryKey": [
-               "subject_id_namespace",
-               "subject_local_id",
+               "collection_id_namespace",
+               "collection_local_id",
                "disease"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "subject_id_namespace", "subject_local_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
-                     "resource": "subject",
+                     "resource": "collection",
                      "fields": [ "id_namespace", "local_id" ]
                   }
                },
@@ -1661,9 +1617,9 @@
       },
       {
          "profile": "tabular-data-resource",
-         "name": "subject_observed_phenotype",
-         "title": "subject_observed_phenotype",
-         "path": "subject_observed_phenotype.tsv",
+         "name": "collection_phenotype",
+         "title": "collection_phenotype",
+         "path": "collection_phenotype.tsv",
          "dialect": {
             "delimiter": "\t",
             "doubleQuote": false,
@@ -1671,20 +1627,20 @@
             "skipInitialSpace": true,
             "header": true
          },
-         "description": "Association between a C2M2 subject and a phenotype positively identified with that subject",
+         "description": "Association between a phenotype and a C2M2 collection containing experimental resources directly related to the study of that phenotype",
          "schema": {
             "fields": [
                {
-                  "name": "subject_id_namespace",
-                  "description": "Identifier namespace for this subject",
+                  "name": "collection_id_namespace",
+                  "description": "Identifier namespace for this collection",
                   "type": "string",
                   "constraints": {
                      "required": true
                   }
                },
                {
-                  "name": "subject_local_id",
-                  "description": "The ID of this subject",
+                  "name": "collection_local_id",
+                  "description": "The ID of this collection",
                   "type": "string",
                   "constraints": {
                      "required": true
@@ -1700,15 +1656,15 @@
                }
             ],
             "primaryKey": [
-               "subject_id_namespace",
-               "subject_local_id",
+               "collection_id_namespace",
+               "collection_local_id",
                "phenotype"
             ],
             "foreignKeys": [
                {
-                  "fields": [ "subject_id_namespace", "subject_local_id" ],
+                  "fields": [ "collection_id_namespace", "collection_local_id" ],
                   "reference": {
-                     "resource": "subject",
+                     "resource": "collection",
                      "fields": [ "id_namespace", "local_id" ]
                   }
                },
@@ -1724,9 +1680,9 @@
       },
       {
          "profile": "tabular-data-resource",
-         "name": "subject_not_observed_phenotype",
-         "title": "subject_not_observed_phenotype",
-         "path": "subject_not_observed_phenotype.tsv",
+         "name": "subject_phenotype",
+         "title": "subject_phenotype",
+         "path": "subject_phenotype.tsv",
          "dialect": {
             "delimiter": "\t",
             "doubleQuote": false,
@@ -1734,7 +1690,7 @@
             "skipInitialSpace": true,
             "header": true
          },
-         "description": "Association between a C2M2 subject and a phenotype observed to be inapplicable to that subject",
+         "description": "Association between a C2M2 subject and a phenotype positively OR negatively clinically identified for that subject",
          "schema": {
             "fields": [
                {
@@ -1754,6 +1710,18 @@
                   }
                },
                {
+                  "name": "association_type",
+                  "description": "The relationship between this subject and this phenotype (e.g. 'observed' or '(tested for, but) not observed')",
+                  "type": "string",
+                  "enum": [
+                     "cfde_phenotype_association_type:0",
+                     "cfde_phenotype_association_type:1"
+                  ],
+                  "constraints": {
+                     "required": true
+                  }
+               },
+               {
                   "name": "phenotype",
                   "description": "A Human Phenotype Ontology CV term ID describing this phenotype",
                   "type": "string",
@@ -1765,6 +1733,7 @@
             "primaryKey": [
                "subject_id_namespace",
                "subject_local_id",
+               "association_type",
                "phenotype"
             ],
             "foreignKeys": [

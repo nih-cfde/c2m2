@@ -1,0 +1,17 @@
+[Wed Nov 17 19:42:24 EST 2021] Beginning substitution pass...
+
+   (1/12) [Wed Nov 17 19:42:24 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_021000001_021500000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:42:24 EST 2021]
+   (2/12) [Wed Nov 17 19:42:26 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_021500001_022000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:42:26 EST 2021]
+   (3/12) [Wed Nov 17 19:43:01 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_022000001_022500000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:43:01 EST 2021]
+   (4/12) [Wed Nov 17 19:46:11 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_022500001_023000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:46:11 EST 2021]
+   (5/12) [Wed Nov 17 19:49:09 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_023000001_023500000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:49:09 EST 2021]
+   (6/12) [Wed Nov 17 19:52:05 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_023500001_024000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:52:05 EST 2021]
+   (7/12) [Wed Nov 17 19:54:27 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_024000001_024500000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:54:31 EST 2021]
+   (8/12) [Wed Nov 17 19:55:47 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_024500001_025000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:55:49 EST 2021]
+   (9/12) [Wed Nov 17 19:56:52 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_026500001_027000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:56:53 EST 2021]
+   (10/12) [Wed Nov 17 19:59:16 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_028500001_029000000.xml.gz; inserting synonyms...done. [Wed Nov 17 19:59:16 EST 2021]
+   (11/12) [Wed Nov 17 20:00:56 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_029000001_029500000.xml.gz; inserting synonyms...done. [Wed Nov 17 20:00:57 EST 2021]
+   (12/12) [Wed Nov 17 20:02:56 EST 2021] loaded 000_raw_PubChem_files/Substance/Substance_029500001_030000000.xml.gz; inserting synonyms...done. [Wed Nov 17 20:02:56 EST 2021]
+
+...done with substitution pass. [Wed Nov 17 20:02:57 EST 2021]
+Cleaning up...done. [Wed Nov 17 20:02:58 EST 2021]

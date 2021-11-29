@@ -1,0 +1,8 @@
+ftp.ncbi.nlm.nih.gov/pubchem/Compound/Extras/
+   |
+   ----> CID-Title.gz
+   ----> CID-Synonym-filtered.gz
+   ----> CID-SID.gz
+
+ftp.ncbi.nlm.nih.gov/pubchem/Substance/CURRENT-Full/XML/Substance_*
+
