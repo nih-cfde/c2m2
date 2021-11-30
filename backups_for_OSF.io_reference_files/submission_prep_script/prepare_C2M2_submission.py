@@ -70,12 +70,12 @@ cvFile = {
     'Uberon' : '%s/uberon.version_2021-11-12.obo' % cvRefDir,
     'DO' : '%s/doid.version_2021-10-12.obo' % cvRefDir,
     'Ensembl' : '%s/ensembl_genes.tsv' % cvRefDir,
-    # Reduced-size (sample) PubChem reference DB for debugging and fast testing:
-    'PubChem_compound' : '%s/sample_pubchem_reference_data/compound.first_5000_records.tsv.gz' % cvRefDir,
-    #'PubChem_compound' : '%s/compound.tsv.gz' % cvRefDir,
-    # Reduced-size (sample) PubChem reference DB for debugging and fast testing:
-    'PubChem_substance' : '%s/sample_pubchem_reference_data/substance.records_for_first_5000_CIDs.tsv.gz' % cvRefDir
-    #'PubChem_substance' : '%s/substance.tsv.gz' % cvRefDir
+    # Reduced-size (sample) PubChem reference DB for debugging and fast testing (if you enable this, you must also comment out the line after it):
+    #'PubChem_compound' : '%s/sample_pubchem_reference_data/compound.first_5000_records.tsv.gz' % cvRefDir,
+    'PubChem_compound' : '%s/compound.tsv.gz' % cvRefDir,
+    # Reduced-size (sample) PubChem reference DB for debugging and fast testing (if you enable this, you must also comment out the line after it):
+    #'PubChem_substance' : '%s/sample_pubchem_reference_data/substance.records_for_first_5000_CIDs.tsv.gz' % cvRefDir
+    'PubChem_substance' : '%s/substance.tsv.gz' % cvRefDir
 }
 
 ##########################################################################################
