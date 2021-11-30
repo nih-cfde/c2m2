@@ -19,6 +19,7 @@ import json
 import re
 import sys
 import gzip
+import subprocess
 from pathlib import Path
 
 ##########################################################################################
@@ -69,8 +70,12 @@ cvFile = {
     'Uberon' : '%s/uberon.version_2021-11-12.obo' % cvRefDir,
     'DO' : '%s/doid.version_2021-10-12.obo' % cvRefDir,
     'Ensembl' : '%s/ensembl_genes.tsv' % cvRefDir,
-    'PubChem_compound' : '%s/compound.tsv.gz' % cvRefDir,
-    'PubChem_substance' : '%s/substance.tsv.gz' % cvRefDir
+    # Reduced-size (sample) PubChem reference DB for debugging and fast testing:
+    'PubChem_compound' : '%s/sample_pubchem_reference_data/compound.first_5000_records.tsv.gz' % cvRefDir,
+    #'PubChem_compound' : '%s/compound.tsv.gz' % cvRefDir,
+    # Reduced-size (sample) PubChem reference DB for debugging and fast testing:
+    'PubChem_substance' : '%s/sample_pubchem_reference_data/substance.records_for_first_5000_CIDs.tsv.gz' % cvRefDir
+    #'PubChem_substance' : '%s/substance.tsv.gz' % cvRefDir
 }
 
 ##########################################################################################
@@ -139,12 +144,16 @@ def identifyTermsUsed(  ):
     
     global termsUsed, submissionDraftDir, targetTSVs
 
+    progressReport("Loading all CV terms used in submission tables... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]\n")
+
     for basename in targetTSVs:
         
         inFile = submissionDraftDir + '/' + basename
 
         if Path(inFile).is_file():
             
+            progressReport("   scanning \"" + inFile + "\"...")
+
             with open( inFile, 'r' ) as IN:
                 
                 header = IN.readline()
@@ -183,6 +192,16 @@ def identifyTermsUsed(  ):
                             
                             termsUsed[currentCategory][fields[colIndex]] = {}
 
+                # end for ( line iterator on input TSV )
+
+            # end with ( open input TSV as IN )
+
+        # end if ( input TSV exists )
+
+    # end for ( basename in target TSV list )
+
+    progressReport("\n...done scanning all CV terms used in this submission. [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
 # end sub: identifyTermsUsed(  )
 
 def decorateTermsUsed(  ):
@@ -191,10 +210,14 @@ def decorateTermsUsed(  ):
 
     categories = list(termsUsed.keys())
 
+    progressReport("Loading display data (names, descriptions, etc.) for all CV terms used in submission tables... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]\n")
+
     for categoryID in categories:
         
         if categoryID == 'substance':
             
+            progressReport("   PubChem substances and compounds [if you included PubChem terms in your submission, this step will take around 10 minutes, even with a fast disk]...")
+
             # Initialize 'compound' now; it wasn't created with the others because it's
             # wholly derived from the 'substance' values (thus not directly used by
             # submitters), so there was nothing to scan for in the drafted tables.
@@ -205,13 +228,11 @@ def decorateTermsUsed(  ):
 
             if len(termsUsed[categoryID]) > 0:
                 
-                progressReport("[heads up -- this is going to take a few minutes longer than it otherwise would, due to the presence of PubChem IDs]")
-
                 cv = 'PubChem_substance'
 
                 refFile = cvFile[cv]
 
-                progressReport("[processing substance file]")
+                progressReport("      ...processing substance file... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
 
                 with gzip.open( refFile, mode='rt' ) as IN:
                     
@@ -240,8 +261,7 @@ def decorateTermsUsed(  ):
 
                 # end with ( open substance TSV for reading )
 
-                progressReport("[done]")
-                progressReport("[processing compound file]")
+                progressReport("      ...processing compound file... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
 
                 # Load linked CID records.
 
@@ -271,12 +291,12 @@ def decorateTermsUsed(  ):
 
                 # end with ( open compound TSV for reading )
 
-                progressReport("[done]")
-
             # end if ( we have at least one substance term loaded )
 
         elif categoryID == 'ncbi_taxonomy':
             
+            progressReport("   NCBI Taxonomy... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
             cv = 'NCBI'
 
             refFile = cvFile[cv]
@@ -306,6 +326,8 @@ def decorateTermsUsed(  ):
 
         elif categoryID == 'gene':
             
+            progressReport("   Ensembl genes... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
             cv = 'Ensembl'
 
             refFile = cvFile[cv]
@@ -345,10 +367,14 @@ def decorateTermsUsed(  ):
 
             if categoryID == 'anatomy':
                 
+                progressReport("   Uber-anatomy ontology... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
                 cv = 'Uberon'
 
             elif categoryID == 'assay_type':
                 
+                progressReport("   Ontology for Biomedical Investigations (assay type)... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
                 # Load the provisional term map first for this one; afterward we'll
                 # load the main ontology with destructive overwrites for any conflicts
                 # (to defer to published term versions).
@@ -357,6 +383,8 @@ def decorateTermsUsed(  ):
 
             elif categoryID == 'disease':
                 
+                progressReport("   Disease Ontology... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
                 cv = 'DO'
 
             # end if ( categoryID type check )
@@ -522,6 +550,14 @@ def decorateTermsUsed(  ):
 
         elif categoryID == 'file_format' or categoryID == 'data_type':
             
+            if categoryID == 'file_format':
+                
+                progressReport("   EDAM (file format)... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
+            else:
+                
+                progressReport("   EDAM (data type)... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
             cv = 'EDAM'
 
             refFile = cvFile[cv]
@@ -610,15 +646,21 @@ def decorateTermsUsed(  ):
 
     # end foreach ( categoryID in termsUsed )
 
+    progressReport("\n...done loading display data for all CVs. [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
 # end sub decorateTermsUsed(  )
 
 def writeTermsUsed(  ):
     
     global outDir, termsUsed
 
+    progressReport("Writing CV term tracker tables (to be included in complete C2M2 submission)... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]\n")
+
     for categoryID in termsUsed:
         
         outFile = '%s/%s.tsv' % ( outDir, categoryID )
+
+        progressReport("   writing \"" + outFile + "\"... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
 
         with open(outFile, 'w') as OUT:
             
@@ -725,7 +767,107 @@ def writeTermsUsed(  ):
 
     # end for ( categoryID in termsUsed )
 
+    progressReport("\n...done writing term tables for final C2M2 submission datapackage. [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
 # end sub writeTermsUsed(  )
+
+# Make sure every file record with a persistent ID has a non-null checksum.
+
+def checkChecksums(  ):
+    
+    global submissionDraftDir
+
+    inFile = submissionDraftDir + '/file.tsv'
+
+    progressReport("Ensuring all file.tsv records with persistent IDs have non-null checksums... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
+    with open( inFile, 'r' ) as IN:
+        
+        header = IN.readline()
+
+        lineCount = 0
+
+        for line in IN:
+            
+            lineCount = lineCount + 1
+
+            line = line.rstrip('\r\n')
+
+            ( id_namespace, local_id, project_id_namespace, project_local_id, persistent_id, creation_time, size_in_bytes, uncompressed_size_in_bytes, sha256, md5, filename, file_format, compression_format, data_type, assay_type, mime_type, bundle_collection_id_namespace, bundle_collection_local_id ) = re.split(r'\t', line)
+
+            if persistent_id != '' and sha256 == '' and md5 == '':
+                
+                die("file.tsv line %s: file record \"%s%s\" has a non-null persistent ID (\"%s\"), but both sha256 and md5 are blank.\n\n   Aborting validation run: this submission is not spec-compliant. Please fix all offending file records and rerun this script." % ( lineCount, id_namespace, local_id, persistent_id ) )
+
+    progressReport("\n...done; all file records passed checksum verification. [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
+# end sub checkChecksums(  )
+
+# Ensure absolute uniqueness of persistent IDs in this submission (across tables).
+
+def checkUniquePersistentIDs(  ):
+
+    global submissionDraftDir
+
+    progressReport("Ensuring all persistent IDs are unique (both within and across tables)... [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
+    seen = {}
+
+    for basename in ( 'file.tsv', 'biosample.tsv', 'subject.tsv', 'collection.tsv', 'project.tsv' ):
+        
+        inFile = '%s/%s' % ( submissionDraftDir, basename )
+
+        with open( inFile, 'r' ) as IN:
+            
+            header = IN.readline()
+
+            colnames = re.split(r'\t', header.rstrip('\r\n'))
+
+            targetIndex = -1
+
+            currentIndex = 0
+
+            for colname in colnames:
+                
+                if colname == 'persistent_id':
+                    
+                    targetIndex = currentIndex
+
+                currentIndex = currentIndex + 1
+
+            if targetIndex == -1:
+                
+                die("If you're seeing this, something is embarrassingly wrong")
+
+            lineCount = 0
+
+            for line in IN:
+                
+                lineCount = lineCount + 1
+
+                line = line.rstrip('\r\n')
+
+                fields = re.split(r'\t', line)
+
+                currentPersistentID = fields[targetIndex]
+
+                if currentPersistentID != '':
+                    
+                    localID = fields[0] + fields[1]
+
+                    if currentPersistentID in seen:
+                        
+                        lastID = seen[currentPersistentID]
+
+                        die("Persistent ID \"%s\" is attached to two distinct records (\"%s\" and \"%s\"; the latter is in \"%s\", line %s.\n\n   Aborting validation run: this submission is not spec-compliant. Please ensure each persistent ID is assigned to one and only one record, then rerun this script." % ( currentPersistentID, lastID, localID, inFile, lineCount ))
+
+                    else:
+                        
+                        seen[currentPersistentID] = localID
+
+    progressReport("\n...done; all persistent IDs verified to be unique. [" + subprocess.check_output(['date']).decode(sys.stdout.encoding).rstrip('\r\n') + "]")
+
+# end sub checkUniquePersistentIDs(  )
 
 ##########################################################################################
 ##########################################################################################
@@ -757,5 +899,16 @@ decorateTermsUsed()
 # Write the term-tracker tables.
 
 writeTermsUsed()
+
+##########################################################################################
+# EXTRA-SCHEMATIC VALIDATIONS
+
+# Check to make sure all file records with persistent IDs have non-null checksums.
+
+checkChecksums()
+
+# Check to make sure all persistent IDs are unique (across as well as within tables)
+
+checkUniquePersistentIDs()
 
 
