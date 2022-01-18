@@ -1,11 +1,16 @@
 ---
-layout: default
 title: C2M2 Documentation
 ---
 
+Important note: this specification is currently undergoing revision prior to our next
+major release. DCC staff preparing current C2M2 submissions should consult the
+[C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki)
+for current C2M2 table definitions & usage guidance.
+
 # QUICK-START BLOCK
 
-* Full [C2M2 technical documentation](#c2m2-technical-specification) (skip introduction)
+* For DCC contributors: [C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki)
+* Full [C2M2 technical specification](#c2m2-technical-specification) (skip introduction)
 * [C2M2 ER diagram](#c2m2_model_diagram)
 * Current [release notes](#c2m2-release-details)
 * Upcoming [C2M2 features](#upcoming-c2m2-features) (next release)
@@ -16,7 +21,7 @@ title: C2M2 Documentation
    * [basic relational model](https://osf.io/wgvh6/) -->
 <!-- * compliance checking: complete (terse) [list of C2M2 tables, fields & requirements](https://github.com/nih-cfde/published-documentation/wiki/C2M2-Table-Summary) -->
 
-## The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
+# The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 This document introduces the Crosscut Metadata Model
 ([C2M2](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#c2m2)), a
