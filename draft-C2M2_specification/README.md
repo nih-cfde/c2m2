@@ -932,6 +932,20 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 ## C2M2 release details
 
+FEB 2022 RELEASE
+
+* add `file.analysis_type` (OBI)
+* clarifications for `subject.sex` minimal enum values
+* add negative assertion option to `disease` associations
+    * `subject_disease` can now document "disease ruled out" in addition to "disease detected"
+    * `biosample_disease` similarly augmented
+* add `phenotype` observation data (new CV: [Human Phenotype Ontology](https://hpo.jax.org/app/))
+    * `subject_phenotype` (positive & negative assertions permitted)
+    * reference tables `phenotype_disease` and `phenotype_gene` (imported directly from HPO)
+* add `collection_disease` and `collection_phenotype` to provide associations between C2M2 collections and `disease` and `phenotype` terms
+* updated [term builder script](https://osf.io/bq6k9/) to handle new components
+   * _HPO integration is currently being tested for final deployment: please [get in touch with us](https://github.com/nih-cfde/published-documentation/wiki/) if you wish to use the phenotype ontology before this process is complete_
+
 NOV 2021 RELEASE
 
 * new entities: `compound`, `substance`
@@ -943,14 +957,13 @@ NOV 2021 RELEASE
 * new entity: `gene`
     * prototype: list of Ensembl IDs as a CV with metadata describing names, synonyms and source organisms
     * `biosample_gene` association added as a limited prototype for knockout data
-    * deeper metadata, ontological categorization and more associative relationships expected pending further WG progress
 * new fields on `subject` for (public) clinical metadata:
     * `sex`, `race` (multi-select-capable), `ethnicity`, `age_at_enrollment`, `age_at_sampling` (as `biosample_from_subject.age_at_sampling`)
 * `primary_dcc_contact` renamed to `dcc`; `id` field added; mirrors portal registry data
 * new `bundle_collection` foreign key from `file` into `collection`
     * allows enumeration of contents of archive files containing multiple subfiles (e.g. TAR archive files)
 * new `file.compression_format` CV (EDAM) for clearer expression of file compression configurations
-* _updated term builder script coming shortly_
+* updated [term builder script](https://osf.io/bq6k9/) to handle new components
 
 SEP 2021 RELEASE
 
@@ -977,33 +990,26 @@ and `subject_disease` associations
 
 ## Upcoming C2M2 features
 
-All of these lists are formally subject to change until their release dates, but the
-closer ones (especially the very next one) should be viewed as having been fairly
-well established.
+All future plans are subject to change until their release dates.
 
-FEB 2022 RELEASE (draft JSON schema coming shortly)
+MAY 2022 RELEASE
 
-* clarifications for `subject.sex` minimal enum values
-* add negative-assertion observation relationships
-    * `subject_not_observed_disease`
-    * `biosample_not_observed_disease`
-* add phenotype observation data (new CV: HPO)
-	 * `subject_observed_phenotype`
-	 * `subject_not_observed_phenotype`
-* add `biosample.healthy_control` for flagging healthy baseline experimental controls
-* add `file.analysis_type` (OBI)
-* (as needed) additional back-end support for resolver processing, forwarding of
-C2M2 `file` data and CFDE portal "shopping cart" functionality
+_**We are attempting to expedite this C2M2 update for a release near the beginning of April** so that data can be submitted with the new features in advance of the planned May 1 portal release. We aim to publish a final development-level schema at the end of February, with integration testing to follow throughout March. If actual release dates are delayed past current expectations, we will still work with any interested Programs to prepare submissions using the new features for the May portal release._
 
-MAY 2022 RELEASE (list not complete)
+* `collection.name` will be required
+* Boolean `collection.has_time_series_data` will offer basic annotation to reach users looking for time series datasets
+* New field `file.RAS_permission_string` to support initial stand-up integrating RAS permissions metadata with the CFDE UI
+* Add `collection_gene`, `collection_compound`, `collection_substance`, `collection_taxonomy`, `collection_anatomy` to provide associations between C2M2 collections and terms in relevant controlled vocabularies
+* Extend usage of C2M2 `compound` table to include partial-knowledge glycans not tracked by PubChem
+* Add subject `role` category for _expression system_ (e.g. _E. coli_ modified to express nonnative gene products)
+* Add a `protein` CV ([UniProt](https://www.uniprot.org/) IDs & descriptions)
+    * _associations TBD_
 
-* event model
-    * including provenance assertions and operational timing annotations
+_**Related note:** During Q4 we will be creating a **system for attaching web-displayable markdown to C2M2 controlled vocabulary (CV) terms**. Common Fund Programs will be able to offer (among other information) knowledgebase-style assertions about any C2M2 concepts modeled as CVs (genes, diseases, etc.), as well as links to related offsite resources.  This system will be developed outside the C2M2 per se, but will be linked to C2M2 submission data via reference to the CV terms in use therein._
 
-ONGOING & EVOLVING THROUGH MAY 2022
+ONGOING
 
-* comprehensive client-side datapackage validation software
-    * to be decoupled from CFDE submission tool
-* a formal versioning scheme for C2M2
+* comprehensive client-side [datapackage prep & validation software](https://osf.io/bq6k9/)
+    * note: this is distinct from the [CFDE submission tool](https://docs.nih-cfde.org/en/latest/cfde-submit/docs/); the software linked here is to be run _before_ submitting a C2M2 datapackage to CFDE
 
 --------------------------------------------------------------------------------
