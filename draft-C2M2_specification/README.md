@@ -944,7 +944,7 @@ FEB 2022 RELEASE
     * reference tables `phenotype_disease` and `phenotype_gene` (imported directly from HPO)
 * add `collection_disease` and `collection_phenotype` to provide associations between C2M2 collections and `disease` and `phenotype` terms
 * updated [term builder script](https://osf.io/bq6k9/) to handle new components
-   * _HPO integration is currently being tested for final deployment: please [get in touch with us](https://github.com/nih-cfde/published-documentation/wiki/) if you wish to use the phenotype ontology before this process is complete_
+    * _HPO integration is currently being tested for final deployment: please [get in touch with us](https://github.com/nih-cfde/published-documentation/wiki/) if you wish to use the phenotype ontology before this process is complete_
 
 NOV 2021 RELEASE
 
