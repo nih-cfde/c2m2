@@ -998,7 +998,7 @@ _**We are attempting to expedite this C2M2 update for a release near the beginni
 
 * `collection.name` will be required
 * Boolean `collection.has_time_series_data` will offer basic annotation to reach users looking for time series datasets
-* New field `file.RAS_permission_string` to support initial stand-up integrating RAS permissions metadata with the CFDE UI
+* New field `file.ras_permissions` to support initial stand-up integrating RAS permissions metadata with the CFDE UI
 * Add `collection_gene`, `collection_compound`, `collection_substance`, `collection_taxonomy`, `collection_anatomy` to provide associations between C2M2 collections and terms in relevant controlled vocabularies
 * Extend usage of C2M2 `compound` table to include partial-knowledge glycans not tracked by PubChem
 * Add subject `role` category for _expression system_ (e.g. _E. coli_ modified to express nonnative gene products)
