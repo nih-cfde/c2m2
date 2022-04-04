@@ -932,6 +932,25 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 ## C2M2 release details
 
+APRIL 2022 RELEASE
+
+* `collection.name` will be required and must be unique (within each Program's submission)
+* Boolean `collection.has_time_series_data` has been added to offer basic annotation to
+reach users looking for time series datasets
+    * possible values are `true` (collection contains time-series data), `false`
+    (collection doesn't contain time-series data) and `null` (no information provided)
+* New field `file.dbgap_study_id` to support initial stand-up integrating file access
+control metadata with RAS user authentication metadata within the CFDE UI
+* Add `collection_gene`, `collection_compound`, `collection_substance`,
+`collection_taxonomy`, `collection_anatomy` and `collection_protein` to provide
+associations between C2M2 collections and concepts in relevant controlled vocabularies
+* Extend usage of C2M2 `compound` table to include partial-knowledge glycans not
+tracked by PubChem
+* Add `subject_role` category for _expression system_ (e.g. _E. coli_ modified to express nonnative gene products)
+* Add a `protein` CV ([UniProtKB](https://www.uniprot.org/) IDs & descriptions)
+    * add `protein_gene`
+        * auto-populated from existing reference metadata, as with e.g. `phenotype_disease`
+
 FEB 2022 RELEASE
 
 * add `file.analysis_type` (OBI)
@@ -992,34 +1011,7 @@ and `subject_disease` associations
 
 All future plans are subject to change until their release dates.
 
-MAY 2022 RELEASE
-
-_**We are attempting to expedite this C2M2 update for a release near the beginning of
-April** so that data can be submitted with the new features in advance of the planned
-May 1 portal release. A [final development-level schema](https://osf.io/29cde/) has
-been published as of the end of February, with integration testing to follow throughout
-March. If actual release dates are delayed past current expectations, we will still
-work with any interested Programs to prepare submissions using the new features for
-the May portal release._
-
-* `collection.name` will be required and must be unique (within each Program's submission)
-* Boolean `collection.has_time_series_data` has been added to offer basic annotation to
-reach users looking for time series datasets
-    * possible values are `true` (collection contains time-series data), `false`
-    (collection doesn't contain time-series data) and `null` (no information provided)
-* New field `file.ras_permissions` to support initial stand-up integrating file access
-control metadata with RAS user authentication metadata within the CFDE UI
-* Add `collection_gene`, `collection_compound`, `collection_substance`,
-`collection_taxonomy`, `collection_anatomy` and `collection_protein` to provide
-associations between C2M2 collections and concepts in relevant controlled vocabularies
-* Extend usage of C2M2 `compound` table to include partial-knowledge glycans not
-tracked by PubChem
-* Add `subject_role` category for _expression system_ (e.g. _E. coli_ modified to express nonnative gene products)
-* Add a `protein` CV ([UniProtKB](https://www.uniprot.org/) IDs & descriptions)
-    * add `protein_gene`
-        * auto-populated from existing reference metadata, as with e.g. `phenotype_disease`
-
-_**Related note:** During Q4 we are creating a **system for attaching web-displayable
+_We are beginning (April 2022) the creation of a **system for attaching web-displayable
 markdown to C2M2 controlled vocabulary (CV) terms**. Common Fund Programs will be able
 to offer (among other information) knowledgebase-style assertions about C2M2
 concepts modeled as CVs (genes, diseases, etc.), as well as links to related offsite
