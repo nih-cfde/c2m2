@@ -382,6 +382,7 @@ BB44) in a `biosample` table (representing all biosamples
 being described), which might look like
 
 `biosample`
+
 | id | name | ... |
 |:---|:---|:---:|
 |BB44|goat beard biopsy number BB44|...|
@@ -390,6 +391,7 @@ being described), which might look like
 all creatures from which biosamples have been taken), for example
 
 `subject`
+
 | id | species | age | ... |
 |:---|:---|:---|:---:|
 |Abner|goat|8|...|
@@ -399,6 +401,7 @@ the two records together: "the given biopsy `biosample` (BB44) was sampled from 
 given `subject` (Abner)", or
 
 `biosample_from_subject`
+
 | biosample | subject |
 |:---|:---|
 | BB44 | Abner |
