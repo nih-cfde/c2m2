@@ -1,4 +1,5 @@
 ---
+layout: default
 title: C2M2 Documentation
 ---
 
@@ -21,7 +22,7 @@ for current C2M2 table definitions & usage guidance.
    * [basic relational model](https://osf.io/wgvh6/) -->
 <!-- * compliance checking: complete (terse) [list of C2M2 tables, fields & requirements](https://github.com/nih-cfde/published-documentation/wiki/C2M2-Table-Summary) -->
 
-# The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
+## The Common Fund Data Ecosystem's Crosscut Metadata Model (CFDE C2M2)
 
 This document introduces the Crosscut Metadata Model
 ([C2M2](https://docs.nih-cfde.org/en/latest/CFDE-glossary/#c2m2)), a
