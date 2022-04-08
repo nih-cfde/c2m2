@@ -3,20 +3,24 @@ layout: default
 title: C2M2 Documentation
 ---
 
+# Crosscut Metadata Model (C2M2) Documentation
+
 Important note: this specification is currently undergoing revision prior to our next
 major release. DCC staff preparing current C2M2 submissions should consult the
 [C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki)
 for current C2M2 table definitions & usage guidance.
 
-# QUICK-START BLOCK
+## Quick Links
 
 * For DCC contributors: [C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki)
 * Full [C2M2 technical specification](#c2m2-technical-specification) (skip introduction)
+* [Quick start guide](https://github.com/nih-cfde/published-documentation/wiki/Quickstart)
 * [C2M2 ER diagram](#c2m2_model_diagram)
 * Current [release notes](#c2m2-release-details)
 * Upcoming [C2M2 features](#upcoming-c2m2-features) (next release)
 * Download the [C2M2 JSON Schema](https://osf.io/c63aw/)
 * Download a blank reference set of [all C2M2 TSV files](https://osf.io/rdeks/) (column-header lines only)
+
 <!-- * sample C2M2 submission datapackages (populated with valid metadata):
    * [minimal asset inventory](https://osf.io/mqey3/)
    * [basic relational model](https://osf.io/wgvh6/) -->
