@@ -277,6 +277,8 @@ the protocol (the "scheme" or "prefix") specified in the ID is registered with a
     * Identifiers.org ([list of registered prefixes](https://registry.identifiers.org/registry))
 
     * N2T (Name-To-Thing) ([list of registered prefixes](https://n2t.net/e/n2t_full_prefixes.yaml))
+    
+    * protocols not appearing in the above registries but explicitly approved by the CFDE-CC. Currently, this list is limited to one protocol, namely `drs://` URIs identifying [GA4GH Data Repository Service](https://github.com/ga4gh/data-repository-service-schemas) resources.
 
 3. if representing a `file`, an ID used as a `persistent_id` **cannot** be
 a direct-download URL for that `file`: it must instead be an identifier
