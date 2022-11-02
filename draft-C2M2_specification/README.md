@@ -1021,16 +1021,17 @@ and `subject_disease` associations
 
 All future plans are subject to change until their release dates.
 
-_We are beginning (April 2022) the creation of a **system for attaching web-displayable
-markdown to C2M2 controlled vocabulary (CV) terms**. Common Fund Programs will be able
-to offer (among other information) knowledgebase-style assertions about C2M2
-concepts modeled as CVs (genes, diseases, etc.), as well as links to related offsite
-resources.  This system will be developed outside the C2M2 per se, but will be linked to
-C2M2 submission data via reference to the CV terms in use therein._
+The December 2022 release is slated to include the following changes:
 
-ONGOING
-
-* comprehensive client-side [datapackage prep & validation software](https://osf.io/bq6k9/)
-    * note: this is distinct from the [CFDE submission tool](https://docs.nih-cfde.org/en/latest/cfde-submit/docs/); the software linked here is to be run _before_ submitting a C2M2 datapackage to CFDE
+1. `biosample.assay_type` will be removed (though the `file` table will retain its `assay_type` field.)
+2. `biosample.sample_prep_method` will be added and will refer to a new `sample_prep_method` controlled vocabulary table.
+3. Several Interlex terms will be added to the `data_type` and `file_format` controlled vocabulary tables.
+4. Two unused terms will be removed from the controlled vocabulary for the `subject.sex` field.
+5. Several changes will be made to the controlled vocabulary for the `subject.race` field:
+    * The existing term “Black” will be renamed to “Black or African American”
+    * The existing term "American Indian or Alaskan Native" will be renamed to "American Indian or Alaska Native"
+    * The existing term "Asian or Pacific Islander” will be deprecated and likely removed in a future release. It is superseded by the two new terms mentioned below.
+    * The new term “Asian” will be added.
+    * The new term “Native Hawaiian or Other Pacific Islander” will be added.
 
 --------------------------------------------------------------------------------
