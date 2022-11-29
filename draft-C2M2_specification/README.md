@@ -5,10 +5,10 @@ title: C2M2 Documentation
 
 # Crosscut Metadata Model (C2M2) Documentation
 
-Important note: this specification is currently undergoing revision prior to our next
-major release. DCC staff preparing current C2M2 submissions should consult the
-[C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki)
-for current C2M2 table definitions & usage guidance.
+Important note: in the case of any discrepancy between this document and the
+[C2M2 technical wiki](https://github.com/nih-cfde/published-documentation/wiki), 
+DCC staff preparing current C2M2 submissions should rely on the latter for the
+most up-to-date C2M2 table definitions & usage guidance.
 
 ## Quick Links
 
@@ -566,7 +566,7 @@ that this information is automatically generated from existing ontology referenc
 |field(s)|required?|description|
 |:---:|:---:|:---|
 | `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
-| `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated this biosample. |
+| `sample_prep_method` | optional | An OBI CV term ID (from the "planned process" branch of the vocabulary, excluding the "assay" subtree) describing the preparation method that produced this biosample |
 | `anatomy` | optional | An **UBERON CV term ID** used to locate the origin of this biosample within the physiology of a source organism. |
 
 #### The **`subject`** entity: a biological entity from which a C2M2 biosample can be generated
@@ -878,7 +878,7 @@ within C2M2.
 | `file.assay_type` | OBI | the **type of experiment** that produced a `file` |
 | `file.file_format` | EDAM | the **digital format or encoding** of a `file` (e.g. "FASTQ") |
 | `file.data_type` | EDAM | the **type of information** contained in a `file` (e.g. "sequence data") |
-| `biosample.assay_type` | OBI | the **type of experiment** that produced a `biosample` |
+| `biosample.sample_prep_method` | OBI | the **preparation method** used to produce a `biosample` |
 | `biosample.anatomy` | UBERON | the **physiological source location** in or on the `subject` from which a `biosample` was derived |
 | `ncbi_taxonomy.id` | NCBI Taxonomy | a **taxonomic name** associated with a `subject` record (usage details [discussed above](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)) |
 
@@ -942,6 +942,19 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 ## C2M2 release details
 
+DECEMBER 2022 RELEASE
+
+* Remove `biosample.assay_type` (though the `file` table retains its `assay_type` field.)
+* Add `biosample.sample_prep_method`, which references a new `sample_prep_method` controlled vocabulary table.
+* Add several Interlex terms to the `data_type` and `file_format` controlled vocabulary tables.
+* Remove two unused terms from the controlled vocabulary for the `subject.sex` field.
+* Make the following changes to the controlled vocabulary for the `subject.race` field:
+    * The existing term “Black” is renamed to “Black or African American”
+    * The existing term "American Indian or Alaskan Native" is renamed to "American Indian or Alaska Native"
+    * The existing term "Asian or Pacific Islander” will be deprecated and likely removed in a future release. It is superseded by the two new terms mentioned below.
+    * The new term “Asian” is added.
+    * The new term “Native Hawaiian or Other Pacific Islander” is added.
+
 APRIL 2022 RELEASE
 
 * `collection.name` will be required and must be unique (within each Program's submission)
@@ -961,7 +974,7 @@ tracked by PubChem
     * add `protein_gene`
         * auto-populated from existing reference metadata, as with e.g. `phenotype_disease`
 
-FEB 2022 RELEASE
+FEBRUARY 2022 RELEASE
 
 * add `file.analysis_type` (OBI)
 * clarifications for `subject.sex` minimal enum values
@@ -975,7 +988,7 @@ FEB 2022 RELEASE
 * updated [term builder script](https://osf.io/bq6k9/) to handle new components
     * _HPO integration is currently being tested for final deployment: please [get in touch with us](https://github.com/nih-cfde/published-documentation/wiki/) if you wish to use the phenotype ontology before this process is complete_
 
-NOV 2021 RELEASE
+NOVEMBER 2021 RELEASE
 
 * new entities: `compound`, `substance`
     * simplified mirror of same-named PubChem structures
@@ -994,7 +1007,7 @@ NOV 2021 RELEASE
 * new `file.compression_format` CV (EDAM) for clearer expression of file compression configurations
 * updated [term builder script](https://osf.io/bq6k9/) to handle new components
 
-SEP 2021 RELEASE
+SEPTEMBER 2021 RELEASE
 
 * removed regex pattern constraints on included CV terms
     * OBI, for example, imports terms from other ontologies: being pattern-proscriptive
@@ -1019,19 +1032,6 @@ and `subject_disease` associations
 
 ## Upcoming C2M2 features
 
-All future plans are subject to change until their release dates.
-
-The December 2022 release is slated to include the following changes:
-
-1. `biosample.assay_type` will be removed (though the `file` table will retain its `assay_type` field.)
-2. `biosample.sample_prep_method` will be added and will refer to a new `sample_prep_method` controlled vocabulary table.
-3. Several Interlex terms will be added to the `data_type` and `file_format` controlled vocabulary tables.
-4. Two unused terms will be removed from the controlled vocabulary for the `subject.sex` field.
-5. Several changes will be made to the controlled vocabulary for the `subject.race` field:
-    * The existing term “Black” will be renamed to “Black or African American”
-    * The existing term "American Indian or Alaskan Native" will be renamed to "American Indian or Alaska Native"
-    * The existing term "Asian or Pacific Islander” will be deprecated and likely removed in a future release. It is superseded by the two new terms mentioned below.
-    * The new term “Asian” will be added.
-    * The new term “Native Hawaiian or Other Pacific Islander” will be added.
+No C2M2 updates are planned at this time.
 
 --------------------------------------------------------------------------------
