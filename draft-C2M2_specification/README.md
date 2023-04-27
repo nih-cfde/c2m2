@@ -555,18 +555,23 @@ that this information is automatically generated from existing ontology referenc
 | `uncompressed_size_in_bytes` | optional | The **total decompressed size in bytes** of the contents of this file. (integer) |
 | `sha256` | required if `md5` is null | **CFDE-preferred file checksum string**: the output of the SHA-256 cryptographic hash function after being run on this file. One or both of `sha256` and `md5` is required. |
 | `md5` | required if `sha256` is null | **Permitted file checksum string**: the output of the MD5 message-digest algorithm after being run as a cryptographic hash function on this file. One or both of `sha256` and `md5` is required. |
-| `filename` | optional | **A filename with no prepended PATH information.** (e.g. `example.txt` and not `/usr/foo/example.txt`) |
+| `filename` | required | **A filename with no prepended PATH information.** (e.g. `example.txt` and not `/usr/foo/example.txt`) |
 | `file_format` | optional | An **EDAM CV term ID** identifying the **digital format** of this file (e.g. `format:3475` for "TSV", or `format:1930` for "FASTQ"). |
+| `compression_format` | optional | An **EDAM CV term ID** identifying the compression format of this file (e.g. gzip or bzip2): null if this file is not compressed |
 | `data_type` | optional | An **EDAM CV term ID** identifying the **type of information** stored in this file (e.g. `data:3495` for "RNA sequence reads"). |
 | `assay_type` | optional | An **OBI CV term ID** describing the **type of experiment** that generated the results summarized by this file. |
+| `analysis_type` | optional | An **OBI CV term ID** describing the type of analytic operation that generated this file |
 | `mime_type` | optional | A **MIME type** (or "IANA media type") describing this file, e.g. "text/plain" or "application/octet-stream". See [this page](https://training.nih-cfde.org/en/latest/CFDE-Internal-Training/MIME-type/) for a tutorial introduction and [this list](https://www.iana.org/assignments/media-types/media-types.xhtml) for a complete reference. |
+| `bundle_collection_id_namespace` | optional | If this file is a bundle encoding more than one sub-file, this field gives the id_namespace of a collection listing the bundle's sub-file contents; null otherwise |
+| `bundle_collection_local_id` | optional | If this file is a bundle encoding more than one sub-file, this field gives the local_id of a collection listing the bundle's sub-file contents; null otherwise |
+| `dbgap_study_id` | optional | The name of a dbGaP study ID governing access control for this file, compatible for comparison to RAS user-level access control metadata |
 
 #### The **`biosample`** entity: a tissue sample or other physical specimen
 
 |field(s)|required?|description|
 |:---:|:---:|:---|
 | `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
-| `sample_prep_method` | optional | An OBI CV term ID (from the "planned process" branch of the vocabulary, excluding the "assay" subtree) describing the preparation method that produced this biosample |
+| `sample_prep_method` | optional | An **OBI CV term ID** (from the "planned process" branch of the vocabulary, excluding the "assay" subtree) describing the preparation method that produced this biosample |
 | `anatomy` | optional | An **UBERON CV term ID** used to locate the origin of this biosample within the physiology of a source organism. |
 
 #### The **`subject`** entity: a biological entity from which a C2M2 biosample can be generated
@@ -575,6 +580,9 @@ that this information is automatically generated from existing ontology referenc
 |:---:|:---:|:---|
 | `id_namespace`, `local_id`, `project_id_namespace`, `project_local_id`, `persistent_id`, `creation_time` | ([see above](#common-entity-fields)) | (See [Common entity fields](#common-entity-fields) section) |
 | `granularity` | required | A CFDE-controlled vocabulary categorizing broad classes of possible biosample sources. |
+| `sex` | optional | A CFDE CV category characterizing the physiological sex of this subject |
+| `ethnicity` | optional | A CFDE CV category characterizing the self-reported ethnicity of this subject |
+| `age_at_enrollment` | optional | The age in years (with a fixed precision of two digits past the decimal point) of this subject when they were first enrolled in the primary project within which they were studied |
 
 The C2M2 `subject` entity is a generic data type meant to represent any biological
 entity from which a `biosample` can be generated. (The notion of a `biosample`
@@ -877,10 +885,15 @@ within C2M2.
 |---:|:---|:---|
 | `file.assay_type` | OBI | the **type of experiment** that produced a `file` |
 | `file.file_format` | EDAM | the **digital format or encoding** of a `file` (e.g. "FASTQ") |
+| `file.compression_format` | EDAM | the **compression format** of a file (e.g. gzip or bzip2), if it is compressed |
 | `file.data_type` | EDAM | the **type of information** contained in a `file` (e.g. "sequence data") |
+| `file.analysis_type` | OBI | the **type of analytic operation** that generated a file |
 | `biosample.sample_prep_method` | OBI | the **preparation method** used to produce a `biosample` |
 | `biosample.anatomy` | UBERON | the **physiological source location** in or on the `subject` from which a `biosample` was derived |
 | `ncbi_taxonomy.id` | NCBI Taxonomy | a **taxonomic name** associated with a `subject` record (usage details [discussed above](#taxonomy-and-the-subject-entity-the-subject_role_taxonomy-association-table)) |
+| `subject.granularity` | CFDE CV | the **multiplicity** of a subject (see details above) |
+| `subject.sex` | CFDE CV | the **physiological sex** of a subject |
+| `subject.ethnicity` | CFDE CV | the **self-reported ethnicity** of a subject |
 
 In addition to these fields, (possibly multiple) diseases can be optionally
 associated with each `biosample` or `subject` record via the `biosample_disease` and
@@ -941,6 +954,10 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 --------------------------------------------------------------------------------
 
 ## C2M2 release details
+
+APRIL 2023 RELEASE
+
+* Make `file.filename` a required field.
 
 DECEMBER 2022 RELEASE
 
