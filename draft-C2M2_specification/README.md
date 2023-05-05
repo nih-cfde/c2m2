@@ -957,7 +957,7 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 APRIL 2023 RELEASE
 
-* Make `file.filename` a required field.
+* Make `file.filename` a required field. 
 
 DECEMBER 2022 RELEASE
 
