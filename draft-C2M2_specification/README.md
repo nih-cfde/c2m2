@@ -955,9 +955,10 @@ term tables (TSVs) are then to be bundled along with the rest of the C2M2 submis
 
 ## C2M2 release details
 
-APRIL 2023 RELEASE
+MAY 2023 RELEASE
 
 * Make `file.filename` a required field.
+* Phenotypes can now use [Mammalian Phenotype Ontology](https://www.informatics.jax.org/vocab/mp_ontology) terms if no appropriate HPO term exists.
 
 DECEMBER 2022 RELEASE
 
