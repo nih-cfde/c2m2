@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  # postgres
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: <pg_user>
+      POSTGRES_PASSWORD: <pg_password>
+    networks:
+      - n1
+
+  # trino
+  trino:
+    image: trinodb/trino
+    depends_on:
+      - postgres
+    ports:
+      - '8090:8080'
+    volumes:
+      - ./etc-trino-catalog:/etc/trino/catalog
+    networks:
+      - n1
+      
+networks:
+  n1:
